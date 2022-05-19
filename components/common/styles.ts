@@ -1,6 +1,5 @@
 import {
-  // backgroundColor,
-  borderRadius,
+  backgroundColor,
   classnames,
   margin,
   minHeight,
@@ -8,26 +7,38 @@ import {
   inset,
   position,
   width,
-  padding,
-  borderWidth,
-  borderColor,
   zIndex,
+  transitionProperty,
+  transitionTimingFunction,
+  transitionDuration,
 } from 'tailwindcss-classnames'
 
 /**
  * Main Layout
  */
+
 export const themeButton = classnames(
   position('absolute'),
   zIndex('!z-50'),
   inset('right-0', 'bottom-0'),
-  borderRadius('rounded-full'),
-  borderWidth('border'),
-  borderColor('border-black', 'dark:border-white'),
-  width('w-40'),
-  height('h-40'),
-  padding('p-4'),
-  margin('m-4')
-  // backgroundColor('bg-black', 'dark:bg-white')
+  margin('m-5', 'md:m-7'),
+  width('w-fit')
 )
-export const main = classnames(position('relative'), width('!w-screen'), minHeight('!min-h-screen'))
+
+export const outerThemeIcon = classnames(width('w-32'), height('h-32'), position('relative'))
+export const innerThemeIcon = classnames(
+  position('absolute'),
+  inset('bottom-0', 'left-0'),
+  width('w-fit'),
+  height('h-fit')
+)
+
+export const main = classnames(
+  position('relative'),
+  width('!w-screen'),
+  minHeight('!min-h-screen'),
+  backgroundColor('bg-white', 'dark:bg-black'),
+  transitionProperty('transition-colors'),
+  transitionTimingFunction('ease-in-out'),
+  transitionDuration('duration-500')
+)
