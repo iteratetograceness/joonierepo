@@ -6,13 +6,7 @@ type Props = {
 }
 
 const ThemeIcon = ({ fill, stroke, className, children }: Props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    className={className}
-    viewBox="0 0 320 320"
-    preserveAspectRatio="meet"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" className={className} viewBox="0 0 320 320">
     <path
       fill={fill}
       stroke={stroke}

@@ -1,9 +1,15 @@
 import { useTheme } from 'next-themes'
 import { DarkMode, LightMode, ThemeIcon } from '@icons'
+import { useState, useEffect } from 'react'
 import * as styles from './styles'
 
 const ThemeButton = () => {
   const { theme, setTheme } = useTheme()
+
+  // https://github.com/vercel/next.js/discussions/35773#discussioncomment-2622885
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
 
   return (
     <button
@@ -12,7 +18,6 @@ const ThemeButton = () => {
       className={styles.themeButton + ' animation'}
       onClick={() => {
         setTheme(theme === 'dark' ? 'light' : 'dark')
-        console.log(theme)
       }}
     >
       <ThemeIcon

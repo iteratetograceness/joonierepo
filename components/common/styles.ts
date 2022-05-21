@@ -11,6 +11,12 @@ import {
   transitionProperty,
   transitionTimingFunction,
   transitionDuration,
+  display,
+  padding,
+  justifyContent,
+  fontWeight,
+  fontSize,
+  fontFamily,
 } from 'tailwindcss-classnames'
 
 /**
@@ -41,4 +47,18 @@ export const main = classnames(
   transitionProperty('transition-colors'),
   transitionTimingFunction('ease-in-out'),
   transitionDuration('duration-500')
+)
+
+/**
+ * Navigation
+ */
+
+export const navContainer = classnames(
+  display('flex'),
+  width('w-screen'),
+  padding('p-5'),
+  justifyContent('justify-between'),
+  fontWeight('font-medium'),
+  fontSize('text-5xl'),
+  fontFamily('font-sans')
 )

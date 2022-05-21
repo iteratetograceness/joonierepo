@@ -1,3 +1,5 @@
+import * as styles from './styles'
+
 const Navigation = () => {
   const LINKS = [
     { label: 'Home', path: '/' },
@@ -9,7 +11,7 @@ const Navigation = () => {
   ]
 
   return (
-    <div>
+    <div className={styles.navContainer}>
       {LINKS.map(link => (
         <p key={link.path}>{link.label}</p>
       ))}
