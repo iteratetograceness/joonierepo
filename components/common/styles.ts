@@ -1,5 +1,4 @@
 import {
-  backgroundColor,
   classnames,
   margin,
   minHeight,
@@ -43,7 +42,6 @@ export const main = classnames(
   position('relative'),
   width('!w-screen'),
   minHeight('!min-h-screen'),
-  backgroundColor('bg-white', 'dark:bg-black'),
   transitionProperty('transition-colors'),
   transitionTimingFunction('ease-in-out'),
   transitionDuration('duration-500')
@@ -53,12 +51,21 @@ export const main = classnames(
  * Navigation
  */
 
-export const navContainer = classnames(
-  display('flex'),
-  width('w-screen'),
-  padding('p-5'),
-  justifyContent('justify-between'),
-  fontWeight('font-medium'),
-  fontSize('text-5xl'),
-  fontFamily('font-sans')
-)
+const spaceBetween = classnames(justifyContent('justify-between'))
+const justifyCenter = classnames(justifyContent('justify-center'))
+
+export const navContainer = (isLarge: boolean) =>
+  classnames(
+    display('flex'),
+    width('w-screen'),
+    padding('p-5'),
+    justifyContent({
+      [spaceBetween]: isLarge,
+      [justifyCenter]: !isLarge,
+    }),
+    fontWeight('font-medium'),
+    fontSize('text-5xl'),
+    fontFamily('font-sans')
+  )
+
+export const innerNav = classnames(display('flex'), justifyContent('justify-between'), width('w-full'))

@@ -11,11 +11,13 @@
     "css": "tailwindcss-classnames"
   },
   "dependencies": {
+    "framer-motion": "^6.3.3",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
     "preact": "^10.7.2",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-responsive": "^9.0.0-beta.8"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",

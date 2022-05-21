@@ -3,6 +3,7 @@ import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
+import { LazyMotion, domAnimation, MotionConfig, AnimatePresence } from 'framer-motion'
 import { MainLayout } from '@components/common'
 
 type NextPageWithLayout = NextPage & {
@@ -16,5 +17,13 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? (page => <MainLayout>{page}</MainLayout>)
 
-  return <ThemeProvider attribute="class">{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+  return (
+    <MotionConfig reducedMotion="user">
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence exitBeforeEnter onExitComplete={() => console.log('hi')}>
+          <ThemeProvider attribute="class">{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+        </AnimatePresence>
+      </LazyMotion>
+    </MotionConfig>
+  )
 }
