@@ -16,6 +16,9 @@ import {
   fontWeight,
   fontSize,
   fontFamily,
+  userSelect,
+  cursor,
+  animation,
 } from 'tailwindcss-classnames'
 
 /**
@@ -30,7 +33,12 @@ export const themeButton = classnames(
   width('w-fit')
 )
 
-export const outerThemeIcon = classnames(width('w-32'), height('h-32'), position('relative'))
+export const outerThemeIcon = classnames(
+  width('w-32'),
+  height('h-32'),
+  position('relative'),
+  animation('motion-safe:animate-spin-slow')
+)
 export const innerThemeIcon = classnames(
   position('absolute'),
   inset('bottom-0', 'left-0'),
@@ -58,14 +66,16 @@ export const navContainer = (isLarge: boolean) =>
   classnames(
     display('flex'),
     width('w-screen'),
-    padding('p-5'),
+    padding('p-10'),
     justifyContent({
       [spaceBetween]: isLarge,
       [justifyCenter]: !isLarge,
     }),
     fontWeight('font-medium'),
-    fontSize('text-5xl'),
+    fontSize('text-4xl'),
     fontFamily('font-sans')
   )
 
 export const innerNav = classnames(display('flex'), justifyContent('justify-between'), width('w-full'))
+export const logo = classnames(fontWeight('font-bold'), userSelect('select-none'))
+export const menuButton = classnames(width('w-12'), height('h-min'), cursor('cursor-pointer'))

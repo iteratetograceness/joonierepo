@@ -16,7 +16,11 @@ module.exports = {
       medium: 600,
       bold: 800,
     },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 5s linear infinite',
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }
