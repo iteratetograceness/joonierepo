@@ -1,6 +1,5 @@
 import {
   classnames,
-  margin,
   minHeight,
   height,
   inset,
@@ -19,6 +18,7 @@ import {
   userSelect,
   cursor,
   animation,
+  backgroundColor,
 } from 'tailwindcss-classnames'
 
 /**
@@ -28,8 +28,8 @@ import {
 export const themeButton = classnames(
   position('absolute'),
   zIndex('!z-50'),
-  inset('right-0', 'bottom-0'),
-  margin('m-5', 'md:m-7'),
+  inset('right-3', 'bottom-3'),
+  padding('p-5', 'md:p-7'),
   width('w-fit')
 )
 
@@ -71,3 +71,20 @@ export const navContainer = classnames(navigation, fontWeight('font-medium'))
 export const mobileNav = classnames(navigation, fontWeight('font-bold'))
 export const logo = classnames(userSelect('select-none'))
 export const menuButton = classnames(width('w-12'), height('h-min'), cursor('cursor-pointer'))
+
+const open = classnames(display('flex'))
+const closed = classnames(display('hidden'))
+export const mobileMenu = (isOpen: boolean) =>
+  classnames(
+    display({
+      [open]: isOpen,
+      [closed]: !isOpen,
+    }),
+    position('absolute'),
+    inset('top-0', 'left-0'),
+    padding('p-10'),
+    backgroundColor('bg-black'),
+    width('w-screen'),
+    height('h-screen'),
+    zIndex('z-50')
+  )

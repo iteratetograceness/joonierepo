@@ -18,6 +18,7 @@ const Navigation = () => {
 
   const { theme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true)
   const isLarge = useMediaQuery({ query: '(min-width: 1100px)' })
 
   useEffect(() => {
@@ -75,9 +76,18 @@ const Navigation = () => {
               / joonie
             </a>
           </Link>
-          <button aria-expanded="false" aria-label="Mobile Navigation Button" className={styles.menuButton}>
+          <button
+            aria-expanded="false"
+            aria-label="Mobile Navigation Button"
+            className={styles.menuButton}
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
             <MobileMenu color={theme === 'dark' ? '#f5f5f5' : '#1e1e1e'} />
           </button>
+          <div className={styles.mobileMenu(isMobileMenuOpen)}>
+            <p>links</p>
+            <button onClick={() => setIsMobileMenuOpen(false)}>x</button>
+          </div>
         </m.section>
       )}
     </m.nav>

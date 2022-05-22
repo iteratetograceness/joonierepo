@@ -10,9 +10,9 @@ type Props = {
 const MainLayout = ({ children }: Props) => {
   return (
     <main className={styles.main}>
-      <ThemeButton />
       <Navigation />
       {children}
+      <ThemeButton />
     </main>
   )
 }
