@@ -59,23 +59,15 @@ export const main = classnames(
  * Navigation
  */
 
-const spaceBetween = classnames(justifyContent('justify-between'))
-const justifyCenter = classnames(justifyContent('justify-center'))
-
-export const navContainer = (isLarge: boolean) =>
-  classnames(
-    display('flex'),
-    width('w-screen'),
-    padding('p-10'),
-    justifyContent({
-      [spaceBetween]: isLarge,
-      [justifyCenter]: !isLarge,
-    }),
-    fontWeight('font-medium'),
-    fontSize('text-4xl'),
-    fontFamily('font-sans')
-  )
-
-export const innerNav = classnames(display('flex'), justifyContent('justify-between'), width('w-full'))
-export const logo = classnames(fontWeight('font-bold'), userSelect('select-none'))
+const navigation = classnames(
+  display('flex'),
+  justifyContent('justify-between'),
+  width('w-screen'),
+  padding('p-10'),
+  fontSize('text-4xl'),
+  fontFamily('font-sans')
+)
+export const navContainer = classnames(navigation, fontWeight('font-medium'))
+export const mobileNav = classnames(navigation, fontWeight('font-bold'))
+export const logo = classnames(userSelect('select-none'))
 export const menuButton = classnames(width('w-12'), height('h-min'), cursor('cursor-pointer'))
