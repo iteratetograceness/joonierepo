@@ -8,7 +8,7 @@ export default function Document() {
         {process.env.NODE_ENV === 'production' && (
           <meta
             httpEquiv="Content-Security-Policy"
-            content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vitals.vercel-insights.com"
+            content="default-src 'self' vitals.vercel-insights.com; connect-src 'self' https://vitals.vercel-insights.com"
           />
         )}
         <link
