@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import { LazyMotion, domAnimation, MotionConfig, AnimatePresence } from 'framer-motion'
 import { MainLayout } from '@components/common'
+import Head from 'next/head'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -18,12 +19,18 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? (page => <MainLayout>{page}</MainLayout>)
 
   return (
-    <MotionConfig reducedMotion="user">
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence exitBeforeEnter>
-          <ThemeProvider attribute="class">{getLayout(<Component {...pageProps} />)}</ThemeProvider>
-        </AnimatePresence>
-      </LazyMotion>
-    </MotionConfig>
+    <>
+      <Head>
+        <title>jueungraceyun</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <MotionConfig reducedMotion="user">
+        <LazyMotion features={domAnimation}>
+          <AnimatePresence exitBeforeEnter>
+            <ThemeProvider attribute="class">{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+          </AnimatePresence>
+        </LazyMotion>
+      </MotionConfig>
+    </>
   )
 }
