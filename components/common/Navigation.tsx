@@ -43,7 +43,7 @@ const Navigation = () => {
   const line = {
     enter: { x: 0, opacity: 1, transition: { type: 'spring', bounce: 0.4 } },
     exit: { x: -500, opacity: 0 },
-    hidden: { x: -100, opacity: 0 },
+    hidden: { x: -100, opacity: 1 },
   }
 
   const mobileNavModal = {
