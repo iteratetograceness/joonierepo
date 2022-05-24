@@ -2385,6 +2385,13 @@ export type TInset =
   | 'right-24'
   | 'bottom-24'
   | 'left-24'
+  | 'inset-26'
+  | 'inset-x-26'
+  | 'inset-y-26'
+  | 'top-26'
+  | 'right-26'
+  | 'bottom-26'
+  | 'left-26'
   | 'inset-28'
   | 'inset-x-28'
   | 'inset-y-28'
@@ -2568,7 +2575,7 @@ export type TInset =
   | 'bottom-full'
   | 'left-full'
 
-export type TZIndex = 'z-0' | 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50' | 'z-auto'
+export type TZIndex = 'z-0' | 'z-10' | 'z-20' | 'z-30' | 'z-40' | 'z-50' | 'z-auto' | '-z-50'
 
 export type TAspectRatio = 'aspect-auto' | 'aspect-square' | 'aspect-video'
 
@@ -2690,6 +2697,7 @@ export type TWidth =
   | 'w-min'
   | 'w-max'
   | 'w-fit'
+  | 'w-underline'
 
 export type TMinWidth = 'min-w-0' | 'min-w-full' | 'min-w-min' | 'min-w-max' | 'min-w-fit'
 

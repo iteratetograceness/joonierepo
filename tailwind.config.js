@@ -20,6 +20,12 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 5s linear infinite',
       },
+      width: {
+        underline: 'calc(100% - 5rem)',
+      },
+      inset: {
+        26: '6.5rem',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

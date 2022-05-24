@@ -16,9 +16,12 @@ import {
   fontSize,
   fontFamily,
   userSelect,
-  cursor,
   animation,
   backgroundColor,
+  alignItems,
+  margin,
+  alignSelf,
+  flexDirection,
 } from 'tailwindcss-classnames'
 
 /**
@@ -67,24 +70,46 @@ const navigation = classnames(
   fontSize('text-4xl'),
   fontFamily('font-sans')
 )
-export const navContainer = classnames(navigation, fontWeight('font-medium'))
-export const mobileNav = classnames(navigation, fontWeight('font-bold'))
-export const logo = classnames(userSelect('select-none'))
-export const menuButton = classnames(width('w-12'), height('h-min'), cursor('cursor-pointer'))
 
-const open = classnames(display('flex'))
-const closed = classnames(display('hidden'))
-export const mobileMenu = (isOpen: boolean) =>
+const bottomBorderWhite = classnames(backgroundColor('bg-white'))
+const bottomBorderBlack = classnames(backgroundColor('bg-black'))
+export const underline = (isDarkMode: boolean) =>
   classnames(
-    display({
-      [open]: isOpen,
-      [closed]: !isOpen,
-    }),
+    display('block'),
+    position('absolute'),
+    inset('top-26', 'left-10'),
+    width('w-underline'),
+    height('h-px'),
+    margin('m-auto'),
+    padding('px-10'),
+    backgroundColor({
+      [bottomBorderWhite]: isDarkMode,
+      [bottomBorderBlack]: !isDarkMode,
+    })
+  )
+
+export const mobileNav = classnames(
+  navigation,
+  position('relative'),
+  fontWeight('font-medium'),
+  alignItems('items-center')
+)
+export const navContainer = classnames(navigation, fontWeight('font-medium'))
+export const logo = classnames(userSelect('select-none'))
+// export const menuButton = classnames(width('w-10'), height('h-min'), cursor('cursor-pointer'))
+
+export const mobileMenu = (isDarkMode: boolean) =>
+  classnames(
+    display('flex'),
+    flexDirection('flex-col'),
     position('absolute'),
     inset('top-0', 'left-0'),
     padding('p-10'),
-    backgroundColor('bg-black'),
+    backgroundColor({
+      ['bg-black']: !isDarkMode,
+      ['bg-white']: isDarkMode,
+    }),
     width('w-screen'),
-    height('h-screen'),
-    zIndex('z-50')
+    zIndex('-z-50')
   )
+export const mobileClose = classnames(alignSelf('self-end'))

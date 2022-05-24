@@ -4,7 +4,6 @@ import { m } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import * as styles from './styles'
 import Link from 'next/link'
-import MobileMenu from '@components/svg/MobileMenu'
 
 const Navigation = () => {
   const LINKS = [
@@ -18,7 +17,7 @@ const Navigation = () => {
 
   const { theme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isLarge = useMediaQuery({ query: '(min-width: 1100px)' })
 
   useEffect(() => {
@@ -26,21 +25,14 @@ const Navigation = () => {
     console.log(isLarge)
   }, [isLarge])
 
-  // const variants = {
-  //   hidden: { opacity: 0 },
-  //   enter: { opacity: 1 },
-  //   exit: { opacity: 0 },
-  // }
-
   const navContainer = {
-    enter: { opacity: 1, transition: { staggerChildren: 0.03, duration: 0.5 } },
+    enter: { opacity: 1, transition: { staggerChildren: 0.03, duration: 0.4, type: 'linear' } },
     exit: { opacity: 0 },
   }
 
   const mobileNavContainer = {
     enter: { y: 0, opacity: 1, transition: { type: 'spring', bounce: 0.4 } },
     exit: { y: -100, opacity: 0 },
-    hidden: { y: -100, opacity: 0 },
   }
 
   const navItems = {
@@ -48,47 +40,90 @@ const Navigation = () => {
     exit: { y: -70, opacity: 0 },
   }
 
+  const line = {
+    enter: { x: 0, opacity: 1, transition: { type: 'spring', bounce: 0.4 } },
+    exit: { x: -500, opacity: 0 },
+    hidden: { x: -100, opacity: 0 },
+  }
+
+  const mobileNavModal = {
+    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.8, ease: [0.36, 0, 0.66, 0.56] } },
+    close: {
+      height: '0px',
+      y: -500,
+      zIndex: -1,
+      transition: { duration: 0.8, zIndex: { delay: 0.7 }, ease: [0.36, 0, 0.66, 0.56] },
+    },
+  }
+
   return isMounted ? (
     <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'}>
       {isMounted && isLarge ? (
-        <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit" exit="exit">
-          {LINKS.map(link => (
-            <m.li key={link.path} variants={navItems}>
-              <Link href={link.path} passHref>
-                <a role="navigation" aria-label={link.label}>
-                  {link.label}
-                </a>
-              </Link>
-            </m.li>
-          ))}
-        </m.ul>
+        <>
+          <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit" exit="exit">
+            {LINKS.map(link => (
+              <m.li key={link.path} variants={navItems}>
+                <Link href={link.path} passHref>
+                  <a role="navigation" aria-label={link.label}>
+                    {link.label}
+                  </a>
+                </Link>
+              </m.li>
+            ))}
+          </m.ul>
+          <m.div
+            key="nav-line"
+            className={styles.underline(theme === 'dark')}
+            variants={line}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+          />
+        </>
       ) : (
-        <m.section
-          key="small-menu"
-          className={styles.mobileNav}
-          variants={mobileNavContainer}
-          animate="enter"
-          initial="hidden"
-          exit="exit"
-        >
-          <Link href="/" passHref>
-            <a className={styles.logo} role="navigation" aria-label="Homepage">
-              / joonie
-            </a>
-          </Link>
-          <button
-            aria-expanded="false"
-            aria-label="Mobile Navigation Button"
-            className={styles.menuButton}
-            onClick={() => setIsMobileMenuOpen(true)}
+        <>
+          <m.section
+            key="small-menu"
+            className={styles.mobileNav}
+            variants={mobileNavContainer}
+            animate="enter"
+            initial="exit"
+            exit="exit"
           >
-            <MobileMenu color={theme === 'dark' ? '#f5f5f5' : '#1e1e1e'} />
-          </button>
-          <div className={styles.mobileMenu(isMobileMenuOpen)}>
-            <p>links</p>
-            <button onClick={() => setIsMobileMenuOpen(false)}>x</button>
-          </div>
-        </m.section>
+            <Link href="/" passHref>
+              <a className={styles.logo} role="navigation" aria-label="Homepage">
+                JueunGraceYun
+              </a>
+            </Link>
+            <button
+              aria-expanded="false"
+              aria-label="Mobile Navigation Button"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              Menu
+            </button>
+            <m.div
+              key="mobile-menu"
+              className={styles.mobileMenu(theme === 'dark')}
+              variants={mobileNavModal}
+              initial="close"
+              animate={isMobileMenuOpen ? 'open' : 'close'}
+            >
+              <button onClick={() => setIsMobileMenuOpen(false)} className={styles.mobileClose}>
+                x
+              </button>
+              <p>links</p>
+            </m.div>
+          </m.section>
+          <m.div
+            key="mobile-nav-line"
+            className={styles.underline(theme === 'dark')}
+            variants={line}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+          />
+        </>
       )}
     </m.nav>
   ) : (
