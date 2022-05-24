@@ -22,7 +22,6 @@ const Navigation = () => {
 
   useEffect(() => {
     setIsMounted(true)
-    console.log(isLarge)
   }, [isLarge])
 
   const navContainer = {

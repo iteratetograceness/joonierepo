@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <MotionConfig reducedMotion="user">
       <LazyMotion features={domAnimation}>
-        <AnimatePresence exitBeforeEnter onExitComplete={() => console.log('hi')}>
+        <AnimatePresence exitBeforeEnter>
           <ThemeProvider attribute="class">{getLayout(<Component {...pageProps} />)}</ThemeProvider>
         </AnimatePresence>
       </LazyMotion>
