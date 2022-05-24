@@ -22,6 +22,7 @@ import {
   margin,
   alignSelf,
   flexDirection,
+  textColor,
 } from 'tailwindcss-classnames'
 
 /**
@@ -104,10 +105,14 @@ export const mobileMenu = (isDarkMode: boolean) =>
     flexDirection('flex-col'),
     position('absolute'),
     inset('top-0', 'left-0'),
-    padding('p-10'),
+    padding('p-16'),
     backgroundColor({
-      ['bg-black']: !isDarkMode,
       ['bg-white']: isDarkMode,
+      ['bg-black']: !isDarkMode,
+    }),
+    textColor({
+      ['text-black']: isDarkMode,
+      ['text-white']: !isDarkMode,
     }),
     width('w-screen'),
     zIndex('-z-50')

@@ -46,12 +46,12 @@ const Navigation = () => {
   }
 
   const mobileNavModal = {
-    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.8, ease: [0.36, 0, 0.66, 0.56] } },
+    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.4, ease: [0.3, 0, 0.46, 0.36] } },
     close: {
       height: '0px',
       y: -500,
       zIndex: -1,
-      transition: { duration: 0.8, zIndex: { delay: 0.7 }, ease: [0.36, 0, 0.66, 0.56] },
+      transition: { duration: 0.4, zIndex: { delay: 0.4 }, ease: [0.3, 0, 0.46, 0.36] },
     },
   }
 
@@ -95,7 +95,7 @@ const Navigation = () => {
               </a>
             </Link>
             <button
-              aria-expanded="false"
+              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
               aria-label="Mobile Navigation Button"
               onClick={() => setIsMobileMenuOpen(true)}
             >
@@ -107,11 +107,22 @@ const Navigation = () => {
               variants={mobileNavModal}
               initial="close"
               animate={isMobileMenuOpen ? 'open' : 'close'}
+              aria-hidden={isMobileMenuOpen ? 'false' : 'true'}
             >
               <button onClick={() => setIsMobileMenuOpen(false)} className={styles.mobileClose}>
-                x
+                X
               </button>
-              <p>links</p>
+              <div id="mobile-links">
+                {LINKS.map(link => (
+                  <m.li key={link.path} variants={navItems}>
+                    <Link href={link.path} passHref>
+                      <a role="navigation" aria-label={link.label}>
+                        {link.label}
+                      </a>
+                    </Link>
+                  </m.li>
+                ))}
+              </div>
             </m.div>
           </m.section>
           <m.div
