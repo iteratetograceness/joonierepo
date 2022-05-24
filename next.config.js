@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const ContentSecurityPolicy = `
-  default-src 'self' vitals.vercel-insights.com;
+  default-src 'self' 'unsafe-inline' vitals.vercel-insights.com;
   font-src 'self' fonts.gstatic.com;  
   connect-src 'self' https://vitals.vercel-insights.com;
 `
@@ -27,6 +27,7 @@ const nextConfig = {
     return config
   },
   swcMinify: true,
+  productionBrowserSourceMaps: true,
   headers: async () => [
     {
       source: '/:path*',
