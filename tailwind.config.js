@@ -5,6 +5,7 @@ module.exports = {
     colors: {
       black: '#1e1e1e',
       white: '#f5f5f5',
+      green: '#4daf7c',
     },
     fontFamily: {
       sans: ['Inter', 'system-ui'],
@@ -25,6 +26,7 @@ module.exports = {
       },
       inset: {
         26: '6.5rem',
+        modal: '-2.5rem',
       },
     },
   },

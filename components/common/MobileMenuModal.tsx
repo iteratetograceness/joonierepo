@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
 import { m } from 'framer-motion'
 import * as styles from './styles'
@@ -19,6 +20,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
     { label: 'Contact', path: '/contact' },
   ]
 
+  const { events } = useRouter()
   const { theme } = useTheme()
   const modalRef = useRef<HTMLElement>(null)
   const handleTabKey = (e: KeyboardEvent) => {
@@ -62,13 +64,21 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
     return () => ref?.removeEventListener('keydown', keyListener)
   })
 
+  useEffect(() => {
+    events.on('routeChangeStart', closeModal)
+    return () => {
+      // unsubscribe to event on unmount to prevent memory leak
+      events.off('routeChangeStart', closeModal)
+    }
+  }, [closeModal, events])
+
   const mobileNavModal = {
     open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.4, ease: [0, 0, 0.36, 0.1] } },
     close: {
       height: '0px',
       y: -500,
       zIndex: -1,
-      transition: { duration: 0.4, zIndex: { delay: 0.5 }, ease: [0, 0, 0.36, 0.1] },
+      transition: { duration: 0.4, zIndex: { delay: 0.1 }, ease: [0, 0, 0.36, 0.1] },
     },
   }
 
@@ -98,9 +108,15 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
         {LINKS.map(link => (
           <li key={link.path} className={styles.mobileLinkItem(theme === 'dark')}>
             <Link href={link.path} passHref>
-              <a role="navigation" aria-label={link.label} tabIndex={isOpen ? 0 : -1} className={styles.linkItem}>
+              <m.a
+                key={link.path}
+                role="navigation"
+                aria-label={link.label}
+                tabIndex={isOpen ? 0 : -1}
+                className={styles.linkItem}
+              >
                 {link.label}
-              </a>
+              </m.a>
             </Link>
           </li>
         ))}

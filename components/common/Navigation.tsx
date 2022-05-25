@@ -100,7 +100,7 @@ const Navigation = () => {
               aria-label="Mobile Navigation Button"
               onClick={() => openModal()}
               id="menu-open-button"
-              className={styles.linkItem}
+              className={styles.mobileButton}
             >
               Menu
             </button>

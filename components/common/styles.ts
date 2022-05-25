@@ -59,6 +59,7 @@ export const main = classnames(
   position('relative'),
   width('!w-screen'),
   minHeight('!min-h-screen'),
+  padding('p-10'),
   transitionProperty('transition-colors'),
   transitionTimingFunction('ease-in-out'),
   transitionDuration('duration-500')
@@ -71,23 +72,28 @@ export const main = classnames(
 const navigation = classnames(
   display('flex'),
   justifyContent('justify-between'),
-  width('w-screen'),
-  padding('p-10'),
+  width('w-full'),
+  // padding('p-10'),
+  margin('mb-16'),
   fontSize('text-3xl', 'md:text-4xl'),
   fontFamily('font-sans')
 )
 
-export const linkItem = classnames(fontStyle('hover:italic', 'focus:italic'))
+export const linkItem = classnames(
+  fontStyle('hover:italic', 'focus:italic', 'active:italic'),
+  textColor('hover:text-green', 'focus:text-green', 'active:text-green')
+)
+
+export const mobileButton = classnames(fontStyle('hover:italic', 'focus:italic'), textColor('hover:text-green'))
 
 export const underline = (isDarkMode: boolean) =>
   classnames(
     display('block'),
     position('absolute'),
-    inset('top-26', 'left-10'),
+    inset('top-28', 'left-10'),
     width('w-underline'),
     height('h-px'),
     margin('m-auto'),
-    padding('px-10'),
     backgroundColor({
       ['bg-white']: isDarkMode,
       ['bg-black']: !isDarkMode,
@@ -101,8 +107,7 @@ export const mobileNav = classnames(
   alignItems('items-center')
 )
 export const navContainer = classnames(navigation, fontWeight('font-medium'))
-export const logo = classnames(linkItem, userSelect('select-none'))
-// export const menuButton = classnames(width('w-10'), height('h-min'), cursor('cursor-pointer'))
+export const logo = classnames(mobileButton, userSelect('select-none'))
 
 export const mobileMenu = (isDarkMode: boolean) =>
   classnames(
@@ -111,7 +116,7 @@ export const mobileMenu = (isDarkMode: boolean) =>
     alignItems('items-center'),
     textAlign('text-center'),
     position('absolute'),
-    inset('top-0', 'left-0'),
+    inset('top-modal', 'left-modal'),
     padding('p-16'),
     backgroundColor({
       ['bg-white']: isDarkMode,
@@ -121,8 +126,7 @@ export const mobileMenu = (isDarkMode: boolean) =>
       ['text-black']: isDarkMode,
       ['text-white']: !isDarkMode,
     }),
-    width('w-screen'),
-    zIndex('-z-50')
+    width('w-screen')
   )
 export const mobileClose = classnames(alignSelf('self-end'), padding('pb-7'))
 export const mobileLinks = classnames(listStyleType('list-none'))
