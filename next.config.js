@@ -27,7 +27,7 @@ const nextConfig = {
           contentSecurityPolicy: {
             'base-uri': "'none'",
             'child-src': "'none'",
-            'connect-src': "'self' ws://localhost:3000",
+            'connect-src': "'self' ws://localhost:3000 https://vitals.vercel-insights.com/v1/vitals",
             'default-src': "'self'",
             'font-src': "'self' fonts.gstatic.com",
             'form-action': "'self'",
