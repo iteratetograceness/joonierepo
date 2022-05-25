@@ -1,17 +1,8 @@
 /** @type {import('next').NextConfig} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nextSafe = require('next-safe')
 
-const ContentSecurityPolicy = `
-  default-src 'self' 'unsafe-inline' vitals.vercel-insights.com;
-  font-src 'self' fonts.gstatic.com;  
-  connect-src 'self' https://vitals.vercel-insights.com;
-`
-
-const headers = [
-  {
-    key: 'Content-Security-Policy',
-    value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
-  },
-]
+const isDev = process.env.NODE_ENV !== 'production'
 
 const nextConfig = {
   reactStrictMode: true,
@@ -27,13 +18,42 @@ const nextConfig = {
     return config
   },
   swcMinify: true,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: nextSafe({
+          contentTypeOptions: 'nosniff',
+          contentSecurityPolicy: {
+            'base-uri': "'none'",
+            'child-src': "'none'",
+            'connect-src': "'self' ws://localhost:3000",
+            'default-src': "'self'",
+            'font-src': "'self' fonts.gstatic.com",
+            'form-action': "'self'",
+            'frame-ancestors': "'none'",
+            'frame-src': "'none'",
+            'img-src': "'self'",
+            'manifest-src': "'self'",
+            'media-src': "'self'",
+            'object-src': "'none'",
+            'prefetch-src': "'self'",
+            'script-src': "'self'",
+            'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+            'worker-src': "'self'",
+            reportOnly: false,
+          },
+          frameOptions: 'DENY',
+          permissionsPolicy: false,
+          permissionsPolicyDirectiveSupport: ['proposed', 'standard'],
+          isDev,
+          referrerPolicy: 'no-referrer',
+          xssProtection: '1; mode=block',
+        }),
+      },
+    ]
+  },
   productionBrowserSourceMaps: true,
-  headers: async () => [
-    {
-      source: '/:path*',
-      headers,
-    },
-  ],
   // experimental: {
   //   lodash: {
   //     transform: 'lodash/{{member}}',
