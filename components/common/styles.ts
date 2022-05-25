@@ -24,6 +24,10 @@ import {
   flexDirection,
   textColor,
   listStyleType,
+  textAlign,
+  borderColor,
+  borderWidth,
+  fontStyle,
 } from 'tailwindcss-classnames'
 
 /**
@@ -73,8 +77,8 @@ const navigation = classnames(
   fontFamily('font-sans')
 )
 
-const bottomBorderWhite = classnames(backgroundColor('bg-white'))
-const bottomBorderBlack = classnames(backgroundColor('bg-black'))
+export const linkItem = classnames(fontStyle('hover:italic', 'focus:italic'))
+
 export const underline = (isDarkMode: boolean) =>
   classnames(
     display('block'),
@@ -85,8 +89,8 @@ export const underline = (isDarkMode: boolean) =>
     margin('m-auto'),
     padding('px-10'),
     backgroundColor({
-      [bottomBorderWhite]: isDarkMode,
-      [bottomBorderBlack]: !isDarkMode,
+      ['bg-white']: isDarkMode,
+      ['bg-black']: !isDarkMode,
     })
   )
 
@@ -97,13 +101,15 @@ export const mobileNav = classnames(
   alignItems('items-center')
 )
 export const navContainer = classnames(navigation, fontWeight('font-medium'))
-export const logo = classnames(userSelect('select-none'))
+export const logo = classnames(linkItem, userSelect('select-none'))
 // export const menuButton = classnames(width('w-10'), height('h-min'), cursor('cursor-pointer'))
 
 export const mobileMenu = (isDarkMode: boolean) =>
   classnames(
     display('flex'),
     flexDirection('flex-col'),
+    alignItems('items-center'),
+    textAlign('text-center'),
     position('absolute'),
     inset('top-0', 'left-0'),
     padding('p-16'),
@@ -118,5 +124,15 @@ export const mobileMenu = (isDarkMode: boolean) =>
     width('w-screen'),
     zIndex('-z-50')
   )
-export const mobileClose = classnames(alignSelf('self-end'))
+export const mobileClose = classnames(alignSelf('self-end'), padding('pb-7'))
 export const mobileLinks = classnames(listStyleType('list-none'))
+export const mobileLinkItem = (isDarkMode: boolean) =>
+  classnames(
+    borderWidth('border-b'),
+    borderColor({
+      ['border-black']: isDarkMode,
+      ['border-white']: !isDarkMode,
+    }),
+    padding('p-5'),
+    width('w-screen')
+  )

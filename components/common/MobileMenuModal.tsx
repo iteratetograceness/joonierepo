@@ -63,12 +63,12 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
   })
 
   const mobileNavModal = {
-    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.4, ease: [0.3, 0, 0.46, 0.36] } },
+    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.4, ease: [0, 0, 0.36, 0.1] } },
     close: {
       height: '0px',
       y: -500,
       zIndex: -1,
-      transition: { duration: 0.4, zIndex: { delay: 0.4 }, ease: [0.3, 0, 0.46, 0.36] },
+      transition: { duration: 0.4, zIndex: { delay: 0.5 }, ease: [0, 0, 0.36, 0.1] },
     },
   }
 
@@ -96,9 +96,9 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
       </button>
       <div id="mobile-links" className={styles.mobileLinks}>
         {LINKS.map(link => (
-          <li key={link.path}>
+          <li key={link.path} className={styles.mobileLinkItem(theme === 'dark')}>
             <Link href={link.path} passHref>
-              <a role="navigation" aria-label={link.label} tabIndex={isOpen ? 0 : -1}>
+              <a role="navigation" aria-label={link.label} tabIndex={isOpen ? 0 : -1} className={styles.linkItem}>
                 {link.label}
               </a>
             </Link>

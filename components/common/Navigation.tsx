@@ -57,14 +57,14 @@ const Navigation = () => {
   }
 
   return isMounted ? (
-    <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'} role="navigation">
+    <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'} role="navigation" className="noselect">
       {isMounted && isLarge ? (
         <>
           <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit" exit="exit">
             {LINKS.map(link => (
               <m.li key={link.path} variants={navItems}>
                 <Link href={link.path} passHref>
-                  <a role="navigation" aria-label={link.label}>
+                  <a role="navigation" aria-label={link.label} className={styles.linkItem}>
                     {link.label}
                   </a>
                 </Link>
@@ -100,6 +100,7 @@ const Navigation = () => {
               aria-label="Mobile Navigation Button"
               onClick={() => openModal()}
               id="menu-open-button"
+              className={styles.linkItem}
             >
               Menu
             </button>
