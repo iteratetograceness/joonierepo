@@ -38,7 +38,7 @@ const nextConfig = {
             'media-src': "'self'",
             'object-src': "'none'",
             'prefetch-src': "'self'",
-            'script-src': "'self'",
+            'script-src': "'self' 'unsafe-inline'",
             'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
             'worker-src': "'self'",
             reportOnly: false,

@@ -91,7 +91,7 @@ const Navigation = () => {
           >
             <Link href="/" passHref>
               <a className={styles.logo} role="navigation" aria-label="Homepage">
-                JueunGraceYun
+                {isLarge ? 'JueunGraceYun' : 'Jueun'}
               </a>
             </Link>
             <button

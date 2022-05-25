@@ -68,7 +68,7 @@ const navigation = classnames(
   justifyContent('justify-between'),
   width('w-screen'),
   padding('p-10'),
-  fontSize('text-4xl'),
+  fontSize('text-3xl', 'md:text-4xl'),
   fontFamily('font-sans')
 )
 
