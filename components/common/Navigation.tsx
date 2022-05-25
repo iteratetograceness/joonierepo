@@ -4,6 +4,7 @@ import { m } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import * as styles from './styles'
 import Link from 'next/link'
+import MobileMenuModal from './MobileMenuModal'
 
 const Navigation = () => {
   const LINKS = [
@@ -23,6 +24,16 @@ const Navigation = () => {
   useEffect(() => {
     setIsMounted(true)
   }, [isLarge])
+
+  const openModal = () => {
+    setIsMobileMenuOpen(true)
+    document.getElementById('menu-close-button')?.focus()
+  }
+
+  const closeModal = () => {
+    setIsMobileMenuOpen(false)
+    document.getElementById('menu-open-button')?.focus()
+  }
 
   const navContainer = {
     enter: { opacity: 1, transition: { staggerChildren: 0.03, duration: 0.4, type: 'linear' } },
@@ -45,18 +56,8 @@ const Navigation = () => {
     hidden: { x: -300, opacity: 1 },
   }
 
-  const mobileNavModal = {
-    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.4, ease: [0.3, 0, 0.46, 0.36] } },
-    close: {
-      height: '0px',
-      y: -500,
-      zIndex: -1,
-      transition: { duration: 0.4, zIndex: { delay: 0.4 }, ease: [0.3, 0, 0.46, 0.36] },
-    },
-  }
-
   return isMounted ? (
-    <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'}>
+    <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'} role="navigation">
       {isMounted && isLarge ? (
         <>
           <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit" exit="exit">
@@ -97,33 +98,12 @@ const Navigation = () => {
             <button
               aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
               aria-label="Mobile Navigation Button"
-              onClick={() => setIsMobileMenuOpen(true)}
+              onClick={() => openModal()}
+              id="menu-open-button"
             >
               Menu
             </button>
-            <m.div
-              key="mobile-menu"
-              className={styles.mobileMenu(theme === 'dark')}
-              variants={mobileNavModal}
-              initial="close"
-              animate={isMobileMenuOpen ? 'open' : 'close'}
-              aria-hidden={isMobileMenuOpen ? 'false' : 'true'}
-            >
-              <button onClick={() => setIsMobileMenuOpen(false)} className={styles.mobileClose}>
-                X
-              </button>
-              <div id="mobile-links">
-                {LINKS.map(link => (
-                  <m.li key={link.path} variants={navItems}>
-                    <Link href={link.path} passHref>
-                      <a role="navigation" aria-label={link.label}>
-                        {link.label}
-                      </a>
-                    </Link>
-                  </m.li>
-                ))}
-              </div>
-            </m.div>
+            <MobileMenuModal closeModal={closeModal} isOpen={isMobileMenuOpen} />
           </m.section>
           <m.div
             key="mobile-nav-line"

@@ -23,6 +23,7 @@ import {
   alignSelf,
   flexDirection,
   textColor,
+  listStyleType,
 } from 'tailwindcss-classnames'
 
 /**
@@ -118,3 +119,4 @@ export const mobileMenu = (isDarkMode: boolean) =>
     zIndex('-z-50')
   )
 export const mobileClose = classnames(alignSelf('self-end'))
+export const mobileLinks = classnames(listStyleType('list-none'))
