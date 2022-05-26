@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
-import { m } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import * as styles from './styles'
 import Link from 'next/link'
 
@@ -50,6 +50,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
   }
 
   useEffect(() => {
+    document.getElementById('menu-close-button')?.focus()
     const keyListener = (e: KeyboardEvent): void => {
       const keyListenersMap = new Map([
         ['Escape', closeModal],
@@ -72,56 +73,107 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
     }
   }, [closeModal, events])
 
-  const mobileNavModal = {
-    open: { height: '100vh', y: 0, zIndex: 999, transition: { duration: 0.4, ease: [0, 0, 0.36, 0.1] } },
-    close: {
-      height: '0px',
-      y: -500,
-      zIndex: -1,
-      transition: { duration: 0.4, zIndex: { delay: 0.1 }, ease: [0, 0, 0.36, 0.1] },
+  const modalContainer = {
+    open: {
+      height: '100vh',
+      y: 0,
+      transition: { duration: 1, delay: 0, damping: 40, delayChildren: 0.2 },
+    },
+    closed: {
+      height: '0vh',
+      y: -90,
+      transition: {
+        delay: 0.3,
+        stiffness: 100,
+        damping: 40,
+      },
+    },
+  }
+
+  const innerModal = {
+    open: {
+      opacity: 1,
+      transition: { duration: 2, type: 'tween', staggerChildren: 0.09, delayChildren: 0.2 },
+    },
+    closed: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
+    },
+  }
+
+  const modalItem = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1200, velocity: -100 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1200 },
+      },
     },
   }
 
   return (
-    <m.dialog
-      ref={modalRef}
-      key="mobile-menu"
-      className={styles.mobileMenu(theme === 'dark')}
-      variants={mobileNavModal}
-      initial="close"
-      animate={isOpen ? 'open' : 'close'}
-      aria-hidden={isOpen ? 'false' : 'true'}
-      aria-label="Mobile Navigation Modal"
-      aria-modal="true"
-      role="dialog"
-    >
-      <button
-        onClick={closeModal}
-        className={styles.mobileClose}
-        aria-label="Close mobile menu."
-        id="menu-close-button"
-        tabIndex={isOpen ? 0 : -1}
-      >
-        X
-      </button>
-      <div id="mobile-links" className={styles.mobileLinks}>
-        {LINKS.map(link => (
-          <li key={link.path} className={styles.mobileLinkItem(theme === 'dark')}>
-            <Link href={link.path} passHref>
-              <m.a
-                key={link.path}
-                role="navigation"
-                aria-label={link.label}
-                tabIndex={isOpen ? 0 : -1}
-                className={styles.linkItem}
-              >
-                {link.label}
-              </m.a>
-            </Link>
-          </li>
-        ))}
-      </div>
-    </m.dialog>
+    <AnimatePresence>
+      {isOpen && (
+        <m.dialog
+          ref={modalRef}
+          key="mobile-menu"
+          className={styles.mobileMenu(theme === 'dark')}
+          variants={modalContainer}
+          initial={{ height: '0px', y: -90 }}
+          animate="open"
+          exit="closed"
+          aria-hidden={isOpen ? 'false' : 'true'}
+          aria-label="Mobile Navigation Modal"
+          aria-modal="true"
+          role="dialog"
+          layout
+        >
+          <m.button
+            onClick={closeModal}
+            className={styles.mobileClose}
+            aria-label="Close mobile menu."
+            id="menu-close-button"
+            tabIndex={isOpen ? 0 : -1}
+          >
+            X
+          </m.button>
+          <m.div
+            id="mobile-links"
+            className={styles.mobileLinks}
+            variants={innerModal}
+            initial="closed"
+            animate="open"
+            exit="closed"
+          >
+            {LINKS.map(link => (
+              <m.li key={link.path} className={styles.mobileLinkItem(theme === 'dark')} variants={modalItem}>
+                <Link href={link.path} passHref>
+                  <m.a
+                    key={link.path}
+                    role="navigation"
+                    aria-label={link.label}
+                    tabIndex={isOpen ? 0 : -1}
+                    className={styles.linkItem}
+                  >
+                    {link.label}
+                  </m.a>
+                </Link>
+              </m.li>
+            ))}
+          </m.div>
+        </m.dialog>
+      )}
+    </AnimatePresence>
   )
 }
 

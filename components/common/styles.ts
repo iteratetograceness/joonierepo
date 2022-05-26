@@ -36,7 +36,7 @@ import {
 
 export const themeButton = classnames(
   position('absolute'),
-  zIndex('!z-50'),
+  zIndex('z-30'),
   inset('right-3', 'bottom-3'),
   padding('p-5', 'md:p-7'),
   width('w-fit')
@@ -115,9 +115,8 @@ export const mobileMenu = (isDarkMode: boolean) =>
     flexDirection('flex-col'),
     alignItems('items-center'),
     textAlign('text-center'),
-    position('absolute'),
     inset('top-modal', 'left-modal'),
-    padding('p-16'),
+    zIndex('z-50'),
     backgroundColor({
       ['bg-white']: isDarkMode,
       ['bg-black']: !isDarkMode,
@@ -126,9 +125,10 @@ export const mobileMenu = (isDarkMode: boolean) =>
       ['text-black']: isDarkMode,
       ['text-white']: !isDarkMode,
     }),
-    width('w-screen')
+    width('w-screen'),
+    height('h-screen')
   )
-export const mobileClose = classnames(alignSelf('self-end'), padding('pb-7'))
+export const mobileClose = classnames(alignSelf('self-end'), margin('mb-7'))
 export const mobileLinks = classnames(listStyleType('list-none'))
 export const mobileLinkItem = (isDarkMode: boolean) =>
   classnames(

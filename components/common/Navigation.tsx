@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { m } from 'framer-motion'
+import { m, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import * as styles from './styles'
 import Link from 'next/link'
@@ -18,20 +18,17 @@ const Navigation = () => {
 
   const { theme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [open, cycleOpen] = useCycle(false, true)
   const isLarge = useMediaQuery({ query: '(min-width: 1100px)' })
 
   useEffect(() => {
     setIsMounted(true)
   }, [isLarge])
 
-  const openModal = () => {
-    setIsMobileMenuOpen(true)
-    document.getElementById('menu-close-button')?.focus()
-  }
+  const openModal = () => cycleOpen()
 
   const closeModal = () => {
-    setIsMobileMenuOpen(false)
+    cycleOpen()
     document.getElementById('menu-open-button')?.focus()
   }
 
@@ -96,7 +93,7 @@ const Navigation = () => {
               </a>
             </Link>
             <button
-              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
+              aria-expanded={open ? 'true' : 'false'}
               aria-label="Mobile Navigation Button"
               onClick={() => openModal()}
               id="menu-open-button"
@@ -104,7 +101,7 @@ const Navigation = () => {
             >
               Menu
             </button>
-            <MobileMenuModal closeModal={closeModal} isOpen={isMobileMenuOpen} />
+            <MobileMenuModal closeModal={closeModal} isOpen={open} />
           </m.section>
           <m.div
             key="mobile-nav-line"
