@@ -1,15 +1,10 @@
-export enum TagColor {
-  NEXTJS = 'green', // map to taiilwind theme colors
-  GRAPHQL = 'blue',
-}
-
 export type Tag = {
-  color: TagColor
+  color: string
   id: string
   name: string
 }
 
-export type BlogPost = {
+export type NotionPage = {
   id: string
   slug: string
   cover: string

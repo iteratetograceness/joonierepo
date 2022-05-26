@@ -5,17 +5,9 @@ import { useTheme } from 'next-themes'
 import * as styles from './styles'
 import Link from 'next/link'
 import MobileMenuModal from './MobileMenuModal'
+import { LINKS } from '@constants'
 
 const Navigation = () => {
-  const LINKS = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Work', path: '/work' },
-    { label: 'Blog', path: '/blog' },
-    { label: 'Shop', path: '/shop' },
-    { label: 'Contact', path: '/contact' },
-  ]
-
   const { theme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
   const [open, cycleOpen] = useCycle(false, true)

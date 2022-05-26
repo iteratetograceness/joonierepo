@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes'
 import { m, AnimatePresence } from 'framer-motion'
 import * as styles from './styles'
 import Link from 'next/link'
+import { LINKS } from '@constants'
 
 type Props = {
   closeModal: () => void
@@ -11,15 +12,6 @@ type Props = {
 }
 
 const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
-  const LINKS = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Work', path: '/work' },
-    { label: 'Blog', path: '/blog' },
-    { label: 'Shop', path: '/shop' },
-    { label: 'Contact', path: '/contact' },
-  ]
-
   const { events } = useRouter()
   const { theme } = useTheme()
   const modalRef = useRef<HTMLElement>(null)
@@ -28,7 +20,6 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
       'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
     )
 
-    console.log(focusableModalElements)
     if (
       focusableModalElements &&
       focusableModalElements[0] &&

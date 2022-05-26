@@ -5,7 +5,10 @@
     "paths": {
       "@icons": ["components/svg"],
       "@components/*": ["components/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@constants": ["constants"],
+      "@customtypes/*": ["types/*"],
+      "@utils/*": ["utils/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

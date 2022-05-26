@@ -37,7 +37,7 @@ import {
 export const themeButton = classnames(
   position('absolute'),
   zIndex('z-30'),
-  inset('right-3', 'bottom-3'),
+  inset('right-3', 'bottom-12', 'md:bottom-3'),
   padding('p-5', 'md:p-7'),
   width('w-fit')
 )

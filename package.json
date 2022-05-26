@@ -11,6 +11,7 @@
     "css": "tailwindcss-classnames"
   },
   "dependencies": {
+    "@notionhq/client": "^1.0.4",
     "framer-motion": "^6.3.3",
     "next": "12.1.6",
     "next-safe": "^3.2.1",
