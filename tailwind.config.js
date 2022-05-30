@@ -22,11 +22,14 @@ module.exports = {
         'spin-slow': 'spin 5s linear infinite',
       },
       width: {
-        underline: 'calc(100% - 5rem)',
+        'sans-padding': 'calc(100% - 5rem)',
+      },
+      height: {
+        'img-container': 'calc(100vh - 20rem)',
       },
       inset: {
         26: '6.5rem',
-        modal: '-2.5rem',
+        padding: '-2.5rem',
       },
     },
   },

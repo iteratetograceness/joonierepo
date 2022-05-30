@@ -18,6 +18,9 @@ const nextConfig = {
     return config
   },
   swcMinify: true,
+  images: {
+    domains: ['s3.us-west-2.amazonaws.com'],
+  },
   async headers() {
     return [
       {

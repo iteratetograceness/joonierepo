@@ -14,7 +14,7 @@ type Props = {
 const ProjectPage = ({ post }: Props) => {
   return (
     <>
-      <Project work={post} />
+      <Project work={post}/>
     </>
   )
 }

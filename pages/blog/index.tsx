@@ -6,7 +6,15 @@ type Props = {
   posts: NotionPage[]
 }
 
-const AllPosts = ({ posts }: Props) => <p>all posts</p>
+const AllPosts = ({ posts }: Props) => {
+  return (
+    <>
+      {posts.map(post => (
+        <p key={post.slug}>{post.title}</p>
+      ))}
+    </>
+  )
+}
 
 export default AllPosts
 

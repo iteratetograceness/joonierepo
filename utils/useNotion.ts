@@ -9,16 +9,17 @@ export default class Notion {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private static convertPageToFullPost(page: any): any {
-    
-  }
+  // private static convertPageToFullPost(page: any): any {
+  //   const test = page
+  // }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private static convertPageToPostPreview(page: any): NotionPage {
-    let cover = page.cover
-    switch (cover) {
+    let cover = page.cover || ''
+
+    switch (cover.type) {
       case 'file':
-        cover = page.cover.file
+        cover = page.cover.file.url
         break
       case 'external':
         cover = page.cover.external.url
@@ -108,8 +109,7 @@ export default class Notion {
       if (!res.results[0]) throw `Entry with slug ${slug} not found.`
 
       const pageInfo = res.results[0]
-      const page = await this.client.blocks.children.list({ block_id: pageInfo.id })
-      console.log(page)
+      //const page = await this.client.blocks.children.list({ block_id: pageInfo.id })
       return Notion.convertPageToPostPreview(pageInfo)
     }
   }

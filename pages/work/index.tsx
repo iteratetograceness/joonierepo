@@ -7,6 +7,7 @@ type Props = {
 }
 
 const AllProjects = ({ projects }: Props) => {
+  console.log(projects.length)
   return <p> projects </p>
 }
 

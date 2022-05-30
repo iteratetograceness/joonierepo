@@ -35,7 +35,7 @@ import {
  */
 
 export const themeButton = classnames(
-  position('absolute'),
+  position('fixed'),
   zIndex('z-30'),
   inset('right-3', 'bottom-12', 'md:bottom-3'),
   padding('p-5', 'md:p-7'),
@@ -91,7 +91,7 @@ export const underline = (isDarkMode: boolean) =>
     display('block'),
     position('absolute'),
     inset('top-28', 'left-10'),
-    width('w-underline'),
+    width('w-sans-padding'),
     height('h-px'),
     margin('m-auto'),
     backgroundColor({
@@ -115,7 +115,7 @@ export const mobileMenu = (isDarkMode: boolean) =>
     flexDirection('flex-col'),
     alignItems('items-center'),
     textAlign('text-center'),
-    inset('top-modal', 'left-modal'),
+    inset('top-padding', 'left-padding'),
     zIndex('z-50'),
     backgroundColor({
       ['bg-white']: isDarkMode,
