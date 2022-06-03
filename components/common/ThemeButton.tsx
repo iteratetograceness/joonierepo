@@ -1,6 +1,7 @@
 import { useTheme } from 'next-themes'
 import { DarkMode, LightMode, ThemeIcon } from '@icons'
 import { useState, useEffect } from 'react'
+import { m } from 'framer-motion'
 import * as styles from './styles'
 
 const ThemeButton = () => {
@@ -11,8 +12,16 @@ const ThemeButton = () => {
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
+  const variants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.8 } },
+  }
+
   return (
-    <button
+    <m.button
+      initial="initial"
+      animate="animate"
+      variants={variants}
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
       type="button"
       className={styles.themeButton + ' animation'}
@@ -27,7 +36,7 @@ const ThemeButton = () => {
       >
         {theme === 'dark' ? <LightMode color="#f5f5f5" /> : <DarkMode color="#1e1e1e" />}
       </ThemeIcon>
-    </button>
+    </m.button>
   )
 }
 
