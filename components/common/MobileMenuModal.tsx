@@ -15,6 +15,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
   const { events } = useRouter()
   const { theme } = useTheme()
   const modalRef = useRef<HTMLElement>(null)
+
   const handleTabKey = (e: KeyboardEvent) => {
     const focusableModalElements: NodeListOf<HTMLElement> | undefined = modalRef?.current?.querySelectorAll(
       'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
@@ -58,6 +59,8 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
 
   useEffect(() => {
     events.on('routeChangeStart', closeModal)
+    events.on('routeChangeComplete', () => document.getElementById('skip-to-main-content')?.focus())
+
     return () => {
       // unsubscribe to event on unmount to prevent memory leak
       events.off('routeChangeStart', closeModal)

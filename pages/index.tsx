@@ -1,13 +1,7 @@
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
-  return (
-    <div className={'mb-5'}>
-      <main>this is the main content</main>
-
-      <footer>this is the footer</footer>
-    </div>
-  )
+  return <div>this is the homepage</div>
 }
 
 export default Home

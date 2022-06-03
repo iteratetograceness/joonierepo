@@ -1,6 +1,5 @@
 import {
   classnames,
-  minHeight,
   height,
   inset,
   position,
@@ -28,16 +27,32 @@ import {
   borderColor,
   borderWidth,
   fontStyle,
+  screenReaders,
+  borderRadius,
 } from 'tailwindcss-classnames'
 
 /**
  * Main Layout
  */
 
+export const skipToMainContent = classnames(
+  width('w-fit'),
+  screenReaders('sr-only', 'focus:not-sr-only'),
+  position('focus:absolute'),
+  inset('focus:top-auto', 'focus:left-auto'),
+  textAlign('focus:text-center'),
+  backgroundColor('bg-black', 'dark:bg-white'),
+  textColor('text-white', 'dark:text-black'),
+  padding('focus:px-5', 'focus:py-3'),
+  zIndex('focus:z-50'),
+  borderRadius('rounded-3xl'),
+  fontWeight('font-medium')
+)
+
 export const themeButton = classnames(
   position('fixed'),
   zIndex('z-30'),
-  inset('right-3', 'bottom-12', 'md:bottom-3'),
+  inset('right-3', 'bottom-3'),
   padding('p-5', 'md:p-7'),
   width('w-fit')
 )
@@ -58,7 +73,6 @@ export const innerThemeIcon = classnames(
 export const main = classnames(
   position('relative'),
   width('!w-screen'),
-  minHeight('!min-h-screen'),
   padding('p-10'),
   transitionProperty('transition-colors'),
   transitionTimingFunction('ease-in-out'),
@@ -73,7 +87,6 @@ const navigation = classnames(
   display('flex'),
   justifyContent('justify-between'),
   width('w-full'),
-  // padding('p-10'),
   margin('mb-16'),
   fontSize('text-3xl', 'md:text-4xl'),
   fontFamily('font-sans')

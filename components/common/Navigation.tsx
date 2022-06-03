@@ -14,15 +14,13 @@ const Navigation = () => {
   const isLarge = useMediaQuery({ query: '(min-width: 1100px)' })
 
   useEffect(() => {
+    cycleOpen(0)
     setIsMounted(true)
-  }, [isLarge])
+  }, [isLarge, cycleOpen])
 
-  const openModal = () => cycleOpen()
+  const openModal = () => cycleOpen(1)
 
-  const closeModal = () => {
-    cycleOpen()
-    document.getElementById('menu-open-button')?.focus()
-  }
+  const closeModal = () => cycleOpen(0)
 
   const navContainer = {
     enter: { opacity: 1, transition: { staggerChildren: 0.03, duration: 0.4, type: 'linear' } },
@@ -49,7 +47,7 @@ const Navigation = () => {
     <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'} role="navigation" className="noselect">
       {isMounted && isLarge ? (
         <>
-          <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit" exit="exit">
+          <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit">
             {LINKS.map(link => (
               <m.li key={link.path} variants={navItems}>
                 <Link href={link.path} passHref>
@@ -66,7 +64,6 @@ const Navigation = () => {
             variants={line}
             initial="hidden"
             animate="enter"
-            exit="exit"
           />
         </>
       ) : (
@@ -77,14 +74,14 @@ const Navigation = () => {
             variants={mobileNavContainer}
             animate="enter"
             initial="exit"
-            exit="exit"
           >
             <Link href="/" passHref>
               <a className={styles.logo} role="navigation" aria-label="Homepage">
-                {isLarge ? 'JueunGraceYun' : 'Jueun'}
+                {isLarge ? 'JueunGraceYun' : 'JGY'}
               </a>
             </Link>
             <button
+              type="button"
               aria-expanded={open ? 'true' : 'false'}
               aria-label="Mobile Navigation Button"
               onClick={() => openModal()}
@@ -101,7 +98,6 @@ const Navigation = () => {
             variants={line}
             initial="hidden"
             animate="enter"
-            exit="exit"
           />
         </>
       )}
