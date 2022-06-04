@@ -18,8 +18,7 @@ const Project = ({ work }: Props) => {
             src={work.cover}
             width={700}
             height={375}
-            objectFit="cover"
-            layout="fill"
+            layout="responsive"
             priority
           />
         </div>
@@ -29,24 +28,11 @@ const Project = ({ work }: Props) => {
             src={work.cover}
             width={700}
             height={375}
-            objectFit="cover"
-            layout="fill"
+            layout="responsive"
             priority
           />
         </div>
       </div>
-
-      {/* <div id="img-container-1" className={styles.mainImg}>
-        <Image
-          className={styles.img}
-          alt={`Main image for ${work.title}`}
-          src={work.cover}
-          width={700}
-          height={375}
-          layout="responsive"
-          priority
-        />
-      </div> */}
     </section>
   )
 }

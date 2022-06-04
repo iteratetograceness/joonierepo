@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client'
-import { NotionPage } from '@customtypes/notion'
+import { NotionPage, BlockObjectResponse } from '@customtypes/notion'
 
 export default class Notion {
   client: Client
@@ -9,9 +9,41 @@ export default class Notion {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // private static convertPageToFullPost(page: any): any {
-  //   const test = page
-  // }
+  private static convertBlocksToMarkdown(blocks: BlockObjectResponse[]): any {
+    const data = []
+    const images = []
+
+    for (const block of blocks) {
+      switch (block.type) {
+        case 'paragraph':
+          const paragraph = ''
+          for (const text of block.paragraph.rich_text) {
+            let markdown = ''
+            if (text.href) markdown = `[${text.plain_text}](text.href)`
+            else markdown = text.plain_text
+
+            if (text.bold) markdown = '**' + markdown + '**'
+            if (text.italic) markdown = '*' + markdown + '*'
+            if (text.strikethrough)
+          }
+          break
+        case 'heading_3':
+          console.log(block.heading_3.rich_text)
+          break
+        case 'image':
+          if ('file' in block.image) images.push(block.image.file.url)
+          break
+        case 'bulleted_list_item':
+          console.log(block.bulleted_list_item.rich_text)
+          break
+        case 'to_do':
+          console.log(block.to_do.rich_text)
+          break
+        default:
+          return
+      }
+    }
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private static convertPageToPostPreview(page: any): NotionPage {
@@ -109,7 +141,8 @@ export default class Notion {
       if (!res.results[0]) throw `Entry with slug ${slug} not found.`
 
       const pageInfo = res.results[0]
-      //const page = await this.client.blocks.children.list({ block_id: pageInfo.id })
+      const page = await this.client.blocks.children.list({ block_id: pageInfo.id })
+      const blocks = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
       return Notion.convertPageToPostPreview(pageInfo)
     }
   }
