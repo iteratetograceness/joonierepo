@@ -31,6 +31,9 @@ module.exports = {
         26: '6.5rem',
         padding: '-2.5rem',
       },
+      content: {
+        star: '^',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

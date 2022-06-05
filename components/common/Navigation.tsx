@@ -6,6 +6,7 @@ import * as styles from './styles'
 import Link from 'next/link'
 import MobileMenuModal from './MobileMenuModal'
 import { LINKS } from '@constants'
+import Circle from '@components/svg/Circle'
 
 const Navigation = () => {
   const { theme } = useTheme()
@@ -52,6 +53,7 @@ const Navigation = () => {
               <m.li key={link.path} variants={navItems}>
                 <Link href={link.path} passHref>
                   <a role="navigation" aria-label={link.label} className={styles.linkItem}>
+                    <Circle className={styles.circle} />
                     {link.label}
                   </a>
                 </Link>
@@ -77,7 +79,8 @@ const Navigation = () => {
           >
             <Link href="/" passHref>
               <a className={styles.logo} role="navigation" aria-label="Homepage">
-                {isLarge ? 'JueunGraceYun' : 'JGY'}
+                <Circle className={styles.circle} />
+                LOGO
               </a>
             </Link>
             <button

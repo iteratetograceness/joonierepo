@@ -3,8 +3,6 @@ import classnames, {
   flexDirection,
   gap,
   gridAutoFlow,
-  gridColumn,
-  gridTemplateColumns,
   height,
   inset,
   position,

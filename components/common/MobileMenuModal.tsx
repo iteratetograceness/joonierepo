@@ -5,6 +5,7 @@ import { m, AnimatePresence } from 'framer-motion'
 import * as styles from './styles'
 import Link from 'next/link'
 import { LINKS } from '@constants'
+import Circle from '@components/svg/Circle'
 
 type Props = {
   closeModal: () => void
@@ -159,6 +160,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
                     tabIndex={isOpen ? 0 : -1}
                     className={styles.linkItem}
                   >
+                    <Circle className={styles.circle} />
                     {link.label}
                   </m.a>
                 </Link>

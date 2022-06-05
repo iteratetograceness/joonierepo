@@ -3,6 +3,5 @@ export const LINKS = [
   { label: 'About', path: '/about' },
   { label: 'Work', path: '/work' },
   { label: 'Blog', path: '/blog' },
-  // { label: 'Shop', path: '/shop' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'Shop', path: '/shop' },
 ]

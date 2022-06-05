@@ -10,13 +10,16 @@ export default class Notion {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private static convertBlocksToMarkdown(blocks: BlockObjectResponse[]): any {
-    const data = []
+    const data: unknown[] = []
+    console.log(data)
     const images = []
 
     for (const block of blocks) {
       switch (block.type) {
         case 'paragraph':
+          console.log(block.paragraph.rich_text)
           const paragraph = ''
+
           for (const text of block.paragraph.rich_text) {
             let markdown = ''
             if (text.href) markdown = `[${text.plain_text}](text.href)`
@@ -24,8 +27,9 @@ export default class Notion {
 
             if (text.bold) markdown = '**' + markdown + '**'
             if (text.italic) markdown = '*' + markdown + '*'
-            if (text.strikethrough)
+            if (text.strikethrough) markdown = '~~' + markdown + '~~'
           }
+          console.log(paragraph)
           break
         case 'heading_3':
           console.log(block.heading_3.rich_text)
@@ -143,6 +147,7 @@ export default class Notion {
       const pageInfo = res.results[0]
       const page = await this.client.blocks.children.list({ block_id: pageInfo.id })
       const blocks = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
+      console.log(blocks)
       return Notion.convertPageToPostPreview(pageInfo)
     }
   }

@@ -29,6 +29,8 @@ import {
   fontStyle,
   screenReaders,
   borderRadius,
+  content,
+  TTailwindString,
 } from 'tailwindcss-classnames'
 
 /**
@@ -88,16 +90,35 @@ const navigation = classnames(
   justifyContent('justify-between'),
   width('w-full'),
   margin('mb-16'),
-  fontSize('text-3xl', 'md:text-4xl'),
+  fontSize('text-4xl'),
   fontFamily('font-sans')
 )
 
 export const linkItem = classnames(
   fontStyle('hover:italic', 'focus:italic', 'active:italic'),
-  textColor('hover:text-green', 'focus:text-green', 'active:text-green')
+  content(
+    "after:hover:content-['*']" as TTailwindString,
+    "after:focus:content-['*']" as TTailwindString,
+    "after:active:content-['*']" as TTailwindString
+  ),
+  position('after:absolute', 'relative'),
+  inset('after:top-[-15px]' as TTailwindString, 'after:right-[-10px]' as TTailwindString),
+  fontSize('after:text-3xl'),
+  fontWeight('after:font-normal')
 )
 
-export const mobileButton = classnames(fontStyle('hover:italic', 'focus:italic'), textColor('hover:text-green'))
+export const mobileButton = classnames(
+  fontStyle('hover:italic', 'focus:italic'),
+  fontSize('after:text-3xl'),
+  fontWeight('after:font-normal'),
+  content(
+    "after:hover:content-['*']" as TTailwindString,
+    "after:focus:content-['*']" as TTailwindString,
+    "after:active:content-['*']" as TTailwindString
+  ),
+  position('after:absolute', 'relative'),
+  inset('after:top-[-20px]' as TTailwindString, 'after:right-[-10px]' as TTailwindString)
+)
 
 export const underline = (isDarkMode: boolean) =>
   classnames(
@@ -150,6 +171,12 @@ export const mobileLinkItem = (isDarkMode: boolean) =>
       ['border-black']: isDarkMode,
       ['border-white']: !isDarkMode,
     }),
-    padding('p-5'),
+    padding('p-9'),
     width('w-screen')
   )
+
+export const circle = classnames(
+  position('absolute'),
+  width('w-40'),
+  inset('top-[-25px]' as TTailwindString, 'left-[-30px]' as TTailwindString)
+)
