@@ -27,11 +27,12 @@ const Circle = ({ className }: Props) => {
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
+      preserveAspectRatio="none"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit="10"
       clipRule="evenodd"
-      viewBox="230 50 1000 700"
+      viewBox="200 100 1000 700"
       initial={false}
       transform="rotate(10)"
       animate={isHovered ? 'visible' : 'hidden'}
