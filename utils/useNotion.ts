@@ -10,43 +10,84 @@ export default class Notion {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private static convertBlocksToMarkdown(blocks: BlockObjectResponse[]): any {
-    const data: unknown[] = []
-    console.log(data)
+    let data = ''
     const images = []
 
     for (const block of blocks) {
       switch (block.type) {
         case 'paragraph':
-          console.log(block.paragraph.rich_text)
-          const paragraph = ''
-
+          let paragraph = ''
+          let chunks = ''
           for (const text of block.paragraph.rich_text) {
+            if (text.href) chunks = `[${text.plain_text}](${text.href})`
+            else chunks = text.plain_text
+
+            if (text.bold) chunks = '**' + chunks + '**'
+            if (text.italic) chunks = '*' + chunks + '*'
+            if (text.strikethrough) chunks = '~~' + chunks + '~~'
+            if (text.code) chunks += '`' + chunks + '`'
+
+            paragraph += chunks
+          }
+          data += paragraph
+          break
+        // add heading 1 and 2
+        case 'heading_3':
+          const text = block.heading_3.rich_text[0]
+          let headingThree = ''
+
+          if (text.href) headingThree = `[${text.plain_text}](${text.href})`
+          else headingThree = text.plain_text
+
+          if (text.bold) headingThree = '**' + headingThree + '**'
+          if (text.italic) headingThree = '*' + headingThree + '*'
+          if (text.strikethrough) headingThree = '~~' + headingThree + '~~'
+          if (text.code) headingThree += '`' + headingThree + '`'
+
+          data += headingThree
+          break
+        case 'image':
+          console.log(block.image)
+          if ('file' in block.image) images.push(block.image.file.url)
+          break
+        case 'bulleted_list_item':
+          let listItem = ''
+          for (const text of block.bulleted_list_item.rich_text) {
             let markdown = ''
-            if (text.href) markdown = `[${text.plain_text}](text.href)`
+            if (text.href) markdown = `[${text.plain_text}](${text.href})`
             else markdown = text.plain_text
 
             if (text.bold) markdown = '**' + markdown + '**'
             if (text.italic) markdown = '*' + markdown + '*'
             if (text.strikethrough) markdown = '~~' + markdown + '~~'
+            if (text.code) markdown += '`' + markdown + '`'
+
+            listItem += '* ' + markdown
           }
-          console.log(paragraph)
-          break
-        case 'heading_3':
-          console.log(block.heading_3.rich_text)
-          break
-        case 'image':
-          if ('file' in block.image) images.push(block.image.file.url)
-          break
-        case 'bulleted_list_item':
-          console.log(block.bulleted_list_item.rich_text)
+          data += listItem
           break
         case 'to_do':
-          console.log(block.to_do.rich_text)
+          let todo = ''
+          for (const text of block.to_do.rich_text) {
+            let markdown = ''
+            if (text.href) markdown = `[${text.plain_text}](${text.href})`
+            else markdown = text.plain_text
+
+            if (text.bold) markdown = '**' + markdown + '**'
+            if (text.italic) markdown = '*' + markdown + '*'
+            if (text.strikethrough) markdown = '~~' + markdown + '~~'
+            if (text.code) markdown += '`' + markdown + '`'
+
+            todo += markdown
+          }
+          data += '[] ' + todo
           break
         default:
-          return
+          throw Error('Invalid block type.')
       }
     }
+
+    return { data, images }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -117,7 +158,10 @@ export default class Notion {
   }
 
   // stronger typing for return obh
-  async getPage(slug: string, table: string): Promise<unknown> {
+  async getPage(
+    slug: string,
+    table: string
+  ): Promise<{ markdown: string; images: string[]; pageInfo: NotionPage } | undefined> {
     let database_id
 
     switch (table) {
@@ -144,11 +188,11 @@ export default class Notion {
 
       if (!res.results[0]) throw `Entry with slug ${slug} not found.`
 
-      const pageInfo = res.results[0]
-      const page = await this.client.blocks.children.list({ block_id: pageInfo.id })
-      const blocks = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
-      console.log(blocks)
-      return Notion.convertPageToPostPreview(pageInfo)
+      const results = res.results[0]
+      const page = await this.client.blocks.children.list({ block_id: results.id })
+      const { data, images } = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[]) || ''
+      const pageInfo = Notion.convertPageToPostPreview(results) || {}
+      return { markdown: data, images, pageInfo }
     }
   }
 }

@@ -8,13 +8,15 @@ interface IParams extends ParsedUrlQuery {
 }
 
 type Props = {
-  post: NotionPage
+  pageInfo: NotionPage
+  images: string[]
+  markdown: string
 }
 
-const ProjectPage = ({ post }: Props) => {
+const ProjectPage = ({ pageInfo, images, markdown }: Props) => {
   return (
     <>
-      <Project work={post} />
+      <Project pageInfo={pageInfo} images={images} markdown={markdown} />
     </>
   )
 }
@@ -24,13 +26,17 @@ export default ProjectPage
 export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as IParams
   const db = new Notion()
-  const post = await db.getPage(slug, 'work')
+  const results = await db.getPage(slug, 'work')
 
-  if (!post) throw 'No post found.'
+  if (!results) throw 'No post found.'
+
+  console.log(results.images)
 
   return {
     props: {
-      post,
+      images: results.images,
+      markdown: results.markdown,
+      pageInfo: results.pageInfo,
     },
   }
 }

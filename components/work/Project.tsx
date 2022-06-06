@@ -4,34 +4,25 @@ import * as styles from './styles'
 import Image from 'next/image'
 
 type Props = {
-  work: NotionPage
+  pageInfo: NotionPage
+  images: string[]
+  markdown: string
 }
 
-const Project = ({ work }: Props) => {
+const Project = ({ pageInfo, images, markdown }: Props) => {
+  console.log(markdown)
   return (
     <section role="article" className={styles.article}>
-      <BigHeading title={work.title} subtitle={work.description} className={styles.heading} />
+      <BigHeading title={pageInfo.title} subtitle={pageInfo.description} className={styles.heading} />
       <div className={styles.imageContainer}>
-        <div className={styles.leftImage}>
-          <Image
-            alt={`Main image for ${work.title}`}
-            src={work.cover}
-            width={700}
-            height={375}
-            layout="responsive"
-            priority
-          />
-        </div>
-        <div className={styles.rightImage}>
-          <Image
-            alt={`Main image for ${work.title}`}
-            src={work.cover}
-            width={700}
-            height={375}
-            layout="responsive"
-            priority
-          />
-        </div>
+        <Image
+          alt={`Main image for ${pageInfo.title}`}
+          src={images[0]}
+          width={1640}
+          height={664}
+          layout="responsive"
+          priority
+        />
       </div>
     </section>
   )
