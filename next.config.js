@@ -36,7 +36,7 @@ const nextConfig = {
             'form-action': "'self'",
             'frame-ancestors': "'none'",
             'frame-src': "'none'",
-            'img-src': "'self'",
+            'img-src': "'self' data:",
             'manifest-src': "'self'",
             'media-src': "'self'",
             'object-src': "'none'",

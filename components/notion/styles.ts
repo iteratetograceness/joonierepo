@@ -4,7 +4,7 @@ import classnames, { fontSize, textAlign, fontWeight, margin } from 'tailwindcss
  * Big Heading
  */
 
-export const title = classnames(fontSize('text-5xl'), textAlign('text-center'), fontWeight('font-normal'))
+export const title = classnames(fontSize('text-5xl', 'md:text-7xl'), textAlign('text-center'), fontWeight('font-normal'))
 
 export const subtitle = classnames(
   fontWeight('font-thin'),

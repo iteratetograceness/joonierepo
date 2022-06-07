@@ -12,6 +12,7 @@ export default class Notion {
   private static convertBlocksToMarkdown(blocks: BlockObjectResponse[]): any {
     let data = ''
     const images = []
+    const captions = []
 
     for (const block of blocks) {
       switch (block.type) {
@@ -47,8 +48,11 @@ export default class Notion {
           data += headingThree
           break
         case 'image':
-          console.log(block.image)
-          if ('file' in block.image) images.push(block.image.file.url)
+          if ('file' in block.image) {
+            const caption = block.image.caption[0].plain_text ? block.image.caption[0].plain_text : ''
+            captions.push(caption)
+            images.push(block.image.file.url)
+          }
           break
         case 'bulleted_list_item':
           let listItem = ''
@@ -87,7 +91,7 @@ export default class Notion {
       }
     }
 
-    return { data, images }
+    return { data, images, captions }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -161,7 +165,7 @@ export default class Notion {
   async getPage(
     slug: string,
     table: string
-  ): Promise<{ markdown: string; images: string[]; pageInfo: NotionPage } | undefined> {
+  ): Promise<{ markdown: string; images: string[]; captions: string[]; pageInfo: NotionPage } | undefined> {
     let database_id
 
     switch (table) {
@@ -190,9 +194,9 @@ export default class Notion {
 
       const results = res.results[0]
       const page = await this.client.blocks.children.list({ block_id: results.id })
-      const { data, images } = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[]) || ''
+      const { data, images, captions } = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[]) || ''
       const pageInfo = Notion.convertPageToPostPreview(results) || {}
-      return { markdown: data, images, pageInfo }
+      return { markdown: data, images, captions, pageInfo }
     }
   }
 }

@@ -3,20 +3,22 @@ import { GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Project } from '@components/work'
 import { NotionPage } from '@customtypes/notion'
+import { getPlaiceholder } from 'plaiceholder'
 interface IParams extends ParsedUrlQuery {
   slug: string
 }
 
 type Props = {
   pageInfo: NotionPage
-  images: string[]
+  images: [{ src: string; width: number; height: number; type: string; caption: string[] }, string][]
+  captions: string[]
   markdown: string
 }
 
-const ProjectPage = ({ pageInfo, images, markdown }: Props) => {
+const ProjectPage = ({ pageInfo, images, captions, markdown }: Props) => {
   return (
     <>
-      <Project pageInfo={pageInfo} images={images} markdown={markdown} />
+      <Project pageInfo={pageInfo} images={images} captions={captions} markdown={markdown} />
     </>
   )
 }
@@ -27,14 +29,21 @@ export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as IParams
   const db = new Notion()
   const results = await db.getPage(slug, 'work')
+  const images = []
 
   if (!results) throw 'No post found.'
 
-  console.log(results.images)
+  for (const image of results.images) {
+    const { base64, img } = await getPlaiceholder(image, { size: 10 })
+    images.push([img, base64])
+  }
+
+  console.log(results.captions)
 
   return {
     props: {
-      images: results.images,
+      images,
+      captions: results.captions,
       markdown: results.markdown,
       pageInfo: results.pageInfo,
     },

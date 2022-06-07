@@ -5,23 +5,25 @@ import Image from 'next/image'
 
 type Props = {
   pageInfo: NotionPage
-  images: string[]
+  images: [{ src: string; width: number; height: number; type: string }, string][]
+  captions: string[]
   markdown: string
 }
 
-const Project = ({ pageInfo, images, markdown }: Props) => {
-  console.log(markdown)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Project = ({ pageInfo, images, captions, markdown }: Props) => {
   return (
     <section role="article" className={styles.article}>
       <BigHeading title={pageInfo.title} subtitle={pageInfo.description} className={styles.heading} />
       <div className={styles.imageContainer}>
         <Image
-          alt={`Main image for ${pageInfo.title}`}
-          src={images[0]}
-          width={1640}
-          height={664}
+          alt={captions[0]}
+          src={images[0][0]['src']}
+          width={images[0][0]['width']}
+          height={images[0][0]['height']}
           layout="responsive"
-          priority
+          placeholder="blur"
+          blurDataURL={images[0][1]}
         />
       </div>
     </section>
