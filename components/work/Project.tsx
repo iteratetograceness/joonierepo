@@ -5,7 +5,6 @@ import * as styles from './styles'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import Tags from '@components/notion/Tags'
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 
 type Props = {
   pageInfo: NotionPage
