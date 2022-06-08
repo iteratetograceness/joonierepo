@@ -38,8 +38,6 @@ export const getStaticProps: GetStaticProps = async context => {
     images.push([img, base64])
   }
 
-  console.log(results.captions)
-
   return {
     props: {
       images,

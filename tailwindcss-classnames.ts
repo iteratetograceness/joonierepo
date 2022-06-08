@@ -152,6 +152,11 @@ export type TBorderColor =
   | 'border-r-green'
   | 'border-b-green'
   | 'border-l-green'
+  | 'border-inherit'
+  | 'border-t-inherit'
+  | 'border-r-inherit'
+  | 'border-b-inherit'
+  | 'border-l-inherit'
 
 export type TBorderOpacity =
   | 'border-opacity-0'
@@ -261,6 +266,13 @@ export type TBorderWidth =
   | 'border-x-0'
   | 'border-y-0'
   | 'border-0'
+  | 'border-t-1'
+  | 'border-r-1'
+  | 'border-b-1'
+  | 'border-l-1'
+  | 'border-x-1'
+  | 'border-y-1'
+  | 'border-1'
   | 'border-t-2'
   | 'border-r-2'
   | 'border-b-2'
@@ -294,6 +306,7 @@ export type TDivideColor =
   | 'divide-black'
   | 'divide-white'
   | 'divide-green'
+  | 'divide-inherit'
 
 export type TDivideOpacity =
   | 'divide-opacity-0'
@@ -315,6 +328,8 @@ export type TDivideOpacity =
 export type TDivideWidth =
   | 'divide-x-0'
   | 'divide-y-0'
+  | 'divide-x-1'
+  | 'divide-y-1'
   | 'divide-x-2'
   | 'divide-y-2'
   | 'divide-x-4'

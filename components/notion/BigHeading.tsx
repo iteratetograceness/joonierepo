@@ -9,8 +9,8 @@ type Props = {
 const BigHeading = ({ title, subtitle, className }: Props) => {
   return (
     <div className={styles.titleContainer}>
-      {subtitle ? <h3 className={styles.subtitle}>{subtitle.toUpperCase()}</h3> : null}
-      <h2 className={styles.title + ' ' + className}>{title.toUpperCase()}</h2>
+      <h1 className={styles.title + ' ' + className}>{title.toUpperCase()}</h1>
+      {subtitle ? <h2 className={styles.subtitle}>{subtitle.toUpperCase()}</h2> : null}
     </div>
   )
 }

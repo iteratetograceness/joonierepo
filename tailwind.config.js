@@ -31,6 +31,12 @@ module.exports = {
       content: {
         star: '^',
       },
+      borderColor: {
+        inherit: 'inherit',
+      },
+      borderWidth: {
+        1: '1px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

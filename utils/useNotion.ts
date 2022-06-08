@@ -48,10 +48,10 @@ export default class Notion {
           data += headingThree
           break
         case 'image':
-          if ('file' in block.image) {
+          if ('external' in block.image) {
             const caption = block.image.caption[0].plain_text ? block.image.caption[0].plain_text : ''
             captions.push(caption)
-            images.push(block.image.file.url)
+            images.push(block.image.external.url)
           }
           break
         case 'bulleted_list_item':
@@ -99,9 +99,6 @@ export default class Notion {
     let cover = page.cover || ''
 
     switch (cover.type) {
-      case 'file':
-        cover = page.cover.file.url
-        break
       case 'external':
         cover = page.cover.external.url
         break
