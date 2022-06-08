@@ -23,14 +23,14 @@ export default class Notion {
             if (text.href) chunks = `[${text.plain_text}](${text.href})`
             else chunks = text.plain_text
 
-            if (text.bold) chunks = '**' + chunks + '**'
-            if (text.italic) chunks = '*' + chunks + '*'
-            if (text.strikethrough) chunks = '~~' + chunks + '~~'
-            if (text.code) chunks += '`' + chunks + '`'
+            if (text.annotations.bold) chunks = '**' + chunks + '**'
+            if (text.annotations.italic) chunks = '*' + chunks + '*'
+            if (text.annotations.strikethrough) chunks = '~~' + chunks + '~~'
+            if (text.annotations.code) chunks += '<code>' + chunks + '</code>'
 
             paragraph += chunks
           }
-          data += paragraph
+          data += '\n' + paragraph + '\n'
           break
         // add heading 1 and 2
         case 'heading_3':
@@ -40,12 +40,12 @@ export default class Notion {
           if (text.href) headingThree = `[${text.plain_text}](${text.href})`
           else headingThree = text.plain_text
 
-          if (text.bold) headingThree = '**' + headingThree + '**'
-          if (text.italic) headingThree = '*' + headingThree + '*'
-          if (text.strikethrough) headingThree = '~~' + headingThree + '~~'
-          if (text.code) headingThree += '`' + headingThree + '`'
+          if (text.annotations.bold) headingThree = '**' + headingThree + '**'
+          if (text.annotations.italic) headingThree = '*' + headingThree + '*'
+          if (text.annotations.strikethrough) headingThree = '~~' + headingThree + '~~'
+          if (text.annotations.code) headingThree += '<code>' + headingThree + '</code>'
 
-          data += headingThree
+          data += '\n' + '### ' + headingThree + '\n'
           break
         case 'image':
           if ('external' in block.image) {
@@ -61,14 +61,15 @@ export default class Notion {
             if (text.href) markdown = `[${text.plain_text}](${text.href})`
             else markdown = text.plain_text
 
-            if (text.bold) markdown = '**' + markdown + '**'
-            if (text.italic) markdown = '*' + markdown + '*'
-            if (text.strikethrough) markdown = '~~' + markdown + '~~'
-            if (text.code) markdown += '`' + markdown + '`'
+            if (text.annotations.bold) markdown = '**' + markdown + '**'
+            if (text.annotations.italic) markdown = '*' + markdown + '*'
+            if (text.annotations.strikethrough) markdown = '~~' + markdown + '~~'
+            if (text.annotations.code) markdown = '`' + markdown + '`'
 
-            listItem += '* ' + markdown
+            listItem += markdown
           }
-          data += listItem
+
+          data += '\n* ' + listItem + '\n'
           break
         case 'to_do':
           let todo = ''
@@ -77,14 +78,14 @@ export default class Notion {
             if (text.href) markdown = `[${text.plain_text}](${text.href})`
             else markdown = text.plain_text
 
-            if (text.bold) markdown = '**' + markdown + '**'
-            if (text.italic) markdown = '*' + markdown + '*'
-            if (text.strikethrough) markdown = '~~' + markdown + '~~'
-            if (text.code) markdown += '`' + markdown + '`'
+            if (text.annotations.bold) markdown = '**' + markdown + '**'
+            if (text.annotations.italic) markdown = '*' + markdown + '*'
+            if (text.annotations.strikethrough) markdown = '~~' + markdown + '~~'
+            if (text.annotations.code) markdown += '<code>' + markdown + '</code>'
 
             todo += markdown
           }
-          data += '[] ' + todo
+          data += '\n' + '[] ' + todo + '\n'
           break
         default:
           throw Error('Invalid block type.')

@@ -18,7 +18,7 @@ const Tags = ({ tags }: Props) => {
   }
 
   return (
-    <ul className={styles.tagContainer}>
+    <ul className={styles.tagContainer} aria-label="Project tags">
       {tags.map(tag => {
         const href = '/work/tags/' + tag.name
         return (
