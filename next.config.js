@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const nextSafe = require('next-safe')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const isDev = process.env.NODE_ENV !== 'production'
 
@@ -64,4 +67,4 @@ const nextConfig = {
   // },
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)
