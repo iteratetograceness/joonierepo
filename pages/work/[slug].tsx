@@ -2,23 +2,22 @@ import Notion from '@utils/useNotion'
 import { GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Project } from '@components/work'
-import { NotionPage } from '@customtypes/notion'
-import { getPlaiceholder } from 'plaiceholder'
+import { NotionPage, Image } from '@customtypes/notion'
+import formatImages from '@utils/formatImages'
 interface IParams extends ParsedUrlQuery {
   slug: string
 }
 
 type Props = {
   pageInfo: NotionPage
-  images: [{ src: string; width: number; height: number; type: string; caption: string[] }, string][]
-  captions: string[]
+  images: { image: Image; base64: string; caption: string }[]
   markdown: string
 }
 
-const ProjectPage = ({ pageInfo, images, captions, markdown }: Props) => {
+const ProjectPage = ({ pageInfo, images, markdown }: Props) => {
   return (
     <>
-      <Project pageInfo={pageInfo} images={images} captions={captions} markdown={markdown} />
+      <Project pageInfo={pageInfo} images={images} markdown={markdown} />
     </>
   )
 }
@@ -28,31 +27,32 @@ export default ProjectPage
 export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as IParams
   const db = new Notion()
-  const results = await db.getPage(slug, 'work')
-  const images = []
 
-  if (!results) throw 'No post found.'
+  try {
+    const results = await db.getPage(slug, 'work')
 
-  for (const image of results.images) {
-    const { base64, img } = await getPlaiceholder(image, { size: 10 })
-    images.push([img, base64])
-  }
+    if (!results) throw 'No post found.'
 
-  return {
-    props: {
-      images,
-      captions: results.captions,
-      markdown: results.markdown,
-      pageInfo: results.pageInfo,
-    },
+    const images = await Promise.all(results.images.map(image => formatImages(image)))
+
+    return {
+      props: {
+        images,
+        markdown: results.markdown,
+        pageInfo: results.pageInfo,
+      },
+    }
+  } catch (err) {
+    return { notFound: true }
   }
 }
 
 export async function getStaticPaths() {
   const db = new Notion()
+
   const posts = await db.getAllPages('work')
 
-  if (!posts) throw 'No posts found.'
+  if (!posts) throw '>> No paths found while generating static paths for /work/[slug].'
 
   const paths = posts.map(post => ({
     params: { slug: post.slug },
