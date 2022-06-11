@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import * as styles from './styles'
 
 type Props = {
@@ -5,11 +6,17 @@ type Props = {
 }
 
 const StatusCode = ({ statusCode }: Props) => {
+  const status = statusCode ? statusCode : 'OOF'
+
   return (
     <div className={styles.errorContainer}>
-      {statusCode ? <h1 className={styles.statusCode}>{statusCode}</h1> : <p>f</p>}
-      <div className={styles.oval}>
+      <Link passHref href="/">
+        <a className={styles.homeLink}>RETURN TO HOME</a>
+      </Link>
+      <div className={'noselect ' + styles.oval}>
         <h1 className={styles.statusMsg}>Oh drats — we bumped into a issue!</h1>
+        {statusCode ? <h1 className={styles.statusCodeTopRight}>{status}</h1> : <p>f</p>}
+        {statusCode ? <h1 className={'error-code ' + styles.statusCodeBottomLeft}>{status}</h1> : <p>f</p>}
       </div>
     </div>
   )

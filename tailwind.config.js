@@ -20,9 +20,19 @@ module.exports = {
     extend: {
       animation: {
         'spin-slow': 'spin 5s linear infinite',
+        'bounce-left': 'bounce-left 1s infinite',
+      },
+      keyframes: {
+        'bounce-left': {
+          '0%, 100%': { transform: 'translateX(-3%)', 'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)' },
+          '50%': { transform: 'translateX(5%)', 'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)' },
+        },
       },
       width: {
         'sans-padding': 'calc(100% - 5rem)',
+      },
+      height: {
+        'sans-padding': 'calc(100vh - 16rem)',
       },
       inset: {
         26: '6.5rem',
@@ -36,6 +46,9 @@ module.exports = {
       },
       borderWidth: {
         1: '1px',
+      },
+      textColor: {
+        transparent: 'transparent',
       },
     },
   },

@@ -21,3 +21,10 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+@supports (-webkit-text-stroke: 1px white) {
+  .error-code {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+  }
+}
