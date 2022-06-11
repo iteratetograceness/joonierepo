@@ -42,11 +42,7 @@ export const statusCode = classnames(
 )
 
 export const statusCodeTopRight = classnames(statusCode, inset('top-0', 'left-26', 'md:left-32'))
-export const statusCodeBottomLeft = classnames(
-  statusCode,
-  inset('bottom-0', 'right-26', 'md:right-32'),
-  textColor('text-transparent')
-)
+export const statusCodeBottomLeft = classnames(statusCode, inset('bottom-0', 'right-26', 'md:right-32'))
 
 export const statusMsg = classnames(
   fontSize('sm:text-lg', 'md:text-xl'),

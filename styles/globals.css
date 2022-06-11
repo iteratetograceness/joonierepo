@@ -22,9 +22,9 @@ body {
   user-select: none;
 }
 
-@supports (-webkit-text-stroke: 1px white) {
+@supports (-webkit-text-stroke: 1px inherit) {
   .error-code {
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px inherit;
     -webkit-text-fill-color: transparent;
   }
 }

@@ -16,7 +16,7 @@ const StatusCode = ({ statusCode }: Props) => {
       <div className={'noselect ' + styles.oval}>
         <h1 className={styles.statusMsg}>Oh drats — we bumped into a issue!</h1>
         {statusCode ? <h1 className={styles.statusCodeTopRight}>{status}</h1> : <p>f</p>}
-        {statusCode ? <h1 className={'error-code ' + styles.statusCodeBottomLeft}>{status}</h1> : <p>f</p>}
+        {statusCode ? <h1 className={styles.statusCodeBottomLeft}>{status}</h1> : <p>f</p>}
       </div>
     </div>
   )
