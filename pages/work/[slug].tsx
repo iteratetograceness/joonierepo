@@ -1,4 +1,4 @@
-import Notion from '@custom-utils/useNotion'
+import notion from '@custom-utils/useNotion'
 import { GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Project } from '@components/work'
@@ -19,10 +19,9 @@ export default ProjectPage
 
 export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as IParams
-  const db = new Notion()
 
   try {
-    const results = await db.getPage(slug, 'work')
+    const results = await notion.getPage(slug, 'work')
 
     if (!results) throw 'No post found.'
 
@@ -38,9 +37,7 @@ export const getStaticProps: GetStaticProps = async context => {
 }
 
 export async function getStaticPaths() {
-  const db = new Notion()
-
-  const posts = await db.getAllPages('work')
+  const posts = await notion.getAllPages('work')
 
   if (!posts) throw '>> No paths found while generating static paths for /work/[slug].'
 

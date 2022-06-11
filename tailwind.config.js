@@ -33,7 +33,7 @@ module.exports = {
       },
       height: {
         'sans-padding': 'calc(100vh - 16rem)',
-        'mobile-screen': 'calc(100vh - 24rem)',
+        'mobile-screen': 'calc(100vh - 32rem)',
       },
       inset: {
         26: '6.5rem',

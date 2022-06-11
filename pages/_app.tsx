@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
 import { LazyMotion, domAnimation, MotionConfig, AnimatePresence } from 'framer-motion'
 import { MainLayout } from '@components/common'
@@ -16,6 +17,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const router = useRouter()
   const getLayout = Component.getLayout ?? (page => <MainLayout>{page}</MainLayout>)
 
   return (
@@ -27,7 +29,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <MotionConfig reducedMotion="user">
         <LazyMotion features={domAnimation}>
           <AnimatePresence exitBeforeEnter>
-            <ThemeProvider attribute="class">{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+            <ThemeProvider attribute="class">
+              {getLayout(<Component {...pageProps} key={router.asPath} />)}
+            </ThemeProvider>
           </AnimatePresence>
         </LazyMotion>
       </MotionConfig>

@@ -1,4 +1,4 @@
-import Notion from '@custom-utils/useNotion'
+import notion from '@custom-utils/useNotion'
 import { NotionPage } from '@custom-types/notion'
 import { GetStaticProps } from 'next'
 
@@ -19,8 +19,7 @@ const AllPosts = ({ posts }: Props) => {
 export default AllPosts
 
 export const getStaticProps: GetStaticProps = async () => {
-  const db = new Notion()
-  const posts = await db.getAllPages('blog')
+  const posts = await notion.getAllPages('blog')
 
   return {
     props: {

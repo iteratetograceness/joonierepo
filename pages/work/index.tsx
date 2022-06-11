@@ -1,5 +1,4 @@
-import { GetStaticProps } from 'next'
-import Notion from '@custom-utils/useNotion'
+import notion from '@custom-utils/useNotion'
 import { NotionPage } from '@custom-types/notion'
 
 type Props = {
@@ -12,9 +11,8 @@ const AllProjects = ({ projects }: Props) => {
 
 export default AllProjects
 
-export const getStaticProps: GetStaticProps = async () => {
-  const db = new Notion()
-  const projects = await db.getAllPages('work')
+export async function getStaticProps() {
+  const projects = await notion.getAllPages('work')
 
   return {
     props: {
