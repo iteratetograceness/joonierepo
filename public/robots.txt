@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://joonie.dev
-
-# Sitemaps
-Sitemap: https://joonie.dev/sitemap.xml

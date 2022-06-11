@@ -162,6 +162,7 @@ export const mobileMenu = (isDarkMode: boolean) =>
     width('w-screen'),
     height('h-screen')
   )
+
 export const mobileClose = classnames(alignSelf('self-end'), margin('mb-7'))
 export const mobileLinks = classnames(listStyleType('list-none'))
 export const mobileLinkItem = (isDarkMode: boolean) =>
