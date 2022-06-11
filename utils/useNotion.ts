@@ -109,17 +109,19 @@ export default class Notion {
           break
         case 'bulleted_list_item':
           const bullet = Notion.textToMarkdown(block.bulleted_list_item.rich_text)
-          data += Notion.addNewLine(`* ${bullet}`)
+          data += `* ${bullet} \n`
           break
         case 'to_do':
           const todo = Notion.textToMarkdown(block.to_do.rich_text)
-          if (block.to_do.checked) data += Notion.addNewLine(`[x] ${todo}`)
-          else data += Notion.addNewLine(`[ ] ${todo}`)
+          if (block.to_do.checked) data += Notion.addNewLine(`* [x] ${todo} \n`)
+          else data += `* [x] ${todo} \n`
           break
         default:
           throw Error('Invalid block type.')
       }
     }
+
+    markdown.push(data)
 
     return { markdown }
   }

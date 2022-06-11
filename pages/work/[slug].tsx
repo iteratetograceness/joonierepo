@@ -13,14 +13,7 @@ type Props = {
   markdown: (string | Image)[]
 }
 
-const ProjectPage = ({ pageInfo, markdown }: Props) => {
-  console.log(pageInfo)
-  return (
-    <>
-      <Project pageInfo={pageInfo} markdown={markdown} />
-    </>
-  )
-}
+const ProjectPage = ({ pageInfo, markdown }: Props) => <Project pageInfo={pageInfo} markdown={markdown} />
 
 export default ProjectPage
 
