@@ -9,17 +9,17 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      Object.assign(config.resolve.alias, {
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
-    }
+  // webpack: (config, { dev, isServer }) => {
+  //   if (!dev && !isServer) {
+  //     Object.assign(config.resolve.alias, {
+  //       react: 'preact/compat',
+  //       'react-dom/test-utils': 'preact/test-utils',
+  //       'react-dom': 'preact/compat',
+  //     })
+  //   }
 
-    return config
-  },
+  //   return config
+  // },
   swcMinify: true,
   images: {
     domains: ['snsyghebsujbdmfblkbw.supabase.co'],
