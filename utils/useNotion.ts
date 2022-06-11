@@ -8,7 +8,7 @@ import {
   RichTextItemResponse,
   GetPageResponse,
   Image,
-} from '@customtypes/notion'
+} from '@custom-types/notion'
 
 export default class Notion {
   client: Client

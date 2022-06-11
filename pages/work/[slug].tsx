@@ -1,8 +1,9 @@
-import Notion from '@utils/useNotion'
+import Notion from '@custom-utils/useNotion'
 import { GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Project } from '@components/work'
-import { NotionPage, Image } from '@customtypes/notion'
+import { NotionPage, Image } from '@custom-types/notion'
+
 interface IParams extends ParsedUrlQuery {
   slug: string
 }

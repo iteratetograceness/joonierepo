@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
-import Notion from '@utils/useNotion'
-import { NotionPage } from '@customtypes/notion'
+import Notion from '@custom-utils/useNotion'
+import { NotionPage } from '@custom-types/notion'
 
 type Props = {
   projects: NotionPage[]

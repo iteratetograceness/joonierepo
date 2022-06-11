@@ -1,5 +1,5 @@
-import Notion from '@utils/useNotion'
-import { NotionPage } from '@customtypes/notion'
+import Notion from '@custom-utils/useNotion'
+import { NotionPage } from '@custom-types/notion'
 import { GetStaticProps } from 'next'
 
 type Props = {

@@ -1,6 +1,6 @@
 import Navigation from './Navigation'
 import ThemeButton from './ThemeButton'
-// import { m } from 'framer-motion'
+import resizeHeight from '@custom-utils/resizeHeight'
 import * as styles from './styles'
 import { useEffect } from 'react'
 
@@ -10,14 +10,8 @@ type Props = {
 
 const MainLayout = ({ children }: Props) => {
   useEffect(() => {
-    const documentHeight = () => {
-      const doc = document.documentElement
-      doc.style.setProperty('--height', `${window.innerHeight}px`)
-    }
-
-    window.addEventListener('resize', documentHeight)
-
-    return () => window.removeEventListener('resize', documentHeight)
+    const resize = resizeHeight()
+    return resize
   }, [])
 
   return (

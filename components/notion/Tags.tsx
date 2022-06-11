@@ -1,4 +1,4 @@
-import { Tag } from '@customtypes/notion'
+import { Tag } from '@custom-types/notion'
 import Link from 'next/link'
 import { m } from 'framer-motion'
 import { useTheme } from 'next-themes'
