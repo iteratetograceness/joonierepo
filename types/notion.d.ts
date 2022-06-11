@@ -7,19 +7,18 @@ export type Tag = {
 export type NotionPage = {
   id: string
   slug: string
-  cover: string
+  cover: Image
   title: string
   tags: Tag[]
   description: string
   date: string
 }
 
-export type MarkdownAndImages = {
-  markdown: string
-  images: Images[]
+export type Markdown = {
+  markdown: (string | Image)[]
 }
 
-export type PageData = MarkdownAndImages & {
+export type PageData = Markdown & {
   pageInfo: NotionPage
 }
 

@@ -9,7 +9,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Inter', 'system-ui'],
-      mono: ['ui-monospace'],
+      mono: ['Source Code Pro', 'ui-monospace'],
     },
     fontWeight: {
       thin: 200,

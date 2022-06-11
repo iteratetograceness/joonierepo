@@ -10,14 +10,14 @@ interface IParams extends ParsedUrlQuery {
 
 type Props = {
   pageInfo: NotionPage
-  images: { image: Image; base64: string; caption: string }[]
-  markdown: string
+  markdown: (string | Image)[]
 }
 
-const ProjectPage = ({ pageInfo, images, markdown }: Props) => {
+const ProjectPage = ({ pageInfo, markdown }: Props) => {
+  console.log(pageInfo)
   return (
     <>
-      <Project pageInfo={pageInfo} images={images} markdown={markdown} />
+      <Project pageInfo={pageInfo} markdown={markdown} />
     </>
   )
 }
@@ -35,7 +35,6 @@ export const getStaticProps: GetStaticProps = async context => {
 
     return {
       props: {
-        images: results.images,
         markdown: results.markdown,
         pageInfo: results.pageInfo,
       },

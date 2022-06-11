@@ -3,7 +3,7 @@ import { getPlaiceholder } from 'plaiceholder'
 import {
   NotionPage,
   BlockObjectResponse,
-  MarkdownAndImages,
+  Markdown,
   PageData,
   RichTextItemResponse,
   GetPageResponse,
@@ -48,9 +48,9 @@ export default class Notion {
     return { image: img, base64, caption }
   }
 
-  private static async convertBlocksToMarkdown(blocks: BlockObjectResponse[]): Promise<MarkdownAndImages> {
+  private static async convertBlocksToMarkdown(blocks: BlockObjectResponse[]): Promise<Markdown> {
+    const markdown = []
     let data = ''
-    const images = []
 
     // Other cases: audio, bookmark, breadcrumb, child_database, child_page, column, column_list
     // divider, link_preview, link_to_page, synced_block, table, table_of_contents, table_row
@@ -94,10 +94,12 @@ export default class Notion {
           const caption = block.image.caption[0].plain_text ? block.image.caption[0].plain_text : ''
           if ('external' in block.image) {
             const image = await Notion.formatImage(block.image.external.url, caption)
-            images.push(image)
+            markdown.push(data, image)
+            data = ''
           } else {
             const image = await Notion.formatImage(block.image.file.url, caption)
-            images.push(image)
+            markdown.push(data, image)
+            data = ''
           }
           break
         case 'callout':
@@ -119,19 +121,19 @@ export default class Notion {
       }
     }
 
-    return { markdown: data, images }
+    return { markdown }
   }
 
-  private static convertPageToPostPreview(page: GetPageResponse): NotionPage {
-    let cover = ''
+  private static async convertPageToPostPreview(page: GetPageResponse): Promise<NotionPage> {
+    let cover
 
     if (page.cover) {
       switch (page.cover.type) {
         case 'file':
-          cover = page.cover.file.url
+          cover = await Notion.formatImage(page.cover.file.url, '')
           break
         case 'external':
-          cover = page.cover.external.url
+          cover = await Notion.formatImage(page.cover.external.url, '')
           break
         default:
           // TODO: Add a default cover
@@ -143,7 +145,7 @@ export default class Notion {
 
     return {
       id: page.id,
-      cover: cover,
+      cover: cover as Image,
       title: 'title' in page.properties.Title ? page.properties.Title.title[0].plain_text : 'Untitled',
       tags: 'multi_select' in page.properties.Tags ? page.properties.Tags.multi_select : [],
       description:
@@ -189,7 +191,11 @@ export default class Notion {
             },
           ],
         })
-        return res.results.map(proj => Notion.convertPageToPostPreview(proj as GetPageResponse))
+        return Promise.all(
+          res.results.map(async proj => {
+            return await Notion.convertPageToPostPreview(proj as GetPageResponse)
+          })
+        )
       } catch (err) {
         console.error('>> Issue while getting pages.', err)
       }
@@ -226,9 +232,9 @@ export default class Notion {
 
         const results = res.results[0]
         const page = await this.client.blocks.children.list({ block_id: results.id })
-        const { markdown, images } = await Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
-        const pageInfo = Notion.convertPageToPostPreview(results as GetPageResponse)
-        return { markdown, images, pageInfo }
+        const { markdown } = await Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
+        const pageInfo = await Notion.convertPageToPostPreview(results as GetPageResponse)
+        return { markdown, pageInfo }
       } catch (err) {
         console.error('>> Issue while getting page.', err)
       }
