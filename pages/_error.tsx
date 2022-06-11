@@ -1,12 +1,11 @@
 import { NextApiResponse } from 'next'
+import { StatusCode } from '@components/error'
 
 type ErrorProps = {
   statusCode: number
 }
 
-function Error({ statusCode }: ErrorProps) {
-  return <p>{statusCode ? `An error ${statusCode} occurred on server` : 'An error occurred on client'}</p>
-}
+const Error = ({ statusCode }: ErrorProps) => <StatusCode statusCode={statusCode} />
 
 type ErrorInitialProps = {
   res: NextApiResponse
