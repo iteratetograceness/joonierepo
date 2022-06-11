@@ -16,7 +16,7 @@ export type NotionPage = {
 
 export type MarkdownAndImages = {
   markdown: string
-  images: string[][]
+  images: Images[]
 }
 
 export type PageData = MarkdownAndImages & {
@@ -24,10 +24,9 @@ export type PageData = MarkdownAndImages & {
 }
 
 export type Image = {
-  height: number
-  width: number
-  type?: string
-  src: string
+  image: ILoadImageImg
+  caption: string
+  base64: string
 }
 
 export type BlockObjectResponse =

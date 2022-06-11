@@ -8,7 +8,7 @@ import Tags from '@components/notion/Tags'
 
 type Props = {
   pageInfo: NotionPage
-  images: { image: ImageType; base64: string; caption: string }[]
+  images: ImageType[]
   markdown: string
 }
 

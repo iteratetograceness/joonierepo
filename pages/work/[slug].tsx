@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Project } from '@components/work'
 import { NotionPage, Image } from '@customtypes/notion'
-import formatImages from '@utils/formatImages'
 interface IParams extends ParsedUrlQuery {
   slug: string
 }
@@ -33,11 +32,9 @@ export const getStaticProps: GetStaticProps = async context => {
 
     if (!results) throw 'No post found.'
 
-    const images = await Promise.all(results.images.map(image => formatImages(image)))
-
     return {
       props: {
-        images,
+        images: results.images,
         markdown: results.markdown,
         pageInfo: results.pageInfo,
       },

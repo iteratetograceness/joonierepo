@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client'
+import { getPlaiceholder } from 'plaiceholder'
 import {
   NotionPage,
   BlockObjectResponse,
@@ -6,6 +7,7 @@ import {
   PageData,
   RichTextItemResponse,
   GetPageResponse,
+  Image,
 } from '@customtypes/notion'
 
 export default class Notion {
@@ -41,7 +43,12 @@ export default class Notion {
     return markdown
   }
 
-  private static convertBlocksToMarkdown(blocks: BlockObjectResponse[]): MarkdownAndImages {
+  private static formatImage = async (url: string, caption: string): Promise<Image> => {
+    const { base64, img } = await getPlaiceholder(url, { size: 7 })
+    return { image: img, base64, caption }
+  }
+
+  private static async convertBlocksToMarkdown(blocks: BlockObjectResponse[]): Promise<MarkdownAndImages> {
     let data = ''
     const images = []
 
@@ -86,9 +93,11 @@ export default class Notion {
         case 'image':
           const caption = block.image.caption[0].plain_text ? block.image.caption[0].plain_text : ''
           if ('external' in block.image) {
-            images.push([block.image.external.url, caption])
+            const image = await Notion.formatImage(block.image.external.url, caption)
+            images.push(image)
           } else {
-            images.push([block.image.file.url, caption])
+            const image = await Notion.formatImage(block.image.file.url, caption)
+            images.push(image)
           }
           break
         case 'callout':
@@ -217,7 +226,7 @@ export default class Notion {
 
         const results = res.results[0]
         const page = await this.client.blocks.children.list({ block_id: results.id })
-        const { markdown, images } = Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
+        const { markdown, images } = await Notion.convertBlocksToMarkdown(page.results as BlockObjectResponse[])
         const pageInfo = Notion.convertPageToPostPreview(results as GetPageResponse)
         return { markdown, images, pageInfo }
       } catch (err) {
