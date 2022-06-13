@@ -22,11 +22,11 @@ body {
   user-select: none;
 }
 
-#mobile-links {
+#mobile-menu {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-#mobile-links::-webkit-scrollbar {
+#mobile-menu::-webkit-scrollbar {
   display: none;
 }

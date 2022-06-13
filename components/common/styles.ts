@@ -161,11 +161,12 @@ export const mobileMenu = (isDarkMode: boolean) =>
       ['text-white']: !isDarkMode,
     }),
     width('w-screen'),
-    height('h-screen')
+    height('h-screen'),
+    overflow('overflow-y-scroll')
   )
 
 export const mobileClose = classnames(alignSelf('self-end'), margin('mb-7'))
-export const mobileLinks = classnames(listStyleType('list-none'), overflow('overflow-y-scroll'))
+export const mobileLinks = classnames(listStyleType('list-none'))
 export const mobileLinkItem = (isDarkMode: boolean) =>
   classnames(
     borderWidth('border-b'),
@@ -173,7 +174,7 @@ export const mobileLinkItem = (isDarkMode: boolean) =>
       ['border-black']: isDarkMode,
       ['border-white']: !isDarkMode,
     }),
-    padding('p-9'),
+    padding('p-7'),
     width('w-screen')
   )
 

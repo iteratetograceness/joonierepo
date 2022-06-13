@@ -125,6 +125,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
     <AnimatePresence>
       {isOpen && (
         <m.dialog
+          id="mobile-menu"
           ref={modalRef}
           key="mobile-menu"
           className={styles.mobileMenu(theme === 'dark')}
@@ -147,14 +148,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
           >
             X
           </m.button>
-          <m.div
-            id="mobile-links"
-            className={styles.mobileLinks}
-            variants={innerModal}
-            initial="closed"
-            animate="open"
-            exit="closed"
-          >
+          <m.div className={styles.mobileLinks} variants={innerModal} initial="closed" animate="open" exit="closed">
             {LINKS.map(link => (
               <m.li key={link.path} className={styles.mobileLinkItem(theme === 'dark')} variants={modalItem}>
                 <Link href={link.path} passHref>
