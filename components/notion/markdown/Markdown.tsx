@@ -14,7 +14,7 @@ type Props = {
 
 const COMPONENTS = {
   code: Code,
-  p: ({ children }: ReactMarkdownProps) => <p className={styles.p}>{children}</p>,
+  p: ({ children }: ReactMarkdownProps) => <p className={styles.text}>{children}</p>,
   h1: H1,
   h2: H2,
   h3: H3,
@@ -26,27 +26,28 @@ const COMPONENTS = {
 
 const Markdown = ({ md }: Props) => (
   <div className={styles.markdown}>
-    {md.map(chunk => {
-      if (typeof chunk === 'string')
+    {md.map((chunk, i) => {
+      if (typeof chunk !== 'object')
         return (
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={COMPONENTS}>
+          <ReactMarkdown key={i} remarkPlugins={[remarkGfm]} components={COMPONENTS}>
             {chunk}
           </ReactMarkdown>
         )
-      return (
-        <Image
-          key={chunk.image.src}
-          alt={chunk.caption}
-          src={chunk.image.src}
-          width={chunk.image.width}
-          height={chunk.image.height}
-          // layout="responsive"
-          placeholder="blur"
-          blurDataURL={chunk.base64}
-          className={styles.image}
-          objectFit="contain"
-        />
-      )
+      else
+        return (
+          <Image
+            key={chunk.image.src}
+            alt={chunk.caption}
+            src={chunk.image.src}
+            width={chunk.image.width}
+            height={chunk.image.height}
+            layout="responsive"
+            placeholder="blur"
+            blurDataURL={chunk.base64}
+            className={styles.image}
+            objectFit="contain"
+          />
+        )
     })}
   </div>
 )

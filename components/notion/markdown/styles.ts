@@ -20,7 +20,7 @@ export const inlineCode = classnames(
   borderRadius('rounded-md')
 )
 
-export const p = classnames(margin('!mb-5'))
+export const text = classnames(margin('!mb-5'))
 
 const heading = classnames(margin('my-7'))
 export const h1 = classnames(heading, fontSize('text-5xl'))
