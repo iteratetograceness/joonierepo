@@ -109,7 +109,7 @@ export const linkItem = classnames(
 )
 
 export const mobileButton = classnames(
-  fontStyle('hover:italic', 'focus:italic'),
+  // fontStyle('hover:italic', 'focus:italic'),
   fontSize('after:text-3xl'),
   fontWeight('after:font-normal'),
   content(
