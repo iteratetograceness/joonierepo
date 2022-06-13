@@ -6,7 +6,6 @@ import classnames, {
   borderColor,
   borderRadius,
   borderWidth,
-  content,
   display,
   flexDirection,
   fontSize,
@@ -19,26 +18,21 @@ import classnames, {
   padding,
   position,
   textAlign,
-  textColor,
   TTailwindString,
   width,
   zIndex,
 } from 'tailwindcss-classnames'
 
-export const homeLink = classnames(
-  alignSelf('self-center'),
-  margin('mb-10'),
-  letterSpacing('tracking-widest'),
-  content('before:content-["←"]' as TTailwindString),
-  animation('animate-bounce-left')
-)
+export const homeLink = classnames(alignSelf('self-center'), margin('mb-10'), letterSpacing('tracking-widest'))
+
+export const arrow = classnames(display('inline-block'), animation('animate-bounce-left'))
 
 export const statusCode = classnames(
   position('absolute'),
   fontSize('text-6xl', 'md:text-8xl'),
   fontWeight('font-bold'),
-  zIndex('z-[-10]' as TTailwindString),
-  textColor('text-white')
+  zIndex('z-[-10]' as TTailwindString)
+  // textColor('text-white', 'dark:text-black')
 )
 
 export const statusCodeTopRight = classnames(statusCode, inset('top-0', 'left-26', 'md:left-32'))

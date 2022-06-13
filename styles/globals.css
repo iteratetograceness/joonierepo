@@ -21,10 +21,3 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-
-@supports (-webkit-text-stroke: 1px inherit) {
-  .error-code {
-    -webkit-text-stroke: 1px inherit;
-    -webkit-text-fill-color: transparent;
-  }
-}
