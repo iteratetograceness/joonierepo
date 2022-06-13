@@ -31,6 +31,7 @@ import {
   borderRadius,
   content,
   TTailwindString,
+  overflow,
 } from 'tailwindcss-classnames'
 
 /**
@@ -164,7 +165,7 @@ export const mobileMenu = (isDarkMode: boolean) =>
   )
 
 export const mobileClose = classnames(alignSelf('self-end'), margin('mb-7'))
-export const mobileLinks = classnames(listStyleType('list-none'))
+export const mobileLinks = classnames(listStyleType('list-none'), overflow('overflow-y-scroll'))
 export const mobileLinkItem = (isDarkMode: boolean) =>
   classnames(
     borderWidth('border-b'),
