@@ -30,3 +30,14 @@ body {
 #mobile-menu::-webkit-scrollbar {
   display: none;
 }
+
+input[type='checkbox'] {
+  height: 1.3rem;
+  width: 1.3rem;
+  vertical-align: text-bottom;
+  margin-right: 0.5rem;
+}
+
+ul {
+  margin-bottom: 3rem;
+}

@@ -2,11 +2,19 @@ import {
   backgroundColor,
   borderRadius,
   classnames,
+  content,
   fontFamily,
   fontSize,
+  height,
+  inset,
   margin,
   padding,
+  position,
   textColor,
+  textDecoration,
+  TTailwindString,
+  verticalAlign,
+  width,
 } from 'tailwindcss-classnames'
 
 export const markdown = '!max-w-prose prose-p:mb-2 leading-relaxed'
@@ -20,7 +28,21 @@ export const inlineCode = classnames(
   borderRadius('rounded-md')
 )
 
-export const text = classnames(margin('!mb-5'))
+export const text = classnames(position('relative'), margin('!mb-5'), verticalAlign('align-middle'))
+export const strikethrough = classnames(text, textDecoration('line-through'))
+
+export const taskListItem = classnames(text, height('h-7'), width('w-7'))
+export const li = (isDarkMode: boolean) =>
+  classnames(
+    text,
+    content({
+      ['before:content-["🤍"]' as TTailwindString]: isDarkMode,
+      ['before:content-["🖤"]' as TTailwindString]: !isDarkMode,
+    }),
+    margin('before:mr-3', 'ml-7'),
+    position('before:absolute'),
+    inset('before:left-[-1.5rem]' as TTailwindString)
+  )
 
 const heading = classnames(margin('my-7'))
 export const h1 = classnames(heading, fontSize('text-5xl'))
