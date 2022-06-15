@@ -26,6 +26,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <title>jueungraceyun</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <MotionConfig reducedMotion="user">
         <LazyMotion features={domAnimation}>
           <AnimatePresence exitBeforeEnter>
