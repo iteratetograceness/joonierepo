@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { m, useCycle } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import * as styles from './styles'
 import Link from 'next/link'
 import MobileMenuModal from './MobileMenuModal'
 import { LINKS } from '@constants'
 import Circle from '@components/svg/Circle'
+import { Line } from '@components/common'
+import { useTheme } from 'next-themes'
+import * as styles from './styles'
 
 const Navigation = () => {
-  const { theme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
   const [open, cycleOpen] = useCycle(false, true)
   const isLarge = useMediaQuery({ query: '(min-width: 1100px)' })
+  const { theme } = useTheme()
 
   useEffect(() => {
     cycleOpen(0)
@@ -38,12 +39,6 @@ const Navigation = () => {
     exit: { y: -70, opacity: 0 },
   }
 
-  const line = {
-    enter: { x: 0, opacity: 1, transition: { type: 'spring', bounce: 0.4 } },
-    exit: { x: -300, opacity: 1 },
-    hidden: { x: -300, opacity: 1 },
-  }
-
   return isMounted ? (
     <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'} role="navigation" className="noselect">
       {isMounted && isLarge ? (
@@ -60,13 +55,7 @@ const Navigation = () => {
               </m.li>
             ))}
           </m.ul>
-          <m.div
-            key="nav-line"
-            className={styles.underline(theme === 'dark')}
-            variants={line}
-            initial="hidden"
-            animate="enter"
-          />
+          <Line className={styles.navLine} />
         </>
       ) : (
         <>
@@ -80,8 +69,7 @@ const Navigation = () => {
             <li>
               <Link href="/" passHref>
                 <a className={styles.logo} role="navigation" aria-label="Homepage">
-                  <Circle className={styles.circle} />
-                  LOGO
+                  {theme === 'dark' ? '🤍' : '🖤'}
                 </a>
               </Link>
             </li>
@@ -99,13 +87,7 @@ const Navigation = () => {
             </li>
             <MobileMenuModal closeModal={closeModal} isOpen={open} />
           </m.ul>
-          <m.div
-            key="mobile-nav-line"
-            className={styles.underline(theme === 'dark')}
-            variants={line}
-            initial="hidden"
-            animate="enter"
-          />
+          <Line className={styles.navLine} />
         </>
       )}
     </m.nav>

@@ -117,19 +117,17 @@ export const mobileButton = classnames(
   inset('after:top-[-20px]' as TTailwindString, 'after:right-[-10px]' as TTailwindString)
 )
 
-export const underline = (isDarkMode: boolean) =>
-  classnames(
-    display('block'),
-    position('absolute'),
-    inset('top-28', 'left-10'),
-    width('w-sans-padding'),
-    height('h-px'),
-    margin('m-auto'),
-    backgroundColor({
-      ['bg-white']: isDarkMode,
-      ['bg-black']: !isDarkMode,
-    })
-  )
+export const underline = classnames(
+  display('block'),
+  position('absolute'),
+  inset('left-10'),
+  width('w-sans-padding'),
+  height('h-px'),
+  margin('m-auto'),
+  backgroundColor('bg-black', 'dark:bg-white')
+)
+
+export const navLine = classnames(inset('top-28'))
 
 export const mobileNav = classnames(
   navigation,
