@@ -1,12 +1,17 @@
 import classnames, {
+  display,
   fontSize,
   fontWeight,
+  gridTemplateColumns,
+  justifyContent,
   letterSpacing,
   lineHeight,
   margin,
   textAlign,
   TTailwindString,
 } from 'tailwindcss-classnames'
+
+export const nameContainer = classnames(margin('mb-12'))
 
 export const name = classnames(
   fontSize(
@@ -20,3 +25,7 @@ export const name = classnames(
   lineHeight('leading-none'),
   letterSpacing('tracking-tighter')
 )
+
+export const info = classnames(display('flex'), justifyContent('justify-between'), margin('mb-6'))
+
+export const mainContainer = classnames(display('grid'), gridTemplateColumns('grid-cols-1', 'lg:grid-cols-2'))

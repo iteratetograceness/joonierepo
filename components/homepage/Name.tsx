@@ -1,5 +1,6 @@
 import * as styles from './styles'
 import { m } from 'framer-motion'
+import { Line } from '@components/common'
 
 const Name = () => {
   const name = {
@@ -8,9 +9,20 @@ const Name = () => {
   }
 
   return (
-    <m.h1 variants={name} initial="initial" animate="animate" className={styles.name}>
-      Jueun Grace Yun
-    </m.h1>
+    <>
+      <section className={styles.nameContainer}>
+        <m.h1 variants={name} initial="initial" animate="animate" className={styles.name}>
+          Jueun Grace Yun
+        </m.h1>
+        <Line className={'mt-6'} />
+      </section>
+      <section>
+        <div className={styles.info}>
+          <span>CONTENT CREATOR</span>
+          <span>SOFTWARE ENGINEER</span>
+        </div>
+      </section>
+    </>
   )
 }
 
