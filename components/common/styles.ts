@@ -95,29 +95,25 @@ const navigation = classnames(
   fontFamily('font-sans')
 )
 
-export const linkItem = classnames(
-  fontStyle('hover:italic', 'focus:italic', 'active:italic'),
+const link = classnames(
   content(
     "after:hover:content-['*']" as TTailwindString,
     "after:focus:content-['*']" as TTailwindString,
     "after:active:content-['*']" as TTailwindString
   ),
   position('after:absolute', 'relative'),
-  inset('after:top-[-15px]' as TTailwindString, 'after:right-[-10px]' as TTailwindString),
   fontSize('after:text-3xl'),
   fontWeight('after:font-normal')
 )
 
+export const linkItem = classnames(
+  link,
+  fontStyle('hover:italic', 'focus:italic', 'active:italic'),
+  inset('after:top-[-15px]' as TTailwindString, 'after:right-[-10px]' as TTailwindString)
+)
+
 export const mobileButton = classnames(
-  // fontStyle('hover:italic', 'focus:italic'),
-  fontSize('after:text-3xl'),
-  fontWeight('after:font-normal'),
-  content(
-    "after:hover:content-['*']" as TTailwindString,
-    "after:focus:content-['*']" as TTailwindString,
-    "after:active:content-['*']" as TTailwindString
-  ),
-  position('after:absolute', 'relative'),
+  link,
   inset('after:top-[-20px]' as TTailwindString, 'after:right-[-10px]' as TTailwindString)
 )
 

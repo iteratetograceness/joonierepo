@@ -70,31 +70,35 @@ const Navigation = () => {
         </>
       ) : (
         <>
-          <m.section
+          <m.ul
             key="small-menu"
             className={styles.mobileNav}
             variants={mobileNavContainer}
             animate="enter"
             initial="exit"
           >
-            <Link href="/" passHref>
-              <a className={styles.logo} role="navigation" aria-label="Homepage">
-                <Circle className={styles.circle} />
-                LOGO
-              </a>
-            </Link>
-            <button
-              type="button"
-              aria-expanded={open ? 'true' : 'false'}
-              aria-label="Mobile Navigation Button"
-              onClick={() => openModal()}
-              id="menu-open-button"
-              className={styles.mobileButton}
-            >
-              Menu
-            </button>
+            <li>
+              <Link href="/" passHref>
+                <a className={styles.logo} role="navigation" aria-label="Homepage">
+                  <Circle className={styles.circle} />
+                  LOGO
+                </a>
+              </Link>
+            </li>
+            <li>
+              <button
+                type="button"
+                aria-expanded={open ? 'true' : 'false'}
+                aria-label="Mobile Navigation Button"
+                onClick={() => openModal()}
+                id="menu-open-button"
+                className={styles.mobileButton}
+              >
+                Menu
+              </button>
+            </li>
             <MobileMenuModal closeModal={closeModal} isOpen={open} />
-          </m.section>
+          </m.ul>
           <m.div
             key="mobile-nav-line"
             className={styles.underline(theme === 'dark')}
