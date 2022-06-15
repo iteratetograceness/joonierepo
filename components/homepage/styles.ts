@@ -15,7 +15,8 @@ export const nameContainer = classnames(margin('mb-12'))
 
 export const name = classnames(
   fontSize(
-    'text-[10.8vw]' as TTailwindString,
+    'text-[10vw]' as TTailwindString,
+    'sm:text-[10.8vw]' as TTailwindString,
     'md:text-[11.5vw]' as TTailwindString,
     'lg:text-[11.9vw]' as TTailwindString
   ),
