@@ -49,11 +49,11 @@ const nextConfig = {
     ]
   },
   productionBrowserSourceMaps: true,
-  // experimental: {
-  //   lodash: {
-  //     transform: 'lodash/{{member}}',
-  //   },
-  // },
+  experimental: {
+    // lodash: {
+    //   transform: 'lodash/{{member}}',
+    // },
+  },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
