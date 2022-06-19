@@ -34,9 +34,9 @@ export const strikethrough = classnames(text, textDecoration('line-through'))
 export const taskListItem = classnames(text, height('h-7'), width('w-7'))
 const li = classnames(
   text,
-  margin('before:mr-3', 'ml-7'),
+  margin('ml-9'),
   position('before:absolute'),
-  inset('before:left-[-1.5rem]' as TTailwindString)
+  inset('before:left-[-2rem]' as TTailwindString)
 )
 export const darkLi = classnames(li, content('before:content-["🤍"]' as TTailwindString))
 export const lightLi = classnames(li, content('before:content-["🖤"]' as TTailwindString))
