@@ -174,7 +174,7 @@ export const mobileLinkItem = (isDarkMode: boolean) =>
 
 export const circle = classnames(
   position('absolute'),
-  width('w-[135px]' as TTailwindString),
+  width('min-w-[145px]' as TTailwindString, 'w-[125%]' as TTailwindString),
   margin('m-3'),
-  inset('top-[-20px]' as TTailwindString, 'left-[-35px]' as TTailwindString)
+  inset('top-[-60%]' as TTailwindString, 'left-[-35px]' as TTailwindString)
 )
