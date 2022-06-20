@@ -1,5 +1,6 @@
 import classnames, {
   display,
+  flexDirection,
   fontSize,
   fontWeight,
   gap,
@@ -8,11 +9,12 @@ import classnames, {
   letterSpacing,
   lineHeight,
   margin,
+  position,
   textAlign,
   TTailwindString,
 } from 'tailwindcss-classnames'
 
-export const nameContainer = classnames(margin('mb-12'))
+export const nameContainer = classnames(margin('mb-14'))
 
 export const name = classnames(
   fontSize(
@@ -31,7 +33,7 @@ export const name = classnames(
 export const info = classnames(
   display('flex'),
   justifyContent('justify-between'),
-  margin('mb-6'),
+  margin('my-10'),
   fontSize('text-sm', 'md:text-xl', 'lg:text-2xl'),
   fontWeight('font-normal')
 )
@@ -42,4 +44,15 @@ export const mainContainer = classnames(
   gap('gap-8')
 )
 
-export const about = classnames(fontSize('text-8xl'), fontWeight('font-bold'))
+export const aboutContainer = classnames(display('flex'), flexDirection('flex-col'), justifyContent('justify-between'))
+export const about = classnames(
+  fontSize(
+    'text-[3.2rem]' as TTailwindString,
+    'sm:text-[6.5rem]' as TTailwindString,
+    'md:text-9xl',
+    'lg:text-[8.2vw]' as TTailwindString
+  ),
+  fontWeight('font-bold'),
+  margin('mb-5')
+)
+export const aboutSub = classnames(fontSize('text-sm'), position('!absolute'))

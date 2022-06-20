@@ -6,11 +6,14 @@ const Main = () => {
   return (
     <section className={styles.mainContainer}>
       <Image src="/grace.jpg" alt="" layout="responsive" width={700} height={700} />
-      <div>
+      <div className={styles.aboutContainer}>
         {ABOUT.map(item => (
-          <p key={item.title} className={styles.about}>
-            {item.title}
-          </p>
+          <>
+            <p key={item.title} className={styles.about}>
+              {item.title}
+            </p>
+            <p>{item.subtitle}</p>
+          </>
         ))}
       </div>
     </section>
