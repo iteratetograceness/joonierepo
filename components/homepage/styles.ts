@@ -2,6 +2,7 @@ import classnames, {
   display,
   fontSize,
   fontWeight,
+  gap,
   gridTemplateColumns,
   justifyContent,
   letterSpacing,
@@ -27,6 +28,18 @@ export const name = classnames(
   letterSpacing('tracking-tighter')
 )
 
-export const info = classnames(display('flex'), justifyContent('justify-between'), margin('mb-6'))
+export const info = classnames(
+  display('flex'),
+  justifyContent('justify-between'),
+  margin('mb-6'),
+  fontSize('text-sm', 'md:text-xl', 'lg:text-2xl'),
+  fontWeight('font-normal')
+)
 
-export const mainContainer = classnames(display('grid'), gridTemplateColumns('grid-cols-1', 'lg:grid-cols-2'))
+export const mainContainer = classnames(
+  display('grid'),
+  gridTemplateColumns('grid-cols-1', 'lg:grid-cols-2'),
+  gap('gap-8')
+)
+
+export const about = classnames(fontSize('text-8xl'), fontWeight('font-bold'))
