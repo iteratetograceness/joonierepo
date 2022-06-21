@@ -52,6 +52,9 @@ module.exports = {
       textColor: {
         transparent: 'transparent',
       },
+      transformOrigin: {
+        about: '30% 90%',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

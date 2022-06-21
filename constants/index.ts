@@ -7,7 +7,10 @@ export const LINKS = [
 ]
 
 export const ABOUT = [
-  { title: 'FRONTEND', subtitle: 'I strive to grow into a more fullstack capacity.' },
+  {
+    title: 'FRONTEND',
+    subtitle: 'I am a web developer striving to grow into a more fullstack capacity.',
+  },
   { title: 'STICKERS', subtitle: 'I create and sell my own stickers.' },
   { title: 'YOUTUBE', subtitle: 'I film and edit vlogs and videos on tech careers.' },
 ]

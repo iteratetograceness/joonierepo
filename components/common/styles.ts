@@ -75,7 +75,6 @@ export const innerThemeIcon = classnames(
 
 export const main = classnames(
   position('relative'),
-  width('!w-screen'),
   padding('p-10'),
   transitionProperty('transition-colors'),
   transitionTimingFunction('ease-in-out'),
