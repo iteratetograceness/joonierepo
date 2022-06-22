@@ -53,7 +53,7 @@ module.exports = {
         transparent: 'transparent',
       },
       transformOrigin: {
-        about: '30% 90%',
+        about: '100% 0%',
       },
     },
   },

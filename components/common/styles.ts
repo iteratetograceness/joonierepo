@@ -61,8 +61,8 @@ export const themeButton = classnames(
 )
 
 export const outerThemeIcon = classnames(
-  width('w-32'),
-  height('h-32'),
+  width('w-36'),
+  height('h-36'),
   position('relative'),
   animation('motion-safe:animate-spin-slow')
 )
