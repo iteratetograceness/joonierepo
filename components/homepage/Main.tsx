@@ -51,11 +51,16 @@ const Main = () => {
       <section>
         <div className={styles.aboutContainer}>
           {ABOUT.map(item => (
-            <div key={item.title}>
+            <m.div
+              key={item.title}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0, transition: { duration: 0.4 } }}
+              viewport={{ once: true }}
+            >
               <RotateText text={item.title} />
               <Button variant="outline" text={item.subtitle} href={item.href} />
               <hr className={styles.line} />
-            </div>
+            </m.div>
           ))}
         </div>
       </section>

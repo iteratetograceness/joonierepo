@@ -214,3 +214,8 @@ export const button = (isSolid: boolean) =>
   )
 
 export const arrow = classnames(position('relative'), fontSize('text-2xl'), verticalAlign('align-middle'))
+
+/**
+ * Footer
+ */
+export const footerContainer = classnames(display('flex'), justifyContent('justify-start'))
