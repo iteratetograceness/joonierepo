@@ -185,7 +185,7 @@ const solidBg = classnames(backgroundColor('bg-black', 'dark:bg-white'))
 const outlineBg = classnames(backgroundColor('bg-white', 'dark:bg-black'))
 export const button = (isSolid: boolean) =>
   classnames(
-    padding('p-3', 'px-7'),
+    padding('p-4', 'px-7'),
     backgroundColor({
       [solidBg]: isSolid,
       [outlineBg]: !isSolid,
@@ -202,5 +202,6 @@ export const button = (isSolid: boolean) =>
       'text-white': isSolid,
       'dark:text-black': isSolid,
     }),
-    borderRadius('rounded-3xl')
+    fontSize('text-sm', 'md:text-base'),
+    borderRadius('rounded-full')
   )
