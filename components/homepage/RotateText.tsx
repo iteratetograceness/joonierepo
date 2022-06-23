@@ -50,14 +50,14 @@ const RotateText = ({ text }: Props) => {
     >
       <m.div className={styles.textContainer} variants={container}>
         {Array.from(text).map((char, i) => (
-          <m.span custom={i} variants={frontLetter} className={styles.about} key={char + i}>
+          <m.span custom={i} variants={frontLetter} className={styles.about} key={char + i.toString() + '-top'}>
             {char}
           </m.span>
         ))}
       </m.div>
       <m.div className={styles.textContainer} variants={container}>
         {Array.from(text).map((char, i) => (
-          <m.span custom={i} variants={backLetter} className={styles.about} key={char + i}>
+          <m.span custom={i} variants={backLetter} className={styles.about} key={char + i.toString() + '-bottom'}>
             {char}
           </m.span>
         ))}

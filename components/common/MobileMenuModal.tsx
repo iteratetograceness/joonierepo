@@ -150,7 +150,7 @@ const MobileMenuModal = ({ closeModal, isOpen }: Props) => {
           </m.button>
           <m.div className={styles.mobileLinks} variants={innerModal} initial="closed" animate="open" exit="closed">
             {LINKS.map(link => (
-              <m.li key={link.path} className={styles.mobileLinkItem(theme === 'dark')} variants={modalItem}>
+              <m.li key={link.label} className={styles.mobileLinkItem(theme === 'dark')} variants={modalItem}>
                 <Link href={link.path} passHref>
                   <m.a
                     key={link.path}

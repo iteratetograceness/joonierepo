@@ -10,13 +10,13 @@ const Name = () => {
 
   return (
     <>
-      <section className={styles.nameContainer}>
+      <section key="homepage-name" className={styles.nameContainer}>
         <m.h1 variants={name} initial="initial" animate="animate" className={styles.name}>
           Jueun Grace Yun
         </m.h1>
         <Line className={'mt-6'} />
       </section>
-      <section>
+      <section key="homepage-titles">
         <div className={styles.info}>
           <span>CONTENT CREATOR</span>
           <span>SOFTWARE ENGINEER</span>

@@ -18,7 +18,7 @@ type AppPropsWithLayout = AppProps & {
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter()
-  const getLayout = Component.getLayout ?? (page => <MainLayout>{page}</MainLayout>)
+  const getLayout = Component.getLayout ?? (page => <MainLayout key={router.asPath}>{page}</MainLayout>)
 
   return (
     <>
@@ -29,11 +29,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
       <MotionConfig reducedMotion="user">
         <LazyMotion features={domAnimation}>
-          <AnimatePresence exitBeforeEnter>
-            <ThemeProvider attribute="class">
-              {getLayout(<Component {...pageProps} key={router.asPath} />)}
-            </ThemeProvider>
-          </AnimatePresence>
+          <ThemeProvider attribute="class">
+            <AnimatePresence>{getLayout(<Component {...pageProps} key={router.asPath} />)}</AnimatePresence>
+          </ThemeProvider>
         </LazyMotion>
       </MotionConfig>
     </>

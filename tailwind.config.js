@@ -6,7 +6,9 @@ module.exports = {
     colors: {
       black: '#1e1e1e',
       white: '#f5f5f5',
-      green: '#4daf7c',
+      'light-gray': '#d3d3d3',
+      'dark-gray': '#4a4949',
+      yellow: '#e6c46a',
     },
     fontFamily: {
       sans: ['Inter', 'system-ui'],
@@ -54,6 +56,9 @@ module.exports = {
       },
       transformOrigin: {
         about: '100% 0%',
+      },
+      backgroundColor: {
+        grey: '##d3d3d3',
       },
     },
   },

@@ -45,7 +45,7 @@ const Navigation = () => {
         <>
           <m.ul className={styles.navContainer} variants={navContainer} animate="enter" initial="exit">
             {LINKS.map(link => (
-              <m.li key={link.path} variants={navItems}>
+              <m.li key={link.label} variants={navItems}>
                 <Link href={link.path} passHref>
                   <a role="navigation" aria-label={link.label} className={styles.linkItem}>
                     <Circle className={styles.circle} />

@@ -32,6 +32,7 @@ import {
   content,
   TTailwindString,
   overflow,
+  verticalAlign,
 } from 'tailwindcss-classnames'
 
 /**
@@ -181,11 +182,15 @@ export const circle = classnames(
 /**
  * Button/Link
  */
-const solidBg = classnames(backgroundColor('bg-black', 'dark:bg-white'))
-const outlineBg = classnames(backgroundColor('bg-white', 'dark:bg-black'))
+const solidBg = classnames(
+  backgroundColor('hover:bg-yellow', 'hover:dark:bg-yellow' as TTailwindString, 'bg-black', 'dark:bg-white')
+)
+const outlineBg = classnames(
+  backgroundColor('hover:bg-light-gray', 'hover:dark:bg-dark-gray' as TTailwindString, 'bg-white', 'dark:bg-black')
+)
 export const button = (isSolid: boolean) =>
   classnames(
-    padding('p-4', 'px-7'),
+    padding('p-4', 'px-12'),
     backgroundColor({
       [solidBg]: isSolid,
       [outlineBg]: !isSolid,
@@ -202,6 +207,10 @@ export const button = (isSolid: boolean) =>
       'text-white': isSolid,
       'dark:text-black': isSolid,
     }),
-    fontSize('text-sm', 'md:text-base'),
-    borderRadius('rounded-full')
+    fontWeight('font-medium'),
+    fontSize('text-sm', 'md:text-base', 'after:text-2xl'),
+    borderRadius('rounded-full'),
+    transitionDuration('duration-200')
   )
+
+export const arrow = classnames(position('relative'), fontSize('text-2xl'), verticalAlign('align-middle'))

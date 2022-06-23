@@ -18,7 +18,7 @@ const Main = () => {
 
   return (
     <>
-      <m.section variants={main} animate="animate" initial="initial" className={styles.mainContainer}>
+      <m.section key="homepage-1" variants={main} animate="animate" initial="initial" className={styles.mainContainer}>
         <m.div variants={items} className={styles.leftOfImage}>
           <p className={styles.welcomeText}>[ insert corny intro here ]</p>
           <svg viewBox="50 50 400 400" className={styles.svg} width="100%">
@@ -51,11 +51,11 @@ const Main = () => {
       <section>
         <div className={styles.aboutContainer}>
           {ABOUT.map(item => (
-            <>
-              <RotateText key={item.title} text={item.title} />
-              <Button variant="outline" text={item.subtitle} href="/" />
+            <div key={item.title}>
+              <RotateText text={item.title} />
+              <Button variant="outline" text={item.subtitle} href={item.href} />
               <hr className={styles.line} />
-            </>
+            </div>
           ))}
         </div>
       </section>

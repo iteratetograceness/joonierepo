@@ -10,7 +10,12 @@ export const ABOUT = [
   {
     title: 'FRONTEND',
     subtitle: 'I am a web dev growing into a more fullstack capacity.',
+    href: '/work',
   },
-  { title: 'STICKERS', subtitle: 'I create and sell my own stickers.' },
-  { title: 'YOUTUBE', subtitle: 'I film and edit vlogs and videos on tech careers.' },
+  { title: 'STICKERS', subtitle: 'I create and sell my own stickers.', href: '/shop' },
+  {
+    title: 'YOUTUBE',
+    subtitle: 'I film and edit daily vlogs and videos about tech.',
+    href: 'https://www.youtube.com/channel/UCtBjnPKrCMu1uQexUDM5sUA',
+  },
 ]
