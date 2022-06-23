@@ -177,3 +177,30 @@ export const circle = classnames(
   margin('m-3'),
   inset('top-[-60%]' as TTailwindString, 'left-[-35px]' as TTailwindString)
 )
+
+/**
+ * Button/Link
+ */
+const solidBg = classnames(backgroundColor('bg-black', 'dark:bg-white'))
+const outlineBg = classnames(backgroundColor('bg-white', 'dark:bg-black'))
+export const button = (isSolid: boolean) =>
+  classnames(
+    padding('p-3', 'px-7'),
+    backgroundColor({
+      [solidBg]: isSolid,
+      [outlineBg]: !isSolid,
+    }),
+    borderColor({
+      'border-black': !isSolid,
+      'dark:border-white': !isSolid,
+    }),
+    borderWidth('!border-1'),
+    width('w-fit'),
+    textColor({
+      'text-black': !isSolid,
+      'dark:text-white': !isSolid,
+      'text-white': isSolid,
+      'dark:text-black': isSolid,
+    }),
+    borderRadius('rounded-3xl')
+  )

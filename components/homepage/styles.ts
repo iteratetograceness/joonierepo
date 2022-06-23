@@ -3,8 +3,10 @@ import classnames, {
   backgroundColor,
   borderRadius,
   display,
+  fill,
   flexDirection,
   fontSize,
+  fontStyle,
   fontWeight,
   gap,
   gridTemplateColumns,
@@ -51,6 +53,15 @@ export const leftOfImage = classnames(
   margin('mb-2', 'lg:mb-0')
 )
 
+export const svg = classnames(display('hidden', 'lg:block'))
+export const curvedText = classnames(
+  fontSize('text-6xl'),
+  fontWeight('font-bold'),
+  fill('fill-white', 'dark:fill-black')
+)
+
+export const welcomeText = classnames(position('absolute'), textAlign('text-center'), fontStyle('italic'))
+
 export const info = classnames(
   display('flex'),
   justifyContent('justify-between'),
@@ -72,7 +83,7 @@ export const aboutContainer = classnames(
   justifyContent('justify-between'),
   width('w-full')
 )
-export const animateContainer = classnames(height('h-2/6'))
+export const animateContainer = classnames(height('h-2/6'), margin('mb-10'))
 export const textContainer = classnames(position('absolute'), display('flex'), transformOrigin('origin-about'))
 export const about = classnames(
   fontSize(
@@ -85,3 +96,5 @@ export const about = classnames(
 )
 export const aboutCover = classnames(about, opacity('opacity-0'))
 export const aboutSub = classnames(fontSize('text-sm'), position('!absolute'))
+
+export const line = classnames(margin('my-20'))

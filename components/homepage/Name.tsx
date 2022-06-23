@@ -20,6 +20,7 @@ const Name = () => {
         <div className={styles.info}>
           <span>CONTENT CREATOR</span>
           <span>SOFTWARE ENGINEER</span>
+          <span>ILLUSTRATOR</span>
         </div>
       </section>
     </>

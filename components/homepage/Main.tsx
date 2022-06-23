@@ -1,89 +1,65 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image'
 import * as styles from './styles'
 import { ABOUT } from '@constants'
-import { m, useAnimation } from 'framer-motion'
+import { m } from 'framer-motion'
+import RotateText from './RotateText'
+import Button from '@components/common/Button'
 
 const Main = () => {
-  const control1 = useAnimation()
-  const control2 = useAnimation()
-  const control3 = useAnimation()
-
-  const controls = [control1, control2, control3]
-
   const main = {
-    hover: { opacity: 1 },
+    animate: { transition: { delayChildren: 0.2, staggerChildren: 0.2, duration: 0.5 } },
   }
 
-  const container = {
-    rotate: { transition: { staggerChildren: 0.035 } },
-  }
-
-  const times = [0.5, 0.5, 0.5, 0.55, 0.6, 0.63, 0.57, 0.5]
-
-  const frontLetter = {
-    initial: { y: '0%', rotateX: 0 },
-    rotate: (i: number) => ({
-      y: ['-60%', '0%'],
-      rotateX: [-90, 0],
-      scaleX: [0.4, 1],
-      scaleY: [0.4, 1],
-      transition: { duration: times[i] },
-    }),
-  }
-
-  const backLetter = {
-    initial: { y: '-120%', rotateX: 90 },
-    rotate: (i: number) => ({
-      y: ['0%', '60%'],
-      rotateX: [0, 90],
-      scaleX: [1, 0.4],
-      scaleY: [1, 0.4],
-      transition: { duration: times[i] },
-    }),
+  const items = {
+    animate: { scale: 1 },
+    initial: { scale: 0.9 },
   }
 
   return (
-    <section className={styles.mainContainer}>
-      <div className={styles.leftOfImage}>hi im grace</div>
-      <Image
-        src="/grace.jpg"
-        alt=""
-        layout="responsive"
-        width={700}
-        height={700}
-        // style={{ borderRadius: '20% 20%' }}
-        priority
-      />
-      <div className={styles.aboutContainer}>
-        {ABOUT.map((item, i) => (
-          <m.div
-            className={styles.animateContainer}
-            key={item.title}
-            variants={main}
-            animate={controls[i]}
-            initial="initial"
-            onHoverStart={() => controls[i].start('rotate')}
-            onAnimationComplete={() => controls[i].stop()}
-          >
-            <m.div className={styles.textContainer} variants={container}>
-              {Array.from(item.title).map((char, i) => (
-                <m.span custom={i} variants={frontLetter} className={styles.about} key={char + i}>
-                  {char}
-                </m.span>
-              ))}
-            </m.div>
-            <m.div className={styles.textContainer} variants={container}>
-              {Array.from(item.title).map((char, i) => (
-                <m.span custom={i} variants={backLetter} className={styles.about} key={char + i}>
-                  {char}
-                </m.span>
-              ))}
-            </m.div>
-            <div className={styles.aboutCover}>{item.title}</div>
-          </m.div>
-        ))}
-      </div>
-    </section>
+    <>
+      <m.section variants={main} animate="animate" initial="initial" className={styles.mainContainer}>
+        <m.div variants={items} className={styles.leftOfImage}>
+          <p className={styles.welcomeText}>[ insert corny intro here ]</p>
+          <svg viewBox="50 50 400 400" className={styles.svg} width="100%">
+            <path
+              id="curve"
+              d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"
+              transform="rotate(12,250,250)"
+              fill="transparent"
+            />
+            <text className={styles.curvedText}>
+              <textPath dx="5%" xlinkHref="#curve" textLength="920">
+                HELLO * THERE * FRIEND *
+              </textPath>
+            </text>
+          </svg>
+        </m.div>
+        <m.div variants={items}>
+          <Image
+            src="/grace.jpg"
+            alt=""
+            layout="responsive"
+            width={700}
+            height={700}
+            style={{ borderRadius: '20% 20%' }}
+            priority
+          />
+        </m.div>
+      </m.section>
+      <hr className={styles.line} />
+      <section>
+        <div className={styles.aboutContainer}>
+          {ABOUT.map(item => (
+            <>
+              <RotateText key={item.title} text={item.title} />
+              <Button variant="outline" text={item.subtitle} href="/" />
+              <hr className={styles.line} />
+            </>
+          ))}
+        </div>
+      </section>
+    </>
   )
 }
 
