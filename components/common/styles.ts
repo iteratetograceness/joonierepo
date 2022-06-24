@@ -245,8 +245,8 @@ export const links = classnames(
   display('flex'),
   flexWrap('flex-wrap'),
   height('h-fit'),
-  width('w-5/6'),
-  margin('my-10')
+  width('w-full', 'md:w-5/6'),
+  margin('my-8')
 )
-export const contactButton = classnames(fontSize('!text-3xl'), fontWeight('!font-medium'), width('w-fit'))
+export const contactButton = classnames(fontSize('!text-2xl'), fontWeight('!font-medium'), width('w-fit'))
 export const footerButtons = classnames(margin('mb-5'), padding('px-5'))

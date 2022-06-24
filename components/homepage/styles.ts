@@ -71,7 +71,7 @@ export const info = classnames(
   display('flex'),
   justifyContent('justify-between'),
   margin('my-10'),
-  fontSize('text-sm', 'md:text-xl', 'lg:text-2xl'),
+  fontSize('text-xs', 'sm:text-sm', 'md:text-xl', 'lg:text-2xl'),
   fontWeight('font-normal')
 )
 
