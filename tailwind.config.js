@@ -32,7 +32,7 @@ module.exports = {
         },
       },
       width: {
-        'sans-padding': 'calc(100% - 5rem)',
+        'sans-padding': 'calc(100% - 4rem)',
       },
       height: {
         'sans-padding': 'calc(100vh - 16rem)',

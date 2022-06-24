@@ -79,7 +79,7 @@ export const innerThemeIcon = classnames(
 
 export const main = classnames(
   position('relative'),
-  padding('p-10'),
+  padding('p-8'),
   transitionProperty('transition-colors'),
   transitionTimingFunction('ease-in-out'),
   transitionDuration('duration-500')
@@ -123,7 +123,7 @@ export const mobileButton = classnames(
 export const underline = classnames(
   display('block'),
   position('absolute'),
-  inset('left-10'),
+  inset('left-8'),
   width('w-sans-padding'),
   height('h-px'),
   margin('m-auto'),

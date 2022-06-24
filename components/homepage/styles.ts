@@ -71,9 +71,10 @@ export const info = classnames(
   display('flex'),
   justifyContent('justify-between'),
   margin('my-10'),
-  fontSize('text-xs', 'sm:text-sm', 'md:text-xl', 'lg:text-2xl'),
+  fontSize('text-xs', 'sm:text-sm', 'md:text-base', 'lg:text-xl'),
   fontWeight('font-normal')
 )
+export const optional = classnames(display('hidden', 'sm:inline-block'))
 
 export const mainContainer = classnames(
   display('grid'),
