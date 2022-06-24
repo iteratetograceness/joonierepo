@@ -19,3 +19,11 @@ export const ABOUT = [
     href: 'https://www.youtube.com/channel/UCtBjnPKrCMu1uQexUDM5sUA',
   },
 ]
+
+export const CONTACT = [
+  { title: 'EMAIL', content: 'mailto:graceyunn@gmail.com' },
+  { title: 'LINKEDIN', content: 'https://www.linkedin.com/in/gracejueunyun/' },
+  { title: 'GITHUB', content: 'https://github.com/jueungrace/' },
+  { title: 'INSTAGRAM', content: 'https://www.instagram.com/jueungraceyun/' },
+  { title: 'YOUTUBE', content: 'https://www.youtube.com/channel/UCtBjnPKrCMu1uQexUDM5sUA' },
+]

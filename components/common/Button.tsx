@@ -11,26 +11,28 @@ type Props = {
 
 const Button = ({ variant, href, onClick, text }: Props) => {
   const arrow = {
-    hidden: { right: -60, opacity: 0, transition: { right: { delay: 0.15 } } },
-    enter: { right: -20, opacity: 1 },
+    hidden: { right: 0, opacity: 0, transition: { right: { delay: 0.15 } } },
+    enter: { right: 40, opacity: 1 },
   }
 
   const arrowAnim = useAnimation()
 
   if (href)
     return (
-      <Link href={href} passHref>
-        <m.a
-          className={styles.button(variant === 'solid')}
-          onHoverStart={() => arrowAnim.start('enter')}
-          onHoverEnd={() => arrowAnim.start('hidden')}
-        >
-          {text}
-          <m.span className={styles.arrow} animate={arrowAnim} variants={arrow} initial="hidden">
-            →
-          </m.span>
-        </m.a>
-      </Link>
+      <>
+        <Link href={href} passHref>
+          <m.a
+            className={styles.button(variant === 'solid')}
+            onHoverStart={() => arrowAnim.start('enter')}
+            onHoverEnd={() => arrowAnim.start('hidden')}
+          >
+            {text}
+          </m.a>
+        </Link>
+        <m.span className={styles.arrow} animate={arrowAnim} variants={arrow} initial="hidden">
+          →
+        </m.span>
+      </>
     )
 
   return (

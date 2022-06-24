@@ -33,6 +33,7 @@ import {
   TTailwindString,
   overflow,
   verticalAlign,
+  flexWrap,
 } from 'tailwindcss-classnames'
 
 /**
@@ -190,6 +191,7 @@ const outlineBg = classnames(
 )
 export const button = (isSolid: boolean) =>
   classnames(
+    // position('absolute'),
     padding('p-4', 'px-12'),
     backgroundColor({
       [solidBg]: isSolid,
@@ -200,7 +202,7 @@ export const button = (isSolid: boolean) =>
       'dark:border-white': !isSolid,
     }),
     borderWidth('!border-1'),
-    width('w-fit'),
+    width('w-max'),
     textColor({
       'text-black': !isSolid,
       'dark:text-white': !isSolid,
@@ -208,14 +210,22 @@ export const button = (isSolid: boolean) =>
       'dark:text-black': isSolid,
     }),
     fontWeight('font-medium'),
-    fontSize('text-sm', 'md:text-base', 'after:text-2xl'),
+    fontSize('text-sm', 'md:text-base'),
     borderRadius('rounded-full'),
-    transitionDuration('duration-200')
+    transitionDuration('duration-200'),
+    textAlign('text-center')
   )
 
-export const arrow = classnames(position('relative'), fontSize('text-2xl'), verticalAlign('align-middle'))
+export const arrow = classnames(
+  display('flex'),
+  justifyContent('justify-center'),
+  alignItems('items-center'),
+  position('relative'),
+  fontSize('text-2xl')
+)
 
 /**
  * Footer
  */
-export const footerContainer = classnames(display('flex'), justifyContent('justify-start'))
+export const footerContainer = classnames(display('flex'), justifyContent('justify-start'), flexDirection('flex-col'))
+export const links = classnames(display('flex'), flexWrap('flex-wrap'), height('h-fit'), width('w-5/6'))
