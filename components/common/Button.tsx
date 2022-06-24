@@ -38,7 +38,7 @@ const Button = ({ variant, href, onClick, text, isLarge = false, className }: Pr
     )
 
   return (
-    <button className={styles.button(variant === 'solid', isLarge)} onClick={onClick}>
+    <button className={styles.button(variant === 'solid', isLarge) + ' ' + className} onClick={onClick}>
       {text}
     </button>
   )

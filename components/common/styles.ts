@@ -214,8 +214,10 @@ export const button = (isSolid: boolean, isLarge: boolean) =>
       'dark:text-black': isSolid,
     }),
     fontWeight('font-normal', 'md:font-medium'),
-    fontSize('text-sm', 'md:text-base', {
-      ['!text-5xl']: isLarge,
+    fontSize({
+      ['text-4xl']: isLarge,
+      ['text-sm']: !isLarge,
+      ['md:text-base']: !isLarge,
     }),
     borderRadius('rounded-full'),
     transitionDuration('duration-200')
@@ -246,5 +248,5 @@ export const links = classnames(
   width('w-5/6'),
   margin('my-10')
 )
-export const contactButton = classnames()
+export const contactButton = classnames(fontSize('!text-3xl'), fontWeight('!font-medium'), width('w-fit'))
 export const footerButtons = classnames(margin('mb-5'), padding('px-5'))
