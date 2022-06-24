@@ -25,11 +25,11 @@ const Main = () => {
             <path
               id="curve"
               d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"
-              transform="rotate(12,250,250)"
+              transform="rotate(140,250,250)"
               fill="transparent"
             />
             <text className={styles.curvedText}>
-              <textPath dx="5%" xlinkHref="#curve" textLength="920">
+              <textPath xlinkHref="#curve" textLength="920">
                 HELLO * THERE * FRIEND *
               </textPath>
             </text>

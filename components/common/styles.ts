@@ -32,7 +32,6 @@ import {
   content,
   TTailwindString,
   overflow,
-  verticalAlign,
   flexWrap,
 } from 'tailwindcss-classnames'
 
@@ -192,7 +191,7 @@ const outlineBg = classnames(
 export const button = (isSolid: boolean) =>
   classnames(
     // position('absolute'),
-    padding('p-4', 'px-12'),
+    padding('p-4', 'px-14'),
     backgroundColor({
       [solidBg]: isSolid,
       [outlineBg]: !isSolid,

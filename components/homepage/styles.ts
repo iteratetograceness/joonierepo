@@ -60,7 +60,12 @@ export const curvedText = classnames(
   fill('fill-white', 'dark:fill-black')
 )
 
-export const welcomeText = classnames(position('absolute'), textAlign('text-center'), fontStyle('italic'))
+export const welcomeText = classnames(
+  position('absolute'),
+  textAlign('text-center'),
+  fontStyle('italic'),
+  fontSize('text-base', 'lg:text-xl')
+)
 
 export const info = classnames(
   display('flex'),
