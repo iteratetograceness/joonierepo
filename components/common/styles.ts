@@ -246,4 +246,5 @@ export const links = classnames(
   width('w-5/6'),
   margin('my-10')
 )
-export const footerButtons = classnames()
+export const contactButton = classnames()
+export const footerButtons = classnames(margin('mb-5'), padding('px-5'))

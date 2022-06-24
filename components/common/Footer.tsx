@@ -12,7 +12,7 @@ const Footer = () => {
           onClick={() => console.log('click')}
           text="CONTACT ME"
           isLarge
-          className="sm:font-bold"
+          className={styles.contactButton}
         />
         <div className={styles.links}>
           {CONTACT.map(link => (
