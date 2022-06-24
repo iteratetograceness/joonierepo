@@ -21,7 +21,9 @@ const MainLayout = ({ children }: Props) => {
         Skip to Main Content
       </a>
       <Navigation />
-      <div id="main-content">{children}</div>
+      <div id="main-content" className={styles.mainContent}>
+        {children}
+      </div>
       <Footer />
       <ThemeButton />
     </main>

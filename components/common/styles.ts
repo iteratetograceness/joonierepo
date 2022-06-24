@@ -36,12 +36,15 @@ import {
   verticalAlign,
   maxWidth,
   minWidth,
+  minHeight,
+  pointerEvents,
 } from 'tailwindcss-classnames'
 
 /**
  * Main Layout
  */
 
+export const mainContent = classnames(minHeight('min-h-content'))
 export const skipToMainContent = classnames(
   width('w-fit'),
   screenReaders('sr-only', 'focus:not-sr-only'),
@@ -239,14 +242,24 @@ export const footerContainer = classnames(
   display('flex'),
   justifyContent('justify-start'),
   flexDirection('flex-col'),
-  width('w-full')
+  width('w-full'),
+  backgroundColor()
 )
 export const links = classnames(
   display('flex'),
   flexWrap('flex-wrap'),
   height('h-fit'),
-  width('w-full', 'md:w-5/6'),
-  margin('my-8')
+  width('w-full'),
+  margin('my-8'),
+  alignItems('items-center')
 )
-export const contactButton = classnames(fontSize('!text-2xl'), fontWeight('!font-medium'), width('w-fit'))
-export const footerButtons = classnames(margin('mb-5'), padding('px-5'))
+const contactButton = classnames(
+  fontSize('!text-2xl'),
+  fontWeight('!font-medium'),
+  width('w-fit'),
+  margin('mr-5'),
+  pointerEvents('!pointer-events-none')
+)
+export const contactButtonLg = classnames(contactButton, display('hidden', 'lg:flex'))
+export const contactButtonSm = classnames(contactButton, display('flex', 'lg:hidden'))
+export const footerButtons = classnames(padding('px-5'), display('inline-block', 'md:flex'), margin('mb-5', 'md:mb-0'))

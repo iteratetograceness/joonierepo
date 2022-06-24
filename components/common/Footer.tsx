@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import Button from './Button'
 import { CONTACT } from '@constants'
 import * as styles from './styles'
@@ -7,14 +8,9 @@ const Footer = () => {
     <>
       <footer className={styles.footerContainer}>
         {/* on click animate arrow path pointing to buttons */}
-        <Button
-          variant="solid"
-          onClick={() => console.log('click')}
-          text="CONTACT ME"
-          isLarge
-          className={styles.contactButton}
-        />
+        <Button variant="solid" text="CONTACT ME" isLarge className={styles.contactButtonSm} />
         <div className={styles.links}>
+          <Button variant="solid" text="CONTACT ME" isLarge className={styles.contactButtonLg} />
           {CONTACT.map(link => (
             <Button
               key={link.title}

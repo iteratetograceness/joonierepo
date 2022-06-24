@@ -89,7 +89,12 @@ export const aboutContainer = classnames(
   justifyContent('justify-between'),
   width('w-full')
 )
-export const animateContainer = classnames(height('h-2/6'), margin('mb-10'))
+export const animateContainer = classnames(
+  height('h-2/6'),
+  margin('mb-7', 'md:mb-10'),
+  justifyContent('!justify-center'),
+  display('flex')
+)
 export const textContainer = classnames(position('absolute'), display('flex'), transformOrigin('origin-about'))
 export const about = classnames(
   fontSize(
@@ -102,5 +107,11 @@ export const about = classnames(
 )
 export const aboutCover = classnames(about, opacity('opacity-0'))
 export const aboutSub = classnames(fontSize('text-sm'), position('!absolute'))
+export const aboutItem = classnames(
+  display('flex'),
+  flexDirection('flex-col'),
+  justifyContent('justify-center'),
+  alignItems('items-center')
+)
 
-export const line = classnames(margin('my-20'))
+export const line = classnames(margin('my-12', 'md:my-20'), width('w-full'))

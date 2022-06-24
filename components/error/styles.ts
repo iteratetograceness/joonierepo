@@ -57,5 +57,6 @@ export const errorContainer = classnames(
   flexDirection('flex-col'),
   justifyContent('justify-center'),
   alignItems('items-center'),
+  height('h-full'),
   height('h-mobile-screen', 'md:h-sans-padding')
 )

@@ -35,8 +35,11 @@ module.exports = {
         'sans-padding': 'calc(100% - 4rem)',
       },
       height: {
-        'sans-padding': 'calc(100vh - 16rem)',
-        'mobile-screen': 'calc(100vh - 25rem)',
+        'sans-padding': 'calc(100vh - 23rem)',
+        'mobile-screen': 'calc(100vh - 22rem)',
+      },
+      minHeight: {
+        content: 'calc(100vh - 23rem)',
       },
       inset: {
         26: '6.5rem',
