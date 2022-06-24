@@ -20,7 +20,7 @@ const Button = ({ variant, href, onClick, text, isLarge = false }: Props) => {
 
   if (href)
     return (
-      <>
+      <div className={styles.buttonWrapper}>
         <Link href={href} passHref>
           <m.a
             className={styles.button(variant === 'solid', isLarge)}
@@ -33,7 +33,7 @@ const Button = ({ variant, href, onClick, text, isLarge = false }: Props) => {
         <m.span className={styles.arrow} animate={arrowAnim} variants={arrow} initial="hidden">
           →
         </m.span>
-      </>
+      </div>
     )
 
   return (

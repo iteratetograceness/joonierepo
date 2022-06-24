@@ -92,7 +92,7 @@ export const animateContainer = classnames(height('h-2/6'), margin('mb-10'))
 export const textContainer = classnames(position('absolute'), display('flex'), transformOrigin('origin-about'))
 export const about = classnames(
   fontSize(
-    'text-[3.2rem]' as TTailwindString,
+    'text-[3.5rem]' as TTailwindString,
     'sm:text-[6.5rem]' as TTailwindString,
     'md:text-9xl',
     'lg:text-[12vw]' as TTailwindString

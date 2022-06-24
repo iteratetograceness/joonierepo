@@ -34,6 +34,8 @@ import {
   overflow,
   flexWrap,
   verticalAlign,
+  maxWidth,
+  minWidth,
 } from 'tailwindcss-classnames'
 
 /**
@@ -189,6 +191,7 @@ const solidBg = classnames(
 const outlineBg = classnames(
   backgroundColor('hover:bg-light-gray', 'hover:dark:bg-dark-gray' as TTailwindString, 'bg-white', 'dark:bg-black')
 )
+export const buttonWrapper = classnames(display('flex'))
 export const button = (isSolid: boolean, isLarge: boolean) =>
   classnames(
     position('static'),
@@ -202,14 +205,15 @@ export const button = (isSolid: boolean, isLarge: boolean) =>
       'dark:border-white': !isSolid,
     }),
     borderWidth('!border-1'),
-    width('w-fit'),
+    maxWidth('max-w-full'),
+    minWidth('min-w-fit'),
     textColor({
       'text-black': !isSolid,
       'dark:text-white': !isSolid,
       'text-white': isSolid,
       'dark:text-black': isSolid,
     }),
-    fontWeight('font-medium'),
+    fontWeight('font-normal', 'md:font-medium'),
     fontSize('text-sm', 'md:text-base', {
       ['!text-5xl']: isLarge,
     }),
@@ -234,6 +238,6 @@ export const links = classnames(
   display('flex'),
   flexWrap('flex-wrap'),
   height('h-fit'),
-  width('w-5/6'),
-  margin('my-12')
+  width('w-5/6')
+  // margin('my-12')
 )

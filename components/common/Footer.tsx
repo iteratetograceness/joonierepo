@@ -1,7 +1,6 @@
 import Button from './Button'
 import { CONTACT } from '@constants'
 import * as styles from './styles'
-import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -16,10 +15,7 @@ const Footer = () => {
         </div>
       </footer>
       <section>
-        <p>
-          Copyright © 2022 Jueun Grace Yun | Web Design Inspired By <Link href="https://eumray.com/">eumRay</Link> and{' '}
-          <Link href="https://www.dariaizbash.com/">Dasha Izbash</Link>.
-        </p>
+        <p>Copyright © 2022 Jueun Grace Yun</p>
       </section>
     </>
   )
