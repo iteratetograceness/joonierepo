@@ -9,9 +9,10 @@ type Props = {
   text: string
   isLarge?: boolean
   className?: string
+  animation?: boolean
 }
 
-const Button = ({ variant, href, onClick, text, isLarge = false, className }: Props) => {
+const Button = ({ variant, href, onClick, text, isLarge = false, className, animation }: Props) => {
   const arrow = {
     hidden: { right: 0, opacity: 0, transition: { right: { delay: 0.15 } } },
     enter: { right: 40, opacity: 1 },
@@ -25,8 +26,8 @@ const Button = ({ variant, href, onClick, text, isLarge = false, className }: Pr
         <Link href={href} passHref>
           <m.a
             className={styles.button(variant === 'solid', isLarge) + ' ' + className}
-            onHoverStart={() => arrowAnim.start('enter')}
-            onHoverEnd={() => arrowAnim.start('hidden')}
+            onHoverStart={() => animation && arrowAnim.start('enter')}
+            onHoverEnd={() => animation && arrowAnim.start('hidden')}
           >
             {text}
           </m.a>

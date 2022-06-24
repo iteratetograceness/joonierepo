@@ -58,7 +58,7 @@ const Main = () => {
               viewport={{ once: true }}
             >
               <RotateText text={item.title} />
-              <Button variant="outline" text={item.subtitle} href={item.href} />
+              <Button variant="outline" text={item.subtitle} href={item.href} animation />
               <hr className={styles.line} />
             </m.div>
           ))}
