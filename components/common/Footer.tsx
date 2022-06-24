@@ -7,10 +7,22 @@ const Footer = () => {
     <>
       <footer className={styles.footerContainer}>
         {/* on click animate arrow path pointing to buttons */}
-        <Button variant="solid" onClick={() => console.log('click')} text="CONTACT ME" isLarge />
+        <Button
+          variant="solid"
+          onClick={() => console.log('click')}
+          text="CONTACT ME"
+          isLarge
+          className="sm:font-bold"
+        />
         <div className={styles.links}>
           {CONTACT.map(link => (
-            <Button key={link.title} variant="outline" href={link.content} text={link.title} />
+            <Button
+              key={link.title}
+              variant="outline"
+              href={link.content}
+              text={link.title}
+              className={styles.footerButtons}
+            />
           ))}
         </div>
       </footer>

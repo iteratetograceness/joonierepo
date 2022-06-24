@@ -233,11 +233,17 @@ export const arrow = classnames(
 /**
  * Footer
  */
-export const footerContainer = classnames(display('flex'), justifyContent('justify-start'), flexDirection('flex-col'))
+export const footerContainer = classnames(
+  display('flex'),
+  justifyContent('justify-start'),
+  flexDirection('flex-col'),
+  width('w-full')
+)
 export const links = classnames(
   display('flex'),
   flexWrap('flex-wrap'),
   height('h-fit'),
-  width('w-5/6')
-  // margin('my-12')
+  width('w-5/6'),
+  margin('my-10')
 )
+export const footerButtons = classnames()
