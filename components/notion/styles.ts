@@ -10,6 +10,14 @@ import classnames, {
   borderColor,
   borderWidth,
   padding,
+  backgroundColor,
+  textColor,
+  gridTemplateColumns,
+  gap,
+  position,
+  height,
+  minHeight,
+  TTailwindString,
 } from 'tailwindcss-classnames'
 
 /**
@@ -44,3 +52,31 @@ export const tag = classnames(
   borderColor('border-inherit'),
   borderWidth('border-1')
 )
+
+/**
+ * Grid
+ */
+
+export const grid = classnames(
+  display('grid'),
+  gridTemplateColumns('grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3'),
+  gap('gap-9')
+)
+
+/**
+ * Card
+ */
+export const cardContainer = classnames(
+  display('flex'),
+  flexDirection('flex-col'),
+  backgroundColor('bg-black', 'dark:bg-white'),
+  textColor('text-white', 'dark:text-black'),
+  borderRadius('rounded-3xl')
+)
+export const imgContainer = classnames(
+  position('relative'),
+  minHeight('lg:min-h-fit'),
+  height('h-[250px]' as TTailwindString),
+  borderRadius('rounded-b-3xl')
+)
+export const cardText = classnames(padding('p-7'))
