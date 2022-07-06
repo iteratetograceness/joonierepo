@@ -10,14 +10,12 @@ import classnames, {
   borderColor,
   borderWidth,
   padding,
-  backgroundColor,
-  textColor,
-  gridTemplateColumns,
   gap,
   position,
   height,
-  minHeight,
-  TTailwindString,
+  alignItems,
+  width,
+  zIndex,
 } from 'tailwindcss-classnames'
 
 /**
@@ -57,26 +55,24 @@ export const tag = classnames(
  * Grid
  */
 
-export const grid = classnames(
-  display('grid'),
-  gridTemplateColumns('grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3'),
-  gap('gap-9')
-)
+export const grid = classnames(display('flex'), flexDirection('flex-col'), gap('gap-9'), margin('mt-20'))
 
 /**
  * Card
  */
 export const cardContainer = classnames(
-  display('flex'),
-  flexDirection('flex-col'),
-  backgroundColor('bg-black', 'dark:bg-white'),
-  textColor('text-white', 'dark:text-black'),
-  borderRadius('rounded-3xl')
-)
-export const imgContainer = classnames(
   position('relative'),
-  minHeight('lg:min-h-fit'),
-  height('h-[250px]' as TTailwindString),
-  borderRadius('rounded-b-3xl')
+  display('flex'),
+  alignItems('items-center'),
+  borderColor('border-b-white'),
+  borderWidth('border-b-1'),
+  margin('my-5'),
+  padding('pb-10')
+)
+export const image = classnames(
+  position('absolute'),
+  width('w-64', 'md:!w-96'),
+  height('h-64', 'md:!h-96'),
+  zIndex('z-10')
 )
 export const cardText = classnames(padding('p-7'))
