@@ -141,7 +141,12 @@ export const mobileNav = classnames(
   fontWeight('font-medium'),
   alignItems('items-center')
 )
-export const navContainer = classnames(navigation, fontWeight('font-medium'))
+export const navContainer = classnames(
+  navigation,
+  fontWeight('font-medium'),
+  width('w-10/12'),
+  margin('my-0', 'mx-auto')
+)
 export const logo = classnames(mobileButton, userSelect('select-none'))
 
 export const mobileMenu = (isDarkMode: boolean) =>
@@ -180,7 +185,7 @@ export const mobileLinkItem = (isDarkMode: boolean) =>
 
 export const circle = classnames(
   position('absolute'),
-  width('min-w-[145px]' as TTailwindString, 'w-[125%]' as TTailwindString),
+  width('min-w-[140px]' as TTailwindString, 'w-[125%]' as TTailwindString),
   margin('m-3'),
   inset('top-[-60%]' as TTailwindString, 'left-[-35px]' as TTailwindString)
 )
