@@ -14,8 +14,8 @@ import classnames, {
   position,
   height,
   alignItems,
-  width,
   zIndex,
+  width,
 } from 'tailwindcss-classnames'
 
 /**
@@ -63,16 +63,13 @@ export const grid = classnames(display('flex'), flexDirection('flex-col'), gap('
 export const cardContainer = classnames(
   position('relative'),
   display('flex'),
+  flexDirection('flex-col'),
   alignItems('items-center'),
   borderColor('border-b-white'),
   borderWidth('border-b-1'),
   margin('my-5'),
   padding('pb-10')
 )
-export const image = classnames(
-  position('absolute'),
-  width('w-64', 'md:!w-96'),
-  height('h-64', 'md:!h-96'),
-  zIndex('z-10')
-)
-export const cardText = classnames(padding('p-7'))
+export const image = classnames(height('h-auto'), width('w-screen'), zIndex('z-10'), margin('mb-5', 'md:mb-10'))
+export const cardText = classnames(margin('mb-5', 'md:mb-7'))
+export const cardTitle = classnames(display('flex'))
