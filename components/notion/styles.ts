@@ -16,6 +16,9 @@ import classnames, {
   alignItems,
   zIndex,
   width,
+  cursor,
+  backgroundColor,
+  textColor,
 } from 'tailwindcss-classnames'
 
 /**
@@ -68,8 +71,23 @@ export const cardContainer = classnames(
   borderColor('border-b-white'),
   borderWidth('border-b-1'),
   margin('my-5'),
-  padding('pb-10')
+  padding('pb-10'),
+  cursor('hover:cursor-pointer')
 )
-export const image = classnames(height('h-auto'), width('w-screen'), zIndex('z-10'), margin('mb-5', 'md:mb-10'))
-export const cardText = classnames(margin('mb-5', 'md:mb-7'))
-export const cardTitle = classnames(display('flex'))
+export const image = classnames(height('h-auto'), width('w-hero'), zIndex('z-10'), margin('mb-5', 'md:mb-10'))
+export const cardInformation = classnames(
+  display('flex'),
+  width('w-full'),
+  justifyContent('justify-between'),
+  flexDirection('flex-col', 'md:flex-row'),
+  margin('mb-5', 'md:mb-7'),
+  fontSize('text-lg'),
+  alignItems('items-center')
+)
+export const cardText = classnames(
+  backgroundColor('bg-black', 'dark:bg-white'),
+  borderRadius('rounded-full'),
+  padding('px-10', 'py-4'),
+  textColor('text-white', 'dark:text-black')
+)
+export const cardTitle = classnames(display('flex'), flexDirection('flex-col'))

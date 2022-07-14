@@ -145,7 +145,7 @@ export const navContainer = classnames(
   navigation,
   fontWeight('font-medium'),
   width('w-10/12'),
-  margin('my-0', 'mx-auto')
+  margin('my-3', 'mx-auto')
 )
 export const logo = classnames(mobileButton, userSelect('select-none'))
 
@@ -248,7 +248,8 @@ export const footerContainer = classnames(
   justifyContent('justify-start'),
   flexDirection('flex-col'),
   width('w-full'),
-  backgroundColor()
+  backgroundColor(),
+  margin('mt-10')
 )
 export const links = classnames(
   display('flex'),
