@@ -39,6 +39,8 @@ const Navigation = () => {
     exit: { y: -70, opacity: 0 },
   }
 
+  // TODO: Loading state animation
+
   return isMounted ? (
     <m.nav aria-label={isLarge ? 'Main Menu' : 'Mobile Menu'} role="navigation" className="noselect">
       {isMounted && isLarge ? (

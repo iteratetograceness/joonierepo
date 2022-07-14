@@ -18,7 +18,7 @@ const Main = () => {
 
   return (
     <>
-      <m.section key="homepage-1" variants={main} animate="animate" initial="initial" className={styles.mainContainer}>
+      <m.div key="homepage-1" variants={main} animate="animate" initial="initial" className={styles.mainContainer}>
         <m.div variants={items} className={styles.leftOfImage}>
           <p className={styles.welcomeText}>[ insert corny intro here ]</p>
           <svg viewBox="50 50 400 400" className={styles.svg} width="100%">
@@ -46,9 +46,9 @@ const Main = () => {
             priority
           />
         </m.div>
-      </m.section>
+      </m.div>
       <hr className={styles.line} />
-      <section>
+      <div>
         <div className={styles.aboutContainer}>
           {ABOUT.map(item => (
             <m.div
@@ -64,7 +64,7 @@ const Main = () => {
             </m.div>
           ))}
         </div>
-      </section>
+      </div>
     </>
   )
 }
