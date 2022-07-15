@@ -1,5 +1,5 @@
 import { Tag } from '@custom-types/notion'
-import Link from 'next/link'
+// import Link from 'next/link'
 import { m } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import * as styles from './styles'
@@ -20,13 +20,13 @@ const Tags = ({ tags }: Props) => {
   return (
     <ul className={styles.tagContainer} aria-label="Project tags">
       {tags.map(tag => {
-        const href = '/work/tags/' + tag.name
+        // const href = '/work/tags/' + tag.name
         return (
-          <Link href={href} key={tag.id} passHref>
-            <m.a className={styles.tag} variants={tagVariants} whileHover="hover">
-              {tag.name.toLocaleUpperCase()}
-            </m.a>
-          </Link>
+          // <Link href={href} key={tag.id} passHref>
+          <m.a key={tag.id} className={styles.tag} variants={tagVariants} whileHover="hover">
+            {tag.name.toLocaleUpperCase()}
+          </m.a>
+          // </Link>
         )
       })}
     </ul>
