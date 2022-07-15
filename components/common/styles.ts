@@ -269,3 +269,13 @@ const contactButton = classnames(
 export const contactButtonLg = classnames(contactButton, display('hidden', 'lg:flex'))
 export const contactButtonSm = classnames(contactButton, display('flex', 'lg:hidden'))
 export const footerButtons = classnames(padding('px-5'), display('inline-block', 'md:flex'), margin('mb-5', 'md:mb-0'))
+
+/**
+ * Status
+ */
+export const statusText = classnames(
+  fontSize('text-5xl'),
+  textAlign('text-center'),
+  margin('my-80'),
+  fontWeight('font-bold')
+)
