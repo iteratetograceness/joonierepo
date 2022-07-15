@@ -33,7 +33,6 @@ module.exports = {
       },
       width: {
         'sans-padding': 'calc(100% - 4rem)',
-        hero: 'calc(100vw - 1rem)',
       },
       height: {
         'sans-padding': 'calc(100vh - 23rem)',

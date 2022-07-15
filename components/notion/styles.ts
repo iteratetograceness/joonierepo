@@ -74,7 +74,7 @@ export const cardContainer = classnames(
   padding('pb-10'),
   cursor('hover:cursor-pointer')
 )
-export const image = classnames(height('h-auto'), width('w-hero'), zIndex('z-10'), margin('mb-5', 'md:mb-10'))
+export const image = classnames(height('h-auto'), width('w-screen'), zIndex('z-10'), margin('mb-5', 'md:mb-10'))
 export const cardInformation = classnames(
   display('flex'),
   width('w-full'),
