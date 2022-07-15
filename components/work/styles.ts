@@ -1,7 +1,6 @@
 import classnames, {
   display,
   flexDirection,
-  gap,
   inset,
   justifyContent,
   margin,
@@ -13,7 +12,6 @@ import classnames, {
 
 export const imageContainer = classnames(
   display('block'),
-  gap('gap-7'),
   position('relative'),
   inset('left-padding'),
   width('w-screen'),

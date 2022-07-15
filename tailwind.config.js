@@ -43,7 +43,7 @@ module.exports = {
       },
       inset: {
         26: '6.5rem',
-        padding: '-2.5rem',
+        padding: '-2rem',
       },
       content: {
         star: '^',
