@@ -276,6 +276,6 @@ export const footerButtons = classnames(padding('px-5'), display('inline-block',
 export const statusText = classnames(
   fontSize('text-5xl'),
   textAlign('text-center'),
-  margin('my-80'),
-  fontWeight('font-bold')
+  fontWeight('font-bold'),
+  padding('pt-52')
 )
