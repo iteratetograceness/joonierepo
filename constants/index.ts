@@ -23,7 +23,7 @@ export const ABOUT = [
   { title: 'STICKERS', subtitle: 'I create and sell my own stickers.', href: '/shop' },
   {
     title: 'YOUTUBE',
-    subtitle: 'I film and edit daily vlogs and videos about tech.',
+    subtitle: 'I film and edit daily vlogs and videos.',
     href: 'https://www.youtube.com/channel/UCtBjnPKrCMu1uQexUDM5sUA',
   },
 ]
