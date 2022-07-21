@@ -1,4 +1,5 @@
 import { m, useAnimation } from 'framer-motion'
+import { useMediaQuery } from 'react-responsive'
 import * as styles from './styles'
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 }
 
 const RotateText = ({ text }: Props) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 480px)' })
   const controls = useAnimation()
 
   const main = {
@@ -40,13 +42,23 @@ const RotateText = ({ text }: Props) => {
     }),
   }
 
+  const attributes = !isMobile
+    ? {
+        variants: main,
+        animate: controls,
+        initial: 'initial',
+        onHoverStart: () => controls.start('rotate'),
+      }
+    : null
+
   return (
     <m.div
       className={styles.animateContainer}
-      variants={main}
-      animate={controls}
-      initial="initial"
-      onHoverStart={() => controls.start('rotate')}
+      // variants={main}
+      // animate={controls}
+      // initial="initial"
+      // onHoverStart={() => controls.start('rotate')}
+      {...attributes}
     >
       <m.div className={styles.textContainer} variants={container}>
         {Array.from(text).map((char, i) => (
