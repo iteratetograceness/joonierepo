@@ -88,6 +88,8 @@ export const cardText = classnames(
   backgroundColor('bg-black', 'dark:bg-white'),
   borderRadius('rounded-full'),
   padding('px-10', 'py-4'),
-  textColor('text-white', 'dark:text-black')
+  textColor('text-white', 'dark:text-black'),
+  margin('mb-7', 'md:m-0'),
+  fontSize('text-sm', 'md:text-base')
 )
 export const cardTitle = classnames(display('flex'), flexDirection('flex-col'))
