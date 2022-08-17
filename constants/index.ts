@@ -9,7 +9,7 @@ export const SHOP_LINKS = [
   { label: 'All Products', path: '/shop', icon: '' },
   { label: 'Notion Templates', path: '/shop/notion', icon: '' },
   { label: 'Stickers', path: '/shop/stickers', icon: '' },
-  { label: 'Stickers', path: '/shop/prints', icon: '' },
+  { label: 'Prints', path: '/shop/prints', icon: '' },
   { label: 'Etc.', path: '/shop/etc', icon: '' },
   { label: '← Back To Homepage', path: '/', icon: '' },
 ]

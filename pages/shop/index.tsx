@@ -1,9 +1,10 @@
 import { Status } from '@components/common'
 import { ShopLayout } from '@components/shop'
+import { ShopHome } from '@components/shop'
 import { useEffect, useState } from 'react'
 
 const Shop = () => {
-  const [shopStatus, setShopStatus] = useState('default')
+  const [shopStatus, setShopStatus] = useState('live')
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_SHOP_STATUS) setShopStatus(process.env.NEXT_PUBLIC_SHOP_STATUS)
@@ -11,17 +12,16 @@ const Shop = () => {
 
   switch (shopStatus) {
     case 'live':
-      return <div className={'h-[200vh]'}>hey store</div>
+      return <ShopHome />
     case 'comingsoon':
       return <Status text="Coming Soon" />
     case 'maintenance':
       return <Status text="Under Maintenance" />
-    default:
-      return null
   }
 }
 
-if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_SHOP_STATUS === 'live')
-  Shop.getLayout = (page: JSX.Element | JSX.Element[]) => <ShopLayout>{page}</ShopLayout>
+Shop.getLayout = (page: JSX.Element | JSX.Element[]) => {
+  return <ShopLayout>{page}</ShopLayout>
+}
 
 export default Shop
