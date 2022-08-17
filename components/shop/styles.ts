@@ -8,7 +8,6 @@ import classnames, {
   margin,
   position,
   textAlign,
-  width,
 } from 'tailwindcss-classnames'
 
 /**
