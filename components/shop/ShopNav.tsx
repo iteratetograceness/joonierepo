@@ -18,7 +18,7 @@ const ShopNav = forwardRef<HTMLDivElement>((_, ref) => {
   useLayoutEffect(() => {
     if (isMobile) {
       const content = (ref as MutableRefObject<HTMLDivElement>)?.current
-      if (content) content.style.marginTop = (mobileNavRef?.current?.getBoundingClientRect().height || 300) + 50 + 'px'
+      if (content) content.style.marginTop = (mobileNavRef?.current?.getBoundingClientRect().height || 300) + 'px'
     }
   }, [isMobile, openMobileNav, ref])
 
