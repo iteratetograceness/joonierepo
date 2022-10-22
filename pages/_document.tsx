@@ -6,9 +6,10 @@ export default function Document() {
       <Head>
         <meta name="description" content="jueun grace yun" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Source+Code+Pro&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
       </Head>
       <body className="bg-white dark:bg-black">
         <Main />

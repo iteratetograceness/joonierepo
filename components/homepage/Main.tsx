@@ -40,8 +40,8 @@ const Main = () => {
             src="/grace.jpg"
             alt=""
             layout="responsive"
-            width={700}
-            height={700}
+            width={500}
+            height={500}
             style={{ borderRadius: '20% 20%' }}
             priority
           />
