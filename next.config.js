@@ -1,59 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
-const nextSafe = require('next-safe')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
-const isDev = process.env.NODE_ENV !== 'production'
-
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  images: {
-    domains: ['snsyghebsujbdmfblkbw.supabase.co'],
-  },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: nextSafe({
-          contentTypeOptions: 'nosniff',
-          contentSecurityPolicy: {
-            'base-uri': "'none'",
-            'child-src': "'none'",
-            'connect-src': "'self' ws://localhost:3000 https://vitals.vercel-insights.com/v1/vitals",
-            'default-src': "'self'",
-            'font-src': "'self' fonts.gstatic.com",
-            'form-action': "'self'",
-            'frame-ancestors': "'none'",
-            'frame-src': "'none'",
-            'img-src': "'self' data:",
-            'manifest-src': "'self'",
-            'media-src': "'self'",
-            'object-src': "'none'",
-            'prefetch-src': "'self'",
-            'script-src': "'self' 'unsafe-inline'",
-            'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
-            'worker-src': "'self'",
-            reportOnly: false,
-          },
-          frameOptions: 'DENY',
-          permissionsPolicy: false,
-          permissionsPolicyDirectiveSupport: ['proposed', 'standard'],
-          isDev,
-          referrerPolicy: 'no-referrer',
-          xssProtection: '1; mode=block',
-        }),
-      },
-    ]
-  },
-  productionBrowserSourceMaps: true,
   experimental: {
-    // lodash: {
-    //   transform: 'lodash/{{member}}',
-    // },
+    appDir: true,
   },
 }
 
-module.exports = withBundleAnalyzer(nextConfig)
+module.exports = nextConfig
