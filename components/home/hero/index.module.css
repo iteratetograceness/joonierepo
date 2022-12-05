@@ -10,6 +10,25 @@
   font-weight: 700;
   line-height: 1;
   margin: 0;
+  padding-bottom: 100px;
+}
+
+.roles {
+  display: flex;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.roles span {
+  display: flex;
+  align-items: center;
+  height: min-content;
+  margin: 0;
+  gap: 10px;
+}
+
+.roles p {
+  margin: 0;
 }
 
 @media screen and (max-width: 940px) {
@@ -19,12 +38,16 @@
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 540px) {
   .title {
     font-size: 5rem;
   }
 
   .subheading {
     font-size: 0.8rem;
+  }
+
+  .roles {
+    flex-flow: column nowrap;
   }
 }
