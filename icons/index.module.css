@@ -1,0 +1,18 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo p {
+  margin: 0;
+}
+
+.asterisk {
+  font-size: 100px;
+  margin: 0;
+}
+
+.initials {
+  font-weight: 600;
+  font-size: 1.2rem;
+}

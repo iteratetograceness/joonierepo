@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  border: 1px solid;
+  width: 70px;
+  height: 100px;
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+}
