@@ -21,34 +21,28 @@
     transparent 70%
   );
   mask: var(--noise), radial-gradient(ellipse, black 0%, transparent 70%);
-  transform: translateZ(0);
   image-rendering: pixelated;
-  animation: bob 5s ease-in-out infinite;
-  animation-delay: calc(var(--animation-order) * 100ms);
+  animation: float 5s ease-in-out infinite;
+  animation-delay: calc(var(--animation-order) * 300ms);
+  transform: translateZ(0);
 }
 
-@keyframes bob {
+@keyframes float {
   0% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(0);
+    opacity: 1;
   }
 
   50% {
-    transform: translateY(10);
-  }
-
-  80% {
-    transform: translateY(10);
-  }
-
-  90% {
-    transform: translateY(0);
+    opacity: 0.6;
   }
 
   100% {
-    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .gradient {
+    animation: none;
   }
 }

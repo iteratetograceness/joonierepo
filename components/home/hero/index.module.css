@@ -12,10 +12,6 @@
   margin: 0;
 }
 
-.subheading {
-  font-size: 1.5rem;
-}
-
 @media screen and (max-width: 940px) {
   .title {
     word-break: break-word;
@@ -26,5 +22,9 @@
 @media screen and (max-width: 770px) {
   .title {
     font-size: 5rem;
+  }
+
+  .subheading {
+    font-size: 0.8rem;
   }
 }
