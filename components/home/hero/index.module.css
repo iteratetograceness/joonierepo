@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  min-height: calc(100vh - 10rem);
+}
+
+.title {
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.subheading {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 940px) {
+  .title {
+    word-break: break-word;
+    width: 4.5ch;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .title {
+    font-size: 5rem;
+  }
+}
