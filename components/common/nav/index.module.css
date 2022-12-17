@@ -1,13 +1,21 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  min-width: 250px;
 }
 
+/* Menu Button */
 .button {
   border: 1px solid;
   width: 70px;
   height: 100px;
   border-radius: 100px;
+  color: var(--foreground);
   background: transparent;
   cursor: pointer;
+}
+
+.button:hover {
+  background: var(--foreground);
+  color: var(--background);
 }
