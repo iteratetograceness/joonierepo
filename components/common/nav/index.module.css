@@ -6,16 +6,37 @@
 
 /* Menu Button */
 .button {
-  border: 1px solid;
+  --translate-y: 50%;
+  --translate-x: -45%;
+
+  position: relative;
+  border: 1px solid var(--foreground);
   width: 70px;
   height: 100px;
   border-radius: 100px;
   color: var(--foreground);
-  background: transparent;
   cursor: pointer;
+  overflow: hidden;
+  background: transparent;
 }
 
 .button:hover {
-  background: var(--foreground);
   color: var(--background);
+  transition: color 0.5s ease 0.2s;
+}
+
+.button::before {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: '';
+  background: var(--foreground);
+  top: 100%;
+  left: 0;
+  transition: top 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.button:hover::before {
+  top: 0;
 }
