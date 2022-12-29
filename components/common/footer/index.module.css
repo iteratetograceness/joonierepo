@@ -1,0 +1,20 @@
+.footer {
+  position: relative;
+  padding: 5rem 0 4rem;
+}
+
+.footer h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.gradients {
+  left: -4rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}

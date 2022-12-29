@@ -40,3 +40,14 @@
 .button:hover::before {
   top: 0;
 }
+
+@media (prefers-reduced-motion) {
+  .button:hover {
+    color: var(--background);
+    transition: none;
+  }
+
+  .button::before {
+    transition: none;
+  }
+}

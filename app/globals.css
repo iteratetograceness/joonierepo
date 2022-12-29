@@ -19,7 +19,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   min-height: 100vh;
-  padding: 4rem;
+  padding: 4rem 4rem 0;
+  overscroll-behavior-y: none;
 }
 
 a {

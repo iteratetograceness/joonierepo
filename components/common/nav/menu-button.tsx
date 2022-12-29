@@ -3,7 +3,7 @@
 // https://stackoverflow.com/questions/74255356/typeerror-react-createcontext-is-not-a-function-nextjs-13-formik-with-typesc
 
 import styles from './index.module.css';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 type Props = {
   onClick: () => void;
@@ -17,6 +17,7 @@ export default function MenuButton({
   size = 12,
 }: Props) {
   const variant = isOpen ? 'opened' : 'closed';
+  const prefersReducedMotion = useReducedMotion();
 
   const top = {
     closed: {
@@ -43,14 +44,30 @@ export default function MenuButton({
   const lineProps = {
     stroke: 'currentColor',
     strokeWidth: 1,
-    transition: { type: 'spring', stiffness: 260, damping: 20 },
+    transition: prefersReducedMotion
+      ? { duration: '.01' }
+      : { type: 'spring', stiffness: 260, damping: 20 },
     vectorEffect: 'non-scaling-stroke',
     initial: 'closed',
     animate: variant,
   };
 
+  const buttonVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { ease: 'easeIn', duration: 0.5 },
+    },
+  };
+
   return (
-    <button className={styles.button} onClick={onClick}>
+    <motion.button
+      variants={buttonVariants}
+      initial='hidden'
+      animate='show'
+      className={styles.button}
+      onClick={onClick}
+    >
       <motion.svg
         viewBox={`0 0 4 4`}
         overflow='visible'
@@ -75,6 +92,6 @@ export default function MenuButton({
           {...lineProps}
         />
       </motion.svg>
-    </button>
+    </motion.button>
   );
 }

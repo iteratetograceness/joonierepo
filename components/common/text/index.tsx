@@ -1,4 +1,6 @@
-import { Source_Code_Pro } from '@next/font/google';
+import { forwardRef } from 'react';
+import inter from '../../../utils/inter';
+import source_code_pro from '../../../utils/source-code-pro';
 
 type Props = {
   content: string;
@@ -7,21 +9,35 @@ type Props = {
   className?: string;
 };
 
-const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
+const Text = forwardRef<HTMLHeadingElement | HTMLParagraphElement, Props>(
+  function Text(
+    { content, heading = false, mono = false, className = undefined },
+    ref,
+  ) {
+    if (heading) {
+      return (
+        <h1
+          ref={ref}
+          className={`${className} ${
+            mono ? source_code_pro.className : inter.className
+          }`}
+        >
+          {content}
+        </h1>
+      );
+    }
 
-export default function Text({
-  content,
-  heading = false,
-  mono = false,
-  className = undefined,
-}: Props) {
-  if (heading) {
-    return <h1 className={className}>{content}</h1>;
-  }
+    return (
+      <p
+        ref={ref}
+        className={`${className} ${
+          mono ? source_code_pro.className : inter.className
+        }`}
+      >
+        {content}
+      </p>
+    );
+  },
+);
 
-  return (
-    <p className={`${className} ${mono ? sourceCodePro.className : undefined}`}>
-      {content}
-    </p>
-  );
-}
+export default Text;
