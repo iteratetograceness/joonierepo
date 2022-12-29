@@ -57,8 +57,8 @@ export default function SubSection({
           <Image
             src={`/${illustration}`}
             alt={alt}
-            width={350}
-            height={350}
+            width={300}
+            height={300}
             style={{
               order: reverse ? 1 : undefined,
             }}

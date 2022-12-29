@@ -14,7 +14,7 @@
   position: absolute;
   height: auto;
   aspect-ratio: 1.05 / 1;
-  opacity: 0.8;
+  opacity: var(--opacity);
   background: radial-gradient(
     ellipse,
     transparent -200%,
@@ -30,15 +30,15 @@
 
 @keyframes float {
   0% {
-    opacity: 1;
+    opacity: var(--opacity);
   }
 
   50% {
-    opacity: 0.6;
+    opacity: calc(var(--opacity) - 0.2);
   }
 
   100% {
-    opacity: 1;
+    opacity: var(--opacity);
   }
 }
 

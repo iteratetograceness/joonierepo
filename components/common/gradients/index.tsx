@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import styles from './index.module.css';
 
 const DEFAULT_VALUES: GradientsData = {
@@ -21,21 +24,46 @@ type Props = {
   colors?: GradientsData;
   className?: string;
   responsive?: boolean;
+  opacity?: number;
 };
 
 export function Gradients({
   colors = DEFAULT_VALUES,
   className,
   responsive = false,
+  opacity = 0.8,
 }: Props) {
+  const variants = {
+    hidden: { opacity: 0 },
+    show: { opacity },
+  };
+
+  const containerTransition = {
+    staggerChildren: 0.15,
+    delayChildren: 0.3,
+  };
+
+  const gradientTransition = {
+    ease: 'easeIn',
+    duration: 0.5,
+  };
+
   return (
-    <div className={`${styles.container} ${className}`}>
+    <motion.div
+      variants={variants}
+      initial='hidden'
+      animate='show'
+      transition={containerTransition}
+      className={`${styles.container} ${className}`}
+    >
       {Object.keys(colors).map((color, i) => {
         const { x, y, width, zIndex, hex } =
           colors[color as keyof GradientsData];
 
         return (
-          <div
+          <motion.div
+            variants={variants}
+            transition={gradientTransition}
             key={color}
             className={styles.gradient}
             style={{
@@ -45,10 +73,11 @@ export function Gradients({
               zIndex,
               ['--color' as string]: hex,
               ['--animation-order' as string]: i,
+              ['--opacity' as string]: opacity,
             }}
           />
         );
       })}
-    </div>
+    </motion.div>
   );
 }

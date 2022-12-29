@@ -1,6 +1,5 @@
 .footer {
   position: relative;
-  padding: 5rem 0 4rem;
 }
 
 .footer h1 {
@@ -9,12 +8,48 @@
   letter-spacing: 0.05rem;
 }
 
+.email {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+}
+
 .gradients {
+  position: absolute;
   left: -4rem;
+  top: -100px;
+  z-index: -1;
+  overflow-x: hidden;
+  padding-top: 100px;
+  height: 450px;
 }
 
 .links {
   display: flex;
   flex-direction: column;
   margin: 1.5rem 0;
+  gap: 0.4rem;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.squiggle {
+  width: fit-content;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    margin-top: 10rem;
+  }
+
+  .copyright p {
+    font-size: 0.9rem;
+  }
 }

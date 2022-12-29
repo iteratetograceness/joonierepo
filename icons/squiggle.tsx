@@ -7,6 +7,11 @@ interface SquiggleType extends SVGType {
   animate: boolean;
   strokeWidth?: number;
   color?: string;
+  waveAmplitude?: number;
+  originX?: number;
+  pointSpacing?: number;
+  xAdjust?: number;
+  numberOfLines?: number;
 }
 
 export default function Squiggle({
@@ -16,6 +21,11 @@ export default function Squiggle({
   className,
   strokeWidth = 1.5,
   color = 'currentColor',
+  waveAmplitude = 1,
+  pointSpacing = 0.2,
+  originX = 1,
+  xAdjust = 5,
+  numberOfLines = 4,
 }: SquiggleType) {
   const prefersReducedMotion = useReducedMotion();
   const variant = animate ? 'visible' : 'hidden';
@@ -33,16 +43,16 @@ export default function Squiggle({
   };
 
   const origin = {
-    x: -4,
+    x: originX,
     y: 4,
   };
 
-  const amplitude = 1; // wave amplitude
-  const rarity = 0.2; // point spacing
+  const amplitude = waveAmplitude; // wave amplitude
+  const rarity = pointSpacing; // point spacing
   const freq = 0.1; // angular frequency
   const phase = 0; // phase angle
 
-  const lines = Array(Math.floor(width * 5))
+  const lines = Array(Math.floor(width * numberOfLines))
     .fill(0)
     .map((_, i) => {
       return (
@@ -65,15 +75,15 @@ export default function Squiggle({
     });
 
   return (
-    <svg
+    <motion.svg
       width={width}
       height={height}
-      viewBox={`0 0 ${width - 5} ${height}`}
+      viewBox={`0 0 ${width - xAdjust} ${height - 2}`}
       className={className}
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
       {lines}
-    </svg>
+    </motion.svg>
   );
 }

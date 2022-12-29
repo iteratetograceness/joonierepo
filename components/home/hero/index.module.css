@@ -15,8 +15,13 @@
 .title {
   font-size: 7rem;
   font-weight: 700;
+  opacity: 0;
   line-height: 1;
   margin: 0;
+}
+
+.subheading {
+  opacity: 0;
 }
 
 .roles {
