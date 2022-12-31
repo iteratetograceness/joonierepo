@@ -6,6 +6,10 @@
   min-width: 240px;
 }
 
+.gradients {
+  inset: 0;
+}
+
 .titleContainer {
   overflow: hidden;
   padding-bottom: 50px;

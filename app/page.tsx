@@ -39,7 +39,7 @@ const ILLUSTRATIONS: SectionProps[] = [
 
 export default function Home() {
   return (
-    <div className={inter.className}>
+    <div className={inter.className} key='home'>
       <HomepageHero />
       {ILLUSTRATIONS.map((i: SectionProps, idx) => (
         <SubSection

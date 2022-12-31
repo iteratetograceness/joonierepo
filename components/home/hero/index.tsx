@@ -60,7 +60,7 @@ export default function HomepageHero() {
 
   return (
     <section className={styles.container}>
-      <Gradients />
+      <Gradients className={styles.gradients} />
       <MotionText
         content='a collection of creations by'
         className={styles.subheading}

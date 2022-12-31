@@ -13,13 +13,14 @@
   align-items: center;
   gap: 0.3rem;
   font-weight: 200;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
 }
 
 .gradients {
   position: absolute;
-  left: -4rem;
-  top: -100px;
+  inset: -100px 0 0 -4rem;
+  /* left: -4rem;
+  top: -100px; */
   z-index: -1;
   overflow-x: hidden;
   padding-top: 100px;

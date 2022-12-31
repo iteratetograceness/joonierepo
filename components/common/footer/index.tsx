@@ -11,10 +11,10 @@ import Text from '../text';
 import styles from './index.module.css';
 
 const LINKS = [
-  { label: 'LinkedIn', href: '' },
-  { label: 'GitHub', href: '' },
-  { label: 'Twitter', href: '' },
-  { label: 'Instagram', href: '' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gracejueunyun/' },
+  { label: 'GitHub', href: 'https://github.com/jueungrace' },
+  { label: 'Twitter', href: 'https://twitter.com/jueungraceyun' },
+  { label: 'Instagram', href: 'https://www.instagram.com/jueungraceyun/' },
 ];
 
 const COLORS = {

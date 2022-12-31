@@ -1,8 +1,6 @@
 .container {
   position: absolute;
   pointer-events: none;
-  inset: 0;
-  height: 100%;
   width: 100vw;
   overflow: hidden;
   overflow-x: hidden;
