@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Sparkle from '../../../icons/sparkle';
 import inter from '../../../utils/inter';
 import styles from './index.module.css';
@@ -42,28 +43,38 @@ type Props = {
 };
 
 export default function Menu({ isOpen }: Props) {
+  const [firstRender, setFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (firstRender) {
+      setFirstRender(false);
+    }
+  }, [firstRender]);
+
   // MENU CONTAINER:
   const menuVariants = {
     closed: {
       height: 0,
       top: '-4rem',
+      // opacity: 0,
       transitionEnd: { zIndex: -1 },
       transition: {
         duration: 1,
         ease: [0.25, 1, 0.5, 1],
         when: 'afterChildren',
-        staggerChildren: 0.05,
+        staggerChildren: 0.1,
       },
     },
     open: {
       height: '100vh',
       top: '0',
       zIndex: 1,
+      // opacity: 1,
       transition: {
         duration: 1,
         ease: [0.25, 1, 0.5, 1],
-        staggerChildren: 0.05,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.5,
       },
     },
   };
@@ -75,12 +86,12 @@ export default function Menu({ isOpen }: Props) {
     open: { opacity: 1, y: -10, transition: { duration: 0.4 } },
   };
 
-  // SOCIALS:
-
   return (
     <motion.div
-      initial={!isOpen ? 'open' : 'closed'}
+      initial={firstRender ? 'closed' : !isOpen ? 'open' : 'closed'}
       animate={isOpen ? 'open' : 'closed'}
+      // initial='closed'
+      // animate={controls}
       variants={menuVariants}
       className={`${styles.menuContainer} ${inter.className}`}
       key='menu'
@@ -90,6 +101,7 @@ export default function Menu({ isOpen }: Props) {
           <MotionLink
             key={title}
             href={href}
+            // animate={controls}
             variants={linkVariants}
             className={styles.link}
           >
