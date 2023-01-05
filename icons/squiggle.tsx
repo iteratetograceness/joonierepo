@@ -12,6 +12,7 @@ interface SquiggleType extends SVGType {
   pointSpacing?: number;
   xAdjust?: number;
   numberOfLines?: number;
+  angularFrequency?: number;
 }
 
 export default function Squiggle({
@@ -26,6 +27,7 @@ export default function Squiggle({
   originX = 1,
   xAdjust = 5,
   numberOfLines = 4,
+  angularFrequency = 0.1,
 }: SquiggleType) {
   const prefersReducedMotion = useReducedMotion();
   const variant = animate ? 'visible' : 'hidden';
@@ -49,8 +51,8 @@ export default function Squiggle({
 
   const amplitude = waveAmplitude; // wave amplitude
   const rarity = pointSpacing; // point spacing
-  const freq = 0.1; // angular frequency
-  const phase = 0; // phase angle
+  const freq = angularFrequency; // angular frequency
+  const phase = 1; // phase angle
 
   const lines = Array(Math.floor(width * numberOfLines))
     .fill(0)

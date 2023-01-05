@@ -117,12 +117,13 @@ export default function Footer() {
           pointSpacing={0.4}
           numberOfLines={1.8}
           xAdjust={16}
+          angularFrequency={-0.1}
         />
       </motion.div>
       {/* Copyright */}
       <span className={styles.copyright}>
-        <Text content='© 2022' />
-        <Sparkle width={20} height={20} />
+        <Text content={`©${new Date().getFullYear()}`} />
+        <Sparkle width={15} height={15} />
         <Text content='JUEUNGRACEYUN' />
       </span>
     </motion.footer>

@@ -4,6 +4,7 @@
 
 import styles from './index.module.css';
 import { motion, useReducedMotion } from 'framer-motion';
+import { KeyboardEvent, useRef } from 'react';
 
 type Props = {
   onClick: () => void;
@@ -60,12 +61,26 @@ export default function MenuButton({
     },
   };
 
+  const menuButtonRef = useRef(null);
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (!isOpen) return;
+    // Moving backward from first element:
+    const themeButton = document.getElementById('theme-toggle');
+    if (e.shiftKey && document.activeElement === menuButtonRef?.current) {
+      themeButton?.focus();
+      e.preventDefault();
+    }
+  };
+
   return (
     <motion.button
+      id='menu-button'
       variants={buttonVariants}
       initial='hidden'
       animate='show'
       className={styles.button}
+      ref={menuButtonRef}
+      onKeyDown={onKeyDown}
       onClick={onClick}
     >
       <motion.svg
