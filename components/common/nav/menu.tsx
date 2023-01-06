@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { KeyboardEvent, useEffect, useState } from 'react';
 import Sparkle from '../../../icons/sparkle';
@@ -44,6 +44,7 @@ type Props = {
 };
 
 export default function Menu({ isOpen }: Props) {
+  const prefersReducedMotion = useReducedMotion();
   const [firstRender, setFirstRender] = useState(true);
 
   const onKeyDown = (e: KeyboardEvent) => {
@@ -69,13 +70,13 @@ export default function Menu({ isOpen }: Props) {
   const menuVariants = {
     closed: {
       height: 0,
-      top: '-3rem',
+      top: '-4rem',
       transitionEnd: { display: 'none' },
       transition: {
-        duration: 2,
+        duration: 1.5,
         ease: [0.76, 0, 0.24, 1],
         when: 'afterChildren',
-        staggerChildren: 0.05,
+        staggerChildren: prefersReducedMotion ? 0 : 0.05,
       },
     },
     open: {
@@ -85,8 +86,8 @@ export default function Menu({ isOpen }: Props) {
       transition: {
         duration: 1,
         ease: [0.76, 0, 0.24, 1],
-        staggerChildren: 0.15,
-        delayChildren: 0.8,
+        staggerChildren: prefersReducedMotion ? 0 : 0.15,
+        delayChildren: 0.9,
       },
     },
   };
@@ -94,8 +95,23 @@ export default function Menu({ isOpen }: Props) {
   // LINKS:
   const MotionLink = motion(Link);
   const linkVariants = {
-    closed: { opacity: 0, y: 10, transition: { duration: 0.4 } },
-    open: { opacity: 1, y: -10, transition: { duration: 0.4 } },
+    closed: {
+      opacity: 0,
+      y: prefersReducedMotion ? 0 : 10,
+      transition: { duration: 0.4 },
+    },
+    open: {
+      opacity: 1,
+      y: prefersReducedMotion ? 0 : -10,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  // THEME BUTTON:
+  const MotionThemeButton = motion(ThemeButton);
+  const buttonVariants = {
+    closed: { scale: 0.8, opacity: 0 },
+    open: { scale: 1, opacity: 1, transition: { delay: 1.5 } },
   };
 
   return (
@@ -131,7 +147,7 @@ export default function Menu({ isOpen }: Props) {
           );
         })}
       </motion.div>
-      <ThemeButton />
+      <MotionThemeButton variants={buttonVariants} />
     </motion.div>
   );
 }

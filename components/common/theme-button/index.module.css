@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: var(--foreground);
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: none;
+  color: var(--background);
+  right: 4rem;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .button {
+    left: 4rem;
+    top: 4rem;
+  }
+}
