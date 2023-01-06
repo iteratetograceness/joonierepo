@@ -32,17 +32,6 @@ a {
   box-sizing: border-box;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1e1e1e;
-    --foreground: #f5f5f5;
-  }
-
-  html {
-    color-scheme: dark;
-  }
-} */
-
 .dark-mode {
   --background: #1e1e1e;
   --foreground: #f5f5f5;

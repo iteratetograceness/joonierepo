@@ -28,12 +28,13 @@ const ThemeButton = forwardRef(function ThemeButton(
   };
 
   useEffect(() => {
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (event) => {
-        const colorScheme = event.matches ? 'dark' : 'light';
-        setTheme(colorScheme);
-      });
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+      toggleDarkMode(true);
+    } else {
+      setTheme('light');
+      toggleDarkMode(false);
+    }
   }, []);
 
   const hoverAnimation = {
@@ -52,7 +53,7 @@ const ThemeButton = forwardRef(function ThemeButton(
       whileHover={prefersReducedMotion ? undefined : hoverAnimation}
       onClick={toggleTheme}
     >
-      {theme && theme === 'dark' ? <Sun /> : <Moon />}
+      {theme !== null && theme === 'dark' ? <Sun /> : <Moon />}
     </motion.button>
   );
 });
