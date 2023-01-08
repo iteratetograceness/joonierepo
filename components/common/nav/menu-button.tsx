@@ -15,7 +15,7 @@ type Props = {
 export default function MenuButton({
   onClick,
   isOpen = false,
-  size = 12,
+  size = 10,
 }: Props) {
   const variant = isOpen ? 'opened' : 'closed';
   const prefersReducedMotion = useReducedMotion();
@@ -84,6 +84,7 @@ export default function MenuButton({
       onClick={onClick}
     >
       <motion.svg
+        className={styles.svg}
         viewBox={`0 0 4 4`}
         overflow='visible'
         preserveAspectRatio='none'

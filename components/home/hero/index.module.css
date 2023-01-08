@@ -2,8 +2,10 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  min-height: 700px;
-  min-width: 240px;
+  padding: 3rem 0;
+  max-height: fit-content;
+  min-height: 75vh;
+  min-width: 200px;
 }
 
 .gradients {
@@ -11,27 +13,30 @@
 }
 
 .titleContainer {
-  overflow: hidden;
-  padding-bottom: 50px;
-  margin-bottom: 100px;
+  height: fit-content;
 }
 
 .title {
-  font-size: 7rem;
+  font-size: 11vw;
   font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 0.5em;
+}
+
+.title,
+.subheading {
   opacity: 0;
-  line-height: 1;
-  margin: 0;
 }
 
 .subheading {
-  opacity: 0;
+  font-size: 2vw;
+  margin-bottom: 25px;
 }
 
 .roles {
   display: flex;
   gap: 10px;
-  font-size: 0.8rem;
+  font-size: 1.5vw;
 }
 
 .roles span {
@@ -46,20 +51,20 @@
   margin: 0;
 }
 
-@media screen and (max-width: 940px) {
+/* Mobile */
+@media (max-width: 40rem) {
   .title {
+    font-size: 18vw;
     word-break: break-word;
     width: 4.5ch;
   }
-}
-
-@media screen and (max-width: 540px) {
-  .title {
-    font-size: 5rem;
-  }
 
   .subheading {
-    font-size: 0.8rem;
+    font-size: 4vw;
+  }
+
+  .roles {
+    font-size: 3vw;
   }
 
   .roles {

@@ -13,9 +13,9 @@
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+/* Tablet */
+@media (max-width: 64rem) {
   .button {
-    left: 4rem;
-    top: 4rem;
+    right: 2.5rem;
   }
 }

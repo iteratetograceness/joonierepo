@@ -13,7 +13,7 @@ function Description({ roles }: { roles: typeof ROLES }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
-      opacity: 1,
+      opacity: 0.7,
       transition: prefersReducedMotion
         ? undefined
         : { staggerChildren: 0.25, delayChildren: 0.5 },
@@ -56,6 +56,14 @@ export default function HomepageHero() {
     },
   };
 
+  const subtextVariants = {
+    initial: { y: prefersReducedMotion ? 0 : '5%', opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 0.7,
+    },
+  };
+
   const MotionText = motion(Text);
 
   return (
@@ -64,7 +72,7 @@ export default function HomepageHero() {
       <MotionText
         content='a collection of creations by'
         className={styles.subheading}
-        variants={textVariants}
+        variants={subtextVariants}
         initial='initial'
         animate='animate'
         transition={{ duration: 0.5, ease: 'easeInOut' }}

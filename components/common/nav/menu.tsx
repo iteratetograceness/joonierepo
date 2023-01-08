@@ -3,18 +3,9 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { KeyboardEvent, useEffect, useState } from 'react';
-import Sparkle from '../../../icons/sparkle';
 import inter from '../../../utils/inter';
 import ThemeButton from '../theme-button';
 import styles from './index.module.css';
-
-const SOCIALS = [
-  { label: 'hello@joonie.dev', href: 'mailto:hello@joonie.dev' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gracejueunyun/' },
-  { label: 'GitHub', href: 'https://github.com/jueungrace' },
-  { label: 'Twitter', href: 'https://twitter.com/jueungraceyun' },
-  { label: 'Instagram', href: 'https://www.instagram.com/jueungraceyun/' },
-];
 
 const LINKS = [
   {
@@ -80,7 +71,7 @@ export default function Menu({ isOpen }: Props) {
       },
     },
     open: {
-      height: '100vh',
+      height: '100%',
       top: '0',
       display: 'flex',
       transition: {
@@ -136,17 +127,6 @@ export default function Menu({ isOpen }: Props) {
           </MotionLink>
         );
       })}
-      <motion.div className={styles.socials} variants={linkVariants}>
-        {SOCIALS.map(({ label, href }) => {
-          return (
-            <div className={styles.social} key={label}>
-              <Sparkle width={15} height={15} />
-              &nbsp;
-              <a href={href}>{label.toUpperCase()}</a>
-            </div>
-          );
-        })}
-      </motion.div>
       <MotionThemeButton variants={buttonVariants} />
     </motion.div>
   );
