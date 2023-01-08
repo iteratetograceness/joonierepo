@@ -64,8 +64,8 @@ export default function Menu({ isOpen }: Props) {
       top: '-4rem',
       transitionEnd: { display: 'none' },
       transition: {
-        duration: 1.5,
-        ease: [0.76, 0, 0.24, 1],
+        duration: 1,
+        ease: [0.33, 1, 0.68, 1],
         when: 'afterChildren',
         staggerChildren: prefersReducedMotion ? 0 : 0.05,
       },
@@ -76,9 +76,10 @@ export default function Menu({ isOpen }: Props) {
       display: 'flex',
       transition: {
         duration: 1,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.33, 1, 0.68, 1],
         staggerChildren: prefersReducedMotion ? 0 : 0.15,
         delayChildren: 0.9,
+        delay: 0.55,
       },
     },
   };
@@ -99,10 +100,16 @@ export default function Menu({ isOpen }: Props) {
   };
 
   // THEME BUTTON:
-  const MotionThemeButton = motion(ThemeButton);
+  const buttonContainerVariants = {
+    closed: { opacity: 0 },
+    open: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.5 },
+    },
+  };
   const buttonVariants = {
     closed: { scale: 0.8, opacity: 0 },
-    open: { scale: 1, opacity: 1, transition: { delay: 1.5 } },
+    open: { scale: 1, opacity: 1 },
   };
 
   return (
@@ -115,6 +122,11 @@ export default function Menu({ isOpen }: Props) {
       onKeyDown={onKeyDown}
       key='menu'
     >
+      <motion.div className={styles.buttons} variants={buttonContainerVariants}>
+        <motion.div variants={buttonVariants}>
+          <ThemeButton />
+        </motion.div>
+      </motion.div>
       {LINKS.map(({ title, href }) => {
         return (
           <MotionLink
@@ -127,7 +139,6 @@ export default function Menu({ isOpen }: Props) {
           </MotionLink>
         );
       })}
-      <MotionThemeButton variants={buttonVariants} />
     </motion.div>
   );
 }

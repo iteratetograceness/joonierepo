@@ -15,7 +15,7 @@ type Props = {
 export default function MenuButton({
   onClick,
   isOpen = false,
-  size = 10,
+  size = 12,
 }: Props) {
   const variant = isOpen ? 'opened' : 'closed';
   const prefersReducedMotion = useReducedMotion();
@@ -61,7 +61,7 @@ export default function MenuButton({
     },
   };
 
-  const menuButtonRef = useRef(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const onKeyDown = (e: KeyboardEvent) => {
     if (!isOpen) return;
     // Moving backward from first element:

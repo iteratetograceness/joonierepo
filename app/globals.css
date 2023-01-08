@@ -16,15 +16,10 @@ html {
 }
 
 html,
-body,
-#__next {
+body {
   height: 100%;
   padding: 0;
   margin: 0;
-}
-
-#__next {
-  isolation: isolate;
 }
 
 body {
@@ -34,7 +29,7 @@ body {
   background: var(--background);
   min-height: 100vh;
   height: 100%;
-  padding: 4rem;
+  padding: 100px;
   overscroll-behavior-y: none;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -62,13 +57,13 @@ svg {
 /* Tablet */
 @media (max-width: 64rem) {
   body {
-    padding: 3rem;
+    padding: 50px;
   }
 }
 
 /* Mobile */
-@media (hover: none) and (max-width: 48rem) {
+@media (hover: none) and (max-width: 30rem) {
   body {
-    padding: 1rem;
+    padding: 25px;
   }
 }

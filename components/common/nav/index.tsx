@@ -27,7 +27,7 @@ export default function Nav() {
         <Logo />
       </Link>
       <MenuButton isOpen={isOpen} onClick={handleOnClick} />
-      <Menu isOpen={isOpen} />
+      <Menu isOpen={isOpen} onClick={handleOnClick} />
     </nav>
   );
 }
