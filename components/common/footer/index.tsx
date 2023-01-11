@@ -19,7 +19,7 @@ const LINKS = [
 const COLORS = {
   blue: { y: 0, x: -250, width: 950, zIndex: -4, hex: '#9CABD2' },
   pink: { y: 240, x: 100, width: 450, zIndex: -1, hex: '#F5ACA8' },
-  orange: { y: 150, x: 300, width: 500, zIndex: -2, hex: '#E5954E' },
+  orange: { y: 250, x: 300, width: 500, zIndex: -2, hex: '#E5954ECC' },
   yellow: { y: 70, x: 200, width: 900, zIndex: -3, hex: '#F4BB65CC' },
 };
 
