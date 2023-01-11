@@ -1,8 +1,7 @@
 'use client';
 
-import { motion, useAnimation, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
-import PaperAirplane from '../../../icons/paper-airplane';
 import Sparkle from '../../../icons/sparkle';
 import Squiggle from '../../../icons/squiggle';
 import inter from '../../../utils/inter';
@@ -25,24 +24,12 @@ const COLORS = {
 };
 
 export default function Footer() {
-  const prefersReducedMotion = useReducedMotion();
   const [animate, setAnimate] = useState(false);
 
   // Opacity Animation
   const opacityVariants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { duration: 0.5, delayChildren: 0.5 } },
-  };
-
-  // Paper Airplane Animation
-  const paperAirplaneControls = useAnimation();
-  const paperAirplaneVariants = {
-    initial: { rotate: 0, transition: { duration: 0.3 } },
-    hover: {
-      x: [-2, 2, 0],
-      y: [2, -2, 0],
-      transition: { duration: 0.5, times: [0.1, 0.7, 1] },
-    },
   };
 
   // Link Animations
@@ -68,26 +55,7 @@ export default function Footer() {
       <Gradients colors={COLORS} className={styles.gradients} opacity={1} />
       <Text content='Contact Me' heading />
       {/* Email */}
-      <motion.a
-        onHoverStart={() => {
-          if (!prefersReducedMotion) {
-            paperAirplaneControls.start('hover');
-          }
-        }}
-        onHoverEnd={() => {
-          if (!prefersReducedMotion) {
-            paperAirplaneControls.start('initial');
-          }
-        }}
-        className={styles.email}
-        href='mailto:hello@joonie.dev'
-      >
-        <motion.div
-          animate={paperAirplaneControls}
-          variants={paperAirplaneVariants}
-        >
-          <PaperAirplane width={20} height={20} />
-        </motion.div>
+      <motion.a className={styles.email} href='mailto:hello@joonie.dev'>
         hello@joonie.dev
       </motion.a>
       {/* Social Links */}

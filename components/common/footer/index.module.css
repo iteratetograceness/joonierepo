@@ -6,6 +6,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.05rem;
+  margin: 0.5rem 0;
 }
 
 .email {
@@ -18,10 +19,8 @@
 .gradients {
   position: absolute;
   inset: -100px 0 0 -4rem;
-  /* left: -4rem;
-  top: -100px; */
   z-index: -1;
-  overflow-x: hidden;
+  overflow: hidden;
   padding-top: 100px;
   height: 450px;
 }
@@ -40,8 +39,10 @@
   font-weight: 500;
   font-size: 1.3rem;
 }
+
 .squiggle {
   width: fit-content;
+  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 700px) {
