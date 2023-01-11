@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import ArrowDown from '../../../icons/arrow-down';
+import { useTheme } from '../../../utils/use-theme';
 import Parallax from '../../common/parallax';
 import SquiggleText from '../../common/squiggle-text';
 import styles from './index.module.css';
@@ -50,6 +51,9 @@ export default function SubSection({
     },
   };
 
+  const { theme } = useTheme();
+  console.log(theme);
+
   return (
     <>
       <Parallax>
@@ -61,6 +65,8 @@ export default function SubSection({
             height={300}
             style={{
               order: reverse ? 1 : undefined,
+              backgroundColor: '#f5f5f5',
+              borderRadius: 40,
             }}
           />
           <motion.div

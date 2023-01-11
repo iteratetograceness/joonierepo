@@ -12,10 +12,10 @@ export default function Nav() {
   const handleOnClick = () => {
     if (!isOpen && typeof window != 'undefined' && window.document) {
       // Menu opening:
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflowY = 'hidden';
     } else {
       // Menu closing:
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = 'unset';
     }
 
     setIsOpen(!isOpen);
@@ -27,7 +27,7 @@ export default function Nav() {
         <Logo />
       </Link>
       <MenuButton isOpen={isOpen} onClick={handleOnClick} />
-      <Menu isOpen={isOpen} onClick={handleOnClick} />
+      <Menu isOpen={isOpen} />
     </nav>
   );
 }
