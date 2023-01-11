@@ -55,8 +55,9 @@
 
 /* Menu */
 .menuContainer {
-  width: 100vw;
+  width: 100%;
   position: absolute;
+  overflow-x: hidden;
   overflow-y: scroll;
   background: var(--background);
   inset: 0;

@@ -13,7 +13,7 @@ function Description({ roles }: { roles: typeof ROLES }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
-      opacity: 0.7,
+      opacity: 0.8,
       transition: prefersReducedMotion
         ? undefined
         : { staggerChildren: 0.25, delayChildren: 0.5 },
@@ -60,7 +60,7 @@ export default function HomepageHero() {
     initial: { y: prefersReducedMotion ? 0 : '5%', opacity: 0 },
     animate: {
       y: 0,
-      opacity: 0.7,
+      opacity: 0.8,
     },
   };
 

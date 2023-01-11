@@ -2,8 +2,6 @@
   position: absolute;
   pointer-events: none;
   width: 100vw;
-  overflow: hidden;
-  overflow-x: hidden;
 }
 
 .gradient {

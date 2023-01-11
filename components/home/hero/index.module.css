@@ -2,8 +2,10 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  overflow-y: visible;
+  position: relative;
   padding: 3rem 0;
-  max-height: fit-content;
+  height: max-content;
   min-height: 75vh;
   min-width: 250px;
 }

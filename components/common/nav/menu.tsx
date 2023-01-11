@@ -100,16 +100,9 @@ export default function Menu({ isOpen }: Props) {
   };
 
   // THEME BUTTON:
-  const buttonContainerVariants = {
-    closed: { opacity: 0 },
-    open: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.5 },
-    },
-  };
   const buttonVariants = {
     closed: { scale: 0.8, opacity: 0 },
-    open: { scale: 1, opacity: 1 },
+    open: { scale: 1, opacity: 1, transition: { delay: 2 } },
   };
 
   return (
@@ -122,10 +115,8 @@ export default function Menu({ isOpen }: Props) {
       onKeyDown={onKeyDown}
       key='menu'
     >
-      <motion.div className={styles.buttons} variants={buttonContainerVariants}>
-        <motion.div variants={buttonVariants}>
-          <ThemeButton />
-        </motion.div>
+      <motion.div className={styles.buttons} variants={buttonVariants}>
+        <ThemeButton />
       </motion.div>
       {LINKS.map(({ title, href }) => {
         return (
