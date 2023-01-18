@@ -12,19 +12,16 @@ export function Navigation() {
   const pathname = usePathname();
   const menuControls = useAnimationControls();
 
-  const onMenuOpen = useCallback(
-    async function onMenuOpen() {
-      if (typeof window != 'undefined' && window.document) {
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${window.scrollY}px`;
-        document.body.style.inset = '0';
-      }
-      menuControls.start('open');
-      menuControls.start('in');
-      menuControls.start('enter');
-    },
-    [menuControls],
-  );
+  const onMenuOpen = useCallback(async function onMenuOpen() {
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.inset = '0';
+    }
+    menuControls.start('open');
+    menuControls.start('in');
+    menuControls.start('enter');
+  }, []);
 
   const NAVIGATION_ITEMS = useMemo(
     () => [
