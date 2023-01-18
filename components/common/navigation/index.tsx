@@ -23,7 +23,7 @@ export function Navigation() {
       menuControls.start('in');
       menuControls.start('enter');
     },
-    [window, menuControls],
+    [menuControls],
   );
 
   const NAVIGATION_ITEMS = useMemo(
