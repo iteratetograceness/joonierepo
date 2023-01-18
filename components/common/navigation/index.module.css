@@ -87,7 +87,7 @@
 
 .blue {
   min-width: 10rem;
-  left: minmax(70%, 90%);
+  /* left: minmax(70%, 90%); */
   background: var(--light-blue);
 }
 
