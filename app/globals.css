@@ -5,6 +5,7 @@
   --light-blue: hsl(216, 25%, 75%);
   --yellow: hsl(41, 68%, 54%);
   --brown: hsl(18, 71%, 33%);
+  --light-brown: hsl(21, 38%, 55%);
   --red: hsl(12, 61%, 47%);
 }
 
@@ -20,9 +21,13 @@ html,
 body {
   height: 100%;
   background: var(--light-gray);
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 body {
+  color: var(--dark-blue);
+  padding: 50px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -39,4 +44,11 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+}
+
+/* Mobile Menu */
+@media (max-width: 32rem) {
+  body {
+    padding: 25px;
+  }
 }
