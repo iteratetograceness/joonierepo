@@ -1,9 +1,11 @@
+'use client';
+
 import { AnimatePresence, AnimationControls, motion } from 'framer-motion';
 import { MenuLink } from './menu-link';
-import styles from './index.module.css';
 import { MenuButton } from './menu-button';
 import useMediaQuery from '../../../utils/use-media-query';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
+import styles from './index.module.css';
 
 const MENU_LINKS = [
   { label: 'Home', href: '/', italics: [1] },
@@ -26,18 +28,21 @@ export function FullMenu({ menuControls }: Props) {
     }
   }, [shouldHideColors, menuControls]);
 
-  async function onMenuClose() {
-    if (typeof window != 'undefined' && window.document) {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.inset = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-    menuControls.start('out');
-    menuControls.start('closed');
-    if (!shouldHideColors) menuControls.start('hide');
-  }
+  const onMenuClose = useCallback(
+    async function onMenuClose() {
+      if (typeof window != 'undefined' && window.document) {
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.inset = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+      menuControls.start('out');
+      menuControls.start('closed');
+      if (!shouldHideColors) menuControls.start('hide');
+    },
+    [window, menuControls, shouldHideColors],
+  );
 
   const menuItem = {
     in: (i: number) => ({
@@ -106,6 +111,7 @@ export function FullMenu({ menuControls }: Props) {
   return (
     <AnimatePresence>
       <motion.div
+        key='menu-open'
         className={styles.menu}
         variants={menu}
         initial='closed'
@@ -138,6 +144,7 @@ export function FullMenu({ menuControls }: Props) {
                 variants={red}
               >
                 <motion.div
+                  key='circle'
                   className={styles.circle}
                   animate={menuControls}
                   variants={circle}

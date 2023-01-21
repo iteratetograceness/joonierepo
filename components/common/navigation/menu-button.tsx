@@ -9,7 +9,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function MenuButton({ text = 'Menu', ...props }: Props) {
   return (
     <Button {...props}>
-      <RotatingText text={text} />
+      <RotatingText text={text} key='menu-button' />
     </Button>
   );
 }

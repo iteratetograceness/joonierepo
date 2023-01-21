@@ -1,3 +1,5 @@
+'use client';
+
 import Link, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ForwardedRef, forwardRef } from 'react';
@@ -30,12 +32,12 @@ export const MenuLink = forwardRef(function MenuLink(
           className={styles.char}
           style={{
             fontStyle: italicIndexes.has(index) ? 'italic' : 'unset',
-            fontWeight: pathname === href ? 700 : 400,
           }}
         >
           {char}
         </span>
       ))}
+      {pathname === href ? <span className={styles.char}>*</span> : null}
     </Link>
   );
 });
