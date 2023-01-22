@@ -66,15 +66,10 @@ export function FullMenu({ menuControls }: Props) {
     }
   }, [shouldHideColors, menuControls]);
 
-  useEffect(() => {
-    if (isClosing && typeof window != 'undefined' && window.document) {
-      const scrollY = document.body.style.top;
-      document.body.style.overflow = 'unset';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  }, [isClosing]);
-
   async function onMenuClose() {
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'unset';
+    }
     setIsClosing(true);
     menuControls.start('out');
     menuControls.start('closed');
