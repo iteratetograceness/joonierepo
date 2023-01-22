@@ -21,10 +21,12 @@
 /* Menu Button */
 .nav-item:nth-child(3) {
   text-align: right;
+  position: relative;
 }
 
 /* Full Page Menu */
 .menu {
+  display: none;
   padding: 50px;
   background: var(--yellow);
   position: absolute;

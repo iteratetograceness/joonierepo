@@ -3,7 +3,7 @@
 import { useAnimationControls } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MenuButton } from './menu-button';
 import styles from './index.module.css';
 import { FullMenu } from './full-menu';
@@ -11,20 +11,20 @@ import { FullMenu } from './full-menu';
 export function Navigation() {
   const pathname = usePathname();
   const menuControls = useAnimationControls();
+  const [isOpening, setIsOpening] = useState(false);
 
-  const onMenuOpen = useCallback(
-    async function onMenuOpen() {
-      if (typeof window != 'undefined' && window.document) {
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${window.scrollY}px`;
-        document.body.style.inset = '0';
-      }
-      menuControls.start('open');
-      menuControls.start('in');
-      menuControls.start('enter');
-    },
-    [window, menuControls],
-  );
+  useEffect(() => {
+    if (isOpening && typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [isOpening]);
+
+  async function onMenuOpen() {
+    setIsOpening(true);
+    menuControls.start('open');
+    menuControls.start('in');
+    menuControls.start('enter');
+  }
 
   const NAVIGATION_ITEMS = useMemo(
     () => [

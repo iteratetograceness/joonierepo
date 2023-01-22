@@ -4,8 +4,9 @@ import { AnimatePresence, AnimationControls, motion } from 'framer-motion';
 import { MenuLink } from './menu-link';
 import { MenuButton } from './menu-button';
 import useMediaQuery from '../../../utils/use-media-query';
-import { useCallback, useEffect } from 'react';
+import { useEffect, useRef, KeyboardEvent, useState } from 'react';
 import styles from './index.module.css';
+import { getAllFocusableElements } from '../../../utils/get-all-focusable-elements';
 
 const MENU_LINKS = [
   { label: 'Home', href: '/', italics: [1] },
@@ -21,6 +22,43 @@ interface Props {
 
 export function FullMenu({ menuControls }: Props) {
   const shouldHideColors = useMediaQuery('(max-width: 50rem)');
+  const [isClosing, setIsClosing] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Tab' || isClosing || !menuRef.current) return;
+
+    const focusableElements = getAllFocusableElements<HTMLDivElement>({
+      parent: menuRef.current,
+    });
+
+    const firstFocusableEl = focusableElements?.[0] as HTMLElement;
+    const lastFocusableEl = focusableElements?.[
+      focusableElements.length - 1
+    ] as HTMLElement;
+
+    // Tab forward from last element:
+    if (
+      !e.shiftKey &&
+      firstFocusableEl &&
+      lastFocusableEl &&
+      document.activeElement === lastFocusableEl
+    ) {
+      firstFocusableEl.focus();
+      return e.preventDefault();
+    }
+
+    // Shift + Tab backward from first element
+    if (
+      e.shiftKey &&
+      firstFocusableEl &&
+      lastFocusableEl &&
+      document.activeElement === firstFocusableEl
+    ) {
+      lastFocusableEl.focus();
+      return e.preventDefault();
+    }
+  };
 
   useEffect(() => {
     if (!shouldHideColors) {
@@ -28,21 +66,20 @@ export function FullMenu({ menuControls }: Props) {
     }
   }, [shouldHideColors, menuControls]);
 
-  const onMenuClose = useCallback(
-    async function onMenuClose() {
-      if (typeof window != 'undefined' && window.document) {
-        const scrollY = document.body.style.top;
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.inset = '';
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
-      menuControls.start('out');
-      menuControls.start('closed');
-      if (!shouldHideColors) menuControls.start('hide');
-    },
-    [window, menuControls, shouldHideColors],
-  );
+  useEffect(() => {
+    if (isClosing && typeof window != 'undefined' && window.document) {
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = 'unset';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [isClosing]);
+
+  async function onMenuClose() {
+    setIsClosing(true);
+    menuControls.start('out');
+    menuControls.start('closed');
+    if (!shouldHideColors) menuControls.start('hide');
+  }
 
   const menuItem = {
     in: (i: number) => ({
@@ -74,34 +111,34 @@ export function FullMenu({ menuControls }: Props) {
   };
 
   const red = {
-    hide: {
+    closed: {
       left: '100%',
       transition: { duration: 0.5, ease: 'easeIn' },
     },
     enter: {
-      left: '60%',
+      left: shouldHideColors ? '100%' : '60%',
       transition: { duration: 1, ease: 'easeInOut', delayChildren: 0.75 },
     },
   };
 
   const circle = {
-    hide: {
+    closed: {
       x: '100%',
       transition: { duration: 0.5 },
     },
     enter: {
-      x: 0,
+      x: shouldHideColors ? '100%' : 0,
       transition: { duration: 0.75 },
     },
   };
 
   const blue = {
-    hide: {
+    closed: {
       left: '100%',
       transition: { duration: 0.5, ease: 'easeIn' },
     },
     enter: {
-      left: '80%',
+      left: shouldHideColors ? '100%' : '80%',
       transition: { delay: 0.25, duration: 0.5, ease: 'easeInOut' },
     },
   };
@@ -117,8 +154,9 @@ export function FullMenu({ menuControls }: Props) {
         initial='closed'
         exit='closed'
         animate={menuControls}
+        onKeyDown={onKeyDown}
       >
-        <div className={styles['menu-content']}>
+        <div className={styles['menu-content']} ref={menuRef}>
           {MENU_LINKS.map((link, i) => (
             <MotionMenuLink
               {...link}
@@ -132,35 +170,27 @@ export function FullMenu({ menuControls }: Props) {
           ))}
           <MenuButton onClick={onMenuClose} text='Close' />
         </div>
-        <AnimatePresence>
-          {!shouldHideColors ? (
-            <>
-              <motion.div
-                key='red'
-                className={styles.red}
-                initial='hide'
-                exit='hide'
-                animate={menuControls}
-                variants={red}
-              >
-                <motion.div
-                  key='circle'
-                  className={styles.circle}
-                  animate={menuControls}
-                  variants={circle}
-                />
-              </motion.div>
-              <motion.div
-                key='blue'
-                className={styles.blue}
-                initial='hide'
-                exit='hide'
-                animate={menuControls}
-                variants={blue}
-              />
-            </>
-          ) : null}
-        </AnimatePresence>
+        <motion.div
+          key='red'
+          className={styles.red}
+          initial='closed'
+          exit='closed'
+          animate={menuControls}
+          variants={red}
+        >
+          <motion.div
+            key='circle'
+            className={styles.circle}
+            animate={menuControls}
+            variants={circle}
+          />
+        </motion.div>
+        <motion.div
+          key='blue'
+          className={styles.blue}
+          animate={menuControls}
+          variants={blue}
+        />
       </motion.div>
     </AnimatePresence>
   );

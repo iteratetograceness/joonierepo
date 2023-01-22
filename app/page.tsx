@@ -1,12 +1,12 @@
-import Link from 'next/link';
 // import { ScrollerMotion } from 'scroller-motion';
 import { PageWrapper } from '../components/common/page-wrapper';
+import { HomepageHero } from '../components/homepage/hero';
 
 export default function Home() {
   return (
     <PageWrapper>
+      <HomepageHero />
       {/* <ScrollerMotion> */}
-      <Link href='/projects'>hero</Link>
       {/* </ScrollerMotion> */}
     </PageWrapper>
   );

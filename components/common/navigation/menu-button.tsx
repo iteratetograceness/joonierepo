@@ -1,3 +1,5 @@
+'use client';
+
 import { ButtonHTMLAttributes } from 'react';
 import { Button } from '../button';
 import { RotatingText } from '../rotating-text';

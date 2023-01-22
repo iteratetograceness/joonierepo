@@ -26,17 +26,21 @@ export const MenuLink = forwardRef(function MenuLink(
       href={href}
       ref={ref}
     >
-      {Array.from(label.toUpperCase()).map((char, index) => (
-        <span
-          key={`${char}${index}`}
-          className={styles.char}
-          style={{
-            fontStyle: italicIndexes.has(index) ? 'italic' : 'unset',
-          }}
-        >
-          {char}
-        </span>
-      ))}
+      {Array.from(label.toUpperCase()).map((char, index) => {
+        if (italicIndexes.has(index)) {
+          return (
+            <em key={`${char}${index}`} className={styles.char}>
+              {char}
+            </em>
+          );
+        } else {
+          return (
+            <span key={`${char}${index}`} className={styles.char}>
+              {char}
+            </span>
+          );
+        }
+      })}
       {pathname === href ? <span className={styles.char}>*</span> : null}
     </Link>
   );
