@@ -23,8 +23,12 @@ export function Navigation() {
   return (
     <nav className={styles.nav}>
       <p className={styles['nav-item']}>{pathname}</p>
-      <Link href='/'>Jueun Grace Yun</Link>
-      <MenuButton key='menu-btn' onClick={onMenuOpen} />
+      <p className={styles['nav-item']}>
+        <Link href='/'>Jueun Grace Yun</Link>
+      </p>
+      <p className={styles['nav-item']}>
+        <MenuButton onClick={onMenuOpen} />
+      </p>
       <FullMenu menuControls={menuControls} />
     </nav>
   );

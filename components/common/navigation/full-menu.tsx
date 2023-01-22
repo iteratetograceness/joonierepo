@@ -183,6 +183,8 @@ export function FullMenu({ menuControls }: Props) {
         <motion.div
           key='blue'
           className={styles.blue}
+          initial='closed'
+          exit='closed'
           animate={menuControls}
           variants={blue}
         />
