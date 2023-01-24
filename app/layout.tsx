@@ -4,6 +4,7 @@ import { Navigation } from '~/components/common/navigation';
 import { libreFranklin } from '~/utils/fonts';
 import { MotionConfig } from 'framer-motion';
 import './globals.css';
+import { Footer } from '~/components/common/footer';
 
 export default function RootLayout({
   children,
@@ -17,6 +18,7 @@ export default function RootLayout({
         <MotionConfig reducedMotion='user'>
           <Navigation />
           {children}
+          <Footer />
         </MotionConfig>
       </body>
     </html>

@@ -46,7 +46,7 @@ svg {
   max-width: 100%;
 }
 
-/* Mobile Menu */
+/* Mobile */
 @media (max-width: 32rem) {
   body {
     padding: 25px;
