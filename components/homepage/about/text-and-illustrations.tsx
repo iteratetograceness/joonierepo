@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import useMediaQuery from '../../../utils/use-media-query';
+import useMediaQuery from '~/utils/use-media-query';
 import styles from './index.module.css';
 
 const MARKDOWN = [

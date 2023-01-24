@@ -1,4 +1,4 @@
-import { Star } from '../../../icons/star';
+import { Star } from '~/icons/star';
 import { libreCaslonText } from '../../../utils/fonts';
 import { ItalicText } from '../../common/italic-text';
 import styles from './index.module.css';

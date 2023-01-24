@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { libreCaslonText } from '../../../utils/fonts';
-import { ItalicText } from '../../common/italic-text';
+import { libreCaslonText } from '~/utils/fonts';
+import { ItalicText } from '~/components/common/italic-text';
 import styles from './index.module.css';
 
 export function Header() {

@@ -1,9 +1,11 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Link, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ForwardedRef, forwardRef } from 'react';
-import { libreCaslonText } from '../../../utils/fonts';
+import { OPACITY_VARIANTS } from '~/utils/animations';
+import { libreCaslonText } from '~/utils/fonts';
 import styles from './index.module.css';
 
 interface Props extends LinkProps {
@@ -41,7 +43,11 @@ export const MenuLink = forwardRef(function MenuLink(
           );
         }
       })}
-      {pathname === href ? <span className={styles.char}>*</span> : null}
+      {pathname === href ? (
+        <motion.span variants={OPACITY_VARIANTS} className={styles.char}>
+          *
+        </motion.span>
+      ) : null}
     </Link>
   );
 });

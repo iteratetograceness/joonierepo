@@ -3,10 +3,10 @@
 import { AnimatePresence, AnimationControls, motion } from 'framer-motion';
 import { MenuLink } from './menu-link';
 import { MenuButton } from './menu-button';
-import useMediaQuery from '../../../utils/use-media-query';
+import useMediaQuery from '~/utils/use-media-query';
 import { useEffect, useRef, KeyboardEvent, useState } from 'react';
 import styles from './index.module.css';
-import { getAllFocusableElements } from '../../../utils/get-all-focusable-elements';
+import { getAllFocusableElements } from '~/utils/get-all-focusable-elements';
 
 const MENU_LINKS = [
   { label: 'Home', href: '/', italics: [1] },
