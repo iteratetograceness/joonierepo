@@ -55,6 +55,7 @@ export function TextAndIllustrations() {
         variants: container,
         initial: 'hide',
         whileInView: 'enter',
+        viewport: { once: true },
       };
 
   const childAttributes = isSmallerViewport
