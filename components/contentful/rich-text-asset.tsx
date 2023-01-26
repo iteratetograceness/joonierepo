@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { EmbeddedAsset } from '~/contentful/types';
+import styles from './index.module.css';
 
 interface Props {
   id: string;
@@ -8,10 +9,30 @@ interface Props {
 
 export default function RichTextAsset({ id, assets }: Props) {
   const asset = assets?.find((asset) => asset.sys.id === id);
+  console.log(asset);
 
   if (asset?.url) {
     return (
-      <Image src={asset.url} width={500} height={500} alt={asset.description} />
+      <div
+        style={{ aspectRatio: asset.width / asset.height }}
+        className={styles['image-container']}
+      >
+        {asset.contentType === 'video/mp4' ? (
+          <>
+            <video
+              controls
+              muted
+              src={asset.url}
+              aria-describedby='video-description'
+            />
+            <p id='video-description' className={styles['video-description']}>
+              {asset.description}
+            </p>
+          </>
+        ) : (
+          <Image src={asset.url} fill alt={asset.description} />
+        )}
+      </div>
     );
   }
 

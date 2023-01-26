@@ -22,7 +22,7 @@ export function Navigation() {
 
   return (
     <nav className={styles.nav}>
-      <p className={styles['nav-item']}>{pathname}</p>
+      <p className={styles['nav-item']}>/{pathname?.split('/')[1]}</p>
       <p className={styles['nav-item']}>
         <Link href='/'>Jueun Grace Yun</Link>
       </p>

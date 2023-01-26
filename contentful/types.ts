@@ -4,6 +4,9 @@ export interface EmbeddedAsset {
   sys: { id: string };
   url: string;
   description: string;
+  width: number;
+  height: number;
+  contentType: string;
 }
 
 export interface RichTextContent {

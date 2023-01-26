@@ -10,6 +10,9 @@ content {
                 sys {
                     id
                 }
+                contentType
+                width
+                height
                 url
                 description
             }
