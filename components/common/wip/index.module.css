@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.container > h2 {
+  font-weight: 500;
+  font-size: 5rem;
+}

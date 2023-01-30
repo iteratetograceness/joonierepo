@@ -1,3 +1,5 @@
+import { WorkInProgress } from '~/components/common/wip';
+
 export default function Bookmarks() {
-  return <p>bookmaks</p>;
+  return <WorkInProgress />;
 }
