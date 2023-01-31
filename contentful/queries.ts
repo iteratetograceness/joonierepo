@@ -21,4 +21,8 @@ content {
 }
 `;
 
-export const PROJECTS_QUERY = ``;
+export const PROJECTS_QUERY = `
+slug
+title
+description
+`;

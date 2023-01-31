@@ -9,7 +9,6 @@ interface Props {
 
 export default function RichTextAsset({ id, assets }: Props) {
   const asset = assets?.find((asset) => asset.sys.id === id);
-  console.log(asset);
 
   if (asset?.url) {
     return (
