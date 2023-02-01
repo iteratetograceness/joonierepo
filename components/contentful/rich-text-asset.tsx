@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { EmbeddedAsset } from '~/contentful/types';
 import styles from './index.module.css';
@@ -12,7 +15,11 @@ export default function RichTextAsset({ id, assets }: Props) {
 
   if (asset?.url) {
     return (
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         style={{ aspectRatio: asset.width / asset.height }}
         className={styles['image-container']}
       >
@@ -22,6 +29,8 @@ export default function RichTextAsset({ id, assets }: Props) {
               controls
               muted
               src={asset.url}
+              width={asset.width}
+              height={asset.height}
               aria-describedby='video-description'
             />
             <p id='video-description' className={styles['video-description']}>
@@ -31,7 +40,7 @@ export default function RichTextAsset({ id, assets }: Props) {
         ) : (
           <Image src={asset.url} fill alt={asset.description} />
         )}
-      </div>
+      </motion.div>
     );
   }
 

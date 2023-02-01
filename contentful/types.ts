@@ -7,6 +7,7 @@ export interface EmbeddedAsset {
   width: number;
   height: number;
   contentType: string;
+  thumbnail?: string;
 }
 
 export interface RichTextContent {

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import useSWRInfinite from 'swr/infinite';
 import { Config } from '~/contentful/config';
 import { Project } from '~/contentful/types';
@@ -43,6 +44,7 @@ export function CollectionList({ collection, type }: Props) {
   const hasReachedEnd = allItems.length === collection.total;
 
   const prefetchNextPage = async () => {
+    console.log('viewport enter');
     const key = getKey(size, undefined);
     if (key) {
       await fetcher(key);
@@ -54,18 +56,32 @@ export function CollectionList({ collection, type }: Props) {
     await setSize(size + 1);
   };
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+
+  const child = {
+    hidden: { opacity: 0, x: 20 },
+    show: { opacity: 1, x: 0 },
+  };
+
   return (
-    <section className={styles['collection-list']}>
+    <motion.section
+      className={styles['collection-list']}
+      onViewportEnter={prefetchNextPage}
+      viewport={{ margin: '50%' }}
+      variants={container}
+      initial='hidden'
+      animate='show'
+    >
       {allItems?.map((item) => (
-        <motion.div
-          className={styles.item}
-          key={item.slug}
-          onViewportEnter={prefetchNextPage}
-          viewport={{ margin: '100%' }}
-        >
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-        </motion.div>
+        <Link href={`/${type}s/${item.slug}`} key={item.slug} prefetch>
+          <motion.div className={styles.item} variants={child}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </motion.div>
+        </Link>
       ))}
       {!hasReachedEnd ? (
         <Button
@@ -81,6 +97,6 @@ export function CollectionList({ collection, type }: Props) {
           There was an issuing grabbing more posts! Try again?
         </p>
       ) : null}
-    </section>
+    </motion.section>
   );
 }
