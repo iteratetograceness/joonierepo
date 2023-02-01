@@ -5,6 +5,7 @@ import { libreFranklin } from '~/utils/fonts';
 import { MotionConfig } from 'framer-motion';
 import './globals.css';
 import { Footer } from '~/components/common/footer';
+import { AnalyticsWrapper } from '~/components/common/analytics';
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </MotionConfig>
+        <AnalyticsWrapper />
       </body>
     </html>
   );
