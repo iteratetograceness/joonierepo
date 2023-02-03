@@ -9,7 +9,7 @@ export default function Head() {
       />
       <meta
         property='og:image'
-        content='https://og-joonie.vercel.app/api/og?token=bd8be8ce84a46a56a74e57df7f3c59ec042b4e9e730a62040a8ef1a55612aebd&title=JUEUNGRACEYUN&description=Software%20Engineer%20and%20Illustrator&hideName=true'
+        content='https://og-joonie.vercel.app/api/og?token=bd8be8ce84a46a56a74e57df7f3c59ec042b4e9e730a62040a8ef1a55612aebd&title=JUEUNGRACEYUN&description=Software%20Engineer%20and%20Illustrator&hideName=true&italics=1,6,11'
       />
       <link rel='icon' href='/blob.svg' />
     </>
