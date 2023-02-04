@@ -31,6 +31,7 @@ export default function RichTextAsset({ id, assets }: Props) {
               src={asset.url}
               width={asset.width}
               height={asset.height}
+              className={styles.video}
               aria-describedby='video-description'
             />
             <p id='video-description' className={styles['video-description']}>

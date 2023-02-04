@@ -37,3 +37,9 @@
   position: absolute;
   visibility: hidden;
 }
+
+.video {
+  ratio: 514 / 352.898;
+  width: 100%;
+  height: auto;
+}
