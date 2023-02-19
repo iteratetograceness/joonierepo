@@ -1,0 +1,54 @@
+:root {
+  --black: hsl(195, 46%, 5%);
+  --light-gray: hsl(12, 6%, 85%);
+  --dark-blue: hsl(224, 59%, 37%);
+  --light-blue: hsl(216, 25%, 75%);
+  --yellow: hsl(41, 68%, 54%);
+  --brown: hsl(18, 71%, 33%);
+  --light-brown: hsl(21, 38%, 55%);
+  --red: hsl(12, 61%, 47%);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--light-gray);
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  color: var(--dark-blue);
+  padding: 50px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 32rem) {
+  body {
+    padding: 25px;
+  }
+}

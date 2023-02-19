@@ -1,0 +1,128 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 2px solid currentColor;
+  margin-bottom: 50px;
+  min-width: 200px;
+}
+
+.nav-item {
+  width: 33.33%;
+}
+
+/* Full Name in Middle */
+.nav-item:nth-child(even) {
+  text-align: center;
+}
+
+/* Menu Button */
+.nav-item:nth-child(3) {
+  text-align: right;
+  position: relative;
+}
+
+/* Full Page Menu */
+.menu {
+  display: none;
+  padding: 50px;
+  background: var(--yellow);
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  inset: 0;
+}
+
+.menu-content {
+  display: flex;
+  height: clamp(600px, 100vh - 100px, max(100vh, fit-content));
+  width: calc(100vw - 100px);
+  flex-flow: column nowrap;
+  position: relative;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.menu-content > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.menu-content > a {
+  width: fit-content;
+}
+
+.menu-content > a:nth-child(1) {
+  margin-top: 3rem;
+}
+
+.char {
+  font-size: 3.5rem;
+  color: var(--brown);
+}
+
+.red,
+.blue {
+  top: 0;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.red {
+  min-width: 700px;
+  background: var(--red);
+}
+
+.circle {
+  background: var(--brown);
+  bottom: 0;
+  position: absolute;
+  border-radius: 50%;
+  height: 600px;
+  width: 600px;
+}
+
+.blue {
+  min-width: 10rem;
+  /* left: minmax(70%, 90%); */
+  background: var(--light-blue);
+}
+
+/* Hide Name */
+@media (max-width: 47rem) {
+  .nav-item:nth-child(even) {
+    display: none;
+  }
+}
+
+/* Mobile Menu */
+@media (max-width: 32rem) {
+  .menu {
+    padding: 25px;
+  }
+
+  .menu-content {
+    height: clamp(600px, 100vh - 50px, max(100vh - 50px, 100%));
+    width: calc(100vw - 50px);
+  }
+
+  .char {
+    font-size: 2rem;
+  }
+}
+
+/* Hide Other Colors */
+@media (max-width: 50rem) {
+  .red,
+  .circle,
+  .blue {
+    display: none;
+  }
+}
+
+/* Show other colors on menu 1010 , 32px /// 550, 16px */

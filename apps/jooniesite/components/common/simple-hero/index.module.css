@@ -1,0 +1,28 @@
+.container {
+  padding: 100px 0;
+  border-bottom: 2px solid currentColor;
+  margin-bottom: 50px;
+}
+
+.container > h1 {
+  font-size: 6rem;
+}
+
+.container > h2 {
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 32rem) {
+  .container {
+    padding: 50px 0;
+  }
+
+  .container > h1 {
+    font-size: 3rem;
+  }
+
+  .container > h2 {
+    font-size: 1.2rem;
+  }
+}

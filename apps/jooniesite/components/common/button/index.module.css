@@ -1,0 +1,10 @@
+.button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  width: min-content;
+  cursor: pointer;
+}
