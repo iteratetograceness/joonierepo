@@ -31,8 +31,8 @@ yarn-error.log*
 .turbo
 
 # svelte
-/.svelte-kit
-/package
+.svelte-kit
+package
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 

@@ -1,4 +1,4 @@
-import { Cart } from '$swell/cart';
+// import { Cart } from '$swell/cart';
 import type { RequestHandler } from '@sveltejs/kit';
 
 // export async function POST() {
@@ -20,7 +20,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 // }
 
 export const PATCH: RequestHandler = async ({ request }) => {
-	const body = await request.json();
-	const response = await Cart.addItem(body);
-	return new Response(JSON.stringify({ data: response }));
+	// const body = await request.json();
+	// const response = await Cart.addItem(body);
+	return new Response(JSON.stringify({ data: 'hey' }));
 };

@@ -27,14 +27,15 @@
  */
 declare module '$env/static/private' {
 	export const MANPATH: string;
+	export const npm_package_devDependencies__stripe_stripe_js: string;
 	export const TERM_PROGRAM: string;
+	export const npm_package_dependencies__medusajs_medusa_js: string;
 	export const NODE: string;
-	export const TURBO_INVOCATION_DIR: string;
 	export const npm_package_devDependencies_prettier_plugin_svelte: string;
 	export const npm_package_devDependencies_typescript: string;
 	export const INIT_CWD: string;
-	export const SHELL: string;
 	export const TERM: string;
+	export const SHELL: string;
 	export const npm_package_devDependencies_vite: string;
 	export const HOMEBREW_REPOSITORY: string;
 	export const TMPDIR: string;
@@ -43,8 +44,8 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_eslint_config_custom: string;
 	export const npm_package_scripts_dev: string;
 	export const npm_package_devDependencies_postcss_load_config: string;
-	export const MallocNanoZone: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
+	export const MallocNanoZone: string;
 	export const npm_package_private: string;
 	export const npm_package_devDependencies__sveltejs_kit: string;
 	export const npm_package_devDependencies_svelte_preprocess: string;
@@ -65,7 +66,6 @@ declare module '$env/static/private' {
 	export const npm_execpath: string;
 	export const PAGER: string;
 	export const npm_package_devDependencies_svelte: string;
-	export const npm_package_dependencies_swell_js: string;
 	export const LSCOLORS: string;
 	export const PATH: string;
 	export const LaunchInstanceID: string;
@@ -79,15 +79,14 @@ declare module '$env/static/private' {
 	export const npm_package_name: string;
 	export const NODE_PATH: string;
 	export const npm_package_scripts_build: string;
-	export const TURBO_HASH: string;
 	export const XPC_FLAGS: string;
 	export const npm_config_node_gyp: string;
 	export const XPC_SERVICE_NAME: string;
 	export const npm_package_devDependencies__sveltejs_adapter_auto: string;
 	export const npm_package_devDependencies_autoprefixer: string;
 	export const npm_package_devDependencies_svelte_check: string;
-	export const HOME: string;
 	export const SHLVL: string;
+	export const HOME: string;
 	export const npm_package_type: string;
 	export const HOMEBREW_PREFIX: string;
 	export const npm_package_devDependencies_tsconfig: string;
@@ -98,8 +97,8 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_prettier_plugin_tailwindcss: string;
 	export const npm_package_scripts_package: string;
 	export const npm_config_user_agent: string;
-	export const HOMEBREW_CELLAR: string;
 	export const INFOPATH: string;
+	export const HOMEBREW_CELLAR: string;
 	export const SECURITYSESSIONID: string;
 	export const npm_package_devDependencies_node_sass: string;
 	export const npm_package_scripts_check: string;
@@ -119,8 +118,7 @@ declare module '$env/static/private' {
  * ```
  */
 declare module '$env/static/public' {
-	export const PUBLIC_SWELL_STORE_ID: string;
-	export const PUBLIC_SWELL_PUBLIC_KEY: string;
+	export const PUBLIC_MEDUSA_BACKEND_URL: string;
 }
 
 /**
@@ -138,14 +136,15 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		MANPATH: string;
+		npm_package_devDependencies__stripe_stripe_js: string;
 		TERM_PROGRAM: string;
+		npm_package_dependencies__medusajs_medusa_js: string;
 		NODE: string;
-		TURBO_INVOCATION_DIR: string;
 		npm_package_devDependencies_prettier_plugin_svelte: string;
 		npm_package_devDependencies_typescript: string;
 		INIT_CWD: string;
-		SHELL: string;
 		TERM: string;
+		SHELL: string;
 		npm_package_devDependencies_vite: string;
 		HOMEBREW_REPOSITORY: string;
 		TMPDIR: string;
@@ -154,8 +153,8 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_eslint_config_custom: string;
 		npm_package_scripts_dev: string;
 		npm_package_devDependencies_postcss_load_config: string;
-		MallocNanoZone: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
+		MallocNanoZone: string;
 		npm_package_private: string;
 		npm_package_devDependencies__sveltejs_kit: string;
 		npm_package_devDependencies_svelte_preprocess: string;
@@ -176,7 +175,6 @@ declare module '$env/dynamic/private' {
 		npm_execpath: string;
 		PAGER: string;
 		npm_package_devDependencies_svelte: string;
-		npm_package_dependencies_swell_js: string;
 		LSCOLORS: string;
 		PATH: string;
 		LaunchInstanceID: string;
@@ -190,15 +188,14 @@ declare module '$env/dynamic/private' {
 		npm_package_name: string;
 		NODE_PATH: string;
 		npm_package_scripts_build: string;
-		TURBO_HASH: string;
 		XPC_FLAGS: string;
 		npm_config_node_gyp: string;
 		XPC_SERVICE_NAME: string;
 		npm_package_devDependencies__sveltejs_adapter_auto: string;
 		npm_package_devDependencies_autoprefixer: string;
 		npm_package_devDependencies_svelte_check: string;
-		HOME: string;
 		SHLVL: string;
+		HOME: string;
 		npm_package_type: string;
 		HOMEBREW_PREFIX: string;
 		npm_package_devDependencies_tsconfig: string;
@@ -209,8 +206,8 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_prettier_plugin_tailwindcss: string;
 		npm_package_scripts_package: string;
 		npm_config_user_agent: string;
-		HOMEBREW_CELLAR: string;
 		INFOPATH: string;
+		HOMEBREW_CELLAR: string;
 		SECURITYSESSIONID: string;
 		npm_package_devDependencies_node_sass: string;
 		npm_package_scripts_check: string;
@@ -235,8 +232,7 @@ declare module '$env/dynamic/private' {
  */
 declare module '$env/dynamic/public' {
 	export const env: {
-		PUBLIC_SWELL_STORE_ID: string;
-		PUBLIC_SWELL_PUBLIC_KEY: string;
+		PUBLIC_MEDUSA_BACKEND_URL: string;
 		[key: `PUBLIC_${string}`]: string | undefined;
 	}
 }

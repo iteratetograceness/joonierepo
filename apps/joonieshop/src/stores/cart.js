@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { Cart } from '$swell/cart';
+// import { Cart } from '$swell/cart';
 
 export const cartQuantity = writable(0);
 export const cart = writable([]);
@@ -22,13 +22,13 @@ export const search = writable('');
 
 export const loadCart = async () => {
 	try {
-		const swellCart = await Cart.get();
-		console.log('store', swellCart);
-		if (swellCart) {
-			const sum = swellCart.item_quantity || 0;
-			cartQuantity.set(sum);
-			return swellCart;
-		}
+		// const swellCart = await Cart.get();
+		// console.log('store', swellCart);
+		// if (swellCart) {
+		// 	const sum = swellCart.item_quantity || 0;
+		// 	cartQuantity.set(sum);
+		// 	return swellCart;
+		// }
 	} catch (error) {
 		console.log(error);
 	}

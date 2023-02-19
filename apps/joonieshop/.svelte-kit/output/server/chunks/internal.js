@@ -26,7 +26,6 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { form } = $$props;
   let { data_0 = null } = $$props;
   let { data_1 = null } = $$props;
-  let { data_2 = null } = $$props;
   {
     setContext("__svelte__", stores);
   }
@@ -45,8 +44,6 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.data_0(data_0);
   if ($$props.data_1 === void 0 && $$bindings.data_1 && data_1 !== void 0)
     $$bindings.data_1(data_1);
-  if ($$props.data_2 === void 0 && $$bindings.data_2 && data_2 !== void 0)
-    $$bindings.data_2(data_2);
   let $$settled;
   let $$rendered;
   do {
@@ -68,31 +65,7 @@ ${constructors[1] ? `${validate_component(constructors[0] || missing_component, 
       },
       {
         default: () => {
-          return `${constructors[2] ? `${validate_component(constructors[1] || missing_component, "svelte:component").$$render(
-            $$result,
-            { data: data_1, this: components[1] },
-            {
-              this: ($$value) => {
-                components[1] = $$value;
-                $$settled = false;
-              }
-            },
-            {
-              default: () => {
-                return `${validate_component(constructors[2] || missing_component, "svelte:component").$$render(
-                  $$result,
-                  { data: data_2, form, this: components[2] },
-                  {
-                    this: ($$value) => {
-                      components[2] = $$value;
-                      $$settled = false;
-                    }
-                  },
-                  {}
-                )}`;
-              }
-            }
-          )}` : `${validate_component(constructors[1] || missing_component, "svelte:component").$$render(
+          return `${validate_component(constructors[1] || missing_component, "svelte:component").$$render(
             $$result,
             { data: data_1, form, this: components[1] },
             {
@@ -102,7 +75,7 @@ ${constructors[1] ? `${validate_component(constructors[0] || missing_component, 
               }
             },
             {}
-          )}`}`;
+          )}`;
         }
       }
     )}` : `${validate_component(constructors[0] || missing_component, "svelte:component").$$render(
@@ -121,7 +94,7 @@ ${``}`;
   } while (!$$settled);
   return $$rendered;
 });
-set_version("1676773506955");
+set_version("1676831030423");
 const options = {
   csp: { "mode": "auto", "directives": { "upgrade-insecure-requests": false, "block-all-mixed-content": false }, "reportOnly": { "upgrade-insecure-requests": false, "block-all-mixed-content": false } },
   csrf_check_origin: true,
