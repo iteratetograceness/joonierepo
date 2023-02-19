@@ -1,8 +1,0 @@
-{
-	"/": [
-		"src/routes/+page.server.ts"
-	],
-	"/api/cart": [
-		"src/routes/api/cart/+server.ts"
-	]
-}
