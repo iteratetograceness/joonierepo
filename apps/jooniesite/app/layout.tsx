@@ -3,9 +3,10 @@
 import { Navigation } from '~/components/common/navigation';
 import { libreFranklin } from '~/utils/fonts';
 import { MotionConfig } from 'framer-motion';
-import './globals.css';
 import { Footer } from '~/components/common/footer';
 import { AnalyticsWrapper } from '~/components/common/analytics';
+
+import './globals.css';
 
 export default function RootLayout({
   children,
