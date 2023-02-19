@@ -1,0 +1,18 @@
+{
+	"/": [
+		"src/routes/+page.server.ts"
+	],
+	"/api/cart": [
+		"src/routes/api/cart/+server.ts"
+	],
+	"/product": [],
+	"/product/[handle]": [
+		"src/routes/product/[handle]/+page.server.js"
+	],
+	"/search": [
+		"src/routes/search/+page.server.js"
+	],
+	"/search/[collection]": [
+		"src/routes/search/[collection]/+page.server.js"
+	]
+}
