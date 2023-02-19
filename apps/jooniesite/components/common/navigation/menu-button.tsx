@@ -2,7 +2,8 @@
 
 import { ButtonHTMLAttributes } from 'react';
 import { Button } from '../button';
-import { RotatingText } from '../rotating-text';
+// import { RotatingText } from '../rotating-text';
+import { RotatingText } from 'ui';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;

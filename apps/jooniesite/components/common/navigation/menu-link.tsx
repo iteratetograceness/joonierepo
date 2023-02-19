@@ -1,17 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, forwardRef, MouseEventHandler } from 'react';
 import { OPACITY_VARIANTS } from '~/utils/animations';
 import { libreCaslonText } from '~/utils/fonts';
 import styles from './index.module.css';
 
-interface Props extends LinkProps {
+interface Props {
   label: string;
   href: string;
   italics?: number[];
+  onClick?: MouseEventHandler;
 }
 
 export const MenuLink = forwardRef(function MenuLink(
