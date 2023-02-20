@@ -1,6 +1,6 @@
 {
   "root": true,
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["react"],
   "extends": [
     "custom",
     "next",
