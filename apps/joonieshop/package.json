@@ -10,7 +10,8 @@
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --check .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"prepare": "svelte-kit sync"
 	},
 	"dependencies": {
 		"@medusajs/medusa-js": "^1.3.9",
