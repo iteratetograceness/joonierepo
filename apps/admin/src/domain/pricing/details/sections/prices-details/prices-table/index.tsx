@@ -34,7 +34,7 @@ const PricesTable = ({ id, selectProduct }: PricesTableProps) => {
   const columns = usePricesColumns()
 
   return (
-    <div className="w-full overflow-y-auto flex flex-col justify-between h-full">
+    <div className="flex flex-col justify-between w-full h-full overflow-y-auto">
       <SelectableTable
         columns={columns}
         data={products || []}

@@ -16,7 +16,7 @@ const PriceListForm = (props: PriceListFormProps) => {
       </FocusModal.Header>
       <FocusModal.Main>
         <div className="flex justify-center mb-[25%]">
-          <div className="medium:w-7/12 large:w-6/12 small:w-4/5 w-full pt-16">
+          <div className="w-full pt-16 medium:w-7/12 large:w-6/12 small:w-4/5">
             <h1 className="inter-xlarge-semibold mb-[28px]">
               {props.viewType === ViewType.CREATE
                 ? "Create new price list"

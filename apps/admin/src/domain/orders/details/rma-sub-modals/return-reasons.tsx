@@ -57,7 +57,7 @@ const RMAReturnReasonSubModal: React.FC<RMAReturnReasonSubModalProps> = ({
     <>
       <Modal.Content>
         <div className="h-full">
-          <h2 className="inter-base-semibold mb-4">Reason for Return</h2>
+          <h2 className="mb-4 inter-base-semibold">Reason for Return</h2>
           <Select
             label="Reason"
             value={selectedReason}
@@ -92,15 +92,15 @@ const RMAReturnReasonSubModal: React.FC<RMAReturnReasonSubModalProps> = ({
                   size={(f.size / 1000).toFixed(2)}
                   onDelete={() => removeFileFromList(f)}
                 />
-                // <div className="flex items-center w-full justify-between my-8">
+                // <div className="flex items-center justify-between w-full my-8">
                 //   <div className="flex items-center">
                 //     <div className="w-20 h-20 bg-voilet-60">
                 //       <img
-                //         className="object-cover rounded-rounded w-full h-full"
+                //         className="object-cover w-full h-full rounded-rounded"
                 //         src={window.URL.createObjectURL(f)}
                 //       />
                 //     </div>
-                //     <div className="inter-small-regular ml-8 flex flex-col">
+                //     <div className="flex flex-col ml-8 inter-small-regular">
                 //       {f.name}
                 //       <span className="text-grey-50">
                 //         {(f.size / 1000).toFixed(2)} KB
@@ -128,7 +128,7 @@ const RMAReturnReasonSubModal: React.FC<RMAReturnReasonSubModalProps> = ({
         </div>
       </Modal.Content>
       <Modal.Footer>
-        <div className="flex w-full justify-end gap-x-xsmall">
+        <div className="flex justify-end w-full gap-x-xsmall">
           <Button
             variant="ghost"
             size="small"
@@ -156,12 +156,12 @@ const RMAReturnReasonSubModal: React.FC<RMAReturnReasonSubModalProps> = ({
 }
 
 const ImageRow = ({ url, onDelete, name, size }) => (
-  <div className="flex items-center w-full justify-between my-8">
+  <div className="flex items-center justify-between w-full my-8">
     <div className="flex items-center">
       <div className="w-20 h-20 bg-voilet-60">
-        <img className="object-cover rounded-rounded w-full h-full" src={url} />
+        <img className="object-cover w-full h-full rounded-rounded" src={url} />
       </div>
-      <div className="inter-small-regular ml-8 flex flex-col">
+      <div className="flex flex-col ml-8 inter-small-regular">
         {name}
         {size && <span className="text-grey-50">{size} KB</span>}
       </div>

@@ -10,7 +10,7 @@ const IndexPage = () => {
   }, [])
 
   return (
-    <div className="flex w-full h-screen justify-center items-center bg-grey-5 text-grey-90">
+    <div className="flex items-center justify-center w-full h-screen bg-grey-5 text-grey-90">
       <SEO title="Home" />
       <Spinner variant="secondary" />
     </div>

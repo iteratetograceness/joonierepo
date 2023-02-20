@@ -33,7 +33,7 @@ export const AdjacentContainer = forwardRef<
     ref
   ) => {
     return (
-      <div className="flex flex-col gap-y-xsmall w-full" ref={ref}>
+      <div className="flex flex-col w-full gap-y-xsmall" ref={ref}>
         {label && (
           <label className="inter-small-semibold text-grey-50">
             {label}
@@ -121,7 +121,7 @@ export const ValueContainer = <
         )}
       >
         {value?.length > 0 && (
-          <div className="h-7 bg-grey-20 text-grey-50 px-small inter-small-semibold flex items-center rounded-rounded gap-x-2xsmall cursor-default">
+          <div className="flex items-center cursor-default h-7 bg-grey-20 text-grey-50 px-small inter-small-semibold rounded-rounded gap-x-2xsmall">
             <span>{value.length}</span>
           </div>
         )}

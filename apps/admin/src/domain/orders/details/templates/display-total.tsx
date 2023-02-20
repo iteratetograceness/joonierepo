@@ -10,7 +10,7 @@ export const DisplayTotal = ({
   subtitle = "",
   totalColor = "text-grey-90",
 }) => (
-  <div className="flex justify-between mt-4 items-center">
+  <div className="flex items-center justify-between mt-4">
     <div className="flex flex-col">
       <div
         className={clsx("text-grey-90", {
@@ -21,7 +21,7 @@ export const DisplayTotal = ({
         {totalTitle}
       </div>
       {subtitle && (
-        <div className="inter-small-regular text-grey-50 mt-1">{subtitle}</div>
+        <div className="mt-1 inter-small-regular text-grey-50">{subtitle}</div>
       )}
     </div>
     <DisplayTotalAmount

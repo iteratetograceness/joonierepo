@@ -90,7 +90,7 @@ const AmountAndCurrencyInput = ({
     <div className="flex flex-col w-full">
       {label && <InputHeader label={label} className="mb-xsmall" />}
       <div className="focus-within:shadow-focus-border rounded-rounded">
-        <div className="relative bg-grey-5 rounded-rounded h-10 shadow-border focus-within:shadow-cta transition-colors">
+        <div className="relative h-10 bg-grey-5 rounded-rounded shadow-border focus-within:shadow-cta transition-colors">
           <NextSelect
             customStyles={{
               control:
@@ -118,10 +118,10 @@ const AmountAndCurrencyInput = ({
               allowNegativeValue={false}
               placeholder="-"
               decimalScale={decimal_digits}
-              className="bg-transparent outline-none outline-0 w-full remove-number-spinner leading-base text-grey-90 font-normal caret-violet-60 placeholder-grey-40 text-right"
+              className="w-full font-normal text-right bg-transparent outline-none outline-0 remove-number-spinner leading-base text-grey-90 caret-violet-60 placeholder-grey-40"
             />
             <div className="flex items-center min-w-[16px] ml-2xsmall">
-              <p className="text-grey-40 w-full text-right">{symbol_native}</p>
+              <p className="w-full text-right text-grey-40">{symbol_native}</p>
             </div>
           </div>
         </div>

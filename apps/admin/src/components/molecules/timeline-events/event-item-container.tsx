@@ -22,11 +22,11 @@ const EventItemContainer: React.FC<EventItemContainerProps> = ({ item }) => {
           <img
             src={item.thumbnail}
             alt={`Thumbnail for ${item.title}`}
-            className="h-full w-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       )}
-      <div className="flex flex-col inter-small-regular w-full">
+      <div className="flex flex-col w-full inter-small-regular">
         <div className="flex items-center justify-between w-full">
           <p>{item.title}</p>
           <span className="inter-small-semibold text-violet-60">{`x${item.quantity}`}</span>

@@ -50,7 +50,7 @@ const AddConditionsModal = ({
       <Modal.Body className="h-[calc(100vh-134px)] flex flex-col">
         <Modal.Header handleClose={onClose}>
           <span className="inter-xlarge-semibold">Add Conditions</span>
-          <span className="font-semibold text-grey-90 mt-6 flex items-center gap-1">
+          <span className="flex items-center mt-6 font-semibold text-grey-90 gap-1">
             Choose a condition type{" "}
             <IconTooltip content="You can only add one of each type of condition" />
           </span>
@@ -69,10 +69,10 @@ const AddConditionsModal = ({
         </Modal.Content>
 
         <Modal.Footer>
-          <div className="flex w-full h-8 justify-end">
+          <div className="flex justify-end w-full h-8">
             <Button
               variant="ghost"
-              className="mr-2 w-32 text-small justify-center"
+              className="justify-center w-32 mr-2 text-small"
               size="small"
               onClick={onClose}
             >
@@ -86,7 +86,7 @@ const AddConditionsModal = ({
                 onClose()
               }}
               size="small"
-              className="w-32 text-small justify-center"
+              className="justify-center w-32 text-small"
               variant="primary"
             >
               Save
@@ -104,7 +104,7 @@ const ConditionTypeItem: React.FC<ConditionItem> = (props) => {
   return (
     <button
       onClick={onClick}
-      className="rounded-lg border border-1 p-4 mb-2 cursor-pointer hover:bg-grey-5 transition-all w-full flex items-center justify-between"
+      className="flex items-center justify-between w-full p-4 mb-2 border rounded-lg cursor-pointer border-1 hover:bg-grey-5 transition-all"
     >
       <div className="flex flex-col items-start">
         <div className="font-semibold ">{label}</div>

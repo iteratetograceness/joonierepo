@@ -101,7 +101,7 @@ const CurrentCurrenciesScreen = () => {
         />
       </Modal.Content>
       <Modal.Footer>
-        <div className="w-full justify-end flex items-center">
+        <div className="flex items-center justify-end w-full">
           <Button variant="primary" size="small" onClick={onClose}>
             Close
           </Button>
@@ -138,7 +138,7 @@ const TableActions = ({
           <span className="mr-3 inter-small-regular text-grey-50">
             {numberOfSelectedRows} selected
           </span>
-          <div className="flex space-x-xsmall pl-3">
+          <div className="flex pl-3 space-x-xsmall">
             <Button
               onClick={onDeselect}
               size="small"

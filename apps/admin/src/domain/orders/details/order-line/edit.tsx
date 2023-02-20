@@ -168,7 +168,7 @@ const OrderEditLine = ({
       content="This line item is part of a fulfillment and cannot be edited. Cancel the fulfillment to edit the line item."
     >
       <div className="flex justify-between mb-1 h-[64px] py-2 mx-[-5px] px-[5px] hover:bg-grey-5 rounded-rounded">
-        <div className="flex space-x-4 justify-center flex-grow-1">
+        <div className="flex justify-center space-x-4 flex-grow-1">
           <div className="flex h-[48px] w-[36px] rounded-rounded overflow-hidden">
             {item.thumbnail ? (
               <img src={item.thumbnail} className="object-cover" />
@@ -265,7 +265,7 @@ const OrderEditLine = ({
             />
           </div>
 
-          <div className="flex gap-6 items-center h-full">
+          <div className="flex items-center h-full gap-6">
             <div
               className={clsx(
                 "flex small:space-x-2 medium:space-x-4 large:space-x-6",
@@ -283,7 +283,7 @@ const OrderEditLine = ({
                   tax: item.includes_tax ? 0 : item.tax_lines,
                   digits: 2,
                 })}
-                <span className="text-gray-400 ml-2">
+                <span className="ml-2 text-gray-400">
                   {currencyCode.toUpperCase()}
                 </span>
               </div>

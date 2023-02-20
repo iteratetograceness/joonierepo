@@ -52,7 +52,7 @@ const Edit = () => {
         className="mb-xsmall"
       />
       <div className="grid grid-cols-12 gap-x-base">
-        <div className="col-span-8 flex flex-col gap-y-xsmall">
+        <div className="flex flex-col col-span-8 gap-y-xsmall">
           <GeneralSection product={product} />
           <VariantsSection product={product} />
           <AttributesSection product={product} />

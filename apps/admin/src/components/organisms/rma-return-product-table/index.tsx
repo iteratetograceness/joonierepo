@@ -43,7 +43,7 @@ const RMAReturnProductsTable: React.FC<RMAReturnProductsTableProps> = ({
     <Table>
       <Table.HeadRow className="text-grey-50 inter-small-semibold">
         <Table.HeadCell>Product Details</Table.HeadCell>
-        <Table.HeadCell className="text-right pr-8">Quantity</Table.HeadCell>
+        <Table.HeadCell className="pr-8 text-right">Quantity</Table.HeadCell>
         <Table.HeadCell className="text-right">
           {isAdditionalItems ? "Unit Price" : "Refundable"}
         </Table.HeadCell>
@@ -57,11 +57,11 @@ const RMAReturnProductsTable: React.FC<RMAReturnProductsTableProps> = ({
               <div className="min-w-[240px] flex py-2">
                 <div className="w-[30px] h-[40px] ">
                   <img
-                    className="h-full w-full object-cover rounded"
+                    className="object-cover w-full h-full rounded"
                     src={item.product.thumbnail}
                   />
                 </div>
-                <div className="inter-small-regular text-grey-50 flex flex-col ml-4">
+                <div className="flex flex-col ml-4 inter-small-regular text-grey-50">
                   <span>
                     <span className="text-grey-90">{item.product.title}</span>{" "}
                   </span>
@@ -69,11 +69,11 @@ const RMAReturnProductsTable: React.FC<RMAReturnProductsTableProps> = ({
                 </div>
               </div>
             </Table.Cell>
-            <Table.Cell className="text-right w-32 pr-8">
-              <div className="flex w-full text-right justify-end text-grey-50 ">
+            <Table.Cell className="w-32 pr-8 text-right">
+              <div className="flex justify-end w-full text-right text-grey-50 ">
                 <span
                   onClick={() => handleToAddQuantity(-1, index)}
-                  className="w-5 h-5 flex items-center justify-center rounded cursor-pointer hover:bg-grey-20 mr-2"
+                  className="flex items-center justify-center w-5 h-5 mr-2 rounded cursor-pointer hover:bg-grey-20"
                 >
                   <MinusIcon size={16} />
                 </span>
@@ -91,7 +91,7 @@ const RMAReturnProductsTable: React.FC<RMAReturnProductsTableProps> = ({
             <Table.Cell className="text-right">
               {extractPrice(item.prices, order)}
             </Table.Cell>
-            <Table.Cell className="text-right text-grey-40 pr-1">
+            <Table.Cell className="pr-1 text-right text-grey-40">
               {order.currency_code.toUpperCase()}
             </Table.Cell>
             <Table.Cell>

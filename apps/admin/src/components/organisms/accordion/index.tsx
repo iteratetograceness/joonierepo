@@ -75,7 +75,7 @@ const Item: React.FC<AccordionItemProps> = ({
               {customTrigger || <MorphingTrigger />}
             </div>
             {subtitle && (
-              <span className="inter-small-regular text-grey-50 mt-1">
+              <span className="mt-1 inter-small-regular text-grey-50">
                 {subtitle}
               </span>
             )}

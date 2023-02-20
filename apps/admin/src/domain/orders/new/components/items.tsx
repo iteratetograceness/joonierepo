@@ -116,13 +116,13 @@ const Items = () => {
 
   return (
     <div className="flex flex-col min-h-[705px] pt-4">
-      <span className="inter-base-semibold mb-4">Items for the order</span>
+      <span className="mb-4 inter-base-semibold">Items for the order</span>
       {fields.length > 0 && region && (
         <Table>
           <Table.Head>
-            <Table.HeadRow className="text-grey-50 border-t inter-small-semibold">
+            <Table.HeadRow className="border-t text-grey-50 inter-small-semibold">
               <Table.HeadCell>Details</Table.HeadCell>
-              <Table.HeadCell className="text-right pr-8">
+              <Table.HeadCell className="pr-8 text-right">
                 Quantity
               </Table.HeadCell>
               <Table.HeadCell className="text-right">
@@ -143,14 +143,14 @@ const Items = () => {
                       <div className="w-[30px] h-[40px] ">
                         {item.thumbnail ? (
                           <img
-                            className="h-full w-full object-cover rounded"
+                            className="object-cover w-full h-full rounded"
                             src={item.thumbnail}
                           />
                         ) : (
                           <ImagePlaceholder />
                         )}
                       </div>
-                      <div className="inter-small-regular text-grey-50 flex flex-col ml-4">
+                      <div className="flex flex-col ml-4 inter-small-regular text-grey-50">
                         {item.product_title && (
                           <span className="text-grey-90">
                             {item.product_title}
@@ -160,7 +160,7 @@ const Items = () => {
                       </div>
                     </div>
                   </Table.Cell>
-                  <Table.Cell className="text-right w-32 pr-8">
+                  <Table.Cell className="w-32 pr-8 text-right">
                     {editQuantity === index ? (
                       <InputField
                         type="number"
@@ -170,16 +170,16 @@ const Items = () => {
                         onBlur={() => setEditQuantity(-1)}
                       />
                     ) : (
-                      <div className="flex w-full text-right justify-end text-grey-50 ">
+                      <div className="flex justify-end w-full text-right text-grey-50 ">
                         <span
                           onClick={() => handleEditQuantity(index, -1)}
-                          className="w-5 h-5 flex items-center justify-center rounded cursor-pointer hover:bg-grey-20 mr-2"
+                          className="flex items-center justify-center w-5 h-5 mr-2 rounded cursor-pointer hover:bg-grey-20"
                         >
                           <MinusIcon size={16} />
                         </span>
                         <button
                           type="button"
-                          className="px-1 hover:bg-grey-20 rounded cursor-pointer"
+                          className="px-1 rounded cursor-pointer hover:bg-grey-20"
                           onClick={() => setEditQuantity(index)}
                         >
                           <input
@@ -187,7 +187,7 @@ const Items = () => {
                             {...register(`items.${index}.quantity`, {
                               valueAsNumber: true,
                             })}
-                            className="bg-transparent w-full text-center text-grey-90"
+                            className="w-full text-center bg-transparent text-grey-90"
                             disabled
                           />
                         </button>
@@ -246,7 +246,7 @@ const Items = () => {
                       />
                     )}
                   </Table.Cell>
-                  <Table.Cell className="text-right text-grey-40 pr-1">
+                  <Table.Cell className="pr-1 text-right text-grey-40">
                     {region!.currency_code.toUpperCase()}
                   </Table.Cell>
                   <Table.Cell>
@@ -264,7 +264,7 @@ const Items = () => {
           </Table.Body>
         </Table>
       )}
-      <div className="flex w-full justify-end mt-3 gap-x-xsmall">
+      <div className="flex justify-end w-full mt-3 gap-x-xsmall">
         <Button
           variant="ghost"
           size="small"

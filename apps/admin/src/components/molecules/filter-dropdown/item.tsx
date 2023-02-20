@@ -123,14 +123,14 @@ const FilterDropdownItem = ({
             <span className="ml-2">{filterTitle}</span>
           </div>
           {open && (
-            <span className="text-grey-50 self-end">
+            <span className="self-end text-grey-50">
               <ChevronUpIcon size={20} />
             </span>
           )}
         </RadixCollapsible.Trigger>
         <RadixCollapsible.Content className="w-full">
           {hasPrev && (
-            <div className="py-2 pl-6 flex">
+            <div className="flex py-2 pl-6">
               <button
                 onClick={handlePrev}
                 className="font-semibold hover:text-violet-60 text-grey-90"
@@ -140,7 +140,7 @@ const FilterDropdownItem = ({
             </div>
           )}
           {isLoading ? (
-            <div className="py-1 flex justify-center items-center">
+            <div className="flex items-center justify-center py-1">
               <Spinner size={"large"} variant={"secondary"} />
             </div>
           ) : filterTitle === "Date" ? (
@@ -201,7 +201,7 @@ const FilterDropdownItem = ({
             })
           )}
           {hasMore && (
-            <div className="py-2 pl-6 flex">
+            <div className="flex py-2 pl-6">
               <button
                 onClick={handleNext}
                 className="font-semibold hover:text-violet-60 text-grey-90"
@@ -523,7 +523,7 @@ const PopoverOptions = ({ options, onClick, selectedItem }) => {
             )}
           >
             {item === selectedItem && (
-              <div className="rounded-full w-2 h-2 bg-violet-60" />
+              <div className="w-2 h-2 rounded-full bg-violet-60" />
             )}
           </div>
           {item}
@@ -543,7 +543,7 @@ const RightPopover = ({ trigger, children }) => (
       align="start"
       alignOffset={-8}
       sideOffset={20}
-      className="flex flex-col bg-grey-0 rounded-rounded shadow-dropdown p-2 top-2/4"
+      className="flex flex-col p-2 bg-grey-0 rounded-rounded shadow-dropdown top-2/4"
     >
       {children}
     </RadixPopover.Content>

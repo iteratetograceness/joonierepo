@@ -101,7 +101,7 @@ const EditDenominationsModal = ({
               return (
                 <div
                   key={field.indexId}
-                  className="first:mt-0 mt-xsmall flex items-center"
+                  className="flex items-center first:mt-0 mt-xsmall"
                 >
                   <div className="flex-1">
                     <CurrencyInput.Root
@@ -142,7 +142,7 @@ const EditDenominationsModal = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <Button
               variant="ghost"
               size="small"

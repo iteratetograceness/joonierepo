@@ -39,7 +39,7 @@ const IndeterminateCheckbox = React.forwardRef<
 
   if (type === "radio") {
     return (
-      <div className="items-center h-full flex">
+      <div className="flex items-center h-full">
         <input
           className={clsx({ "accent-violet-60": checked })}
           type="radio"
@@ -52,7 +52,7 @@ const IndeterminateCheckbox = React.forwardRef<
   }
 
   return (
-    <div className="items-center h-full flex">
+    <div className="flex items-center h-full">
       <div
         onClick={handleClick}
         className={`w-5 h-5 flex justify-center text-grey-0 border-grey-30 border cursor-pointer rounded-base ${

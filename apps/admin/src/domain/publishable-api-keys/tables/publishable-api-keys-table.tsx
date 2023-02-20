@@ -27,14 +27,14 @@ const PAGE_SIZE = 12
 const COLUMNS: Column<PublishableApiKey>[] = [
   {
     accessor: "title",
-    Header: <div className="text-gray-500 text-small font-semibold">Name</div>,
+    Header: <div className="font-semibold text-gray-500 text-small">Name</div>,
     Cell: ({ row: { original } }) => {
       return <span className="text-gray-900">{original.title}</span>
     },
   },
   {
     accessor: "id",
-    Header: <div className="text-gray-500 text-small font-semibold">Token</div>,
+    Header: <div className="font-semibold text-gray-500 text-small">Token</div>,
     Cell: ({ row: { original } }) => {
       const [copied, setCopied] = useState(false)
 
@@ -49,7 +49,7 @@ const COLUMNS: Column<PublishableApiKey>[] = [
           onMouseLeave={debounce(() => setCopied(false), 1000)}
           content={
             copied ? (
-              <span className="flex flex-row gap-1 justify-between items-center">
+              <span className="flex flex-row items-center justify-between gap-1">
                 <CheckIcon size={16} className="text-green-700" /> done
               </span>
             ) : (
@@ -67,7 +67,7 @@ const COLUMNS: Column<PublishableApiKey>[] = [
   {
     accessor: "created_at",
     Header: (
-      <div className="text-gray-500 text-small font-semibold">Created</div>
+      <div className="font-semibold text-gray-500 text-small">Created</div>
     ),
     Cell: ({ row: { original } }) => {
       return (
@@ -80,7 +80,7 @@ const COLUMNS: Column<PublishableApiKey>[] = [
   {
     accessor: "revoked_at",
     Header: (
-      <div className="text-gray-500 text-small font-semibold">Status</div>
+      <div className="font-semibold text-gray-500 text-small">Status</div>
     ),
     Cell: ({ row: { original } }) => {
       return (

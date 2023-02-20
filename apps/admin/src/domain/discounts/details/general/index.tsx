@@ -108,13 +108,13 @@ const General: React.FC<GeneralProps> = ({ discount }) => {
         }
       >
         <div className="flex">
-          <div className="border-l border-grey-20 pl-6">
+          <div className="pl-6 border-l border-grey-20">
             {getPromotionDescription(discount)}
             <span className="inter-small-regular text-grey-50">
               Discount Amount
             </span>
           </div>
-          <div className="border-l border-grey-20 pl-6 ml-12">
+          <div className="pl-6 ml-12 border-l border-grey-20">
             <h2 className="inter-xlarge-regular text-grey-90">
               {discount.regions.length.toLocaleString("en-US")}
             </h2>
@@ -122,7 +122,7 @@ const General: React.FC<GeneralProps> = ({ discount }) => {
               Valid Regions
             </span>
           </div>
-          <div className="border-l border-grey-20 pl-6 ml-12">
+          <div className="pl-6 ml-12 border-l border-grey-20">
             <h2 className="inter-xlarge-regular text-grey-90">
               {discount.usage_count.toLocaleString("en-US")}
             </h2>
@@ -150,7 +150,7 @@ const getPromotionDescription = (discount: Discount) => {
               amount: discount.rule.value,
             })}
           </h2>
-          <span className="inter-base-regular text-grey-50 ml-1">
+          <span className="ml-1 inter-base-regular text-grey-50">
             {discount.regions[0].currency_code.toUpperCase()}
           </span>
         </div>
@@ -161,7 +161,7 @@ const getPromotionDescription = (discount: Discount) => {
           <h2 className="inter-xlarge-regular text-grey-90">
             {discount.rule.value}
           </h2>
-          <span className="inter-base-regular text-grey-50 ml-1">%</span>
+          <span className="ml-1 inter-base-regular text-grey-50">%</span>
         </div>
       )
     case "free_shipping":

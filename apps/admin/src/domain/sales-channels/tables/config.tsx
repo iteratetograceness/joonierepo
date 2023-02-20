@@ -33,7 +33,7 @@ export const SALES_CHANNEL_PRODUCTS_TABLE_COLUMNS = [
             {original.thumbnail ? (
               <img
                 src={original.thumbnail}
-                className="h-full object-cover rounded-soft"
+                className="object-cover h-full rounded-soft"
               />
             ) : (
               <div className="flex items-center justify-center w-full h-full rounded-soft bg-grey-10">

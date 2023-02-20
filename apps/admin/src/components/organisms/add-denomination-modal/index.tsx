@@ -158,7 +158,7 @@ const AddDenominationModal: React.FC<AddDenominationModalProps> = ({
                   return (
                     <div
                       key={field.indexId}
-                      className="last:mb-0 mb-xsmall flex items-end"
+                      className="flex items-end last:mb-0 mb-xsmall"
                     >
                       <div className="flex-1">
                         <Controller
@@ -208,7 +208,7 @@ const AddDenominationModal: React.FC<AddDenominationModalProps> = ({
                       <Button
                         variant="ghost"
                         size="small"
-                        className="ml-large w-10 h-10"
+                        className="w-10 h-10 ml-large"
                         type="button"
                       >
                         <TrashIcon
@@ -236,7 +236,7 @@ const AddDenominationModal: React.FC<AddDenominationModalProps> = ({
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="w-full flex justify-end">
+            <div className="flex justify-end w-full">
               <Button
                 variant="ghost"
                 size="small"

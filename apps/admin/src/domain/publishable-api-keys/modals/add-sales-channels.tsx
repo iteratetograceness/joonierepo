@@ -76,7 +76,7 @@ function AddSalesChannelsSideModal(props: AddSalesChannelsSideModalProps) {
         {/* === HEADER === */}
 
         <div className="flex items-center justify-between">
-          <h3 className="inter-large-semibold text-xl text-gray-900 flex items-center gap-2">
+          <h3 className="flex items-center text-xl text-gray-900 inter-large-semibold gap-2">
             Add sales channels
           </h3>
           <Button

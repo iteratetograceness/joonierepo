@@ -50,7 +50,7 @@ const VariantsTable: React.FC<Props> = (props) => {
     return [
       {
         Header: (
-          <div className="text-gray-500 text-small font-semibold">Name</div>
+          <div className="font-semibold text-gray-500 text-small">Name</div>
         ),
         accessor: "title",
         Cell: ({ row: { original } }) => {
@@ -60,7 +60,7 @@ const VariantsTable: React.FC<Props> = (props) => {
                 {original.product.thumbnail ? (
                   <img
                     src={original.product.thumbnail}
-                    className="h-full object-cover rounded-soft"
+                    className="object-cover h-full rounded-soft"
                   />
                 ) : (
                   <ImagePlaceholder />
@@ -76,14 +76,14 @@ const VariantsTable: React.FC<Props> = (props) => {
       },
       {
         Header: (
-          <div className="text-gray-500 text-small font-semibold">SKU</div>
+          <div className="font-semibold text-gray-500 text-small">SKU</div>
         ),
         accessor: "sku",
         Cell: ({ row: { original } }) => <div>{original.sku}</div>,
       },
       {
         Header: (
-          <div className="text-gray-500 text-small font-semibold">Options</div>
+          <div className="font-semibold text-gray-500 text-small">Options</div>
         ),
         accessor: "options",
         Cell: ({ row: { original } }) => {
@@ -98,7 +98,7 @@ const VariantsTable: React.FC<Props> = (props) => {
       },
       {
         Header: (
-          <div className="text-right text-gray-500 text-small font-semibold">
+          <div className="font-semibold text-right text-gray-500 text-small">
             In Stock
           </div>
         ),
@@ -109,7 +109,7 @@ const VariantsTable: React.FC<Props> = (props) => {
       },
       {
         Header: (
-          <div className="text-right text-gray-500 text-small font-semibold">
+          <div className="font-semibold text-right text-gray-500 text-small">
             Price
           </div>
         ),
@@ -122,7 +122,7 @@ const VariantsTable: React.FC<Props> = (props) => {
           const showOriginal = original.calculated_price_type !== "default"
 
           return (
-            <div className="flex justify-end items-center gap-2">
+            <div className="flex items-center justify-end gap-2">
               <div className="flex flex-col items-end">
                 {showOriginal && (
                   <span className="text-gray-400 line-through">

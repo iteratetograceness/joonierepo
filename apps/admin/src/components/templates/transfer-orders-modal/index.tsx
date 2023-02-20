@@ -198,7 +198,7 @@ const TransferOrdersModal: React.FC<TransferOrdersModalProps> = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-end">
+          <div className="flex justify-end w-full">
             <div className="flex gap-x-xsmall">
               <Button
                 onClick={onDismiss}

@@ -41,36 +41,36 @@
 
 <div
   on:click|self
-  class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden bg-black/50"
+  class="absolute inset-0 z-50 flex justify-end w-full max-h-screen overflow-hidden bg-black/50"
 >
-  <div class="z-50 w-full bg-black p-6 md:w-1/2 lg:w-1/3 relative">
+  <div class="relative z-50 w-full p-6 bg-black md:w-1/2 lg:w-1/3">
     {#if loading}
-      <div class="absolute inset-0 bg-black/50 z-50" />
+      <div class="absolute inset-0 z-50 bg-black/50" />
     {/if}
-    <div class="mb-6 flex w-full items-center justify-between">
+    <div class="flex items-center justify-between w-full mb-6">
       <div class="text-2xl font-medium">My Cart</div>
       <button on:click class="text-sm uppercase opacity-80 hover:opacity-100">close</button>
     </div>
     {#if items.length === 0}
-      <div class="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-white">
+      <div class="flex flex-col items-center justify-center w-full mt-20 overflow-hidden">
+        <div class="flex items-center justify-center w-16 h-16 bg-white rounded-full">
           <Icons type="cart" strokeColor="#000" />
         </div>
-        <div class="mt-6 text-center text-2xl font-bold">Your cart is empty.</div>
+        <div class="mt-6 text-2xl font-bold text-center">Your cart is empty.</div>
       </div>
     {/if}
     <div class="overflow-y-auto" style="height: 80%;">
       {#each items as item, i (i)}
-        <div class="mb-2 flex w-full">
+        <div class="flex w-full mb-2">
           <img
             alt={item.node.merchandise.product.title}
             decoding="async"
             loading="lazy"
-            class="w-20 flex-none bg-white"
+            class="flex-none w-20 bg-white"
             src={item.node.merchandise.product.images.edges[0].node.originalSrc}
           />
-          <div class="ml-4 flex w-full flex-col justify-between">
-            <div class="flex w-full justify-between">
+          <div class="flex flex-col justify-between w-full ml-4">
+            <div class="flex justify-between w-full">
               <di>
                 <p class="text-lg font-medium">{item.node.merchandise.product.title}</p>
                 <p class="text-sm">{item.node.merchandise.title}</p>
@@ -79,24 +79,24 @@
             </div>
           </div>
         </div>
-        <div class="mb-4 flex w-full">
+        <div class="flex w-full mb-4">
           <button
             on:click={() => {
               removeEntireItem(item, i);
             }}
-            class="mr-2 flex h-8 w-8 items-center justify-center border border-white/40 bg-white/0 hover:bg-white/10"
+            class="flex items-center justify-center w-8 h-8 mr-2 border border-white/40 bg-white/0 hover:bg-white/10"
           >
             <Icons type="close" strokeColor="#fff" />
           </button>
-          <div class="flex h-8 w-full border border-white/40">
-            <div class="flex h-full items-center px-2 ">
+          <div class="flex w-full h-8 border border-white/40">
+            <div class="flex items-center h-full px-2 ">
               {item.node.quantity}
             </div>
             <button
               on:click={() => {
                 removeOneItem(item, i);
               }}
-              class="ml-auto flex h-8 w-8 items-center justify-center border-l border-white/40 bg-white/0 hover:bg-white/10"
+              class="flex items-center justify-center w-8 h-8 ml-auto border-l border-white/40 bg-white/0 hover:bg-white/10"
             >
               <Icons type="minus" strokeColor="#fff" />
             </button>
@@ -104,7 +104,7 @@
               on:click={() => {
                 addOneItem(item, i);
               }}
-              class="flex h-8 w-8 items-center justify-center border-l border-white/40 bg-white/0 hover:bg-white/10"
+              class="flex items-center justify-center w-8 h-8 border-l border-white/40 bg-white/0 hover:bg-white/10"
             >
               <Icons type="plus" strokeColor="#fff" />
             </button>
@@ -115,11 +115,11 @@
     {#if items.length !== 0}
       <button
         on:click={checkout}
-        class="mt-6 flex w-full items-center justify-center bg-white p-3 text-sm font-medium uppercase text-black opacity-90 hover:opacity-100"
+        class="flex items-center justify-center w-full p-3 mt-6 text-sm font-medium text-black uppercase bg-white opacity-90 hover:opacity-100"
       >
         <span>Proceed to Checkout</span>
         {#if loading}
-          <div class="lds-ring ml-4">
+          <div class="ml-4 lds-ring">
             <div />
             <div />
             <div />

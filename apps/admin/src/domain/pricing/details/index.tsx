@@ -23,7 +23,7 @@ const PricingDetails = () => {
       {!isLoading && price_list ? (
         <PriceListFormProvider priceList={mapPriceListToFormValues(price_list)}>
           <Header priceList={price_list} />
-          <div className="mt-4 w-full">
+          <div className="w-full mt-4">
             <PricesDetails id={price_list?.id} />
           </div>
           <div className="mt-xlarge">

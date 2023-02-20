@@ -16,7 +16,7 @@ export const columns: Column<Product>[] = [
           {original.thumbnail ? (
             <img
               src={original.thumbnail}
-              className="h-full object-cover rounded-soft"
+              className="object-cover h-full rounded-soft"
             />
           ) : (
             <ImagePlaceholder />
@@ -43,10 +43,10 @@ export const columns: Column<Product>[] = [
     ),
   },
   {
-    Header: <div className="flex justify-end items-center pr-4">Variants</div>,
+    Header: <div className="flex items-center justify-end pr-4">Variants</div>,
     accessor: "variants",
     Cell: ({ row: { original } }) => (
-      <Table.Cell className="flex justify-end items-center pr-4">
+      <Table.Cell className="flex items-center justify-end pr-4">
         {original.variants.length}
       </Table.Cell>
     ),

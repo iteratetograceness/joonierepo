@@ -1,7 +1,22 @@
-<div class="flex w-full flex-col items-center justify-center border-t border-zinc-700 py-8 px-4">
-  <div class="flex items-center">
-    Deployed on <a class="font-bold" href="https://vercel.com/home"
-      ><img src="/Vercel_Logo.png" alt="Vercel Logo" class="h-5 ml-1" /></a
-    >
-  </div>
-</div>
+<script>
+  const links_and_text = [
+    { href: 'https://joonie.dev', text: 'Made by Jueun Grace Yun ©' },
+    // { href: 'https://instagram.com/joonieshop', text: '@joonieshop' },
+    { text: `All Rights Reserved ${new Date().getFullYear()}` },
+  ];
+
+</script>
+
+<footer class="absolute bottom-0 flex items-center justify-between w-full p-8">
+  {#each links_and_text as link_or_text}
+    {#if link_or_text.href}
+      <a data-sveltekit-preload-data="hover" href={link_or_text.href} class="text-lg hover:font-medium">
+        {link_or_text.text}
+      </a>
+    {:else}
+      <p class="text-lg">
+        {link_or_text.text}
+      </p>
+    {/if}
+  {/each}
+</footer>

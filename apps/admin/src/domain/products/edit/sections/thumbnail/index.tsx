@@ -63,11 +63,11 @@ const TumbnailSection = ({ product }: Props) => {
           })}
         >
           {product.thumbnail && (
-            <div className="aspect-square flex items-center justify-center">
+            <div className="flex items-center justify-center aspect-square">
               <img
                 src={product.thumbnail}
                 alt={`Thumbnail for ${product.title}`}
-                className="object-contain rounded-rounded max-w-full max-h-full"
+                className="object-contain max-w-full max-h-full rounded-rounded"
               />
             </div>
           )}

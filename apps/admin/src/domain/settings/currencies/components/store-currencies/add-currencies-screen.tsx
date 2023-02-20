@@ -95,7 +95,7 @@ const AddCurrenciesScreen = () => {
         />
       </Modal.Content>
       <Modal.Footer>
-        <div className="w-full gap-x-xsmall flex items-center justify-end">
+        <div className="flex items-center justify-end w-full gap-x-xsmall">
           <Button variant="secondary" size="small" onClick={pop}>
             Cancel
           </Button>

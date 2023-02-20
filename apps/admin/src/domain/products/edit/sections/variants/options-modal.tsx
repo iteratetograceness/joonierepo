@@ -210,7 +210,7 @@ const OptionsModal = ({ product, open, onClose }: Props) => {
             </Button>
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex items-center justify-end gap-xsmall w-full">
+            <div className="flex items-center justify-end w-full gap-xsmall">
               <Button variant="secondary" size="small" type="button">
                 Cancel
               </Button>

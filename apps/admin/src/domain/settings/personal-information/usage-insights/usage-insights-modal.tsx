@@ -65,7 +65,7 @@ const UsageInsightsModal = ({ config, open, onClose }: Props) => {
           <AnalyticsConfigForm form={nestedForm(form)} />
         </Modal.Content>
         <Modal.Footer className="border-t border-grey-20 pt-base">
-          <div className="flex items-center justify-end gap-x-xsmall w-full">
+          <div className="flex items-center justify-end w-full gap-x-xsmall">
             <Button variant="secondary" size="small" onClick={onClose}>
               Cancel
             </Button>

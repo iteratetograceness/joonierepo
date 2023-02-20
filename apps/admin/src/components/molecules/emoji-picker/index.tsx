@@ -16,7 +16,7 @@ const EmojiPicker: React.FC<indexProps> = ({ onEmojiClick }) => {
           variant="ghost"
           size="small"
           type="button"
-          className="focus:border-none focus:shadow-none text-grey-40 hover:text-violet-60 p-0 h-5 w-5"
+          className="w-5 h-5 p-0 focus:border-none focus:shadow-none text-grey-40 hover:text-violet-60"
         >
           <HappyIcon size={20} />
         </Button>

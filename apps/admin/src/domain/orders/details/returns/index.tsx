@@ -211,17 +211,17 @@ const ReturnMenu: React.FC<ReturnMenuProps> = ({ order, onDismiss }) => {
           {refundable >= 0 && (
             <div className="mt-10">
               {!useCustomShippingPrice && shippingMethod && (
-                <div className="flex mb-4 inter-small-regular justify-between">
+                <div className="flex justify-between mb-4 inter-small-regular">
                   <span>Shipping</span>
                   <div>
                     {displayAmount(order.currency_code, shippingPrice || 0)}{" "}
-                    <span className="text-grey-40 ml-3">
+                    <span className="ml-3 text-grey-40">
                       {order.currency_code.toUpperCase()}
                     </span>
                   </div>
                 </div>
               )}
-              <div className="flex inter-base-semibold justify-between w-full">
+              <div className="flex justify-between w-full inter-base-semibold">
                 <span>Total Refund</span>
                 <div className="flex items-center">
                   {!refundEdited && (
@@ -258,9 +258,9 @@ const ReturnMenu: React.FC<ReturnMenuProps> = ({ order, onDismiss }) => {
           )}
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-between">
+          <div className="flex justify-between w-full">
             <div
-              className="items-center h-full flex cursor-pointer"
+              className="flex items-center h-full cursor-pointer"
               onClick={() => setNoNotification(!noNotification)}
             >
               <div
@@ -280,7 +280,7 @@ const ReturnMenu: React.FC<ReturnMenuProps> = ({ order, onDismiss }) => {
                 onChange={() => setNoNotification(!noNotification)}
                 type="checkbox"
               />
-              <span className="ml-3 flex items-center text-grey-90 gap-x-xsmall">
+              <span className="flex items-center ml-3 text-grey-90 gap-x-xsmall">
                 Send notifications
                 <IconTooltip content="Notify customer of created return" />
               </span>

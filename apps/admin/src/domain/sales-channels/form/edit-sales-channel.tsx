@@ -53,11 +53,11 @@ function EditSalesChannel(props: EditSalesChannelProps) {
           <span className="inter-xlarge-semibold">Sales channel details</span>
         </Modal.Header>
         <Modal.Content>
-          <div className="inter-base-semibold text-grey-90 mb-4">
+          <div className="mb-4 inter-base-semibold text-grey-90">
             General info
           </div>
 
-          <div className="w-full flex flex-col gap-3">
+          <div className="flex flex-col w-full gap-3">
             <InputField
               label="Name"
               name="name"
@@ -73,7 +73,7 @@ function EditSalesChannel(props: EditSalesChannelProps) {
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <Button
               variant="ghost"
               size="small"

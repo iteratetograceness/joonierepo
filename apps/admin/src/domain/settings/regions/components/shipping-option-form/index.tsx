@@ -64,7 +64,7 @@ const ShippingOptionForm = ({ form, region, isEdit = false }: Props) => {
           </p>
         </div>
       </div>
-      <div className="h-px w-full bg-grey-20 my-xlarge" />
+      <div className="w-full h-px bg-grey-20 my-xlarge" />
       <div>
         <h3 className="inter-base-semibold mb-base">Details</h3>
         <div className="grid grid-cols-2 gap-large">
@@ -178,7 +178,7 @@ const ShippingOptionForm = ({ form, region, isEdit = false }: Props) => {
           )}
         </div>
       </div>
-      <div className="h-px w-full bg-grey-20 my-xlarge" />
+      <div className="w-full h-px bg-grey-20 my-xlarge" />
       <div>
         <h3 className="inter-base-semibold mb-base">Requirements</h3>
         <div className="grid grid-cols-2 gap-large">

@@ -45,14 +45,14 @@ const DeletePrompt: React.FC<DeletePromptProps> = ({
         <Modal.Content>
           <div className="flex flex-col">
             <span className="inter-large-semibold">{heading}</span>
-            <span className="inter-base-regular mt-1 text-grey-50">{text}</span>
+            <span className="mt-1 inter-base-regular text-grey-50">{text}</span>
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full h-8 justify-end">
+          <div className="flex justify-end w-full h-8">
             <Button
               variant="ghost"
-              className="mr-2 w-24 text-small justify-center"
+              className="justify-center w-24 mr-2 text-small"
               size="small"
               onClick={handleClose}
             >
@@ -61,7 +61,7 @@ const DeletePrompt: React.FC<DeletePromptProps> = ({
             <Button
               loading={isLoading}
               size="small"
-              className="w-24 text-small justify-center"
+              className="justify-center w-24 text-small"
               variant="nuclear"
               onClick={handleSubmit}
               disabled={isLoading}

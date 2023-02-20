@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   export let strokeColor = '#000';
-  export let type;
+  export let type: string;
   export let width = '24px;';
   export let height = '24px;';
 </script>
@@ -42,7 +42,7 @@
       stroke-linejoin="round"
       fill="none"
       shape-rendering="geometricPrecision"
-      class="hover:text-accent-3 h-6 w-6"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg
+      class="w-6 h-6 hover:text-accent-3"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg
     >
   {:else if type === 'minus'}
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -73,17 +73,19 @@
   {:else if type === 'menu'}
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
+      class="w-6 h-6"
       fill="none"
       viewBox="0 0 24 24"
-      stroke="#fff"
-      ><path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16m-7 6h7"
-      /></svg
+      stroke="currentColor"
     >
+    <path 
+      xmlns="http://www.w3.org/2000/svg"
+      d="M4 17H20M4 12H20M4 7H20" 
+      stroke-width="1.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    />
+    </svg>
   {:else if type === 'search'}
     <svg style={`width:${width};height:${height}`} viewBox="0 0 24 24">
       <path

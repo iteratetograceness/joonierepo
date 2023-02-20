@@ -67,7 +67,7 @@ const FilterDropdownContainer = ({
           <Button
             tabIndex={-1}
             variant="primary"
-            className="w-44 justify-center"
+            className="justify-center w-44"
             size="small"
             onClick={() => onSubmit()}
           >
@@ -76,7 +76,7 @@ const FilterDropdownContainer = ({
         </div>
         {React.Children.map(children, (child) => {
           return (
-            <div className="border-b border-grey-20 py-2 px-4 last:pb-0 last:border-0">
+            <div className="px-4 py-2 border-b border-grey-20 last:pb-0 last:border-0">
               {child}
             </div>
           )

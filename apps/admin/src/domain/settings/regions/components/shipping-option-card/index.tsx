@@ -40,7 +40,7 @@ const ShippingOptionCard = ({ option }: Props) => {
 
   return (
     <>
-      <div className="bg-grey-0 rounded-rounded border border-grey-20 p-base flex items-center justify-between">
+      <div className="flex items-center justify-between border bg-grey-0 rounded-rounded border-grey-20 p-base">
         <div className="flex items-center gap-x-base">
           <div className="bg-grey-10 p-2.5 rounded-rounded flex items-center justify-center h-10 w-10">
             <FastDeliveryIcon size={20} className="text-grey-50" />

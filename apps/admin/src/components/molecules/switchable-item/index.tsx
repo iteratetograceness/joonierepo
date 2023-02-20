@@ -28,7 +28,7 @@ const SwitchableItem: React.FC<SwitchableItemProps> = ({
             <p className="inter-base-semibold">{title}</p>
             {tooltip && <IconTooltip content={tooltip} />}
           </div>
-          <p className="inter-small-regular text-grey-50 mt-1">{description}</p>
+          <p className="mt-1 inter-small-regular text-grey-50">{description}</p>
         </div>
         <Switch
           checked={open}

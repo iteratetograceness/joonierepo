@@ -201,7 +201,7 @@ function CustomerGroupDetailsHeader(props: CustomerGroupDetailsHeaderProps) {
       <BodyCard
         title={props.customerGroup.name}
         actionables={actions}
-        className="min-h-0 w-full"
+        className="w-full min-h-0"
         subtitle={" "}
       />
       {showDeleteConfirmation && (
@@ -232,7 +232,7 @@ function CustomerGroupDetails() {
 
   return (
     <CustomerGroupContextContainer group={customer_group}>
-      <div className="-mt-4 pb-4">
+      <div className="pb-4 -mt-4">
         <BackButton
           path="/a/customers/groups"
           label="Back to customer groups"

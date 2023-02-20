@@ -46,7 +46,7 @@ const Billing = () => {
       <span className="inter-base-semibold">Billing Address</span>
       {!isNullishObject(shippingAddress) || shippingAddressId ? (
         <div
-          className="items-center flex mt-4 mb-6 cursor-pointer"
+          className="flex items-center mt-4 mb-6 cursor-pointer"
           onClick={updateSameAsShipping}
         >
           <div

@@ -44,10 +44,10 @@ const NoteInput: React.FC<NoteInputProps> = ({ onSubmit }) => {
   return (
     <form>
       <div
-        className="flex items-center py-xsmall px-small bg-grey-5 border border-grey-20 rounded-rounded"
+        className="flex items-center border py-xsmall px-small bg-grey-5 border-grey-20 rounded-rounded"
         onClick={() => inputRef.current?.focus()}
       >
-        <div className="flex items-center gap-x-small flex-grow">
+        <div className="flex items-center flex-grow gap-x-small">
           <EmojiPicker onEmojiClick={handleAddEmoji} />
           <input
             type="text"

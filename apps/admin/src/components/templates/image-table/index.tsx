@@ -97,7 +97,7 @@ const ImageTable = ({ data, form, onDelete }: ImageTableProps) => {
               onClick={() => onDelete(row.index)}
               variant="ghost"
               size="small"
-              className="p-1 text-grey-40 cursor-pointer mx-6"
+              className="p-1 mx-6 cursor-pointer text-grey-40"
               type="button"
             >
               <TrashIcon size={20} />

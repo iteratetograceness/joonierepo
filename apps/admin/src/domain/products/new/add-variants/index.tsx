@@ -322,7 +322,7 @@ const AddVariantsForm = ({
           <Button
             variant="secondary"
             size="small"
-            className="h-10 w-full mt-base"
+            className="w-full h-10 mt-base"
             type="button"
             onClick={appendNewOption}
           >
@@ -380,7 +380,7 @@ const AddVariantsForm = ({
             <Button
               variant="secondary"
               size="small"
-              className="h-10 w-full mt-base"
+              className="w-full h-10 mt-base"
               type="button"
               disabled={!enableVariants}
               onClick={onToggleForm}
@@ -405,7 +405,7 @@ const AddVariantsForm = ({
             />
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex items-center gap-x-xsmall justify-end w-full">
+            <div className="flex items-center justify-end w-full gap-x-xsmall">
               <Button
                 variant="secondary"
                 size="small"

@@ -67,16 +67,16 @@ const DiscountForm = ({ closeForm }: DiscountFormProps) => {
   return (
     <FocusModal>
       <FocusModal.Header>
-        <div className="medium:w-8/12 w-full px-8 flex justify-between">
+        <div className="flex justify-between w-full px-8 medium:w-8/12">
           <Button
             size="small"
             variant="ghost"
             onClick={closeForm}
-            className="border rounded-rounded w-8 h-8"
+            className="w-8 h-8 border rounded-rounded"
           >
             <CrossIcon size={20} />
           </Button>
-          <div className="gap-x-small flex">
+          <div className="flex gap-x-small">
             <Button
               onClick={handleSubmit(submitGhost)}
               size="small"

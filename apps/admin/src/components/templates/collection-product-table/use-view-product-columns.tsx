@@ -26,7 +26,7 @@ const useViewProductColumns = () => {
                 <img
                   src={value}
                   alt="Thumbnail"
-                  className="h-full w-full object-cover"
+                  className="object-cover w-full h-full"
                 />
               ) : null}
             </div>

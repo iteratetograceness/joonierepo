@@ -57,7 +57,7 @@ const DiscountDetailsConditions: React.FC<DiscountDetailsConditionsProps> = ({
             ))}
           </div>
         ) : (
-          <div className="flex flex-col justify-center items-center flex-1 gap-y-small">
+          <div className="flex flex-col items-center justify-center flex-1 gap-y-small">
             <span className="inter-base-regular text-grey-50">
               This discount has no conditions
             </span>

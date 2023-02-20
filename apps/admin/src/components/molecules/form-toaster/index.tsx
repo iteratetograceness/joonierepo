@@ -76,7 +76,7 @@ const FormToasterContainer: React.FC<FormToasterContainerProps> & {
 
 const Actions: React.FC = ({ children }) => {
   return (
-    <div className="border-l border-grey-70 h-full">
+    <div className="h-full border-l border-grey-70">
       {Children.map(children, (child) => {
         return (
           <div className="flex items-center justify-center border-b border-grey-70 last:border-none h-1/2 w-[72px]">
@@ -150,7 +150,7 @@ const MultiActionButton: React.FC<MultiActionButtonProps> = ({
             <Dropdown.Item key={i}>
               <button
                 onClick={action.onClick}
-                className="p-2xsmall hover:bg-grey-80 hover:outline-none inter-small-semibold rounded-base text-left flex items-center w-full"
+                className="flex items-center w-full text-left p-2xsmall hover:bg-grey-80 hover:outline-none inter-small-semibold rounded-base"
               >
                 {action.icon && (
                   <span className="text-grey-0 mr-xsmall">

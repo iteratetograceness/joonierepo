@@ -47,7 +47,7 @@ const AddressForm = ({
   return (
     <div>
       <span className="inter-base-semibold">General</span>
-      <div className="grid grid-cols-2 gap-large mt-4 mb-8">
+      <div className="mt-4 mb-8 grid grid-cols-2 gap-large">
         <Input
           {...register(path("first_name"), {
             required: required ? FormValidator.required("First name") : false,
@@ -91,7 +91,7 @@ const AddressForm = ({
           ? "Shipping Address"
           : "Address"
       }`}</span>
-      <div className="grid grid-cols-1 gap-y-large mt-4">
+      <div className="mt-4 grid grid-cols-1 gap-y-large">
         <Input
           {...form.register(path("address_1"), {
             required: required ? FormValidator.required("Address 1") : false,

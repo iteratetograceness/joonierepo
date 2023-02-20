@@ -23,7 +23,7 @@ const SaveFilterItem: React.FC<SaveFilterItemProps> = ({
   }
 
   return (
-    <div className="mt-2 flex w-full">
+    <div className="flex w-full mt-2">
       <InputField
         className="pt-0 pb-1 max-w-[172px]"
         placeholder="Name your filter..."
@@ -31,7 +31,7 @@ const SaveFilterItem: React.FC<SaveFilterItemProps> = ({
         value={name}
       />
       <Button
-        className="border ml-2 border-grey-20"
+        className="ml-2 border border-grey-20"
         variant="ghost"
         size="small"
         onClick={onSave}

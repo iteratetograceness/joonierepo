@@ -142,7 +142,7 @@ const SelectContainer = <
   props: ContainerProps<Option, IsMulti, Group>
 ) => {
   return (
-    <div className="bg-grey-5 h-10 border border-grey-20 rounded-rounded focus-within:shadow-cta focus-within:border-violet-60 px-small">
+    <div className="h-10 border bg-grey-5 border-grey-20 rounded-rounded focus-within:shadow-cta focus-within:border-violet-60 px-small">
       <components.SelectContainer {...props} />
     </div>
   )
@@ -164,9 +164,9 @@ const Input = <
   }
 
   return (
-    <div className="w-full flex items-center h-full space-between">
-      <div className="w-full flex items-center">
-        <span className="text-grey-40 mr-2">
+    <div className="flex items-center w-full h-full space-between">
+      <div className="flex items-center w-full">
+        <span className="mr-2 text-grey-40">
           <SearchIcon size={16} />
         </span>
         <components.Input {...props} />
@@ -190,7 +190,7 @@ const ClearIndicator = <
   return (
     <div
       {...innerProps}
-      className="hover:bg-grey-10 text-grey-50 rounded cursor-pointer"
+      className="rounded cursor-pointer hover:bg-grey-10 text-grey-50"
     >
       <XCircleIcon size={16} />
     </div>
@@ -248,7 +248,7 @@ const NoOptionsMessage = <
 }: NoticeProps<Option, IsMulti, Group>) => {
   return (
     <div
-      className="text-grey-50 inter-small-semibold text-center p-xsmall"
+      className="text-center text-grey-50 inter-small-semibold p-xsmall"
       {...innerProps}
     >
       <p>{isLoading ? "Loading..." : "No options"}</p>
@@ -267,12 +267,12 @@ const Option = <
   return (
     <components.Option
       {...props}
-      className="my-1 py-0 px-2 bg-grey-0 active:bg-grey-0"
+      className="px-2 py-0 my-1 bg-grey-0 active:bg-grey-0"
     >
       <div
         className={`item-renderer h-full hover:bg-grey-10 py-2 px-2 cursor-pointer rounded`}
       >
-        <div className="items-center h-full flex">
+        <div className="flex items-center h-full">
           {props.data?.value !== "all" && props.data?.label !== "Select All" ? (
             <>
               {props.isMulti ? (

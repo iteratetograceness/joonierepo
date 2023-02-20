@@ -103,8 +103,8 @@ const Timeline: React.FC<TimelineProps> = ({ orderId }) => {
 
   return (
     <>
-      <div className="h-full w-5/12 rounded-rounded bg-grey-0 border border-grey-20">
-        <div className="py-large px-xlarge border-b border-grey-20">
+      <div className="w-5/12 h-full border rounded-rounded bg-grey-0 border-grey-20">
+        <div className="border-b py-large px-xlarge border-grey-20">
           <div className="flex items-center justify-between">
             <h3 className="inter-xlarge-semibold">Timeline</h3>
             <div
@@ -125,7 +125,7 @@ const Timeline: React.FC<TimelineProps> = ({ orderId }) => {
         </div>
         <div className="py-large px-xlarge">
           {!events ? (
-            <div className="h-96 w-full flex items-center justify-center">
+            <div className="flex items-center justify-center w-full h-96">
               <Spinner variant="secondary" size="large" />
             </div>
           ) : (

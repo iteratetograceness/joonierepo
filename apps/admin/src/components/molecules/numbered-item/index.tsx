@@ -18,8 +18,8 @@ const NumberedItem: React.FC<NumberedItemProps> = ({
   description,
 }) => {
   return (
-    <div className="p-base border rounded-rounded flex gap-base justify-between items-center">
-      <div className="flex overflow-hidden gap-base w-full">
+    <div className="flex items-center justify-between border p-base rounded-rounded gap-base">
+      <div className="flex w-full overflow-hidden gap-base">
         <div>
           <Badge
             className="inter-base-semibold flex justify-center items-center w-[40px] h-[40px]"
@@ -28,7 +28,7 @@ const NumberedItem: React.FC<NumberedItemProps> = ({
             §{index}
           </Badge>
         </div>
-        <div className="truncate flex flex-col justify-center flex-1 w-full">
+        <div className="flex flex-col justify-center flex-1 w-full truncate">
           <div className="inter-small-semibold">{title}</div>
           {description &&
             (typeof description === "string" ? (

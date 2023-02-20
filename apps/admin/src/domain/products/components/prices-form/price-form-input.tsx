@@ -72,7 +72,7 @@ const PriceFormInput = ({
           allowNegativeValue={false}
           placeholder="-"
           decimalScale={decimal_digits}
-          className="bg-transparent outline-none outline-0 w-full remove-number-spinner leading-base text-grey-90 font-normal caret-violet-60 placeholder-grey-40 text-right"
+          className="w-full font-normal text-right bg-transparent outline-none outline-0 remove-number-spinner leading-base text-grey-90 caret-violet-60 placeholder-grey-40"
         />
       </div>
       <InputError name={name} errors={errors} />

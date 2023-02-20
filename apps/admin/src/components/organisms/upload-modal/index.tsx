@@ -34,9 +34,9 @@ function FileSummary(props: FileSummaryProps) {
     <div className="relative">
       <div
         style={{ width: `${progress}%` }}
-        className="absolute bg-grey-5 h-full transition-width duration-150 ease-in-out"
+        className="absolute h-full bg-grey-5 transition-width duration-150 ease-in-out"
       />
-      <div className="relative flex items-center rounded-xl border border-1 mt-6">
+      <div className="relative flex items-center mt-6 border rounded-xl border-1">
         <div className="m-4">
           <FileIcon size={30} fill={progress ? "#9CA3AF" : "#2DD4BF"} />
         </div>
@@ -208,19 +208,19 @@ function UploadModal(props: UploadModalProps) {
       <Modal.Body>
         <Modal.Content>
           <div className="flex justify-between">
-            <span className="text-2xl text-grey-90 inter-large-semibold py-4">
+            <span className="py-4 text-2xl text-grey-90 inter-large-semibold">
               Import {fileTitle}
             </span>
-            <button onClick={onClose} className="text-grey-50 cursor-pointer">
+            <button onClick={onClose} className="cursor-pointer text-grey-50">
               <CrossIcon size={20} />
             </button>
           </div>
 
-          <div className="text-grey-90 text-base inter-large-semibold mb-1">
+          <div className="mb-1 text-base text-grey-90 inter-large-semibold">
             Import {fileTitle}
           </div>
 
-          <p className="text-grey-50 mb-4 text-base">{description1Text}</p>
+          <p className="mb-4 text-base text-grey-50">{description1Text}</p>
 
           {summary && (
             <UploadSummary
@@ -248,11 +248,11 @@ function UploadModal(props: UploadModalProps) {
             />
           )}
 
-          <div className="text-grey-90 text-base inter-large-semibold mt-8">
+          <div className="mt-8 text-base text-grey-90 inter-large-semibold">
             {description2Title}
           </div>
 
-          <p className="text-grey-50 mb-2 text-base">{description2Text}</p>
+          <p className="mb-2 text-base text-grey-50">{description2Text}</p>
 
           <FileSummary
             name="medusa-template.csv"
@@ -271,11 +271,11 @@ function UploadModal(props: UploadModalProps) {
           <div className="h-2" />
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full h-8 justify-end">
+          <div className="flex justify-end w-full h-8">
             <div className="flex gap-2">
               <Button
                 variant="secondary"
-                className="mr-2 text-small justify-center"
+                className="justify-center mr-2 text-small"
                 size="small"
                 onClick={onClose}
               >

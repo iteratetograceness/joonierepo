@@ -83,7 +83,7 @@ const ResetPasswordPage = () => {
   return (
     <LoginLayout>
       <SEO title="Reset Password" />
-      <div className="flex h-full w-full items-center justify-center">
+      <div className="flex items-center justify-center w-full h-full">
         <div className="flex min-h-[540px] bg-grey-0 rounded-rounded justify-center">
           <form
             className="flex flex-col py-12 w-full px-[120px] items-center"
@@ -91,20 +91,20 @@ const ResetPasswordPage = () => {
           >
             <MedusaIcon />
             {!token ? (
-              <div className="h-full flex flex-col gap-y-2 text-center items-center justify-center">
+              <div className="flex flex-col items-center justify-center h-full text-center gap-y-2">
                 <span className="inter-large-semibold text-grey-90">
                   You reset link is invalid
                 </span>
-                <span className="inter-base-regular text-grey-50 mt-2">
+                <span className="mt-2 inter-base-regular text-grey-50">
                   Please try resetting your password again
                 </span>
               </div>
             ) : (
               <>
-                <span className="inter-2xlarge-semibold mt-4 text-grey-90">
+                <span className="mt-4 inter-2xlarge-semibold text-grey-90">
                   Reset your password
                 </span>
-                <span className="inter-base-regular text-grey-50 mt-2 mb-xlarge">
+                <span className="mt-2 inter-base-regular text-grey-50 mb-xlarge">
                   Choose a new password below 👇🏼
                 </span>
                 <SigninInput
@@ -127,12 +127,12 @@ const ResetPasswordPage = () => {
                   className="mb-0"
                 />
                 {error && (
-                  <span className="text-rose-50 w-full mt-xsmall inter-small-regular">
+                  <span className="w-full text-rose-50 mt-xsmall inter-small-regular">
                     The two passwords are not the same
                   </span>
                 )}
                 {passwordMismatch && (
-                  <span className="text-rose-50 w-full mt-xsmall inter-small-regular">
+                  <span className="w-full text-rose-50 mt-xsmall inter-small-regular">
                     The two passwords are not the same
                   </span>
                 )}

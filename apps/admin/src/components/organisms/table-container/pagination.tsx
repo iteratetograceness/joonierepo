@@ -43,7 +43,7 @@ export const TablePagination = ({
           <Skeleton>
             <div>{`${currentPage} of ${soothedPageCount}`}</div>
           </Skeleton>
-          <div className="flex space-x-4 items-center">
+          <div className="flex items-center space-x-4">
             <button
               className="cursor-pointer disabled:text-grey-30 disabled:cursor-default"
               disabled={!hasPrev || isLoading}

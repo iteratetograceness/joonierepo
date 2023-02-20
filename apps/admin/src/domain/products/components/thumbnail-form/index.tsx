@@ -91,16 +91,16 @@ const Image = ({ image, index, remove }: ThumbnailProps) => {
   ]
 
   return (
-    <div className="px-base py-xsmall group hover:bg-grey-5 rounded-rounded flex items-center justify-between">
+    <div className="flex items-center justify-between px-base py-xsmall group hover:bg-grey-5 rounded-rounded">
       <div className="flex items-center gap-x-large">
-        <div className="w-16 h-16 flex items-center justify-center">
+        <div className="flex items-center justify-center w-16 h-16">
           <img
             src={image.url}
             alt={image.name || "Uploaded image"}
             className="max-w-[64px] max-h-[64px] rounded-rounded"
           />
         </div>
-        <div className="flex flex-col inter-small-regular text-left">
+        <div className="flex flex-col text-left inter-small-regular">
           <p>{image.name}</p>
           <p className="text-grey-50">
             {image.size ? `${(image.size / 1024).toFixed(2)} KB` : ""}

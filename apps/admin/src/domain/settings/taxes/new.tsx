@@ -226,7 +226,7 @@ const NewTaxRate = ({ regionId, onDismiss }: NewTaxRateProps) => {
                 onClick={onDismiss}
                 variant="ghost"
                 size="small"
-                className="w-eventButton justify-center"
+                className="justify-center w-eventButton"
               >
                 Cancel
               </Button>
@@ -234,7 +234,7 @@ const NewTaxRate = ({ regionId, onDismiss }: NewTaxRateProps) => {
                 type="submit"
                 variant="primary"
                 size="small"
-                className="w-eventButton justify-center"
+                className="justify-center w-eventButton"
                 loading={isLoading}
                 disabled={isLoading}
               >

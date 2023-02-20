@@ -113,7 +113,7 @@ const CollectionDetails = () => {
           path="/a/products?view=collections"
           label="Back to Collections"
         />
-        <div className="rounded-rounded py-large px-xlarge border border-grey-20 bg-grey-0 mb-large">
+        <div className="border rounded-rounded py-large px-xlarge border-grey-20 bg-grey-0 mb-large">
           {isLoading || !collection ? (
             <div className="flex items-center w-full h-12">
               <Spinner variant="secondary" size="large" />
@@ -147,7 +147,7 @@ const CollectionDetails = () => {
                 </p>
               </div>
               {collection.metadata && (
-                <div className="mt-large flex flex-col gap-y-base">
+                <div className="flex flex-col mt-large gap-y-base">
                   <h3 className="inter-base-semibold">Metadata</h3>
                   <div>
                     <JSONView data={collection.metadata} />

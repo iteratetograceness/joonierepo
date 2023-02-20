@@ -226,7 +226,7 @@ function EditCustomersTable(props: EditCustomersTableProps) {
         </Modal.Content>
 
         <Modal.Footer>
-          <div className="flex items-center justify-end gap-x-xsmall w-full">
+          <div className="flex items-center justify-end w-full gap-x-xsmall">
             <Button
               variant="ghost"
               size="small"

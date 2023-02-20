@@ -88,7 +88,7 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
             <InputField label="Email" disabled value={user.email} />
           </Modal.Content>
           <Modal.Footer>
-            <div className="w-full flex justify-end">
+            <div className="flex justify-end w-full">
               <Button
                 variant="ghost"
                 size="small"

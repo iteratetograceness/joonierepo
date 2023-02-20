@@ -2,16 +2,23 @@
   import { page } from '$app/stores';
 </script>
 
-<div class="flex h-screen flex-col items-center justify-center ">
-  <div class="flex w-auto flex-col items-center justify-center p-6 md:p-0">
-    <div class="mb-8 flex w-full items-center">
-      <div class="mx-6 h-20 w-px bg-white" />
-      <div class="text-lg font-medium">{$page.status}: {$page.error?.message}</div>
+<svelte:head>
+  <title>{$page.status}</title>
+</svelte:head>
+
+<div class="flex flex-col items-center justify-center h-screen ">
+  <div class="flex flex-col items-center justify-center w-auto p-6 md:p-0">
+    <div class="flex items-center w-full mb-8">
+      <div class="w-px h-20 mx-6 bg-white" />
+      <h1>{$page.status}</h1>
+      {#if $page.error?.message}
+      <div class="text-lg font-medium"> {$page.error?.message}</div>
+      {/if}
     </div>
     <a
       href="/"
       data-sveltekit-preload-data="hover"
-      class="w-full bg-white/90 p-3 text-center text-sm font-medium uppercase text-black hover:bg-white/100"
+      class="w-full p-3 text-sm font-medium text-center text-black uppercase bg-white/90 hover:bg-white/100"
     >
       Return to Home Page
     </a>

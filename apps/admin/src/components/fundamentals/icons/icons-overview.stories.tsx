@@ -74,7 +74,7 @@ const Template = (args: IconProps) => (
       return (
         <div
           key={key}
-          className="bg-grey-10 rounded-base flex items-center justify-center p-base"
+          className="flex items-center justify-center bg-grey-10 rounded-base p-base"
         >
           <div>{React.cloneElement(icon, args)}</div>
         </div>

@@ -121,7 +121,7 @@ const InvitePage = () => {
       {signUp ? (
         <LoginLayout>
           <SEO title="Create Account" />
-          <div className="flex h-full w-full items-center justify-center">
+          <div className="flex items-center justify-center w-full h-full">
             <div className="flex min-h-[600px] bg-grey-0 rounded-rounded justify-center">
               <form
                 className="flex flex-col py-12 w-full px-[120px] items-center"
@@ -129,20 +129,20 @@ const InvitePage = () => {
               >
                 <MedusaIcon />
                 {!token ? (
-                  <div className="h-full flex flex-col gap-y-2 text-center items-center justify-center">
+                  <div className="flex flex-col items-center justify-center h-full text-center gap-y-2">
                     <span className="inter-large-semibold text-grey-90">
                       You signup link is invalid
                     </span>
-                    <span className="inter-base-regular mt-2 text-grey-50">
+                    <span className="mt-2 inter-base-regular text-grey-50">
                       Contact your administrator to obtain a valid signup link
                     </span>
                   </div>
                 ) : (
                   <>
-                    <span className="inter-2xlarge-semibold mt-4 text-grey-90">
+                    <span className="mt-4 inter-2xlarge-semibold text-grey-90">
                       Welcome to the team!
                     </span>
-                    <span className="inter-base-regular text-grey-50 mt-2 mb-large">
+                    <span className="mt-2 inter-base-regular text-grey-50 mb-large">
                       Create your account below👇🏼
                     </span>
                     <SigninInput
@@ -168,7 +168,7 @@ const InvitePage = () => {
                       autoComplete="new-password"
                     />
                     {passwordMismatch && (
-                      <span className="text-rose-50 w-full mt-2 inter-small-regular">
+                      <span className="w-full mt-2 text-rose-50 inter-small-regular">
                         The two passwords are not the same
                       </span>
                     )}
@@ -195,7 +195,7 @@ const InvitePage = () => {
           </div>
         </LoginLayout>
       ) : (
-        <div className="bg-grey-90 h-screen w-full overflow-hidden">
+        <div className="w-full h-screen overflow-hidden bg-grey-90">
           <div className="z-10 flex-grow flex flex-col items-center justify-center h-full absolute inset-0 max-w-[1080px] mx-auto">
             <MedusaVice className="mb-3xlarge" />
             <div className="flex flex-col items-center max-w-3xl text-center">

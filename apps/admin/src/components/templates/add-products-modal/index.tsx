@@ -84,7 +84,7 @@ const AddProductsModal = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="w-full flex justify-end gap-2">
+          <div className="flex justify-end w-full gap-2">
             <Button
               variant="ghost"
               className="rounded-rounded h-8 w-[128px]"

@@ -59,7 +59,7 @@ const CustomItemSubModal: React.FC<CustomItemSubModalProps> = ({
         </div>
       </Modal.Content>
       <Modal.Footer>
-        <div className="flex w-full justify-end gap-x-xsmall">
+        <div className="flex justify-end w-full gap-x-xsmall">
           <Button
             variant="ghost"
             size="small"

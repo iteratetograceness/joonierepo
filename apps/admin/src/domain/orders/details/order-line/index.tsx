@@ -11,7 +11,7 @@ type OrderLineProps = {
 const OrderLine = ({ item, currencyCode }: OrderLineProps) => {
   return (
     <div className="flex justify-between mb-1 h-[64px] py-2 mx-[-5px] px-[5px] hover:bg-grey-5 rounded-rounded">
-      <div className="flex space-x-4 justify-center">
+      <div className="flex justify-center space-x-4">
         <div className="flex h-[48px] w-[36px] rounded-rounded overflow-hidden">
           {item.thumbnail ? (
             <img src={item.thumbnail} className="object-cover" />
@@ -20,11 +20,11 @@ const OrderLine = ({ item, currencyCode }: OrderLineProps) => {
           )}
         </div>
         <div className="flex flex-col justify-center max-w-[185px]">
-          <span className="inter-small-regular text-grey-90 truncate">
+          <span className="truncate inter-small-regular text-grey-90">
             {item.title}
           </span>
           {item?.variant && (
-            <span className="inter-small-regular text-grey-50 truncate">
+            <span className="truncate inter-small-regular text-grey-50">
               {`${item.variant.title}${
                 item.variant.sku ? ` (${item.variant.sku})` : ""
               }`}
@@ -32,8 +32,8 @@ const OrderLine = ({ item, currencyCode }: OrderLineProps) => {
           )}
         </div>
       </div>
-      <div className="flex  items-center">
-        <div className="flex small:space-x-2 medium:space-x-4 large:space-x-6 mr-3">
+      <div className="flex items-center ">
+        <div className="flex mr-3 small:space-x-2 medium:space-x-4 large:space-x-6">
           <div className="inter-small-regular text-grey-50">
             {formatAmountWithSymbol({
               amount: (item?.total ?? 0) / item.quantity,

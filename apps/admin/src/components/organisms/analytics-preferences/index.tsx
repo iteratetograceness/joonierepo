@@ -102,7 +102,7 @@ const AnalyticsPreferencesModal = () => {
               </a>
               .
             </p>
-            <div className="mt-xlarge flex flex-col gap-y-xlarge">
+            <div className="flex flex-col mt-xlarge gap-y-xlarge">
               <InputField
                 label="Email"
                 placeholder="you@company.com"

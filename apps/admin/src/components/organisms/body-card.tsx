@@ -50,7 +50,7 @@ const BodyCard: React.FC<BodyCardProps> = ({
         )}
       </div>
       <div
-        className="pt-medium px-xlarge flex flex-col grow overflow-y-auto"
+        className="flex flex-col overflow-y-auto pt-medium px-xlarge grow"
         onScroll={scrollListener}
       >
         <div className="flex items-center justify-between mt-6 h-xlarge">
@@ -87,8 +87,8 @@ const BodyCard: React.FC<BodyCardProps> = ({
         )}
       </div>
       {events && events.length > 0 ? (
-        <div className="pb-large pt-base px-xlarge border-t border-grey-20">
-          <div className="flex items-center flex-row-reverse">
+        <div className="border-t pb-large pt-base px-xlarge border-grey-20">
+          <div className="flex flex-row-reverse items-center">
             {events.map((event, i: React.Key) => {
               return (
                 <Button

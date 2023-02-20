@@ -8,7 +8,7 @@ const Regions = () => {
   const regId: string | undefined = params["*"]
 
   return (
-    <div className="flex flex-col gap-y-xsmall h-full">
+    <div className="flex flex-col h-full gap-y-xsmall">
       <BackButton label="Back to Settings" path="/a/settings" />
       <div className="grid grid-cols-1 medium:grid-cols-3 gap-xsmall pb-xlarge">
         <div className="w-full h-full">

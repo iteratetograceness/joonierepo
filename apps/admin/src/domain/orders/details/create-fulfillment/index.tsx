@@ -131,7 +131,7 @@ const CreateFulfillmentModal: React.FC<CreateFulfillmentModalProps> = ({
         </Modal.Header>
         <Modal.Content>
           <div className="flex flex-col">
-            <span className="inter-base-semibold mb-2">Items</span>
+            <span className="mb-2 inter-base-semibold">Items</span>
             <CreateFulfillmentItemsTable
               items={items}
               toFulfill={toFulfill}
@@ -145,9 +145,9 @@ const CreateFulfillmentModal: React.FC<CreateFulfillmentModalProps> = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full h-8 justify-between">
+          <div className="flex justify-between w-full h-8">
             <div
-              className="items-center h-full flex cursor-pointer"
+              className="flex items-center h-full cursor-pointer"
               onClick={() => setNoNotis(!noNotis)}
             >
               <div
@@ -166,7 +166,7 @@ const CreateFulfillmentModal: React.FC<CreateFulfillmentModalProps> = ({
                 checked={!noNotis}
                 type="checkbox"
               />
-              <span className="ml-3 flex items-center text-grey-90 gap-x-xsmall">
+              <span className="flex items-center ml-3 text-grey-90 gap-x-xsmall">
                 Send notifications
                 <IconTooltip content="" />
               </span>
@@ -174,7 +174,7 @@ const CreateFulfillmentModal: React.FC<CreateFulfillmentModalProps> = ({
             <div className="flex">
               <Button
                 variant="ghost"
-                className="mr-2 w-32 text-small justify-center"
+                className="justify-center w-32 mr-2 text-small"
                 size="large"
                 onClick={handleCancel}
               >
@@ -182,7 +182,7 @@ const CreateFulfillmentModal: React.FC<CreateFulfillmentModalProps> = ({
               </Button>
               <Button
                 size="large"
-                className="w-32 text-small justify-center"
+                className="justify-center w-32 text-small"
                 variant="primary"
                 disabled={!toFulfill?.length || isSubmitting}
                 onClick={createFulfillment}

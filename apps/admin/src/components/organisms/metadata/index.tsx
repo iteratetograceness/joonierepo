@@ -135,7 +135,7 @@ const DeletableElement: React.FC<DeletableElementProps> = ({
       <Button
         variant="ghost"
         size="small"
-        className="text-grey-40 w-10 h-10"
+        className="w-10 h-10 text-grey-40"
         type="button"
         onClick={onDelete}
       >

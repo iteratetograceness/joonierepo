@@ -133,13 +133,13 @@ const EditVariantsModal = ({ open, onClose, product }: Props) => {
                   </span>
                 </h2>
                 <div className="grid grid-cols-[1fr_1fr_48px] pr-base inter-small-semibold text-grey-50 mb-small">
-                  <p className="col-start-1 col-end-1 text-left">Variant</p>
-                  <p className="col-start-2 col-end-2 text-right">Inventory</p>
+                  <p className="text-left col-start-1 col-end-1">Variant</p>
+                  <p className="text-right col-start-2 col-end-2">Inventory</p>
                 </div>
                 <div>{fields.map((card, i) => renderCard(card, i))}</div>
               </Modal.Content>
               <Modal.Footer>
-                <div className="flex items-center gap-x-xsmall justify-end w-full">
+                <div className="flex items-center justify-end w-full gap-x-xsmall">
                   <Button
                     variant="secondary"
                     size="small"

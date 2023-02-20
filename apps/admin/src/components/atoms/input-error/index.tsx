@@ -43,7 +43,7 @@ const MultipleMessages = ({ messages }: { messages: MultipleFieldErrors }) => {
   const remainderErrors = errors.slice(1)
 
   return (
-    <div className="flex items-center gap-x-1 cursor-default">
+    <div className="flex items-center cursor-default gap-x-1">
       <p>{displayedError}</p>
       {remainderErrors?.length > 0 && (
         <Tooltip

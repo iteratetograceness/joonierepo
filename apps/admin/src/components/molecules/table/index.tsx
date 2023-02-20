@@ -73,9 +73,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
     return (
       <div className={`flex flex-col ${containerClassName}`}>
-        <div className="w-full flex justify-between mb-2">
+        <div className="flex justify-between w-full mb-2">
           {filteringOptions ? (
-            <div className="flex mb-2 self-end">
+            <div className="flex self-end mb-2">
               {Array.isArray(filteringOptions)
                 ? filteringOptions.map((fo) => <FilteringOptions {...fo} />)
                 : filteringOptions}

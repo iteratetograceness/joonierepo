@@ -225,7 +225,7 @@ const ShippingDetails = () => {
               )
             }}
           />
-          <div className="mt-4 flex w-full justify-end">
+          <div className="flex justify-end w-full mt-4">
             <Button
               variant="ghost"
               size="small"

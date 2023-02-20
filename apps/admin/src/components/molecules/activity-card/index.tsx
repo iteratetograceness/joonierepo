@@ -55,7 +55,7 @@ export const ActivityCard: React.FC<ActivityCardProps> = (
 
   return (
     <div key={key} className="mx-8 border-b last:border-b-0 border-grey-20">
-      <div className="flex hover:bg-grey-5 -mx-8 px-8 py-6">
+      <div className="flex px-8 py-6 -mx-8 hover:bg-grey-5">
         <div className="relative w-full h-full">
           <div className="flex justify-between inter-small-semibold text-grey-90">
             <div className="flex">

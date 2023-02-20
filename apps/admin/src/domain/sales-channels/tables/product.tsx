@@ -345,7 +345,7 @@ function RemoveProductsPopup({
         <Button variant="danger" size="small" onClick={onRemove}>
           Remove
         </Button>
-        <button onClick={onClose} className="text-grey-50 cursor-pointer">
+        <button onClick={onClose} className="cursor-pointer text-grey-50">
           <CrossIcon size={20} />
         </button>
       </div>
@@ -501,7 +501,7 @@ function SalesChannelProductsSelectModal(
           />
         </Modal.Content>
         <Modal.Footer>
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <Button
               variant="ghost"
               size="small"

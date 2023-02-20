@@ -16,7 +16,7 @@ const EditRegion = ({ id }: Props) => {
 
   if (isLoading) {
     return (
-      <div className="h-full w-full flex items-center justify-center">
+      <div className="flex items-center justify-center w-full h-full">
         <Spinner variant="secondary" />
       </div>
     )
@@ -24,7 +24,7 @@ const EditRegion = ({ id }: Props) => {
 
   if (isError) {
     return (
-      <div className="bg-grey-0 rounded-rounded border border-grey-20 flex flex-col gap-y-xsmall items-center justify-center w-full h-full text-center ">
+      <div className="flex flex-col items-center justify-center w-full h-full text-center border bg-grey-0 rounded-rounded border-grey-20 gap-y-xsmall ">
         <h1 className="inter-large-semibold">Something went wrong...</h1>
         <p className="inter-base-regular text-grey-50">
           We can't find a region with that ID, use the menu to the left to

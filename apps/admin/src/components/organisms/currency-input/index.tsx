@@ -258,7 +258,7 @@ const Amount = forwardRef<HTMLInputElement, AmountInputProps>(
             </Tooltip>
           )}
           <AmountField
-            className="bg-transparent outline-none outline-0 w-full remove-number-spinner leading-base text-grey-90 font-normal caret-violet-60 placeholder-grey-40"
+            className="w-full font-normal bg-transparent outline-none outline-0 remove-number-spinner leading-base text-grey-90 caret-violet-60 placeholder-grey-40"
             decimalScale={currencyInfo?.decimal_digits}
             value={formattedValue}
             onValueChange={(value, _name, values) =>
@@ -272,7 +272,7 @@ const Amount = forwardRef<HTMLInputElement, AmountInputProps>(
           />
           <div className="flex items-center">
             <button
-              className="mr-2 text-grey-50 w-4 h-4 hover:bg-grey-10 rounded-soft cursor-pointer"
+              className="w-4 h-4 mr-2 cursor-pointer text-grey-50 hover:bg-grey-10 rounded-soft"
               type="button"
               onClick={() => handleManualValueChange(-step)}
             >
@@ -280,7 +280,7 @@ const Amount = forwardRef<HTMLInputElement, AmountInputProps>(
             </button>
             <button
               type="button"
-              className="text-grey-50 w-4 h-4 hover:bg-grey-10 rounded-soft cursor-pointer"
+              className="w-4 h-4 cursor-pointer text-grey-50 hover:bg-grey-10 rounded-soft"
               onClick={() => handleManualValueChange(step)}
             >
               <PlusIcon size={16} />

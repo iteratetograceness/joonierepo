@@ -24,7 +24,7 @@ const ProductOverview = ({
   return (
     <>
       <div className="flex justify-end border-t border-b border-grey-20 py-2.5 pr-xlarge">
-        <div className="inter-small-semibold text-grey-50 flex justify-self-end">
+        <div className="flex inter-small-semibold text-grey-50 justify-self-end">
           <span
             onClick={toggleListView}
             className={clsx(
@@ -55,7 +55,7 @@ const ProductTile = ({ product }) => {
   const { getActions } = useProductActions(product)
 
   return (
-    <div className="p-base group rounded-rounded hover:bg-grey-5 flex-col">
+    <div className="flex-col p-base group rounded-rounded hover:bg-grey-5">
       <div className="relative">
         <div
           className={clsx("rounded-base inline-block absolute top-2 right-2")}
@@ -66,7 +66,7 @@ const ProductTile = ({ product }) => {
               <Button
                 variant="ghost"
                 size="small"
-                className="w-xlarge h-xlarge hidden-actions group-hover:opacity-100 focus-within:opacity-100 opacity-0 bg-grey-0"
+                className="opacity-0 w-xlarge h-xlarge hidden-actions group-hover:opacity-100 focus-within:opacity-100 bg-grey-0"
               >
                 <MoreHorizontalIcon size={20} />
               </Button>
@@ -85,8 +85,8 @@ const ProductTile = ({ product }) => {
             </div>
           )}
           <div>
-            <div className="mt-base flex items-center justify-between">
-              <p className="inter-small-regular text-grey-90 line-clamp-1 mr-3">
+            <div className="flex items-center justify-between mt-base">
+              <p className="mr-3 inter-small-regular text-grey-90 line-clamp-1">
                 {product.title}
               </p>
               <StatusIndicator

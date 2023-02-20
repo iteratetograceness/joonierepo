@@ -98,7 +98,7 @@ const EditRegionModal = ({ region, onClose, open }: Props) => {
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="w-full flex items-center justify-end gap-x-xsmall">
+            <div className="flex items-center justify-end w-full gap-x-xsmall">
               <Button
                 variant="secondary"
                 size="small"

@@ -129,7 +129,7 @@ const ProductTags = ({ product }: Props) => {
   }
 
   return (
-    <ul className="flex flex-wrap items-center gap-1 mt-4">
+    <ul className="flex flex-wrap items-center mt-4 gap-1">
       {product.tags.map((t) => (
         <li key={t.id}>
           <div className="text-grey-50 bg-grey-10 inter-small-semibold px-3 py-[6px] rounded-rounded">

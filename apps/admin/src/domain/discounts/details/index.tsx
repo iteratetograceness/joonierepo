@@ -56,7 +56,7 @@ const Edit = () => {
         previousRoute="/a/discounts"
       />
       {isLoading || !discount ? (
-        <div className="h-full flex items-center justify-center">
+        <div className="flex items-center justify-center h-full">
           <Spinner variant="secondary" />
         </div>
       ) : (

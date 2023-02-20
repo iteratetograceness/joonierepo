@@ -83,8 +83,8 @@ const SearchModal = ({ handleClose }) => {
               "max-w-[640px] flex-1 flex mx-auto bg-grey-0 rounded-rounded shadow-searchModal"
             )}
           >
-            <div className="py-large flex-1 flex flex-col">
-              <div className="flex items-center gap-x-4 pb-large border-solid px-xlarge border-b border-grey-20">
+            <div className="flex flex-col flex-1 py-large">
+              <div className="flex items-center border-b border-solid gap-x-4 pb-large px-xlarge border-grey-20">
                 <SearchIcon className="text-grey-40" />
                 <Input
                   className="flex-1"
@@ -101,14 +101,14 @@ const SearchModal = ({ handleClose }) => {
                   <CrossIcon className="flex text-grey-50" />
                 </Tooltip>
               </div>
-              <KeyboardShortcuts className="mt-xlarge px-xlarge flex items-center gap-x-3 text-grey-40 inter-small-regular" />
+              <KeyboardShortcuts className="flex items-center mt-xlarge px-xlarge gap-x-3 text-grey-40 inter-small-regular" />
               {totalLength > 0 ? (
                 <ul
                   {...getULProps()}
                   className="flex-1 overflow-y-auto mt-large px-xlarge"
                 >
                   {isFetching ? (
-                    <div className="w-full pt-2xlarge flex items-center justify-center">
+                    <div className="flex items-center justify-center w-full pt-2xlarge">
                       <Spinner size={"large"} variant={"secondary"} />
                     </div>
                   ) : (

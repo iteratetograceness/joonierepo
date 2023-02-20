@@ -109,7 +109,7 @@ export const RegionTaxForm = ({ region }: RegionTaxFormProps) => {
 
   return (
     <form className="flex flex-col flex-1" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col gap-base flex-1">
+      <div className="flex flex-col flex-1 gap-base">
         <Controller
           name="tax_provider_id"
           control={control}

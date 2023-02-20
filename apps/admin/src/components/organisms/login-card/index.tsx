@@ -34,10 +34,10 @@ const LoginCard: React.FC<LoginCardProps> = ({ toResetPassword }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col items-center">
-        <span className="inter-2xlarge-semibold mt-4 text-grey-90">
+        <span className="mt-4 inter-2xlarge-semibold text-grey-90">
           Welcome back!
         </span>
-        <span className="inter-base-regular text-grey-50 mt-2">
+        <span className="mt-2 inter-base-regular text-grey-50">
           It's great to see you 👋🏼
         </span>
         <span className="inter-base-regular text-grey-50 mb-xlarge">
@@ -55,7 +55,7 @@ const LoginCard: React.FC<LoginCardProps> = ({ toResetPassword }) => {
           autoComplete="current-password"
         />
         {isInvalidLogin && (
-          <span className="text-rose-50 w-full mt-2 inter-small-regular">
+          <span className="w-full mt-2 text-rose-50 inter-small-regular">
             These credentials do not match our records
           </span>
         )}
@@ -69,7 +69,7 @@ const LoginCard: React.FC<LoginCardProps> = ({ toResetPassword }) => {
           Continue
         </Button>
         <span
-          className="inter-small-regular text-grey-50 mt-8 cursor-pointer"
+          className="mt-8 cursor-pointer inter-small-regular text-grey-50"
           onClick={toResetPassword}
         >
           Reset password

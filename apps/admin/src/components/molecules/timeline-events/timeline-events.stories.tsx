@@ -148,7 +148,7 @@ ReturnRequested.args = {
 
 const Demo = (args) => (
   <div className="w-full bg-grey-10 p-xlarge">
-    <div className="max-w-md px-xlarge py-large flex flex-col gap-y-base bg-grey-0 rounded-rounded border border-grey-20">
+    <div className="flex flex-col max-w-md border px-xlarge py-large gap-y-base bg-grey-0 rounded-rounded border-grey-20">
       {args.arguments.map((arg, i) => {
         return (
           <EventContainer {...arg} isFirst={i === args.arguments.length - 1} />

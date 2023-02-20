@@ -28,12 +28,12 @@ const MediaSection = ({ product }: Props) => {
               return (
                 <div
                   key={image.id}
-                  className="aspect-square flex items-center justify-center"
+                  className="flex items-center justify-center aspect-square"
                 >
                   <img
                     src={image.url}
                     alt={`Image ${index + 1}`}
-                    className="object-contain rounded-rounded max-w-full max-h-full"
+                    className="object-contain max-w-full max-h-full rounded-rounded"
                   />
                 </div>
               )

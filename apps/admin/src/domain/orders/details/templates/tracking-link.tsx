@@ -8,12 +8,12 @@ export const TrackingLink = ({ trackingLink }) => {
         target="_blank"
         href={trackingLink.url}
       >
-        <div className="text-blue-60 ml-2">{trackingLink.tracking_number} </div>
+        <div className="ml-2 text-blue-60">{trackingLink.tracking_number} </div>
       </a>
     )
   } else {
     return (
-      <span className="text-blue-60 ml-2">{trackingLink.tracking_number} </span>
+      <span className="ml-2 text-blue-60">{trackingLink.tracking_number} </span>
     )
   }
 }

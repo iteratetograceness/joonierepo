@@ -95,7 +95,7 @@ function SalesChannelTile(props: SalesChannelTileProps) {
         }
       )}
     >
-      <div className="flex gap-2 overflow-hidden">
+      <div className="flex overflow-hidden gap-2">
         <ListIndicator isActive={isSelected} />
         <div className="block overflow-hidden truncate">
           <h3 className="mb-1 font-semibold leading-5 text-grey-90">

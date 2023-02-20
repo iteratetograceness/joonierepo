@@ -171,11 +171,11 @@ const NewVariant = ({
       >
         <div
           ref={ref}
-          className="text-grey-40 cursor-move flex items-center justify-center"
+          className="flex items-center justify-center cursor-move text-grey-40"
         >
           <GripIcon size={20} />
         </div>
-        <div className="flex justify-center flex-col ml-base">
+        <div className="flex flex-col justify-center ml-base">
           <p className="inter-base-semibold">
             {source.general.title}
             {source.stock.sku && (
@@ -200,7 +200,7 @@ const NewVariant = ({
             productDimensions={productDimensions}
           />
         </div>
-        <div className="ml-xlarge flex items-center justify-center pr-base">
+        <div className="flex items-center justify-center ml-xlarge pr-base">
           <Actionables
             forceDropdown
             actions={[
@@ -219,7 +219,7 @@ const NewVariant = ({
             customTrigger={
               <Button
                 variant="ghost"
-                className="w-xlarge h-xlarge p-0 flex items-center justify-center text-grey-50"
+                className="flex items-center justify-center p-0 w-xlarge h-xlarge text-grey-50"
               >
                 <MoreHorizontalIcon size={20} />
               </Button>
@@ -248,7 +248,7 @@ const NewVariant = ({
             />
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex items-center gap-x-xsmall justify-end w-full">
+            <div className="flex items-center justify-end w-full gap-x-xsmall">
               <Button
                 variant="secondary"
                 size="small"
@@ -292,7 +292,7 @@ const VariantValidity = ({
       <IconTooltip
         type="error"
         content={
-          <div className="text-rose-50 flex flex-col gap-y-2xsmall">
+          <div className="flex flex-col text-rose-50 gap-y-2xsmall">
             <p>This variant has no options.</p>
           </div>
         }
@@ -307,7 +307,7 @@ const VariantValidity = ({
       <IconTooltip
         type="error"
         content={
-          <div className="text-rose-50 flex flex-col gap-y-2xsmall">
+          <div className="flex flex-col text-rose-50 gap-y-2xsmall">
             <p>You are missing options values for the following options:</p>
             <ul className="list-disc list-inside">
               {invalidOptions.map((io, index) => {
@@ -343,7 +343,7 @@ const VariantValidity = ({
         type="warning"
         side="right"
         content={
-          <div className="text-orange-50 flex flex-col gap-y-2xsmall">
+          <div className="flex flex-col text-orange-50 gap-y-2xsmall">
             <p>
               Your variant is createable, but it's missing some important
               fields:

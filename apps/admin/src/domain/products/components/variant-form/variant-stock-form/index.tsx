@@ -31,7 +31,7 @@ const VariantStockForm = ({ form }: Props) => {
       <p className="inter-base-regular text-grey-50">
         Configure the inventory and stock for this variant.
       </p>
-      <div className="pt-large flex flex-col gap-y-xlarge">
+      <div className="flex flex-col pt-large gap-y-xlarge">
         <div className="flex flex-col gap-y-2xsmall">
           <div className="flex items-center justify-between">
             <h3 className="inter-base-semibold mb-2xsmall">Manage inventory</h3>

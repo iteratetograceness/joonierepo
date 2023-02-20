@@ -135,11 +135,11 @@ const ProductOptions = () => {
         {Array.from(Array(2)).map((_, i) => {
           return (
             <div key={i}>
-              <div className="bg-grey-30 h-6 w-9 animate-pulse mb-xsmall"></div>
+              <div className="h-6 bg-grey-30 w-9 animate-pulse mb-xsmall"></div>
               <ul className="flex flex-wrap items-center gap-1">
                 {Array.from(Array(3)).map((_, j) => (
                   <li key={j}>
-                    <div className="text-grey-50 bg-grey-10 h-8 w-12 animate-pulse rounded-rounded">
+                    <div className="w-12 h-8 text-grey-50 bg-grey-10 animate-pulse rounded-rounded">
                       {j}
                     </div>
                   </li>
@@ -153,7 +153,7 @@ const ProductOptions = () => {
   }
 
   return (
-    <div className="mt-base flex items-center flex-wrap gap-8">
+    <div className="flex flex-wrap items-center mt-base gap-8">
       {options.map((option) => {
         return (
           <div key={option.id}>

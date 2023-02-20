@@ -21,7 +21,7 @@ const UsageInsights = ({ user }: Props) => {
           <div className="flex items-center gap-x-xsmall">
             <h2 className="inter-base-semibold">Usage insights</h2>
             {isLoading ? (
-              <div className="badge bg-grey-10 animate-pulse w-16 h-large" />
+              <div className="w-16 badge bg-grey-10 animate-pulse h-large" />
             ) : !analytics_config || analytics_config?.opt_out ? (
               <Badge variant="disabled">Disabled</Badge>
             ) : (

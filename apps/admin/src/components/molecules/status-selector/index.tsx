@@ -36,7 +36,7 @@ const StatusSelector: React.FC<StatusSelectorProps> = ({
               <Button
                 variant="ghost"
                 size="small"
-                className="w-full justify-start"
+                className="justify-start w-full"
                 onClick={onChange}
               >
                 <StatusIndicator

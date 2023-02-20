@@ -82,10 +82,10 @@ const InviteModal: React.FC<InviteModalProps> = ({ handleClose }) => {
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex w-full h-8 justify-end">
+            <div className="flex justify-end w-full h-8">
               <Button
                 variant="ghost"
-                className="mr-2 w-32 text-small justify-center"
+                className="justify-center w-32 mr-2 text-small"
                 size="large"
                 type="button"
                 onClick={handleClose}
@@ -96,7 +96,7 @@ const InviteModal: React.FC<InviteModalProps> = ({ handleClose }) => {
                 loading={isLoading}
                 disabled={isLoading}
                 size="large"
-                className="w-32 text-small justify-center"
+                className="justify-center w-32 text-small"
                 variant="primary"
               >
                 Invite

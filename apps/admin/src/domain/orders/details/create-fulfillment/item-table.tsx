@@ -62,10 +62,10 @@ const CreateFulfillmentItemsTable = ({
 
   return (
     <Table>
-      <Table.HeadRow className="text-grey-50 inter-small-semibold border-t border-t-grey-20">
+      <Table.HeadRow className="border-t text-grey-50 inter-small-semibold border-t-grey-20">
         <Table.HeadCell>Details</Table.HeadCell>
         <Table.HeadCell />
-        <Table.HeadCell className="text-right pr-8">Quantity</Table.HeadCell>
+        <Table.HeadCell className="pr-8 text-right">Quantity</Table.HeadCell>
       </Table.HeadRow>
       <Table.Body>
         {items
@@ -76,7 +76,7 @@ const CreateFulfillmentItemsTable = ({
               <>
                 <Table.Row className={"border-b-grey-0 hover:bg-grey-0"}>
                   <Table.Cell className="w-[50px]">
-                    <div className="items-center ml-1 h-full flex">
+                    <div className="flex items-center h-full ml-1">
                       <div
                         onClick={() => handleFulfillmentItemToggle(item)}
                         className={`w-5 h-5 flex justify-center text-grey-0 border-grey-30 border cursor-pointer rounded-base ${
@@ -101,11 +101,11 @@ const CreateFulfillmentItemsTable = ({
                     <div className="min-w-[240px] flex py-2">
                       <div className="w-[30px] h-[40px] ">
                         <img
-                          className="h-full w-full object-cover rounded"
+                          className="object-cover w-full h-full rounded"
                           src={item.thumbnail}
                         />
                       </div>
-                      <div className="inter-small-regular text-grey-50 flex flex-col ml-4">
+                      <div className="flex flex-col ml-4 inter-small-regular text-grey-50">
                         <span>
                           <span className="text-grey-90">{item.title}</span>
                         </span>
@@ -113,9 +113,9 @@ const CreateFulfillmentItemsTable = ({
                       </div>
                     </div>
                   </Table.Cell>
-                  <Table.Cell className="text-right w-32 pr-8">
+                  <Table.Cell className="w-32 pr-8 text-right">
                     {toFulfill.includes(item.id) ? (
-                      <div className="flex w-full text-right justify-end text-grey-50 ">
+                      <div className="flex justify-end w-full text-right text-grey-50 ">
                         <span
                           onClick={() => handleQuantity(-1, item)}
                           className={clsx(

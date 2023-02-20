@@ -72,8 +72,8 @@ const EditCustomerModal = ({
           <span className="inter-xlarge-semibold">Customer Details</span>
         </Modal.Header>
         <Modal.Content>
-          <div className="inter-base-semibold text-grey-90 mb-4">General</div>
-          <div className="w-full flex mb-4 space-x-2">
+          <div className="mb-4 inter-base-semibold text-grey-90">General</div>
+          <div className="flex w-full mb-4 space-x-2">
             <InputField
               label="First Name"
               {...register("first_name")}
@@ -85,7 +85,7 @@ const EditCustomerModal = ({
               placeholder="James"
             />
           </div>
-          <div className="inter-base-semibold text-grey-90 mb-4">Contact</div>
+          <div className="mb-4 inter-base-semibold text-grey-90">Contact</div>
           <div className="flex space-x-2">
             <InputField
               label="Email"
@@ -108,7 +108,7 @@ const EditCustomerModal = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <Button
               variant="ghost"
               size="small"

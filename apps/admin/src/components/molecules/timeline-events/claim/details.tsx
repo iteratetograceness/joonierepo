@@ -35,7 +35,7 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
             <Table>
               <Table.HeadRow className="text-grey-50 inter-small-semibold">
                 <Table.HeadCell>Product Details</Table.HeadCell>
-                <Table.HeadCell className="text-right pr-8">
+                <Table.HeadCell className="pr-8 text-right">
                   Quantity
                 </Table.HeadCell>
                 <Table.HeadCell className="text-right">
@@ -55,11 +55,11 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
                           <div className="min-w-[240px] flex py-2">
                             <div className="w-[30px] h-[40px] ">
                               <img
-                                className="h-full w-full object-cover rounded"
+                                className="object-cover w-full h-full rounded"
                                 src={item.thumbnail}
                               />
                             </div>
-                            <div className="inter-small-regular text-grey-50 flex flex-col ml-4">
+                            <div className="flex flex-col ml-4 inter-small-regular text-grey-50">
                               <span>
                                 <span className="text-grey-90">
                                   {item.title}
@@ -69,7 +69,7 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
                             </div>
                           </div>
                         </Table.Cell>
-                        <Table.Cell className="text-right w-32 pr-8">
+                        <Table.Cell className="w-32 pr-8 text-right">
                           <span className="text-grey-40">
                             {claimItem.quantity}
                           </span>
@@ -81,7 +81,7 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
                             tax: order.tax_rate,
                           })}
                         </Table.Cell>
-                        <Table.Cell className="text-right text-grey-40 pr-1">
+                        <Table.Cell className="pr-1 text-right text-grey-40">
                           {order.currency_code.toUpperCase()}
                         </Table.Cell>
                       </Table.Row>
@@ -90,8 +90,8 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
                           <div className="max-w-[470px] truncate">
                             {claimItem.reason && (
                               <span className="inter-small-regular text-grey-40">
-                                <span className="text-grey-80 mr-1">
-                                  <span className="inter-small-semibold mr-1">
+                                <span className="mr-1 text-grey-80">
+                                  <span className="mr-1 inter-small-semibold">
                                     {reasonOptions[claimItem.reason]}
                                   </span>
                                 </span>
@@ -109,7 +109,7 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
                           </div>
                         </Table.Cell>
                         <Table.Cell colSpan={2}>
-                          <div className="flex w-full justify-end">
+                          <div className="flex justify-end w-full">
                             <Button
                               onClick={() =>
                                 layeredModalContext.push(
@@ -136,7 +136,7 @@ const ClaimDetails = ({ claim, order, onDismiss }) => {
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-end">
+          <div className="flex justify-end w-full">
             <div className="flex gap-x-xsmall">
               <Button
                 onClick={() => onDismiss()}
@@ -164,7 +164,7 @@ const ReasonDetails = (pop, claimItem) => {
       <>
         <Modal.Content>
           <div className="h-full">
-            <h2 className="inter-base-semibold mb-4">Claim Reason</h2>
+            <h2 className="mb-4 inter-base-semibold">Claim Reason</h2>
             <div className="mb-8 text-grey-50 inter-small-semibold">
               {reasonOptions[claimItem.reason]}
             </div>
@@ -185,7 +185,7 @@ const ReasonDetails = (pop, claimItem) => {
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-end gap-x-xsmall">
+          <div className="flex justify-end w-full gap-x-xsmall">
             <Button
               variant="primary"
               className="w-[112px]"
@@ -204,12 +204,12 @@ const ReasonDetails = (pop, claimItem) => {
 }
 
 const ImageRow = ({ url, name, size }) => (
-  <div className="flex items-center w-full justify-between my-8">
+  <div className="flex items-center justify-between w-full my-8">
     <div className="flex items-center">
       <div className="w-20 h-20 bg-voilet-60">
-        <img className="object-cover rounded-rounded w-full h-full" src={url} />
+        <img className="object-cover w-full h-full rounded-rounded" src={url} />
       </div>
-      <div className="inter-small-regular ml-8 flex flex-col">
+      <div className="flex flex-col ml-8 inter-small-regular">
         {name}
         {size && <span className="text-grey-50">{size} KB</span>}
       </div>

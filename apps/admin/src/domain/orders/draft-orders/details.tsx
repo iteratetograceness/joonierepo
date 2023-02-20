@@ -131,7 +131,7 @@ const DraftOrderDetails = () => {
         previousRoute="/a/draft-orders"
       />
       {isLoading || !draft_order ? (
-        <BodyCard className="w-full pt-2xlarge flex items-center justify-center">
+        <BodyCard className="flex items-center justify-center w-full pt-2xlarge">
           <Spinner size={"large"} variant={"secondary"} />
         </BodyCard>
       ) : (
@@ -185,19 +185,19 @@ const DraftOrderDetails = () => {
             >
               <div className="flex mt-6 space-x-6 divide-x">
                 <div className="flex flex-col">
-                  <div className="inter-smaller-regular text-grey-50 mb-1">
+                  <div className="mb-1 inter-smaller-regular text-grey-50">
                     Email
                   </div>
                   <div>{cart?.email}</div>
                 </div>
                 <div className="flex flex-col pl-6">
-                  <div className="inter-smaller-regular text-grey-50 mb-1">
+                  <div className="mb-1 inter-smaller-regular text-grey-50">
                     Phone
                   </div>
                   <div>{cart?.shipping_address?.phone || "N/A"}</div>
                 </div>
                 <div className="flex flex-col pl-6">
-                  <div className="inter-smaller-regular text-grey-50 mb-1">
+                  <div className="mb-1 inter-smaller-regular text-grey-50">
                     Amount ({region?.currency_code.toUpperCase()})
                   </div>
                   <div>
@@ -218,12 +218,12 @@ const DraftOrderDetails = () => {
                     key={i}
                     className="flex justify-between mb-1 h-[64px] py-2 mx-[-5px] px-[5px] hover:bg-grey-5 rounded-rounded"
                   >
-                    <div className="flex space-x-4 justify-center">
+                    <div className="flex justify-center space-x-4">
                       <div className="flex h-[48px] w-[36px] rounded-rounded items-center justify-center">
                         {item?.thumbnail ? (
                           <img
                             src={item.thumbnail}
-                            className="rounded-rounded object-cover"
+                            className="object-cover rounded-rounded"
                           />
                         ) : (
                           <ImagePlaceholder />
@@ -240,8 +240,8 @@ const DraftOrderDetails = () => {
                         )}
                       </div>
                     </div>
-                    <div className="flex  items-center">
-                      <div className="flex small:space-x-2 medium:space-x-4 large:space-x-6 mr-3">
+                    <div className="flex items-center ">
+                      <div className="flex mr-3 small:space-x-2 medium:space-x-4 large:space-x-6">
                         <div className="inter-small-regular text-grey-50">
                           {formatAmountWithSymbol({
                             amount: (item?.total ?? 0) / item.quantity,
@@ -276,9 +276,9 @@ const DraftOrderDetails = () => {
                 {cart?.discounts?.map((discount, index) => (
                   <div
                     key={index}
-                    className="flex justify-between mt-4 items-center"
+                    className="flex items-center justify-between mt-4"
                   >
-                    <div className="flex inter-small-regular text-grey-90 items-center">
+                    <div className="flex items-center inter-small-regular text-grey-90">
                       Discount:{" "}
                       <Badge className="ml-3" variant="default">
                         {discount.code}
@@ -343,7 +343,7 @@ const DraftOrderDetails = () => {
                   totalTitle={"Total to pay"}
                 />
                 {draft_order?.status !== "completed" && (
-                  <div className="text-grey-50 inter-small-regular w-full flex items-center mt-5">
+                  <div className="flex items-center w-full mt-5 text-grey-50 inter-small-regular">
                     <span className="mr-2.5">Payment link:</span>
                     {store?.payment_link_template ? (
                       <CopyToClipboard
@@ -365,7 +365,7 @@ const DraftOrderDetails = () => {
                     <span className="inter-small-regular text-grey-50">
                       Shipping Method
                     </span>
-                    <span className="inter-small-regular text-grey-90 mt-2">
+                    <span className="mt-2 inter-small-regular text-grey-90">
                       {method?.shipping_option.name || ""}
                     </span>
                     <div className="flex flex-col min-h-[100px] mt-8 bg-grey-5 px-3 py-2 h-full">
@@ -375,7 +375,7 @@ const DraftOrderDetails = () => {
                           (1 item)
                         </span>
                       </span>
-                      <div className="flex flex-grow items-center mt-4">
+                      <div className="flex items-center flex-grow mt-4">
                         <JSONView data={method?.data} />
                       </div>
                     </div>
@@ -416,7 +416,7 @@ const DraftOrderDetails = () => {
               ]}
             >
               <div className="mt-6">
-                <div className="flex w-full space-x-4 items-center">
+                <div className="flex items-center w-full space-x-4">
                   <div className="flex w-[40px] h-[40px] ">
                     <Avatar
                       user={cart?.customer}
@@ -442,7 +442,7 @@ const DraftOrderDetails = () => {
                 </div>
                 <div className="flex mt-6 space-x-6 divide-x">
                   <div className="flex flex-col">
-                    <div className="inter-small-regular text-grey-50 mb-1">
+                    <div className="mb-1 inter-small-regular text-grey-50">
                       Contact
                     </div>
                     <div className="flex flex-col inter-small-regular">

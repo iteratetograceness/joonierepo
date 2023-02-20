@@ -159,7 +159,7 @@ const CollectionModal: React.FC<CollectionModalProps> = ({
                 />
               </div>
             </div>
-            <div className="mt-xlarge w-full">
+            <div className="w-full mt-xlarge">
               <Metadata setMetadata={setMetadata} metadata={metadata} />
             </div>
           </Modal.Content>

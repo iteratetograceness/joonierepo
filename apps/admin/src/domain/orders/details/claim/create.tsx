@@ -378,9 +378,9 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
               />
             )}
           </div>
-          <div className="flex w-full mt-4 items-center inter-base-regular gap-x-xlarge">
+          <div className="flex items-center w-full mt-4 inter-base-regular gap-x-xlarge">
             <div
-              className="cursor-pointer items-center flex"
+              className="flex items-center cursor-pointer"
               onClick={() => {
                 toggleReplace(true)
               }}
@@ -395,13 +395,13 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                 )}
               >
                 {isReplace && (
-                  <div className="w-3 h-3 bg-violet-60 rounded-full"></div>
+                  <div className="w-3 h-3 rounded-full bg-violet-60"></div>
                 )}
               </div>
               Replace
             </div>
             <div
-              className="cursor-pointer items-center flex"
+              className="flex items-center cursor-pointer"
               onClick={() => {
                 toggleReplace(false)
               }}
@@ -416,7 +416,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                 )}
               >
                 {!isReplace && (
-                  <div className="w-3 h-3 bg-violet-60 rounded-full"></div>
+                  <div className="w-3 h-3 rounded-full bg-violet-60"></div>
                 )}
               </div>
               Refund
@@ -424,7 +424,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
           </div>
           {isReplace && (
             <div className="mt-8">
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <h3 className="inter-base-semibold ">Items to send</h3>
                 {itemsToAdd.length === 0 ? (
                   <Button
@@ -456,7 +456,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                     handleToAddQuantity={handleToAddQuantity}
                   />
 
-                  <div className="flex w-full justify-end">
+                  <div className="flex justify-end w-full">
                     <Button
                       variant="ghost"
                       className="border border-grey-20"
@@ -483,7 +483,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                     <div className="flex w-full inter-small-regular text-grey-50">
                       {formatAddress(shippingAddress)}
                     </div>
-                    <div className="flex w-full justify-end">
+                    <div className="flex justify-end w-full">
                       <Button
                         onClick={() => {
                           layeredModalContext.push(
@@ -508,7 +508,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                     <span className="flex w-full inter-small-regular text-grey-50">
                       {formatAddress(order.shipping_address)}
                     </span>
-                    <div className="flex w-full justify-end">
+                    <div className="flex justify-end w-full">
                       <Button
                         onClick={() => {
                           layeredModalContext.push(
@@ -531,7 +531,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                 )}
               </div>
               <div>
-                <h3 className="inter-base-semibold mt-8">Shipping new</h3>
+                <h3 className="mt-8 inter-base-semibold">Shipping new</h3>
                 <span className="inter-small-regular text-grey-50">
                   Shipping new items is free by default. Use custom price, if
                   this is not the case
@@ -564,7 +564,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                           <Button
                             variant="ghost"
                             size="small"
-                            className="border border-grey-20 mt-4 "
+                            className="mt-4 border border-grey-20 "
                             disabled={!shippingMethod}
                             onClick={() =>
                               setShowCustomPrice({
@@ -579,10 +579,10 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                           </Button>
                         )}
                         {showCustomPrice.standard && (
-                          <div className="flex w-full items-center">
+                          <div className="flex items-center w-full">
                             <CurrencyInput.Root
                               readOnly
-                              className="mt-4 w-full"
+                              className="w-full mt-4"
                               size="small"
                               currentCurrency={order.currency_code}
                             >
@@ -621,9 +621,9 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
           )}
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-between">
+          <div className="flex justify-between w-full">
             <div
-              className="items-center h-full flex cursor-pointer"
+              className="flex items-center h-full cursor-pointer"
               onClick={() => setNoNotification(!noNotification)}
             >
               <div
@@ -643,7 +643,7 @@ const ClaimMenu: React.FC<ClaimMenuProps> = ({ order, onDismiss }) => {
                 onChange={() => setNoNotification(!noNotification)}
                 type="checkbox"
               />
-              <span className="ml-3 flex items-center text-grey-90 gap-x-xsmall">
+              <span className="flex items-center ml-3 text-grey-90 gap-x-xsmall">
                 Send notifications
                 <IconTooltip content="Notify customer of created return" />
               </span>

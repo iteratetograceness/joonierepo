@@ -41,7 +41,7 @@ const NestedPrice = ({ form, nestedPrice }: Props) => {
           <TriangleRightIcon />
         </button>
         <div className="flex items-center gap-x-small">
-          <div className="w-10 h-10 bg-grey-10 rounded-rounded text-grey-50 flex items-center justify-center">
+          <div className="flex items-center justify-center w-10 h-10 bg-grey-10 rounded-rounded text-grey-50">
             <CoinsIcon size={20} />
           </div>
           <div className="flex items-center gap-x-xsmall">
@@ -85,7 +85,7 @@ const NestedPrice = ({ form, nestedPrice }: Props) => {
               key={rp.id}
             >
               <div className="flex items-center gap-x-small">
-                <div className="w-10 h-10 bg-grey-10 rounded-rounded text-grey-50 flex items-center justify-center">
+                <div className="flex items-center justify-center w-10 h-10 bg-grey-10 rounded-rounded text-grey-50">
                   <MapPinIcon size={20} />
                 </div>
                 <div className="flex items-center gap-x-xsmall">

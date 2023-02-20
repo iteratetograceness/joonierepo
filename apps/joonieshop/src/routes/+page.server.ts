@@ -1,12 +1,12 @@
-// import { Products } from '$swell/products';
 import type { PageServerLoad } from './$types';
-import { handleSwellError } from '$utils/common/error';
+// import { getAllProducts } from '$stores/products'
 
 export const load = (async () => {
-	try {
-		// const allProducts = await Products.getAll();
-		// if (allProducts) return allProducts;
-	} catch (err) {
-		handleSwellError(err);
-	}
+	// try {
+	// 	const products = await getAllProducts();
+	// 	console.log({products});
+	// 	return products || [];
+	// } catch (err) {
+	// 	console.log(err);
+	// }
 }) satisfies PageServerLoad;

@@ -88,7 +88,7 @@ const PriceOverrides = ({
           <RadioGroup.Root
             value={mode}
             onValueChange={(value) => setMode(value)}
-            className="pt-2 flex items-center"
+            className="flex items-center pt-2"
           >
             <RadioGroup.SimpleItem
               value={MODES.SELECTED_ONLY}
@@ -101,7 +101,7 @@ const PriceOverrides = ({
           </RadioGroup.Root>
         )}
         {mode === MODES.SELECTED_ONLY && !isEdit && (
-          <div className="pt-6 flex flex-col gap-2">
+          <div className="flex flex-col pt-6 gap-2">
             {variants.map((variant, idx) => (
               <div
                 id={variant.id}
@@ -147,10 +147,10 @@ const PriceOverrides = ({
         </div>
       </Modal.Content>
       <Modal.Footer>
-        <div className="flex w-full h-8 justify-end">
+        <div className="flex justify-end w-full h-8">
           <Button
             variant="ghost"
-            className="mr-2 w-32 text-small justify-center rounded-rounded"
+            className="justify-center w-32 mr-2 text-small rounded-rounded"
             size="large"
             onClick={onClose}
           >
@@ -158,7 +158,7 @@ const PriceOverrides = ({
           </Button>
           <Button
             size="large"
-            className="text-small justify-center rounded-rounded"
+            className="justify-center text-small rounded-rounded"
             variant="primary"
             onClick={onClick}
             loading={isSubmitting}

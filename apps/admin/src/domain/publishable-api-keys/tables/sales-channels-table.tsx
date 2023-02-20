@@ -208,7 +208,7 @@ const SalesChannelTable = forwardRef(
           </Table>
 
           {!isLoading && !data?.length && (
-            <div className="absolute w-full h-full flex justify-center items-center">
+            <div className="absolute flex items-center justify-center w-full h-full">
               <span className="text-sma text-grey-40">
                 No added sales channels
               </span>

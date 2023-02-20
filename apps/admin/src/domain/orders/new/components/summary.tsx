@@ -126,7 +126,7 @@ const Summary = () => {
       <SummarySection title={"Items"} editIndex={1}>
         <Table>
           <Table.Head>
-            <Table.HeadRow className="text-grey-50 border-t inter-small-semibold">
+            <Table.HeadRow className="border-t text-grey-50 inter-small-semibold">
               <Table.HeadCell>Details</Table.HeadCell>
               <Table.HeadCell className="text-right">Quantity</Table.HeadCell>
               <Table.HeadCell className="text-right">
@@ -149,14 +149,14 @@ const Summary = () => {
                         <div className="w-[30px] h-[40px] ">
                           {item.thumbnail ? (
                             <img
-                              className="h-full w-full object-cover rounded"
+                              className="object-cover w-full h-full rounded"
                               src={item.thumbnail}
                             />
                           ) : (
                             <ImagePlaceholder />
                           )}
                         </div>
-                        <div className="inter-small-regular text-grey-50 flex flex-col ml-4">
+                        <div className="flex flex-col ml-4 inter-small-regular text-grey-50">
                           <span>
                             <span className="text-grey-90">
                               {item.product_title}
@@ -178,7 +178,7 @@ const Summary = () => {
           </Table.Body>
         </Table>
         {!showAddDiscount && !discount?.rule && (
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <Button
               variant="ghost"
               size="small"
@@ -193,7 +193,7 @@ const Summary = () => {
         {showAddDiscount && !discount?.rule && (
           <>
             <div>
-              <div className="flex w-full items-center gap-x-base">
+              <div className="flex items-center w-full gap-x-base">
                 <Input
                   type="text"
                   placeholder="SUMMER10"
@@ -203,7 +203,7 @@ const Summary = () => {
                 />
                 <Button
                   variant="ghost"
-                  className="text-grey-40 w-8 h-8"
+                  className="w-8 h-8 text-grey-40"
                   size="small"
                   type="button"
                   onClick={() => setShowAddDiscount(false)}
@@ -217,9 +217,9 @@ const Summary = () => {
                 </div>
               )}
             </div>
-            <div className="w-full flex justify-end mt-4 ">
+            <div className="flex justify-end w-full mt-4 ">
               <Button
-                className="border h-full border-grey-20"
+                className="h-full border border-grey-20"
                 variant="ghost"
                 size="small"
                 loading={status === "loading"}
@@ -232,8 +232,8 @@ const Summary = () => {
           </>
         )}
         {discount && regionObj && (
-          <div className="flex flex-col w-full border-b border-t border-grey-20 pt-4 mt-4 last:border-b-0 inter-small-regular ">
-            <div className="flex w-full justify-between inter-base-semibold mb-4">
+          <div className="flex flex-col w-full pt-4 mt-4 border-t border-b border-grey-20 last:border-b-0 inter-small-regular ">
+            <div className="flex justify-between w-full mb-4 inter-base-semibold">
               <span>
                 Discount
                 <span className="inter-base-regular text-grey-50 ml-0.5">
@@ -242,7 +242,7 @@ const Summary = () => {
               </span>
               <span
                 onClick={() => onDiscountRemove()}
-                className="inter-small-semibold text-violet-60 cursor-pointer"
+                className="cursor-pointer inter-small-semibold text-violet-60"
               >
                 <CrossIcon size={20} />
               </span>
@@ -263,7 +263,7 @@ const Summary = () => {
                 </span>
               </div>
               {discount.rule.type !== "free_shipping" && (
-                <div className="pl-6 flex flex-col">
+                <div className="flex flex-col pl-6">
                   <span className="text-grey-50">Value</span>
                   <span>
                     {discount.rule.type === "fixed"
@@ -298,9 +298,9 @@ const Summary = () => {
 
       {selectedShippingOption && (
         <SummarySection title={"Shipping details"} editIndex={2}>
-          <div className="grid grid-cols-2 gap-x-6 w-full">
+          <div className="w-full grid grid-cols-2 gap-x-6">
             {!isNullishObject(shipping) && shipping && (
-              <div className="border-r flex flex-col border-grey-20 pr-6">
+              <div className="flex flex-col pr-6 border-r border-grey-20">
                 <span className="text-grey-50">Address</span>
                 <span>
                   {shipping.address_1}, {shipping.address_2}
@@ -318,7 +318,7 @@ const Summary = () => {
                   {selectedShippingOption.name} -{" "}
                   {customShippingPrice && regionObj ? (
                     <p>
-                      <span className="line-through mr-2 text-grey-40">
+                      <span className="mr-2 line-through text-grey-40">
                         {extractOptionPrice(shippingOptionPrice, regionObj)}
                       </span>
                       {displayAmount(
@@ -356,12 +356,12 @@ const Summary = () => {
 const SummarySection = ({ title, editIndex, children }) => {
   const { setPage } = useContext(SteppedContext)
   return (
-    <div className="flex flex-col w-full border-b border-grey-20 mt-4 pb-8 last:border-b-0 inter-small-regular ">
-      <div className="flex w-full justify-between inter-base-semibold mb-4">
+    <div className="flex flex-col w-full pb-8 mt-4 border-b border-grey-20 last:border-b-0 inter-small-regular ">
+      <div className="flex justify-between w-full mb-4 inter-base-semibold">
         {title}
         <span
           onClick={() => setPage(editIndex)}
-          className="inter-small-semibold text-violet-60 cursor-pointer"
+          className="cursor-pointer inter-small-semibold text-violet-60"
         >
           Edit
         </span>

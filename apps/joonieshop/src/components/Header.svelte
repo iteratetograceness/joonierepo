@@ -1,127 +1,104 @@
 <script>
   import { page } from '$app/stores';
-  import Icons from '$components/Icons.svelte';
-  import { cartQuantity } from '../stores/cart';
-  import SearchBar from '$components/SearchBar.svelte';
+  import { cartQuantity } from '$stores/cart';
   import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
 
   $: currentRoute = $page.url.pathname;
 
-  let showMenu = false;
+  // let showMenu = false;
 
-  let tabs = [
-    { name: 'All', path: '/search' },
-    { name: 'Featured', path: '/search/featured' },
-    { name: 'Apparel', path: '/search/clothes' }
+  const links = [
+    { name: 'Back to Main', path: 'https://joonie.dev' },
+    { name: 'JOONIESHOP', path: '/' }, 
+    { name: 'Cart', path: '/cart' }
   ];
+
   function openCart() {
-    showMenu = false;
+    // showMenu = false;
     dispatch('openCart', true);
   }
 </script>
 
-<nav class="flex items-center bg-transparent p-4 lg:px-6">
-  <div class="flex w-1/3 items-center">
-    <div class="mr-4" class:active={currentRoute === '/'}>
-      <a href="/" data-sveltekit-prefetch class="">
-        <picture>
-          <source srcset="/svelte_logo.png" type="image/png" />
-          <img
-            alt="Svelte Logo"
-            class="h-[38] w-[32]"
-            decoding="async"
-            height={38}
-            loading="eager"
-            src="/svelte_logo.png"
-            width={32}
-          />
-        </picture>
+<nav class="flex items-center justify-between p-4 text-lg bg-transparent lg:px-6">
+  {#each links as link, i (link.name)}
+    <div 
+      class:active={currentRoute === link.path} 
+      class={`md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center w-1/2' : link.path === '/cart' ? 'flex justify-end w-1/2' : 'justify-start hidden md:flex'}`}
+    >
+      <a 
+        href={link.path}
+        data-sveltekit-preload-data="hover" 
+        on:click={link.path === '/cart' ? openCart : null}
+        class={`relative mx-2 my-1 before:content-[''] before:absolute 
+                before:block before:w-full before:h-[1.5px] before:bottom-[-2px] 
+                before:left-0 before:bg-dark-blue before:hover:scale-x-100 
+                before:scale-x-0 before:origin-top-left before:transition 
+                before:ease-in-out before:duration-300 motion-reduce:before:transition-none
+                ${currentRoute === link.path ? 'before:scale-x-100' : ''}`}
+      >
+        {link.name}{link.path === '/cart' ? ` (${$cartQuantity})` : ''}
       </a>
     </div>
-    <div class="hidden lg:flex">
-      {#each tabs as tab, i (tab.name)}
-        <div class:active={currentRoute === tab.path}>
-          <a
-            data-sveltekit-prefetch
-            href={tab.path}
-            class={`hover:opacity-100 px-2 py-1 text-white rounded-lg ${
-              currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
-            }`}>{tab.name}</a
-          >
-        </div>
-      {/each}
-    </div>
-  </div>
-  <div class="hidden w-1/3 lg:block">
-    <SearchBar />
-  </div>
-  <div class="ml-auto flex items-center">
-    <button on:click={openCart} class="relative my-2 mx-4">
-      <Icons strokeColor="#fff" type="cart" />
-      <div
-        data-test="cart-quantity"
-        class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
-      >
-        {$cartQuantity}
-      </div>
-    </button>
+  {/each}
+
+  <!-- UNCOMMENT IF ADDING MORE LINKS -->
+  <!-- <div class="flex items-center">
     <button
       on:click={() => {
         showMenu = true;
       }}
-      aria-label="Open menu"
-      class="lg:hidden"
+      aria-label="Open mobile menu"
+      class="md:hidden"
     >
       <Icons type="menu" />
     </button>
-  </div>
-  {#if showMenu}
-    <!-- <div
-      on:click|self={() => {
-        showMenu = false;
-      }}
-      class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden bg-black/50 lg:hidden"
-    >
-      <div class="z-30 w-full bg-black p-6 md:w-1/2 lg:w-1/3">
-        <div class="flex w-full items-center justify-between">
-          <button
-            aria-label="Close menu"
-            on:click={() => {
-              showMenu = false;
-            }}
+  </div> -->
+  <!-- Mobile Menu -->
+  <!-- <div
+    class={`absolute inset-0 flex justify-end w-full max-h-screen 
+            overflow-hidden bg-dark-blue md:hidden transition-all 
+            duration-300 ease-in-out text-light
+            ${showMenu ? 'opacity-100 z-50' : 'opacity-0 z-[-50]'}`}
+  >
+    <div class={`w-full p-6`}>
+      <div class="flex items-center justify-between w-full">
+        <button
+          aria-label="Close menu"
+          on:click={() => {
+            showMenu = false;
+          }}
+        >
+          <Icons strokeColor="currentColor" type="close" />
+        </button>
+        <button on:click={openCart} class="relative mr-4">
+            Cart ({$cartQuantity})
+        </button>
+      </div>
+      <div class="flex flex-col items-end w-full gap-4 mt-10">
+        <div
+          class:active={currentRoute === '/'}
+          on:click={() => {
+            showMenu = false;
+          }}
+        >
+          <a
+            href="/"
+            class="px-2 py-1 text-xl font-bold text-white hover:opacity-100">Home</a
           >
-            <Icons strokeColor="#fff" type="close" />
-          </button>
-          <button on:click={openCart} class="relative mr-4">
-            <Icons strokeColor="#fff" type="cart" />
-            <div
-              class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
-            >
-              {$cartQuantity}
-            </div>
-          </button>
         </div>
-        <div class="mt-6 flex w-full flex-col">
-          {#each tabs as tab, i (tab.name)}
-            <div
-              class:active={currentRoute === tab.path}
-              on:click={() => {
-                showMenu = false;
-              }}
-            >
-              <a
-                data-sveltekit-prefetch
-                href={tab.path}
-                class={`hover:opacity-100 px-2 py-1 text-white font-bold text-xl rounded-lg ${
-                  currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
-                }`}>{tab.name}</a
-              >
-            </div>
-          {/each}
+        <div
+          on:click={() => {
+            showMenu = false;
+          }}
+        >
+          <a
+            href="https://joonie.dev"
+            class='px-2 py-1 text-xl font-bold text-white hover:opacity-100'>Back to Main</a
+          >
         </div>
       </div>
-    </div> -->
-  {/if}
+    </div>
+  </div> -->
 </nav>

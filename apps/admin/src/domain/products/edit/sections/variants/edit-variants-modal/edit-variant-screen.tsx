@@ -61,7 +61,7 @@ const EditVariantScreen = ({ variant, product }: Props) => {
           <EditFlowVariantForm form={form} />
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex items-center w-full justify-end gap-x-xsmall">
+          <div className="flex items-center justify-end w-full gap-x-xsmall">
             <Button variant="secondary" size="small" type="button">
               Cancel
             </Button>

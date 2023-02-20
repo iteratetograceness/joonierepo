@@ -28,8 +28,8 @@ const DraftOrderIndex = () => {
   }, [view])
 
   return (
-    <div className="flex flex-col grow h-full">
-      <div className="w-full flex flex-col grow">
+    <div className="flex flex-col h-full grow">
+      <div className="flex flex-col w-full grow">
         <BodyCard
           customHeader={
             <TableViewHeader

@@ -42,7 +42,7 @@ export const ProductSelector = ({ items, onChange }) => {
                 {original.thumbnail ? (
                   <img
                     src={original.thumbnail}
-                    className="h-full object-cover rounded-soft"
+                    className="object-cover h-full rounded-soft"
                   />
                 ) : (
                   <ImagePlaceholder />

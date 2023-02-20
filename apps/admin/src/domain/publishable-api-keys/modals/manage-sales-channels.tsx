@@ -82,7 +82,7 @@ function AddScreen(props: {
       {/* === HEADER === */}
 
       <div className="flex items-center justify-between">
-        <h3 className="inter-large-semibold text-xl text-gray-900 flex items-center gap-2">
+        <h3 className="flex items-center text-xl text-gray-900 inter-large-semibold gap-2">
           <Button
             variant="secondary"
             className="w-8 h-8 p-2 text-grey-50"
@@ -248,7 +248,7 @@ function EditScreen(props: {
       {/* === HEADER === */}
 
       <div className="flex items-center justify-between">
-        <h3 className="inter-large-semibold text-xl text-gray-900 flex items-center gap-2">
+        <h3 className="flex items-center text-xl text-gray-900 inter-large-semibold gap-2">
           Edit sales channels
         </h3>
         <Button
@@ -262,7 +262,7 @@ function EditScreen(props: {
       {/* === DIVIDER === */}
 
       <div className="flex-grow">
-        <div className="flex justify-between items-center gap-2 my-6">
+        <div className="flex items-center justify-between my-6 gap-2">
           <InputField
             small
             name="name"
@@ -276,7 +276,7 @@ function EditScreen(props: {
 
           {selectedCount ? (
             <div className="flex gap-2 justify-between items-center h-[32px]">
-              <span className="whitespace-nowrap text-small text-grey-50 px-2">
+              <span className="px-2 whitespace-nowrap text-small text-grey-50">
                 {selectedCount} selected
               </span>
               <Button

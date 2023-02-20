@@ -135,16 +135,16 @@ const AddSalesChannelModal = ({ onClose }: AddSalesChannelModalProps) => {
   return (
     <FocusModal>
       <FocusModal.Header>
-        <div className="medium:w-8/12 w-full px-8 flex justify-between">
+        <div className="flex justify-between w-full px-8 medium:w-8/12">
           <Button
             size="small"
             variant="ghost"
             onClick={onClose}
-            className="border rounded-rounded w-8 h-8"
+            className="w-8 h-8 border rounded-rounded"
           >
             <CrossIcon size={20} />
           </Button>
-          <div className="gap-x-small flex">
+          <div className="flex gap-x-small">
             <Button
               size="small"
               variant="secondary"
@@ -169,7 +169,7 @@ const AddSalesChannelModal = ({ onClose }: AddSalesChannelModalProps) => {
       </FocusModal.Header>
       <FocusModal.Main>
         <div className="flex justify-center mb-[25%]">
-          <div className="medium:w-7/12 large:w-6/12 small:w-4/5 w-full pt-16">
+          <div className="w-full pt-16 medium:w-7/12 large:w-6/12 small:w-4/5">
             <h1 className="inter-xlarge-semibold">Create new sales channel</h1>
             <Accordion
               className="pt-7 text-grey-90"

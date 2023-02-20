@@ -11,12 +11,12 @@ const PriceAmount = ({ value, onChange }) => {
 
   const currencyName = currencies[value.currency_code?.toUpperCase()]?.name
   return (
-    <div className="flex flex-col gap-3 py-3 first:border-t border-grey-20 border-solid border-b last:border-b-0">
+    <div className="flex flex-col py-3 border-b border-solid gap-3 first:border-t border-grey-20 last:border-b-0">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="inter-base-semibold">
             <span className="mr-2 uppercase">{value.currency_code}</span>
-            <span className="inter-base-regular text-grey-50 capitalize">
+            <span className="capitalize inter-base-regular text-grey-50">
               {currencyName}
             </span>
           </div>

@@ -87,10 +87,10 @@ function CustomerGroupModal(props: CustomerGroupModalProps) {
         </Modal.Content>
 
         <Modal.Footer>
-          <div className="flex w-full h-8 justify-end">
+          <div className="flex justify-end w-full h-8">
             <Button
               variant="ghost"
-              className="mr-2 w-32 text-small justify-center"
+              className="justify-center w-32 mr-2 text-small"
               size="large"
               onClick={handleClose}
             >
@@ -98,7 +98,7 @@ function CustomerGroupModal(props: CustomerGroupModalProps) {
             </Button>
             <Button
               size="medium"
-              className="w-32 text-small justify-center"
+              className="justify-center w-32 text-small"
               variant="primary"
               onClick={handleFromSubmit(onSubmit)}
             >

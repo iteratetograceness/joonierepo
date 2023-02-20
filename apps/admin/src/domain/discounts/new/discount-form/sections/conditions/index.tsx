@@ -65,7 +65,7 @@ const DiscountNewConditions: React.FC<DiscountNewConditionsProps> = ({
           size="small"
           variant="ghost"
           onClick={() => setShowConditionsModal(true)}
-          className="mt-4 p-2 w-full rounded-rounded border"
+          className="w-full p-2 mt-4 border rounded-rounded"
         >
           <PlusIcon size={18} />
           <span>Add Condition</span>

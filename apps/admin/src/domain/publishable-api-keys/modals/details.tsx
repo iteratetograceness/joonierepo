@@ -49,7 +49,7 @@ function DetailsModal(props: DetailsModalProps) {
         {/* === HEADER === */}
 
         <div className="flex items-center justify-between">
-          <h3 className="inter-large-semibold text-xl text-gray-900">
+          <h3 className="text-xl text-gray-900 inter-large-semibold">
             Edit API key details
           </h3>
           <Button variant="ghost" onClick={close}>

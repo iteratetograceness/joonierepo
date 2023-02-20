@@ -98,7 +98,7 @@ const NewRegion = ({ onClose }: Props) => {
     <form className="w-full" onSubmit={onSubmit} noValidate>
       <FocusModal>
         <FocusModal.Header>
-          <div className="medium:w-8/12 w-full px-8 flex justify-between">
+          <div className="flex justify-between w-full px-8 medium:w-8/12">
             <Button
               size="small"
               variant="ghost"
@@ -107,7 +107,7 @@ const NewRegion = ({ onClose }: Props) => {
             >
               <CrossIcon size={20} />
             </Button>
-            <div className="gap-x-small flex">
+            <div className="flex gap-x-small">
               <Button
                 size="small"
                 variant="primary"
@@ -120,7 +120,7 @@ const NewRegion = ({ onClose }: Props) => {
             </div>
           </div>
         </FocusModal.Header>
-        <FocusModal.Main className="w-full no-scrollbar flex justify-center">
+        <FocusModal.Main className="flex justify-center w-full no-scrollbar">
           <div className="medium:w-7/12 large:w-6/12 small:w-4/5 max-w-[700px] my-16">
             <Accordion
               value={sections}

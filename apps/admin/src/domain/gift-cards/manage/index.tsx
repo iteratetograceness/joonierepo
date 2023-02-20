@@ -28,7 +28,7 @@ const ManageGiftCard = () => {
 
   if (!giftCard) {
     return (
-      <div className="w-full h-screen flex items-center justify-center">
+      <div className="flex items-center justify-center w-full h-screen">
         <Spinner variant="secondary" size="large" />
       </div>
     )

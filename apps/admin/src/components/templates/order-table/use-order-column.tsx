@@ -103,7 +103,7 @@ const useOrderTableColums = () => {
         accessor: "country_code",
         Cell: ({ row }) => (
           <div className="pr-2">
-            <div className="flex rounded-rounded w-full justify-end">
+            <div className="flex justify-end w-full rounded-rounded">
               <Tooltip
                 content={
                   isoAlpha2Countries[

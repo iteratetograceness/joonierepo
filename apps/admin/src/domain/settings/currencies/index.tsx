@@ -66,7 +66,7 @@ const CurrencySettings = () => {
         className="mb-xsmall"
       />
       <div className="grid grid-cols-3 gap-base">
-        <div className="col-span-2 flex flex-col gap-y-xsmall ">
+        <div className="flex flex-col col-span-2 gap-y-xsmall ">
           <Section title="Currencies">
             <p className="text-grey-50 inter-base-regular mt-2xsmall">
               Manage the markets that you will operate within.
@@ -79,7 +79,7 @@ const CurrencySettings = () => {
             </div>
             <FeatureToggle featureFlag="tax_inclusive_pricing">
               <div className="cursor-default">
-                <div className="inter-small-semibold text-grey-50 flex items-center justify-between mb-base">
+                <div className="flex items-center justify-between inter-small-semibold text-grey-50 mb-base">
                   <p>Currency</p>
                   <Tooltip
                     side="top"

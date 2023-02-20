@@ -45,7 +45,7 @@ const Users: React.FC = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="w-full flex flex-col grow">
+      <div className="flex flex-col w-full grow">
         <BreadCrumb
           previousRoute="/a/settings"
           previousBreadcrumb="Settings"
@@ -56,7 +56,7 @@ const Users: React.FC = () => {
           subtitle="Manage users of your Medusa Store"
           actionables={actionables}
         >
-          <div className="flex grow  flex-col pt-2">
+          <div className="flex flex-col pt-2 grow ">
             <UserTable
               users={users}
               invites={invites}

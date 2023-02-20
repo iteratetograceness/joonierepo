@@ -40,9 +40,9 @@ function AddSalesChannelsSection(props: AddSalesChannelsSectionProps) {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div>
-          <h5 className="inter-base-semibold text-grey-90 pb-1">
+          <h5 className="pb-1 inter-base-semibold text-grey-90">
             Sales channels
           </h5>
           <p className="text-grey-50">
@@ -61,10 +61,10 @@ function AddSalesChannelsSection(props: AddSalesChannelsSectionProps) {
         )}
       </div>
       {hasSelectedChannels && (
-        <div className="mt-10 flex items-center justify-between">
+        <div className="flex items-center justify-between mt-10">
           <div className="flex items-center gap-4">
-            <div className="rounded p-1 border">
-              <div className="bg-gray-100 p-2 rounded">
+            <div className="p-1 border rounded">
+              <div className="p-2 bg-gray-100 rounded">
                 <ChannelsIcon />
               </div>
             </div>
@@ -151,11 +151,11 @@ function CreatePublishableKey(props: CreatePublishableKeyProps) {
   return (
     <FocusModal>
       <FocusModal.Header>
-        <div className="medium:w-8/12 w-full px-8 flex justify-between">
+        <div className="flex justify-between w-full px-8 medium:w-8/12">
           <Button size="small" variant="ghost" onClick={closeModal}>
             <CrossIcon size={20} />
           </Button>
-          <div className="gap-x-small flex">
+          <div className="flex gap-x-small">
             <Button
               size="small"
               variant="primary"
@@ -169,15 +169,15 @@ function CreatePublishableKey(props: CreatePublishableKeyProps) {
         </div>
       </FocusModal.Header>
 
-      <FocusModal.Main className="w-full no-scrollbar flex justify-center">
+      <FocusModal.Main className="flex justify-center w-full no-scrollbar">
         <div className="medium:w-7/12 large:w-6/12 small:w-4/5 max-w-[700px] my-16">
-          <h1 className="inter-xlarge-semibold text-grey-90 pb-8">
+          <h1 className="pb-8 inter-xlarge-semibold text-grey-90">
             Create API Key
           </h1>
-          <h5 className="inter-base-semibold text-grey-90 pb-1">
+          <h5 className="pb-1 inter-base-semibold text-grey-90">
             General Information
           </h5>
-          <p className="text-grey-50 pb-8">
+          <p className="pb-8 text-grey-50">
             Create and manage API keys. Right now this is only related to sales
             channels.
           </p>

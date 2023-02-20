@@ -138,7 +138,7 @@ const MarkShippedModal: React.FC<MarkShippedModalProps> = ({
           </Modal.Header>
           <Modal.Content>
             <div className="flex flex-col">
-              <span className="inter-base-semibold mb-2">Tracking</span>
+              <span className="mb-2 inter-base-semibold">Tracking</span>
               <div className="flex flex-col space-y-2">
                 {trackingNumbers.map((tn, index) => (
                   <Controller
@@ -164,7 +164,7 @@ const MarkShippedModal: React.FC<MarkShippedModalProps> = ({
                 ))}
               </div>
             </div>
-            <div className="flex w-full justify-end mt-4">
+            <div className="flex justify-end w-full mt-4">
               <Button
                 size="small"
                 onClick={() => appendTracking({ value: undefined })}
@@ -176,9 +176,9 @@ const MarkShippedModal: React.FC<MarkShippedModalProps> = ({
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex w-full h-8 justify-between">
+            <div className="flex justify-between w-full h-8">
               <div
-                className="items-center h-full flex cursor-pointer"
+                className="flex items-center h-full cursor-pointer"
                 onClick={() => setNoNotis(!noNotis)}
               >
                 <div
@@ -197,7 +197,7 @@ const MarkShippedModal: React.FC<MarkShippedModalProps> = ({
                   checked={!noNotis}
                   type="checkbox"
                 />
-                <span className="ml-3 flex items-center text-grey-90 gap-x-xsmall">
+                <span className="flex items-center ml-3 text-grey-90 gap-x-xsmall">
                   Send notifications
                   <IconTooltip content="" />
                 </span>
@@ -205,7 +205,7 @@ const MarkShippedModal: React.FC<MarkShippedModalProps> = ({
               <div className="flex">
                 <Button
                   variant="ghost"
-                  className="mr-2 w-32 text-small justify-center"
+                  className="justify-center w-32 mr-2 text-small"
                   size="large"
                   onClick={handleCancel}
                   type="button"
@@ -214,7 +214,7 @@ const MarkShippedModal: React.FC<MarkShippedModalProps> = ({
                 </Button>
                 <Button
                   size="large"
-                  className="w-32 text-small justify-center"
+                  className="justify-center w-32 text-small"
                   variant="primary"
                   type="submit"
                   loading={isSubmitting}

@@ -92,7 +92,7 @@ const RefundMenu = ({
           </Modal.Header>
           <Modal.Content>
             {isSystemPayment && (
-              <div className="inter-small-regular mb-6 p-4 text-orange-50 bg-orange-5 rounded-rounded flex">
+              <div className="flex p-4 mb-6 inter-small-regular text-orange-50 bg-orange-5 rounded-rounded">
                 <div className="h-full mr-3">
                   <AlertIcon size={20} />
                 </div>
@@ -105,7 +105,7 @@ const RefundMenu = ({
               </div>
             )}
             <span className="inter-base-semibold">Details</span>
-            <div className="grid gap-y-base mt-4">
+            <div className="mt-4 grid gap-y-base">
               <CurrencyInput.Root
                 size="small"
                 currentCurrency={order.currency_code}
@@ -156,9 +156,9 @@ const RefundMenu = ({
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex w-full  justify-between">
+            <div className="flex justify-between w-full ">
               <div
-                className="items-center h-full flex cursor-pointer"
+                className="flex items-center h-full cursor-pointer"
                 onClick={() => setNoNotification(!noNotification)}
               >
                 <div
@@ -178,7 +178,7 @@ const RefundMenu = ({
                   onChange={() => setNoNotification(!noNotification)}
                   type="checkbox"
                 />
-                <span className="ml-3 flex items-center text-grey-90 gap-x-xsmall">
+                <span className="flex items-center ml-3 text-grey-90 gap-x-xsmall">
                   Send notifications
                   <IconTooltip content="Notify customer of created return" />
                 </span>

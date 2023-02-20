@@ -32,7 +32,7 @@ const ErrorState: React.FC<SavingStateProps> = ({
       <div>
         <XCircleIcon size={20} className="text-rose-40" />
       </div>
-      <div className="flex flex-col ml-small mr-base gap-y-2xsmall flex-grow">
+      <div className="flex flex-col flex-grow ml-small mr-base gap-y-2xsmall">
         <span className="inter-small-semibold">{title}</span>
         <span className="inter-small-regular text-grey-50">{message}</span>
       </div>

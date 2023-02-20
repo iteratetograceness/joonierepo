@@ -17,12 +17,12 @@ const ProductVariantLeaf = ({
   const { title, sku } = variant
   const hasPrices = prices.length > 0
   return (
-    <div className="flex flex-1 items-center">
+    <div className="flex items-center flex-1">
       <div className="truncate">
         <span>{title}</span>
         {sku && <span className="text-grey-50 ml-xsmall">(SKU: {sku})</span>}
       </div>
-      <div className="flex items-center text-grey-50 flex-1 justify-end">
+      <div className="flex items-center justify-end flex-1 text-grey-50">
         <div className="text-grey-50 mr-xsmall">
           {hasPrices ? (
             <span>{`${prices.length} price${

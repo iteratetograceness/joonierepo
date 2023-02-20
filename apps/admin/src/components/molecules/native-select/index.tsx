@@ -23,7 +23,7 @@ const NativeSelect: NativeSelectType = ({
   return (
     <RadixSelect.Root {...props}>
       <RadixSelect.SelectTrigger
-        className="flex items-center inter-base-semibold gap-3 px-2"
+        className="flex items-center px-2 inter-base-semibold gap-3"
         {...triggerProps}
       >
         <RadixSelect.Value />

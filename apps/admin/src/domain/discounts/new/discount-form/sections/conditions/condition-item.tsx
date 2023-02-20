@@ -162,8 +162,8 @@ const ConditionItem = <Type extends DiscountConditionType>({
 
   return (
     <div>
-      <div className="p-base border rounded-rounded flex gap-base justify-between items-center">
-        <div className="flex overflow-hidden gap-base w-full">
+      <div className="flex items-center justify-between border p-base rounded-rounded gap-base">
+        <div className="flex w-full overflow-hidden gap-base">
           <div>
             <Badge
               className="inter-base-semibold flex justify-center items-center w-[40px] h-[40px]"
@@ -172,10 +172,10 @@ const ConditionItem = <Type extends DiscountConditionType>({
               §{index + 1}
             </Badge>
           </div>
-          <div className="truncate flex flex-col justify-center flex-1 w-full">
+          <div className="flex flex-col justify-center flex-1 w-full truncate">
             <div className="inter-small-semibold">{getTitle(type)}</div>
-            <div className="w-full flex items-center inter-small-regular gap-x-xsmall flex-1">
-              <div className="gap-x-2xsmall text-grey-50 flex items-center w-full inter-small-regular flex-1">
+            <div className="flex items-center flex-1 w-full inter-small-regular gap-x-xsmall">
+              <div className="flex items-center flex-1 w-full gap-x-2xsmall text-grey-50 inter-small-regular">
                 {visibleItems.map((item, i) => {
                   return (
                     <span key={i}>
@@ -186,7 +186,7 @@ const ConditionItem = <Type extends DiscountConditionType>({
                   )
                 })}
                 {remainder > 0 && (
-                  <span className="text-grey-40 ml-2">+{remainder} more</span>
+                  <span className="ml-2 text-grey-40">+{remainder} more</span>
                 )}
               </div>
             </div>

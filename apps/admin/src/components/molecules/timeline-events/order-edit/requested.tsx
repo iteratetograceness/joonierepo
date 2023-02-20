@@ -40,7 +40,7 @@ const EditRequested: React.FC<RequestedProps> = ({ event }) => {
         }
       >
         <Button
-          className="w-full border border-grey-20 mb-5"
+          className="w-full mb-5 border border-grey-20"
           size="small"
           variant="ghost"
           onClick={() => setShowResend(true)}

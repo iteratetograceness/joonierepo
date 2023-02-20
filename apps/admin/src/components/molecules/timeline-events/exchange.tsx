@@ -38,7 +38,7 @@ type ExchangeStatusProps = {
 }
 
 const ExchangeStatus: React.FC<ExchangeStatusProps> = ({ event }) => {
-  const divider = <div className="h-11 w-px bg-grey-20" />
+  const divider = <div className="w-px h-11 bg-grey-20" />
 
   return (
     <div className="flex items-center inter-small-regular gap-x-base">
@@ -300,7 +300,7 @@ function getPaymentLink(
   exchangeCartId: string | undefined
 ) {
   return payable ? (
-    <div className="inter-small-regular text-grey-50 flex flex-col gap-y-xsmall">
+    <div className="flex flex-col inter-small-regular text-grey-50 gap-y-xsmall">
       <div className="flex items-center gap-x-xsmall">
         {paymentFormatWarning && <IconTooltip content={paymentFormatWarning} />}
         <span>Payment link:</span>

@@ -58,8 +58,8 @@ export const Standard = Template.bind({})
 Standard.args = {
   children: (
     <div className="mt-24">
-      <h1 className="inter-xlarge-semibold mb-8">Title</h1>
-      <span className="inter-base-semibold mb-4">Subtitle</span>
+      <h1 className="mb-8 inter-xlarge-semibold">Title</h1>
+      <span className="mb-4 inter-base-semibold">Subtitle</span>
       <InputField label={"Input label"} />
     </div>
   ),
@@ -78,8 +78,8 @@ export const BasicFocusModal = BasicTemplate.bind({})
 BasicFocusModal.args = {
   children: (
     <div className="mt-24">
-      <h1 className="inter-xlarge-semibold mb-8">Title</h1>
-      <span className="inter-base-semibold mb-4">Subtitle</span>
+      <h1 className="mb-8 inter-xlarge-semibold">Title</h1>
+      <span className="mb-4 inter-base-semibold">Subtitle</span>
       <InputField label={"Input label"} />
     </div>
   ),

@@ -52,7 +52,7 @@ const ResetTokenCard: React.FC<ResetTokenCardProps> = ({ goBack }) => {
         <span className="inter-2xlarge-semibold mt-base text-grey-90">
           Reset your password
         </span>
-        <span className="inter-base-regular text-grey-50 mt-xsmall text-center">
+        <span className="text-center inter-base-regular text-grey-50 mt-xsmall">
           Enter your email address below, and we'll send you
           <br />
           instructions on how to reset your password.
@@ -65,14 +65,14 @@ const ResetTokenCard: React.FC<ResetTokenCardProps> = ({ goBack }) => {
               className="mb-0 mt-xlarge" />
             {unrecognizedEmail && (
               <div className="mt-xsmall w-[318px]">
-                <span className="inter-small-regular text-rose-50 text-left">
+                <span className="text-left inter-small-regular text-rose-50">
                   We can't find a user with that email address
                 </span>
               </div>
             )}
             {invalidEmail && (
               <div className="mt-xsmall w-[318px]">
-                <span className="inter-small-regular text-rose-50 text-left">
+                <span className="text-left inter-small-regular text-rose-50">
                   Not a valid email address
                 </span>
               </div>
@@ -85,7 +85,7 @@ const ResetTokenCard: React.FC<ResetTokenCardProps> = ({ goBack }) => {
             </button>
           </>
         ) : (
-          <div className="text-violet-60 rounded-rounded bg-violet-10 p-base flex gap-x-small mt-large">
+          <div className="flex text-violet-60 rounded-rounded bg-violet-10 p-base gap-x-small mt-large">
             <div>
               <CheckCircleIcon size={20} />
             </div>
@@ -102,7 +102,7 @@ const ResetTokenCard: React.FC<ResetTokenCardProps> = ({ goBack }) => {
           </div>
         )}
         <span
-          className="inter-small-regular text-grey-50 mt-8 cursor-pointer"
+          className="mt-8 cursor-pointer inter-small-regular text-grey-50"
           onClick={goBack}
         >
           Go back to sign in

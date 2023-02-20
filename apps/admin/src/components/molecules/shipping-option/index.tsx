@@ -32,15 +32,15 @@ const ShippingOption: React.FC<ShippingOptionProps> = ({
   onEdit,
 }) => {
   return (
-    <div className="flex items-baseline justify-between p-base rounded-base border border-grey-20">
+    <div className="flex items-baseline justify-between border p-base rounded-base border-grey-20">
       <div className="truncate">
         <div className="flex items-center">
-          <p className="inter-small-semibold truncate mr-xsmall">
+          <p className="truncate inter-small-semibold mr-xsmall">
             {option.name} {option.data.name && `(${option.data.name})`}{" "}
           </p>
           {option.admin_only && <Badge variant="primary">Not on website</Badge>}
         </div>
-        <p className="inter-small-regular text-grey-50 truncate">
+        <p className="truncate inter-small-regular text-grey-50">
           {option.price_type === "flat_rate" ? "Flat Rate" : "Calculated"}:{" "}
           {option.amount !== undefined &&
             `${option.amount / 100} ${currency_code.toUpperCase()}`}

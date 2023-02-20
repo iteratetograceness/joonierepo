@@ -67,7 +67,7 @@ const AttributeModal = ({ product, open, onClose }: Props) => {
     <Modal open={open} handleClose={onReset} isLargeModal>
       <Modal.Body>
         <Modal.Header handleClose={onReset}>
-          <h1 className="inter-xlarge-semibold m-0">Edit Attributes</h1>
+          <h1 className="m-0 inter-xlarge-semibold">Edit Attributes</h1>
         </Modal.Header>
         <form onSubmit={onSubmit}>
           <Modal.Content>
@@ -87,7 +87,7 @@ const AttributeModal = ({ product, open, onClose }: Props) => {
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="flex gap-x-2 justify-end w-full">
+            <div className="flex justify-end w-full gap-x-2">
               <Button
                 size="small"
                 variant="secondary"

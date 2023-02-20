@@ -76,15 +76,15 @@ const DatePicker: React.FC<DateTimePickerProps> = ({
         <PopoverPrimitive.Content
           side="top"
           sideOffset={8}
-          className="rounded-rounded px-8  border border-grey-20 bg-grey-0 w-full shadow-dropdown"
+          className="w-full px-8 border rounded-rounded  border-grey-20 bg-grey-0 shadow-dropdown"
         >
           <CalendarComponent date={tempDate} onChange={setTempDate} />
-          <div className="flex w-full mb-8 mt-5">
+          <div className="flex w-full mt-5 mb-8">
             <Button
               variant="ghost"
               size="medium"
               onClick={() => setIsOpen(false)}
-              className="mr-2 w-1/3 flex justify-center border border-grey-20"
+              className="flex justify-center w-1/3 mr-2 border border-grey-20"
             >
               Cancel
             </Button>
@@ -92,7 +92,7 @@ const DatePicker: React.FC<DateTimePickerProps> = ({
               size="medium"
               variant="primary"
               onClick={() => submitDate()}
-              className="w-2/3 flex justify-center"
+              className="flex justify-center w-2/3"
             >{`Set ${label}`}</Button>
           </div>
         </PopoverPrimitive.Content>

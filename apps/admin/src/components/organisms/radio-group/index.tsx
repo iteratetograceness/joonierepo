@@ -74,7 +74,7 @@ const Item = ({
       )}
       <div className="truncate">
         <div className="flex items-center">
-          <p className="inter-base-semibold truncate">
+          <p className="truncate inter-base-semibold">
             {label}{" "}
             {sublabel ? (
               <span className="inter-base-regular text-grey-50">
@@ -133,11 +133,11 @@ const SimpleItem: React.FC<RadioGroupSimpleItemProps> = ({
           )}
         />
       </RadioGroupPrimitive.Item>
-      <div className="ml-small inter-base-regular cursor-pointer w-full">
-        <span className="ml-small inter-base-regular cursor-pointer">
+      <div className="w-full cursor-pointer ml-small inter-base-regular">
+        <span className="cursor-pointer ml-small inter-base-regular">
           {label && label}
         </span>
-        <span className="ml-small inter-base-regular cursor-pointer">
+        <span className="cursor-pointer ml-small inter-base-regular">
           {description && description}
         </span>
       </div>

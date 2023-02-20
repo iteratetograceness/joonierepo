@@ -125,12 +125,12 @@ export const VariantCard = ({
       )}
     >
       <div
-        className="text-grey-40 cursor-move flex items-center justify-center"
+        className="flex items-center justify-center cursor-move text-grey-40"
         ref={ref}
       >
         <GripIcon size={20} />
       </div>
-      <div className="flex flex-col text-left ml-base justify-center">
+      <div className="flex flex-col justify-center text-left ml-base">
         <p className="inter-base-semibold">
           {title}
           {sku && (
@@ -139,7 +139,7 @@ export const VariantCard = ({
         </p>
         {ean && <span className="inter-base-regular text-grey-50">{ean}</span>}
       </div>
-      <div className="text-right flex items-center justify-end">
+      <div className="flex items-center justify-end text-right">
         <InputField
           {...register(`variants.${index}.inventory_quantity`, {
             min: FormValidator.nonNegativeNumberRule("Inventory"),
@@ -151,14 +151,14 @@ export const VariantCard = ({
           errors={errors}
         />
       </div>
-      <div className="ml-xlarge flex items-center justify-center pr-base">
+      <div className="flex items-center justify-center ml-xlarge pr-base">
         <Actionables
           forceDropdown
           actions={actions}
           customTrigger={
             <Button
               variant="ghost"
-              className="w-xlarge h-xlarge p-0 flex items-center justify-center text-grey-50"
+              className="flex items-center justify-center p-0 w-xlarge h-xlarge text-grey-50"
             >
               <MoreHorizontalIcon size={20} />
             </Button>

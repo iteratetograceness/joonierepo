@@ -47,7 +47,7 @@ function Chip(props: ChipProps) {
     <div className="rounded-lg h-[32px] inline-flex gap-1 shrink-0 items-center text-small text-grey-70 border border-gray-70 px-3 mr-1 last:mr-2">
       {short}
       <CrossIcon
-        className="text-grey-40 cursor-pointer"
+        className="cursor-pointer text-grey-40"
         onClick={remove}
         size={13}
       />
@@ -134,7 +134,7 @@ function FieldsMenu(props: FieldsMenuProps) {
           variant="secondary"
           className="rounded-lg h-[32px] px-3 text-small font-semibold text-grey-90 inline-flex"
         >
-          <span className="flex whitespace-nowrap items-center gap-1">
+          <span className="flex items-center whitespace-nowrap gap-1">
             Add fields <PlusIcon size={14} />
           </span>
         </Button>
@@ -179,8 +179,8 @@ function TableFieldsFilters(props: TableFieldsFilterProps) {
   const visibleFields = _selected.map((id) => fields.find((f) => f.id === id))
 
   return (
-    <div className="flex-wrap flex items-center gap-y-2">
-      <span className="text-small font-semibold whitespace-nowrap text-gray-500 mr-2">
+    <div className="flex flex-wrap items-center gap-y-2">
+      <span className="mr-2 font-semibold text-gray-500 text-small whitespace-nowrap">
         Currently editing these fields:
       </span>
 

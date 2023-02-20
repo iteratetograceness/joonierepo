@@ -68,7 +68,7 @@ const useProductTableColumn = ({ setTileView, setListView, showList }) => {
                 {original.thumbnail ? (
                   <img
                     src={original.thumbnail}
-                    className="h-full object-cover rounded-soft"
+                    className="object-cover h-full rounded-soft"
                   />
                 ) : (
                   <ImagePlaceholder />
@@ -110,7 +110,7 @@ const useProductTableColumn = ({ setTileView, setListView, showList }) => {
       {
         accessor: "col-3",
         Header: (
-          <div className="text-right flex justify-end">
+          <div className="flex justify-end text-right">
             <span
               onClick={setListView}
               className={clsx("hover:bg-grey-5 cursor-pointer rounded p-0.5", {

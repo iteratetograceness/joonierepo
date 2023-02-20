@@ -86,7 +86,7 @@ const SigninInput = React.forwardRef(
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="text-grey-40 px-4 focus:outline-none focus:text-violet-60"
+            className="px-4 text-grey-40 focus:outline-none focus:text-violet-60"
           >
             {showPassword ? <EyeIcon /> : <EyeOffIcon />}
           </button>

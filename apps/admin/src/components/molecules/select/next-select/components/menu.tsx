@@ -215,7 +215,7 @@ export const LoadingMessage = <
           }
         )}
       >
-        <div className="bg-grey-10 animate-pulse w-1/4 h-xsmall rounded-rounded" />
+        <div className="w-1/4 bg-grey-10 animate-pulse h-xsmall rounded-rounded" />
       </div>
     )
   }

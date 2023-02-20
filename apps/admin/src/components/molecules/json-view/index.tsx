@@ -26,7 +26,7 @@ const JSONView = ({ data }: JSONViewProps) => {
   }, [data])
 
   return (
-    <div className="px-base py-xsmall rounded-rounded bg-grey-5 w-full">
+    <div className="w-full px-base py-xsmall rounded-rounded bg-grey-5">
       <Collapsible.Root open={expanded} onOpenChange={setExpanded}>
         <Collapsible.Trigger asChild>
           <div className="flex items-center justify-between cursor-pointer">

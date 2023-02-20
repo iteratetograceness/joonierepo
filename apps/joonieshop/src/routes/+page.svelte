@@ -1,26 +1,21 @@
-<script lang="ts">
-	// import { cart, loadCart } from '$stores/cart';
+<script>
+	import { allProducts, getAllProducts } from "$stores/products";
 
+  /**
+	 * @type {any[]} -- TODO: typing.
+	 */
+  let products = [];
+  let loading = true;
 
-  // import type { PageData } from './$types';
-  // export let data: PageData;
+  allProducts.subscribe((p) => {
+    if (p?.all.length > 0) {
+      products = p.all;
+    }
 
-  $: allProducts = [];
+    loading = false;
+  });
 
-  // async function addToCart(product_id?: string, quantity = 1) {
-  //   const res = await fetch('/api/cart', {
-  //     method: 'PATCH',
-  //     body: JSON.stringify({ product_id, quantity }),
-  //   })
-
-  //   if (res.ok) {
-  //     loadCart();
-  //     console.log($cart);
-  //   } else {
-  //     alert(JSON.stringify(await res.json()))
-  //   }
-  // }
-
+  getAllProducts();
 </script>
 
 <svelte:head>
@@ -30,10 +25,33 @@
 <main>
   <section>
     <div class="lg:h-[90vh]">
-      hey
-      <!-- {#each allProducts as product}
-        <button on:click={() => addToCart(product.id, 1)}>ADD TO CART: {product.name}</button>
-      {/each} -->
+      {#if loading}
+      <div>
+        <p>Loading products ...</p>
+      </div>
+    {:else}
+      {#each products as { id, title, variants }}
+        <li>
+          <a href={`product/${id}`}>
+            <div>
+              <p class="title">{title}</p>
+              <!-- <p>
+                {formatPrice(
+                  variants[0].prices[0].amount,
+                  variants[0].prices[0].currency_code
+                )}
+              </p> -->
+            </div>
+          </a>
+        </li>
+      {/each}
+    {/if}
     </div>
   </section>
 </main>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>

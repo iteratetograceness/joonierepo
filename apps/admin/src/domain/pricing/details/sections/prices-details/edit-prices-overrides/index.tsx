@@ -74,7 +74,7 @@ const EditPricesOverridesModal = ({
         <Modal.Header handleClose={close}>
           <h1 className="inter-xlarge-semibold">
             Price overrides{" "}
-            <span className="text-grey-50 inter-xlarge-regular truncate">
+            <span className="truncate text-grey-50 inter-xlarge-regular">
               ({product.title})
             </span>
           </h1>
@@ -107,10 +107,10 @@ const EditPricesOverridesModal = ({
         </Modal.Content>
 
         <Modal.Footer>
-          <div className="flex w-full h-8 justify-end">
+          <div className="flex justify-end w-full h-8">
             <Button
               variant="ghost"
-              className="mr-2 w-32 text-small justify-center rounded-rounded"
+              className="justify-center w-32 mr-2 text-small rounded-rounded"
               size="large"
               onClick={close}
             >
@@ -119,7 +119,7 @@ const EditPricesOverridesModal = ({
             <Button
               disabled
               size="large"
-              className="w-32 text-small justify-center rounded-rounded"
+              className="justify-center w-32 text-small rounded-rounded"
               variant="primary"
             >
               Save

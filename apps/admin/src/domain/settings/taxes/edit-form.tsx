@@ -240,7 +240,7 @@ const EditTaxRate = ({
             onClick={onDismiss}
             variant="ghost"
             size="small"
-            className="w-eventButton justify-center"
+            className="justify-center w-eventButton"
           >
             Cancel
           </Button>
@@ -248,7 +248,7 @@ const EditTaxRate = ({
             type="submit"
             variant="primary"
             size="small"
-            className="w-eventButton justify-center"
+            className="justify-center w-eventButton"
             loading={isLoading}
             disabled={isLoading}
           >
@@ -331,7 +331,7 @@ export const SimpleEditForm = ({ onDismiss, taxRate }: SimpleEditFormProps) => {
             onClick={onDismiss}
             variant="ghost"
             size="small"
-            className="w-eventButton justify-center"
+            className="justify-center w-eventButton"
           >
             Cancel
           </Button>
@@ -339,7 +339,7 @@ export const SimpleEditForm = ({ onDismiss, taxRate }: SimpleEditFormProps) => {
             type="submit"
             variant="primary"
             size="small"
-            className="w-eventButton justify-center"
+            className="justify-center w-eventButton"
             loading={isLoading}
           >
             Save

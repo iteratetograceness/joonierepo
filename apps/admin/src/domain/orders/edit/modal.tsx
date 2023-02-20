@@ -37,7 +37,7 @@ function TotalsSection(props: TotalsSectionProps) {
 
   return (
     <>
-      <div className="h-px w-full bg-grey-20 mb-6" />
+      <div className="w-full h-px mb-6 bg-grey-20" />
       <div className="flex justify-between h-[40px] mb-2">
         <span className="text-gray-500">Amount Paid</span>
         <span className="text-gray-900">
@@ -50,7 +50,7 @@ function TotalsSection(props: TotalsSectionProps) {
       </div>
 
       <div className="flex justify-between h-[40px] mb-2">
-        <span className="text-gray-900 font-semibold">New Total</span>
+        <span className="font-semibold text-gray-900">New Total</span>
         <span className="text-2xl font-semibold">
           {formatAmountWithSymbol({
             amount: newTotal,
@@ -75,7 +75,7 @@ function TotalsSection(props: TotalsSectionProps) {
         </span>
       </div>
 
-      <div className="h-px w-full bg-grey-20 mt-8 mb-6" />
+      <div className="w-full h-px mt-8 mb-6 bg-grey-20" />
     </>
   )
 }
@@ -270,8 +270,8 @@ function OrderEditModal(props: OrderEditModalProps) {
           <h1 className="inter-xlarge-semibold">Edit Order</h1>
         </Modal.Header>
         <Modal.Content>
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-gray-900 text-large font-semibold">
+          <div className="flex items-center justify-between mb-4">
+            <span className="font-semibold text-gray-900 text-large">
               Items
             </span>
             <div className="flex items-center justify-between">

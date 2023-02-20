@@ -23,7 +23,7 @@ const ExportModal: React.FC<ExportModalProps> = ({
         </Modal.Header>
         <Modal.Content>
           {/* TODO: Add filtering
-          <div className="flex inter-small-semibold mb-2">Current filters</div>
+          <div className="flex mb-2 inter-small-semibold">Current filters</div>
           <div className="flex mb-4 inter-small-regular text-grey-50">
             You havn’t applied any filtering. Remember that the export list
             feature in many ways are controlled by how you filter the list
@@ -34,7 +34,7 @@ const ExportModal: React.FC<ExportModalProps> = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <Button
               variant="ghost"
               size="small"

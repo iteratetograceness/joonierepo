@@ -7,8 +7,8 @@ import { Route, Routes } from "react-router-dom"
 
 const CustomerIndex = () => {
   return (
-    <div className="flex flex-col grow h-full">
-      <div className="w-full flex flex-col grow">
+    <div className="flex flex-col h-full grow">
+      <div className="flex flex-col w-full grow">
         <BodyCard
           customHeader={<CustomersPageTableHeader activeView="customers" />}
           className="h-fit"

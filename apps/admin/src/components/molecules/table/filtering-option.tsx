@@ -47,7 +47,7 @@ const FilteringOptions: React.FC<FilteringOptionProps> = ({
         </DropdownMenu.Trigger>
         <DropdownMenu.Content
           sideOffset={8}
-          className="bg-grey-0 p-2 border border-grey-20 rounded-rounded shadow-dropdown"
+          className="p-2 border bg-grey-0 border-grey-20 rounded-rounded shadow-dropdown"
         >
           {options.map((opt, idx) => (
             <DropdownMenu.DropdownMenuItem

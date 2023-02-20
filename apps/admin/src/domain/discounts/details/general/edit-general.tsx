@@ -178,7 +178,7 @@ const EditGeneral: React.FC<EditGeneralProps> = ({ discount, onClose }) => {
               )}
             </div>
 
-            <div className="text-grey-50 inter-small-regular flex flex-col mb-6">
+            <div className="flex flex-col mb-6 text-grey-50 inter-small-regular">
               <span>
                 The code your customers will enter during checkout. This will
                 appear on your customer’s invoice.
@@ -196,7 +196,7 @@ const EditGeneral: React.FC<EditGeneralProps> = ({ discount, onClose }) => {
             />
           </Modal.Content>
           <Modal.Footer>
-            <div className="gap-x-xsmall flex items-center justify-end w-full">
+            <div className="flex items-center justify-end w-full gap-x-xsmall">
               <Button
                 variant="ghost"
                 size="small"

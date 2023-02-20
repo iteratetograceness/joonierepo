@@ -89,8 +89,8 @@ export const FormattedFulfillment = ({
   }
 
   return (
-    <div className="flex w-full justify-between">
-      <div className="flex flex-col space-y-1 py-2">
+    <div className="flex justify-between w-full">
+      <div className="flex flex-col py-2 space-y-1">
         <div className="text-grey-90">
           {fulfillment.canceled_at
             ? "Fulfillment has been canceled"

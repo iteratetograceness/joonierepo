@@ -72,10 +72,10 @@ const EventContainer: React.FC<EventContainerProps> = ({
         </div>
       </div>
       <div className="flex gap-x-xsmall">
-        <div className="w-5 flex justify-center pt-base">
+        <div className="flex justify-center w-5 pt-base">
           {!isFirst && <div className="w-px min-h-[24px]" />}
         </div>
-        <div className="mt-2xsmall w-full inter-small-regular">
+        <div className="w-full mt-2xsmall inter-small-regular">
           <div className="flex items-center">
             <Tooltip content={new Date(time).toUTCString()}>
               <div className="text-grey-50 inter-small-regular">
@@ -90,7 +90,7 @@ const EventContainer: React.FC<EventContainerProps> = ({
             {midNode}
           </div>
           {children && isExpanded && (
-            <div className="mt-small w-full pb-base">{children}</div>
+            <div className="w-full mt-small pb-base">{children}</div>
           )}
         </div>
       </div>

@@ -22,7 +22,7 @@ const EditUserInformation = ({ user }: Props) => {
     <>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-base">
-          <div className="w-18 aspect-square rounded-full border border-grey-20 flex items-center justify-center box-border">
+          <div className="flex items-center justify-center border rounded-full w-18 aspect-square border-grey-20 box-border">
             {user ? (
               <div className="w-16 aspect-square">
                 <Avatar
@@ -32,7 +32,7 @@ const EditUserInformation = ({ user }: Props) => {
                 />
               </div>
             ) : (
-              <div className="w-16 aspect-square animate-pulse bg-teal-40 rounded-full" />
+              <div className="w-16 rounded-full aspect-square animate-pulse bg-teal-40" />
             )}
           </div>
           <div className="flex flex-col">

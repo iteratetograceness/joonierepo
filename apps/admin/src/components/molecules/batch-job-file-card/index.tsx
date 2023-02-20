@@ -12,7 +12,7 @@ const BatchJobFileCard = ({ fileName, fileSize, icon, onClick }: Props) => {
 
   return (
     <div
-      className="flex items-center w-full cursor-pointer mt-4"
+      className="flex items-center w-full mt-4 cursor-pointer"
       onClick={preparedOnClick}
     >
       <div
@@ -22,7 +22,7 @@ const BatchJobFileCard = ({ fileName, fileSize, icon, onClick }: Props) => {
         {!!icon && icon}
       </div>
 
-      <div className="text-left relative w-full pl-4">
+      <div className="relative w-full pl-4 text-left">
         <div
           className="overflow-hidden truncate inter-small-regular max-w-[80%]"
         >

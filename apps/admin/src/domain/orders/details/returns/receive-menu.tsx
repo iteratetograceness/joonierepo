@@ -186,7 +186,7 @@ const ReceiveMenu: React.FC<ReceiveMenuProps> = ({
             <>
               {returnRequest.shipping_method &&
                 returnRequest.shipping_method.price !== undefined && (
-                  <div className="my-4 flex justify-between">
+                  <div className="flex justify-between my-4">
                     <span className="inter-base-semibold">Shipping cost</span>
                     <span>
                       {(
@@ -201,7 +201,7 @@ const ReceiveMenu: React.FC<ReceiveMenuProps> = ({
                 )}
               {!refunded && (
                 <div>
-                  <div className="flex inter-base-semibold justify-between w-full">
+                  <div className="flex justify-between w-full inter-base-semibold">
                     <span>Total Refund</span>
                     <div className="flex items-center">
                       {!refundEdited && (
@@ -240,7 +240,7 @@ const ReceiveMenu: React.FC<ReceiveMenuProps> = ({
           )}
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-end gap-x-xsmall">
+          <div className="flex justify-end w-full gap-x-xsmall">
             <Button
               onClick={() => onDismiss()}
               className="w-[112px]"

@@ -70,7 +70,7 @@ const RMASelectProductSubModal: React.FC<RMASelectProductSubModalProps> = ({
                 {original.product.thumbnail ? (
                   <img
                     src={original.product.thumbnail}
-                    className="h-full object-cover rounded-soft"
+                    className="object-cover h-full rounded-soft"
                   />
                 ) : (
                   <ImagePlaceholder />
@@ -266,7 +266,7 @@ const RMASelectProductSubModal: React.FC<RMASelectProductSubModalProps> = ({
         </TableContainer>
       </Modal.Content>
       <Modal.Footer>
-        <div className="flex w-full justify-end gap-x-xsmall">
+        <div className="flex justify-end w-full gap-x-xsmall">
           <Button
             variant="ghost"
             size="small"

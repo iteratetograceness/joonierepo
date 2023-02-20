@@ -77,7 +77,7 @@ const RMAEditAddressSubModal: React.FC<RMAEditAddressSubModalProps> = ({
       <form onSubmit={handleSubmit(submit)}>
         <Modal.Content>
           <div className="h-full">
-            <h2 className="inter-base-semibold mb-4">Search for additional </h2>
+            <h2 className="mb-4 inter-base-semibold">Search for additional </h2>
           </div>
           <div>
             <div>
@@ -110,7 +110,7 @@ const RMAEditAddressSubModal: React.FC<RMAEditAddressSubModalProps> = ({
               </div>
               <div className="mt-8">
                 <span className="inter-base-semibold">Shipping Address</span>
-                <div className="grid gap-y-base my-4">
+                <div className="my-4 grid gap-y-base">
                   <Input
                     {...register("address_1", {
                       required: true,
@@ -170,7 +170,7 @@ const RMAEditAddressSubModal: React.FC<RMAEditAddressSubModalProps> = ({
           </div>
         </Modal.Content>
         <Modal.Footer>
-          <div className="flex w-full justify-end gap-x-xsmall">
+          <div className="flex justify-end w-full gap-x-xsmall">
             <Button
               variant="ghost"
               size="small"

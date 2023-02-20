@@ -88,7 +88,7 @@ const EditConfigurations: React.FC<EditConfigurationsProps> = ({
                       title="Discount has a start date?"
                       description="Schedule the discount to activate in the future."
                     >
-                      <div className="flex gap-x-xsmall items-center">
+                      <div className="flex items-center gap-x-xsmall">
                         <DatePicker
                           date={value!}
                           label="Start date"
@@ -125,7 +125,7 @@ const EditConfigurations: React.FC<EditConfigurationsProps> = ({
                       title="Discount has an expiry date?"
                       description="Schedule the discount to deactivate in the future."
                     >
-                      <div className="flex gap-x-xsmall items-center">
+                      <div className="flex items-center gap-x-xsmall">
                         <DatePicker
                           date={value!}
                           label="Expiry date"
@@ -202,7 +202,7 @@ const EditConfigurations: React.FC<EditConfigurationsProps> = ({
             </div>
           </Modal.Content>
           <Modal.Footer>
-            <div className="gap-x-xsmall flex items-center justify-end w-full">
+            <div className="flex items-center justify-end w-full gap-x-xsmall">
               <Button
                 variant="ghost"
                 size="small"

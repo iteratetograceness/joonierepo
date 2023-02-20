@@ -91,7 +91,7 @@ const MediaForm = ({ form }: Props) => {
       </div>
       {fields.length > 0 && (
         <div className="mt-large">
-          <div className="mb-small flex items-center justify-between">
+          <div className="flex items-center justify-between mb-small">
             <h2 className="inter-large-semibold">Uploads</h2>
             <ModalActions
               number={selected.length}
@@ -155,14 +155,14 @@ const Image = ({ image, index, form, remove }: ImageProps) => {
               onClick={() => onChange(!value)}
             >
               <div className="flex items-center gap-x-large">
-                <div className="w-16 h-16 flex items-center justify-center">
+                <div className="flex items-center justify-center w-16 h-16">
                   <img
                     src={image.url}
                     alt={image.name || "Uploaded image"}
                     className="max-w-[64px] max-h-[64px] rounded-rounded"
                   />
                 </div>
-                <div className="flex flex-col inter-small-regular text-left">
+                <div className="flex flex-col text-left inter-small-regular">
                   <p>{image.name}</p>
                   <p className="text-grey-50">
                     {image.size ? `${(image.size / 1024).toFixed(2)} KB` : ""}
@@ -179,7 +179,7 @@ const Image = ({ image, index, form, remove }: ImageProps) => {
                 </span>
               </div>
             </button>
-            <div className="absolute top-0 right-base bottom-0 flex items-center">
+            <div className="absolute top-0 bottom-0 flex items-center right-base">
               <Actionables actions={actions} forceDropdown />
             </div>
           </div>
@@ -197,7 +197,7 @@ type ModalActionsProps = {
 
 const ModalActions = ({ number, onRemove, onDeselect }: ModalActionsProps) => {
   return (
-    <div className="h-10 overflow-y-hidden flex items-center pr-1">
+    <div className="flex items-center h-10 pr-1 overflow-y-hidden">
       <div
         className={clsx(
           "flex items-center gap-x-small transition-all duration-200",

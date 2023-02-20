@@ -66,7 +66,7 @@ const TimePicker: React.FC<DateTimePickerProps> = ({
                 />
                 <ArrowDownIcon size={16} />
               </div>
-              <div className="w-full items-center flex text-left text-grey-40">
+              <div className="flex items-center w-full text-left text-grey-40">
                 <ClockIcon size={16} />
                 <span className="mx-1">UTC</span>
                 <span className="text-grey-90">
@@ -79,7 +79,7 @@ const TimePicker: React.FC<DateTimePickerProps> = ({
         <PopoverPrimitive.Content
           side="top"
           sideOffset={8}
-          className="rounded-rounded scrollbar-hide border px-6 pt-6 pb-4 border-grey-20 bg-grey-0 w-full flex shadow-dropdown"
+          className="flex w-full px-6 pt-6 pb-4 border rounded-rounded scrollbar-hide border-grey-20 bg-grey-0 shadow-dropdown"
         >
           <NumberScroller
             numbers={hourNumbers}
@@ -92,7 +92,7 @@ const TimePicker: React.FC<DateTimePickerProps> = ({
             selected={selectedMinute}
             onSelect={(n) => setSelectedMinute(n)}
           />
-          <div className="absolute bottom-4 left-0 right-0 bg-gradient-to-b from-transparent to-grey-0 h-xlarge z-10" />
+          <div className="absolute left-0 right-0 z-10 bottom-4 bg-gradient-to-b from-transparent to-grey-0 h-xlarge" />
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Root>
     </div>

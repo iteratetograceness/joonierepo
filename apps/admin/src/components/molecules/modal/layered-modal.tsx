@@ -111,13 +111,13 @@ const LayeredModal: React.FC<LayeredModalProps> = ({
                 <Button
                   variant="ghost"
                   size="small"
-                  className="text-grey-50 w-8 h-8"
+                  className="w-8 h-8 text-grey-50"
                   onClick={screen.onBack}
                 >
                   <ArrowLeftIcon size={20} />
                 </Button>
                 <div className="flex items-center gap-x-2xsmall">
-                  <h2 className="inter-xlarge-semibold ml-5">{screen.title}</h2>
+                  <h2 className="ml-5 inter-xlarge-semibold">{screen.title}</h2>
                   {screen.subtitle && (
                     <span className="inter-xlarge-regular text-grey-50">
                       ({screen.subtitle})

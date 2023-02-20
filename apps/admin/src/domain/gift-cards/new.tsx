@@ -167,7 +167,7 @@ const NewGiftCard = ({ onClose }: NewGiftCardProps) => {
                     <img
                       src={thumbnail.url}
                       alt=""
-                      className="w-20 h-20 rounded-base object-cover object-center"
+                      className="object-cover object-center w-20 h-20 rounded-base"
                     />
                     <div className="flex flex-col gap-y-1">
                       <span className="inter-small-regular">

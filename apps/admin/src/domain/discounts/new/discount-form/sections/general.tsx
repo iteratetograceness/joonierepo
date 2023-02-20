@@ -139,7 +139,7 @@ const General: React.FC<GeneralProps> = ({ discount }) => {
             )}
           </div>
 
-          <div className="text-grey-50 inter-small-regular flex flex-col mb-6">
+          <div className="flex flex-col mb-6 text-grey-50 inter-small-regular">
             <span>
               The code your customers will enter during checkout. This will
               appear on your customer’s invoice.
@@ -155,7 +155,7 @@ const General: React.FC<GeneralProps> = ({ discount }) => {
               required: true,
             })}
           />
-          <div className="mt-xlarge flex items-center">
+          <div className="flex items-center mt-xlarge">
             <Controller
               name="is_dynamic"
               control={control}

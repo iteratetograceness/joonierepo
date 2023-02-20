@@ -20,7 +20,7 @@ const ActivityDrawer = ({ onDismiss }) => {
       ref={ref}
       className="bg-grey-0 w-[400px] shadow-dropdown rounded-rounded top-[64px] bottom-2 right-3 rounded overflow-x-hidden fixed flex flex-col"
     >
-      <div className="inter-large-semibold pt-7 pl-8 pb-1">Activity</div>
+      <div className="pb-1 pl-8 inter-large-semibold pt-7">Activity</div>
 
       {!hasPollingError ? (
         batchJobs ? (
@@ -37,7 +37,7 @@ const ActivityDrawer = ({ onDismiss }) => {
 
 const EmptyActivityDrawer = () => {
   return (
-    <div className="p-4 h-full w-full flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4">
       <SidedMouthFaceIcon size={36} />
       <span className={"mt-4 inter-large-semibold text-grey-90"}>
         It's quite in here...
@@ -52,7 +52,7 @@ const EmptyActivityDrawer = () => {
 
 const ErrorActivityDrawer = () => {
   return (
-    <div className="p-4 h-full w-full flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4">
       <SadFaceIcon size={36} />
       <span className={"mt-4 inter-large-semibold text-grey-90"}>Oh no...</span>
       <span className={"mt-2 text-grey-60 text-center inter-base-regular"}>
