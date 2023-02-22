@@ -17,8 +17,6 @@ const createCart = async () => {
     } catch (e) {
         console.log(`Error creating cart: ${e}`)
     }
-
-    console.log('cart:', myCart);
 }
 
 const saveCartId = async () => {
@@ -35,8 +33,6 @@ const saveCartId = async () => {
     } catch (e) {
         console.log(`Error saving cart ID: ${e}`)
     }
-
-    console.log('cart:', myCart);
 }
 
 export const getCartId = () => {

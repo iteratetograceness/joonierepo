@@ -19,6 +19,8 @@
     }
   });
 
+  // handleStoreCart();
+
   let showCart = false;
   let loading = false;
 

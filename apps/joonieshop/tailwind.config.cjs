@@ -11,7 +11,10 @@ module.exports = {
         brown: 'hsl(18, 71%, 33%)',
         'light-brown': 'hsl(21, 38%, 55%)',
         red: 'hsl(12, 61%, 47%)'
-      }
+      },
+      aspectRatio: {
+        'logo': '240 / 36',
+      },
     }
   },
   plugins: []

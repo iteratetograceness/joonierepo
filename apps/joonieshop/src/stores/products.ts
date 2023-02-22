@@ -8,6 +8,7 @@ export const allProducts = writable({
     all: [],
     product: null
 });
+export const productTypes = writable(['All']);
 
 export const getAllProducts = async () => {
     try {
@@ -35,6 +36,20 @@ export const getProduct = async (id: string) => {
         })
     } catch (e) {
         console.log(`Error fetching product: ${e}`)
+    }
+}
+
+export const getProductTypes = async () => {
+    try {
+        const { product_types } = await medusaClient.productTypes.list();
+        productTypes.update((pt) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore -- TODO: Typing.
+            pt = product_types.map(pt => pt.value);
+            return pt;
+        })
+    } catch (e) {
+        console.log(`Error fetching product types: ${e}`)
     }
 }
 

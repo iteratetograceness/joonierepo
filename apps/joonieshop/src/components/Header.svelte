@@ -11,7 +11,7 @@
 
   const links = [
     { name: 'Back to Main', path: 'https://joonie.dev' },
-    { name: 'JOONIESHOP', path: '/' }, 
+    { src: '/joonieshop-logo.png', alt: 'Joonie Shop Logo', path: '/' }, 
     { name: 'Cart', path: '/cart' }
   ];
 
@@ -21,24 +21,29 @@
   }
 </script>
 
-<nav class="flex items-center justify-between p-4 text-lg bg-transparent lg:px-6">
+<nav class="flex items-center justify-between p-4 text-lg bg-transparent min-w-max lg:px-6">
   {#each links as link, i (link.name)}
     <div 
       class:active={currentRoute === link.path} 
-      class={`md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center w-1/2' : link.path === '/cart' ? 'flex justify-end w-1/2' : 'justify-start hidden md:flex'}`}
+      class={`md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center' : link.path === '/cart' ? 'flex justify-end' : 'justify-start hidden md:flex'}`}
     >
       <a 
         href={link.path}
         data-sveltekit-preload-data="hover" 
         on:click={link.path === '/cart' ? openCart : null}
-        class={`relative mx-2 my-1 before:content-[''] before:absolute 
+        class={`relative mx-2 my-1 
+                ${link.name ?  `before:content-[''] before:absolute 
                 before:block before:w-full before:h-[1.5px] before:bottom-[-2px] 
                 before:left-0 before:bg-dark-blue before:hover:scale-x-100 
                 before:scale-x-0 before:origin-top-left before:transition 
-                before:ease-in-out before:duration-300 motion-reduce:before:transition-none
+                before:ease-in-out before:duration-300 motion-reduce:before:transition-none` : 'hover:scale-95 transition duration-300 ease-in-out'}
                 ${currentRoute === link.path ? 'before:scale-x-100' : ''}`}
       >
-        {link.name}{link.path === '/cart' ? ` (${$cartQuantity})` : ''}
+        {#if link.src}
+          <img src={link.src} alt={link.name} class="w-auto h-9 aspect-logo" />
+        {:else}
+          {link.name}{link.path === '/cart' ? ` (${$cartQuantity})` : ''}
+        {/if}
       </a>
     </div>
   {/each}

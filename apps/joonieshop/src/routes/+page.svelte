@@ -1,10 +1,18 @@
 <script>
-	import { allProducts, getAllProducts } from "$stores/products";
+	import Filters from "$components/Filters.svelte";
+import { allProducts, getAllProducts } from "$stores/products";
 
   /**
 	 * @type {any[]} -- TODO: typing.
 	 */
   let products = [];
+  let filtered = products;
+  let filter = 'all';
+
+  $: {
+    filtered = filterProductsByCategory(products, filter);
+  }
+
   let loading = true;
 
   allProducts.subscribe((p) => {
@@ -16,6 +24,16 @@
   });
 
   getAllProducts();
+
+  // @ts-ignore - TODO: typing.
+  const filterProductsByCategory = (unfilteredProducts, category = 'all') => {
+    if (category === "all") {
+      return unfilteredProducts;
+    }
+
+    // @ts-ignore - will be fixed by typing Products.
+    return unfilteredProducts.filter((p) => p.type === category);
+  };
 </script>
 
 <svelte:head>
@@ -25,12 +43,13 @@
 <main>
   <section>
     <div class="lg:h-[90vh]">
+      <Filters {filter} />
       {#if loading}
-      <div>
-        <p>Loading products ...</p>
-      </div>
-    {:else}
-      {#each products as { id, title, variants }}
+        <div>
+          <p>Loading products ...</p>
+        </div>
+      {:else}
+      {#each filtered as { id, title, variants }}
         <li>
           <a href={`product/${id}`}>
             <div>

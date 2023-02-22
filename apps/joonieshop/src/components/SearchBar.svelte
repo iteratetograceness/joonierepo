@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import Icons from './Icons.svelte';
@@ -37,4 +37,4 @@
   input::placeholder {
     color: rgb(85, 85, 85);
   }
-</style>
+</style> -->
