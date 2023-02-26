@@ -1,38 +1,33 @@
-<script>
+<script lang="ts">
 	import Filters from "$components/Filters.svelte";
-import { allProducts, getAllProducts } from "$stores/products";
-
-  /**
-	 * @type {any[]} -- TODO: typing.
-	 */
-  let products = [];
+	import ProductGrid from "$components/ProductGrid.svelte";
+  import { allProducts, getAllProducts } from "$stores/products";
+  
+  let products: any[] = [];
   let filtered = products;
-  let filter = 'all';
-
-  $: {
-    filtered = filterProductsByCategory(products, filter);
-  }
-
+  let filter = 'All';
   let loading = true;
 
-  allProducts.subscribe((p) => {
-    if (p?.all.length > 0) {
-      products = p.all;
-    }
+  $: {
+    filtered = filterProductsByCategory($allProducts.all, filter);
+  }
 
+  const getProducts = async () => {
+    loading = true;
+    await getAllProducts();
     loading = false;
-  });
-
-  getAllProducts();
+  };
+  
+  getProducts();
 
   // @ts-ignore - TODO: typing.
-  const filterProductsByCategory = (unfilteredProducts, category = 'all') => {
-    if (category === "all") {
+  const filterProductsByCategory = (unfilteredProducts, category = 'All') => {
+    if (category === "All") {
       return unfilteredProducts;
     }
-
+        
     // @ts-ignore - will be fixed by typing Products.
-    return unfilteredProducts.filter((p) => p.type === category);
+    return unfilteredProducts.filter((p) => p.type?.value === category);
   };
 </script>
 
@@ -42,35 +37,15 @@ import { allProducts, getAllProducts } from "$stores/products";
 
 <main>
   <section>
-    <div class="lg:h-[90vh]">
-      <Filters {filter} />
+    <div class="p-4">
+      <Filters bind:filter={filter} />
       {#if loading}
         <div>
           <p>Loading products ...</p>
         </div>
       {:else}
-      {#each filtered as { id, title, variants }}
-        <li>
-          <a href={`product/${id}`}>
-            <div>
-              <p class="title">{title}</p>
-              <!-- <p>
-                {formatPrice(
-                  variants[0].prices[0].amount,
-                  variants[0].prices[0].currency_code
-                )}
-              </p> -->
-            </div>
-          </a>
-        </li>
-      {/each}
-    {/if}
+        <ProductGrid products={filtered} />
+      {/if}
     </div>
   </section>
 </main>
-
-<style>
-  a {
-    text-decoration: none;
-  }
-</style>

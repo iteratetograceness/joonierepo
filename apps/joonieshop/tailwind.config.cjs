@@ -14,6 +14,7 @@ module.exports = {
       },
       aspectRatio: {
         'logo': '240 / 36',
+        'image': '4 / 5'
       },
     }
   },

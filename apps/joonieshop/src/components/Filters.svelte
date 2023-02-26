@@ -1,23 +1,37 @@
-<script>
+<script lang="ts">
 	import { getProductTypes, productTypes } from "$stores/products";
-	import { onMount } from "svelte";
 	import Button from "./Button.svelte";
+	import { fade } from 'svelte/transition';
+    import { backInOut } from 'svelte/easing';
+    import { onMount } from "svelte";
 
-    // onMount(async () => {
-    //     if (typeof window !== 'undefined') {
-    //         await getProductTypes();
-    //     }
-    // });
+    export let filter = 'All';
+    let animate = false;
 
-    const TYPES = ['all'];
+    onMount(() => {
+        animate = true;
+    })
 
-    // console.log('TYPES', TYPES);
+    const getTypes = async () => {
+        await getProductTypes();
+    };
 
-    export let filter = 'all';
+    getTypes();
+
+    const setType = (type: string) => {
+        filter = type;
+    };
+
+    $: allTypes = ['All', ...$productTypes];
+
 </script>
 
-<div>
-    {#each TYPES as product_type}
-        <Button on:click={() => filter = product_type}>{product_type}</Button>
-    {/each}
+<div class="flex flex-wrap h-10 gap-1">
+    {#if animate}
+        {#each allTypes as product_type, i (i)}
+            <div transition:fade={{ duration: 1200, delay: 100 * i, easing: backInOut }}>
+                <Button on:click={() => setType(product_type)}>{product_type}</Button>
+            </div>
+        {/each}
+    {/if}
 </div>

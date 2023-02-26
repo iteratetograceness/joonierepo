@@ -42,7 +42,7 @@
     />
   {/if} -->
   <Header on:openCart={openCart} />
-  <div class="relative min-h-screen overflow-scroll">
+  <div class="relative flex flex-col min-h-screen overflow-scroll">
     <slot />
     <Footer />
   </div>

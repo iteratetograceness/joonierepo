@@ -1,29 +1,37 @@
 <script>
   import { page } from '$app/stores';
   import { cartQuantity } from '$stores/cart';
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
+  import { backInOut } from 'svelte/easing';
+  
+  let animate = false;
+
+  onMount(() => {
+    animate = true;
+  });
 
   const dispatch = createEventDispatcher();
 
   $: currentRoute = $page.url.pathname;
 
-  // let showMenu = false;
-
   const links = [
     { name: 'Back to Main', path: 'https://joonie.dev' },
+    // { name: 'JOONIESHOP', path: '/' },
     { src: '/joonieshop-logo.png', alt: 'Joonie Shop Logo', path: '/' }, 
     { name: 'Cart', path: '/cart' }
   ];
 
   function openCart() {
-    // showMenu = false;
     dispatch('openCart', true);
   }
 </script>
 
-<nav class="flex items-center justify-between p-4 text-lg bg-transparent min-w-max lg:px-6">
+<nav class="box-content flex items-center justify-between p-4 text-lg bg-transparent h-11 min-w-max lg:px-6">
+  {#if animate}
   {#each links as link, i (link.name)}
     <div 
+      transition:fade={{ duration: 600, delay: 100 * i, easing: backInOut }}
       class:active={currentRoute === link.path} 
       class={`md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center' : link.path === '/cart' ? 'flex justify-end' : 'justify-start hidden md:flex'}`}
     >
@@ -47,7 +55,7 @@
       </a>
     </div>
   {/each}
-
+  {/if}
   <!-- UNCOMMENT IF ADDING MORE LINKS -->
   <!-- <div class="flex items-center">
     <button

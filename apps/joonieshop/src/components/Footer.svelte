@@ -7,7 +7,7 @@
 
 </script>
 
-<footer class="absolute bottom-0 flex items-center justify-between w-full p-8">
+<footer class="flex items-center justify-between w-full p-8">
   {#each links_and_text as link_or_text}
     {#if link_or_text.href}
       <a data-sveltekit-preload-data="hover" href={link_or_text.href} class="text-lg hover:font-medium">
