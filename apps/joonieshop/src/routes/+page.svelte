@@ -7,6 +7,7 @@
 	import ProductGridSkeleton from '$components/ProductGrid/ProductGridSkeleton.svelte';
 	import FeaturedProducts from '$components/ProductGrid/FeaturedProducts.svelte';
   
+  export const prerender = true;
   export let data: PageData;
   let filter = 'All';
 

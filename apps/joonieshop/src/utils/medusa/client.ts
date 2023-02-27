@@ -19,11 +19,11 @@ export const getAllProducts = async () => {
     }
 }
 
-export const getProduct = async (id: string) => {
+export const getProduct = async (handle: string) => {
     try {
-        const { product } = await medusaClient.products.retrieve(id)
-        if (!product) return { status: 404, error: 'Product not found.' };
-        return product;
+        const { products } = await medusaClient.products.list({ handle })
+        if (products.length === 0) return { status: 404, error: 'Product not found.' };
+        return products[0];
     } catch {
         return { status: 500, error: 'Error fetching product.' }
     }

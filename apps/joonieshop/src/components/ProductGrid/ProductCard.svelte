@@ -24,7 +24,13 @@
     }
 </script>
 
-<a class="relative w-full" in:fade="{{ duration: 900, delay: (Math.floor(index / 4) * 150) }}" out:fade  href={`/product/${product.handle}`}>
+<a 
+    class="relative w-full" 
+    in:fade="{{ duration: 900, delay: (Math.floor(index / 4) * 150) }}" 
+    out:fade  
+    data-sveltekit-preload-data="hover"
+    href={`/product/${product.id}`}
+>
     {#if featured}
         <div class="absolute top-0 left-0 z-50 flex items-center justify-center h-10 px-5 w-max bg-yellow text-brown">Featured</div>
     {/if}
