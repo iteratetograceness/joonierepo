@@ -1,37 +1,23 @@
 <script lang="ts">
-	import { getProductTypes, productTypes } from "$stores/products";
 	import Button from "./Button.svelte";
-	import { fade } from 'svelte/transition';
-    import { backInOut } from 'svelte/easing';
-    import { onMount } from "svelte";
+	import type { ProductType } from "$utils/medusa/types";
+	import { getAnimationDelay } from "$utils/common/getDelay";
 
+    export let filters: ProductType[] = [];
     export let filter = 'All';
-    let animate = false;
-
-    onMount(() => {
-        animate = true;
-    })
-
-    const getTypes = async () => {
-        await getProductTypes();
-    };
-
-    getTypes();
 
     const setType = (type: string) => {
         filter = type;
     };
 
-    $: allTypes = ['All', ...$productTypes];
+    $: allTypes = [{ value: 'All', metadata: {} }, ...filters];
 
 </script>
 
-<div class="flex flex-wrap h-10 gap-1">
-    {#if animate}
-        {#each allTypes as product_type, i (i)}
-            <div transition:fade={{ duration: 1200, delay: 100 * i, easing: backInOut }}>
-                <Button on:click={() => setType(product_type)}>{product_type}</Button>
-            </div>
-        {/each}
-    {/if}
+<div class="flex flex-wrap h-10 gap-1 mb-7">
+    {#each allTypes as { value }, i (i)}
+        <div class:active={filter === value} class={`animate-fadeIn ${getAnimationDelay(i)} rounded-3xl current:bg-dark-blue current:text-light transition-color duration-300`}>
+            <Button on:click={() => setType(value)}>{value}</Button>
+        </div>
+    {/each}
 </div>

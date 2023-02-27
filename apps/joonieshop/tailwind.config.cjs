@@ -1,4 +1,7 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
+  safeList: ['animation-delay-0', 'animation-delay-100', 'animation-delay-200'],
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
@@ -16,7 +19,34 @@ module.exports = {
         'logo': '240 / 36',
         'image': '4 / 5'
       },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        }
+      },
+      animation: {
+        ['fadeIn']: 'fadeIn 1200ms ease-in-out',
+      },
     }
   },
-  plugins: []
+  plugins: [
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+    plugin(function({ addVariant }) {
+      addVariant('current', '&.active');
+  })
+  ],
 };

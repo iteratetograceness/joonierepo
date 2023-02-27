@@ -1,15 +1,8 @@
 <script>
   import { page } from '$app/stores';
   import { cartQuantity } from '$stores/cart';
+	import { getAnimationDelay } from '$utils/common/getDelay';
   import { createEventDispatcher, onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
-  import { backInOut } from 'svelte/easing';
-  
-  let animate = false;
-
-  onMount(() => {
-    animate = true;
-  });
 
   const dispatch = createEventDispatcher();
 
@@ -28,18 +21,15 @@
 </script>
 
 <nav class="box-content flex items-center justify-between p-4 text-lg bg-transparent h-11 min-w-max lg:px-6">
-  {#if animate}
   {#each links as link, i (link.name)}
     <div 
-      transition:fade={{ duration: 600, delay: 100 * i, easing: backInOut }}
-      class:active={currentRoute === link.path} 
-      class={`md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center' : link.path === '/cart' ? 'flex justify-end' : 'justify-start hidden md:flex'}`}
+      class={`animate-fadeIn ${getAnimationDelay(i)} md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center' : link.path === '/cart' ? 'flex justify-end' : 'justify-start hidden md:flex'}`}
     >
       <a 
         href={link.path}
         data-sveltekit-preload-data="hover" 
         on:click={link.path === '/cart' ? openCart : null}
-        class={`relative mx-2 my-1 
+        class={`relative my-1 
                 ${link.name ?  `before:content-[''] before:absolute 
                 before:block before:w-full before:h-[1.5px] before:bottom-[-2px] 
                 before:left-0 before:bg-dark-blue before:hover:scale-x-100 
@@ -48,14 +38,13 @@
                 ${currentRoute === link.path ? 'before:scale-x-100' : ''}`}
       >
         {#if link.src}
-          <img src={link.src} alt={link.name} class="w-auto h-9 aspect-logo" />
+          <img src={link.src} alt={link.name} class="w-auto h-6 sm:h-9 aspect-logo" />
         {:else}
           {link.name}{link.path === '/cart' ? ` (${$cartQuantity})` : ''}
         {/if}
       </a>
     </div>
   {/each}
-  {/if}
   <!-- UNCOMMENT IF ADDING MORE LINKS -->
   <!-- <div class="flex items-center">
     <button

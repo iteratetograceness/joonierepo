@@ -7,10 +7,10 @@
 
 </script>
 
-<footer class="flex items-center justify-between w-full p-8">
+<footer class="flex items-center justify-between w-full px-4 py-3">
   {#each links_and_text as link_or_text}
     {#if link_or_text.href}
-      <a data-sveltekit-preload-data="hover" href={link_or_text.href} class="text-lg hover:font-medium">
+      <a data-sveltekit-preload-data="hover" href={link_or_text.href} class="text-lg hover:text-light-blue transition-[color] duration-200">
         {link_or_text.text}
       </a>
     {:else}
