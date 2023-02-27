@@ -14,7 +14,7 @@
 
 </script>
 
-<div class="flex flex-wrap h-10 gap-1 mb-7">
+<div class="flex flex-wrap h-10 gap-1">
     {#each allTypes as { value }, i (i)}
         <div class:active={filter === value} class={`animate-fadeIn ${getAnimationDelay(i)} rounded-3xl current:bg-dark-blue current:text-light transition-color duration-300`}>
             <Button on:click={() => setType(value)}>{value}</Button>
