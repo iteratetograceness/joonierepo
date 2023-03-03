@@ -2,16 +2,17 @@
   import { page } from '$app/stores';
   import { cartQuantity } from '$stores/cart';
 	import { getAnimationDelay } from '$utils/common/getDelay';
-  import { createEventDispatcher, onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
 
   $: currentRoute = $page.url.pathname;
 
-  const links = [
-    { name: 'Back to Main', path: 'https://joonie.dev' },
+  export let cart = false;
+  export let links = [
+    cart ? { name: 'Back to Products', path: '/' } : { name: 'Back to Main', path: 'https://joonie.dev' },
     // { name: 'JOONIESHOP', path: '/' },
-    { src: '/joonieshop-logo.png', alt: 'Joonie Shop Logo', path: '/' }, 
+    { name: 'JOONIESHOP', src: '/joonieshop-logo.png', alt: 'Joonie Shop Logo', path: '/' }, 
     { name: 'Cart', path: '/cart' }
   ];
 
@@ -23,14 +24,14 @@
 <nav class="box-content flex items-center justify-between p-4 text-lg bg-transparent h-11 min-w-max lg:px-6">
   {#each links as link, i (link.name)}
     <div 
-      class={`animate-fadeIn ${getAnimationDelay(i)} md:w-1/3 ${link.path === '/' ? 'flex justify-start md:justify-center' : link.path === '/cart' ? 'flex justify-end' : 'justify-start hidden md:flex'}`}
+      class={`animate-fadeIn ${getAnimationDelay(i)} md:w-1/3 ${link.name === 'JOONIESHOP' ? 'flex justify-start md:justify-center' : link.path === '/cart' ? 'flex justify-end' : 'justify-start hidden md:flex'}`}
     >
       <a 
         href={link.path}
         data-sveltekit-preload-data="hover" 
         on:click={link.path === '/cart' ? openCart : null}
         class={`relative my-1 
-                ${link.name ?  `before:content-[''] before:absolute 
+                ${!link.src ?  `before:content-[''] before:absolute 
                 before:block before:w-full before:h-[1.5px] before:bottom-[-2px] 
                 before:left-0 before:bg-dark-blue before:hover:scale-x-100 
                 before:scale-x-0 before:origin-top-left before:transition 

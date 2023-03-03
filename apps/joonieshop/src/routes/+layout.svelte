@@ -1,47 +1,29 @@
 <script>
   import '../app.postcss';
-  import Header from '$components/Header.svelte';
+  import { page } from '$app/stores';
   import Footer from '$components/Footer.svelte';
   import { handleStoreCart } from '$stores/cart';
   import { onMount } from 'svelte';
+	import Header from '$components/Header.svelte';
+	import { goto } from '$app/navigation';
+
+  $: isCart = $page.url.pathname === '/cart';
 
   onMount(async () => {
     if (typeof window !== 'undefined') {
-
       await handleStoreCart();
-
-      document.addEventListener('keydown', (e) => {
-        let keyCode = e.code;
-        if (keyCode === "Escape") {
-          showCart = false;
-        }
-      });
     }
   });
 
-  // handleStoreCart();
-
-  let showCart = false;
-  let loading = false;
-
-  async function openCart() {
-    // await handleStoreCart(); ?????
-    showCart = true;
+  const openCart = async () => {
+    await handleStoreCart();
+    goto('/cart');
   }
 </script>
 
-<main class={`${showCart ? 'h-screen' : 'min-h-screen'} overflow-hidden`}>
-  <!-- {#if showCart}
-    <ShoppingCart
-      items={$cart}
-      on:click={hideCart}
-      on:removeProduct={removeProduct}
-      on:addProduct={addToCart}
-      on:getCheckoutUrl={getCheckoutUrl}
-      bind:loading
-    />
-  {/if} -->
-  <Header on:openCart={openCart} />
+
+<main class='min-h-screen overflow-hidden'>
+  <Header cart={isCart} on:openCart={openCart} />
   <div class="relative flex flex-col min-h-screen overflow-scroll">
     <slot />
     <Footer />
