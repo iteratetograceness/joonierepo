@@ -8,6 +8,7 @@
 	import { goto } from '$app/navigation';
 
   $: isCart = $page.url.pathname === '/cart';
+  $: hideHeaderAndFooter = $page.url.pathname.includes('product');
 
   onMount(async () => {
     if (typeof window !== 'undefined') {
@@ -23,9 +24,13 @@
 
 
 <main class='min-h-screen overflow-hidden'>
-  <Header cart={isCart} on:openCart={openCart} />
-  <div class="relative flex flex-col min-h-screen overflow-scroll">
+  {#if !hideHeaderAndFooter}
+    <Header cart={isCart} on:openCart={openCart} />
+  {/if}
+  <div class="relative flex flex-col min-h-screen">
     <slot />
-    <Footer />
+    {#if !hideHeaderAndFooter}
+      <Footer />
+    {/if}
   </div>
 </main>

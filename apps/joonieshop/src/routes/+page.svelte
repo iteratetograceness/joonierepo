@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { goto, invalidateAll } from '$app/navigation';
+  import { invalidateAll } from '$app/navigation';
   import type { PageData } from './$types';
 	import Filters from "$components/Filters.svelte";
 	import ProductGrid from "$components/ProductGrid/ProductGrid.svelte";
 	import type { Product } from '$utils/medusa/types';
-  import Header from '$components/Header.svelte';
 	import ProductGridSkeleton from '$components/ProductGrid/ProductGridSkeleton.svelte';
 	import FeaturedProducts from '$components/ProductGrid/FeaturedProducts.svelte';
-	import { handleStoreCart } from '$stores/cart';
   
   export const prerender = true;
   export let data: PageData;
