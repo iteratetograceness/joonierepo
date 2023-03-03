@@ -11,12 +11,22 @@
   export let data: PageData;
   let filter = 'All';
 
+  $: featured = Array.isArray(data.featured) ? data.featured.map((p) => {
+    p.metadata = { show: true };
+    return p;
+  }) : [];
+
   const filterProductsByCategory = (unfilteredProducts: Product[], category = 'All') => {
-    if (category === "All") {
-      return unfilteredProducts;
-    }
-        
-    return unfilteredProducts.filter((p) => p.type?.value === category);
+    featured = Array.isArray(data.featured) ? data.featured.map(p => {
+      p.metadata = { show: category === 'All' ? true : false };
+      return p;
+    }) : [];
+    
+    return unfilteredProducts.map((p) => {
+      const show = category === 'All' ? true : p.type?.value === category;
+      p.metadata = { show };
+      return p;
+    });
   };
 
   const reload = () => {
@@ -32,8 +42,8 @@
   <section>
     <div class="flex flex-col min-h-screen p-4 min-w-max">
       <Filters bind:filter={filter} filters={Array.isArray(data.filters) ? data.filters : []} />
-      {#if Array.isArray(data.featured) && data.featured.length > 0 && filter === 'All'}
-        <FeaturedProducts featured={data.featured} />
+      {#if featured.length > 0}
+        <FeaturedProducts {featured} />
       {/if}
       {#await data.streamed.allProducts}
         <ProductGridSkeleton />

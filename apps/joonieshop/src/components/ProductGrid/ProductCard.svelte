@@ -1,10 +1,8 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition';
     import type { Product, ProductVariant } from "$utils/medusa/types";
     import { getRandomColor } from '$utils/common/getRandomColor';
     
     export let product: Product;
-    export let index: number;
     export let featured = false;
 
     $: price_or_range = (variants: ProductVariant[]) => {
@@ -26,8 +24,6 @@
 
 <a 
     class="relative w-full" 
-    in:fade="{{ duration: 900, delay: (Math.floor(index / 4) * 150) }}" 
-    out:fade  
     data-sveltekit-preload-data="hover"
     href={`/product/${product.id}`}
 >
