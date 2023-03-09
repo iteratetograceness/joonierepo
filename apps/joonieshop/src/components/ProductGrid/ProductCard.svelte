@@ -1,23 +1,25 @@
 <script lang="ts">
     import type { Product, ProductVariant } from "$utils/medusa/types";
     import { getRandomColor } from '$utils/common/getRandomColor';
+	import { parsePrice } from "$utils/common/parsePrice";
+	import { currency } from "$stores/shop";
     
     export let product: Product;
     export let featured = false;
 
     $: price_or_range = (variants: ProductVariant[]) => {
         if (variants.length === 1) {
-            return `$${Math.floor(variants[0].prices[0].amount / 100)}`;
+            return `$${parsePrice(variants[0].prices.find(price => price.currency_code === $currency)?.amount)}`;
         } else {
             let min = Infinity, max = -Infinity;
             variants.forEach(variant => {
-                min = Math.min(variant.prices[0].amount, min);
-                max = Math.max(variant.prices[0].amount, max);
+                min = Math.min(variant.prices.find(price => price.currency_code === $currency)?.amount || 0, min);
+                max = Math.max(variant.prices.find(price => price.currency_code === $currency)?.amount || 0, max);
             })
             if (min === max) {
-                return `$${Math.floor(min / 100)}`;
+                return `$${parsePrice(min)}`;
             }
-            return `$${Math.floor(min / 100)} - $${Math.floor(max / 100)}`;
+            return `$${parsePrice(min)} - $${parsePrice(max)}`;
         }
     }
 </script>

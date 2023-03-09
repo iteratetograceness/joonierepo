@@ -23,7 +23,7 @@
 </script>
 
 
-<main class='min-h-screen overflow-hidden'>
+<main class='min-h-screen'>
   {#if !hideHeaderAndFooter}
     <Header cart={isCart} on:openCart={openCart} />
   {/if}

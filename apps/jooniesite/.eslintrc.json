@@ -3,7 +3,7 @@
   "plugins": ["react"],
   "extends": [
     "custom",
-    "next",
+    "next/babel",
     "next/core-web-vitals",
     "plugin:react/recommended"
   ],

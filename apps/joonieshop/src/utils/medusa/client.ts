@@ -22,7 +22,7 @@ export const getAllProducts = async () => {
 export const getProduct = async (handle: string) => {
     try {
         const { products } = await medusaClient.products.list({ handle })
-        if (products.length === 0) return { status: 404, error: 'Product not found.' };
+        if (products.length === 0 || products[0].variants.length <= 0) return { status: 404, error: 'Product not found.' };
         return products[0];
     } catch {
         return { status: 500, error: 'Error fetching product.' }

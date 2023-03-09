@@ -26,7 +26,7 @@ module.exports = {
         }
       },
       animation: {
-        ['fadeIn']: 'fadeIn 450ms ease-in-out',
+        ['fadeIn']: 'fadeIn 500ms ease-in forwards',
       },
     }
   },

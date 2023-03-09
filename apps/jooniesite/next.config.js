@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     appDir: true,
@@ -8,7 +7,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.ctfassets.net',
-        port: '5000',
+        port: '',
         pathname: `/${process.env.CONTENTFUL_SPACE_ID}/**`,
       },
     ],
