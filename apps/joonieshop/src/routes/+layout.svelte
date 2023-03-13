@@ -1,11 +1,13 @@
 <script>
   import '../app.postcss';
+  import "@fontsource/libre-caslon-text";
+  import "@fontsource/inter";
+
   import { page } from '$app/stores';
   import Footer from '$components/Footer.svelte';
   import { handleStoreCart } from '$stores/cart';
   import { onMount } from 'svelte';
 	import Header from '$components/Header.svelte';
-	import { goto } from '$app/navigation';
 
   $: isCart = $page.url.pathname === '/cart';
   $: hideHeaderAndFooter = $page.url.pathname.includes('product');
@@ -18,14 +20,13 @@
 
   const openCart = async () => {
     await handleStoreCart();
-    goto('/cart');
   }
 </script>
 
 
-<main class='min-h-screen'>
+<main class='min-h-screen p-6 min-w-mobile md:p-12'>
   {#if !hideHeaderAndFooter}
-    <Header cart={isCart} on:openCart={openCart} />
+    <Header on:openCart={openCart} />
   {/if}
   <div class="relative flex flex-col min-h-screen">
     <slot />

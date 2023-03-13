@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         dark: 'hsl(195, 46%, 5%)',
-        light: 'hsl(12, 6%, 85%)',
+        light: 'hsl(12, 6%, 97%)',
         'dark-blue': 'hsl(224, 59%, 37%)',
         'light-blue': 'hsl(216, 25%, 75%)',
         yellow: 'hsl(41, 68%, 54%)',
@@ -28,6 +28,18 @@ module.exports = {
       animation: {
         ['fadeIn']: 'fadeIn 500ms ease-in forwards',
       },
+      fontFamily: {
+        libre: ['Libre Caslon Text', 'serif'],
+      },
+      minWidth: {
+        'mobile': '280px'
+      },
+      willChange: {
+        'filters': 'left, height, width',
+      },
+      transitionProperty: {
+        'filters': 'left, height, width',
+      }
     }
   },
   plugins: [

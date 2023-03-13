@@ -14,6 +14,8 @@
 		"prepare": "svelte-kit sync"
 	},
 	"dependencies": {
+		"@fontsource/inter": "^4.5.15",
+		"@fontsource/libre-caslon-text": "^4.5.8",
 		"@medusajs/medusa-js": "^1.3.10",
 		"eslint-config-custom": "workspace:*"
 	},

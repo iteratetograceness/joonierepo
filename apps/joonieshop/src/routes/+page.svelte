@@ -11,6 +11,8 @@
   export let data: PageData;
   let filter = 'All';
 
+  $: filters = Array.isArray(data.filters) ? [{ value: 'all', metadata: {} }, ...data.filters] : [{ value: 'all', metadata: {} }];
+
   $: featured = Array.isArray(data.featured) ? data.featured.map((p) => {
     p.metadata = { show: true };
     return p;
@@ -39,9 +41,9 @@
 </svelte:head>
 
 <main>
-  <section class="flex flex-col min-h-screen p-4 min-w-max">
-    <Filters bind:filter={filter} filters={Array.isArray(data.filters) ? data.filters : []} />
-    {#if featured.length > 0}
+  <section class="flex flex-col min-h-screen">
+    <Filters bind:filter={filter} {filters} />
+    <!-- {#if featured.length > 0}
       <FeaturedProducts {featured} />
     {/if}
     {#await data.streamed.allProducts}
@@ -57,6 +59,6 @@
         <p class="text-lg text-3xl font-bold">Oops!</p>
         <span class="w-[20ch] text-md sm:text-lg text-center">We ran into an issue. <button class="inline font-bold hover:text-yellow transition-[color] duration-200" on:click={reload}>Click here</button> to try again.</span>
       </div>
-    {/await}
+    {/await} -->
   </section>
 </main>
