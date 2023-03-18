@@ -10,7 +10,7 @@
     });
 </script>
 
-<section class="relative w-[calc(100vw-2rem)] grid grid-cols-[minmax(1fr, 500px)] gap-8 py-8 m-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+<section class="relative w-full grid grid-cols-[minmax(1fr, 500px)] gap-8 py-8 m-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {#each products as product (product.handle) }
         <div 
             animate:flip={{ duration: 500 }}

@@ -34,6 +34,10 @@ module.exports = {
       minWidth: {
         'mobile': '280px'
       },
+      minHeight: {
+        'sansPadding': 'calc(100vh - 6rem)',
+        'content': 'calc(100vh - 16rem)',
+      },
       willChange: {
         'filters': 'left, height, width',
       },

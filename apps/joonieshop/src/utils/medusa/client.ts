@@ -49,17 +49,6 @@ const getCollections = async (filter?: string) => {
     } 
 }
 
-export const getFeaturedProducts = async () => {
-    try {
-        const collection_id = await getCollections('Featured') as string;
-        const { products } = await medusaClient.products.list({ collection_id: [collection_id] });
-        if (products?.length === 0) return error(404, 'Featured products not found.');
-        return products;
-    } catch {
-        return { status: 500, error: 'Error fetching featured products.' }
-    }
-}
-
 // export const getShippingOptions = async () => {
 //     try {
 //         const cartId = getCartId();

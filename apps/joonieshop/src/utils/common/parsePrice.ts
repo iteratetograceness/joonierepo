@@ -1,4 +1,5 @@
 export const parsePrice = (amount?: number) => {
     if (!amount) return 0;
-    return (amount / 100).toFixed(2);
+    const price = amount / 100;
+    return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
 }

@@ -1,18 +1,17 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { fade } from 'svelte/transition';
-    import { cartQuantity } from '$stores/cart';
     import { getRandomColor } from '$utils/common/getRandomColor';
 	import { parsePrice } from '$utils/common/parsePrice';
 	import { currency } from '$stores/shop';
 	import Labels from '$components/Labels.svelte';
 
+    // TODO: what to do if there are no images?
+    // TODO: 
     export let data: PageData;
-
+    console.log(data);
     $: images = data.images || [];
     let currentImage = 0;
-
-    console.log(data);
 
     // Currently only supports having ONE type of product option:
     let selectedVariant = 0;
@@ -40,7 +39,7 @@
 </script>
 
 <div class="relative flex flex-col w-screen min-h-screen overflow-y-scroll md:flex-row scrollbar-hide overscroll-contain">
-    <div class="md:h-screen md:w-1/2">
+    <div class="md:h-screen md:w-2/5">
         {#each images as image, i}
             <img transition:fade="{{ delay: 250, duration: 300 }}" class={`${currentImage === i ? '' : 'hidden'} md:block ${getRandomColor()}`} src={image.url} alt={`${i+1} of ${images.length}`} />
         {/each}
@@ -53,15 +52,13 @@
         </div>
     </div>
 
-    <div class="top-0 flex flex-col gap-4 unset md:sticky p-7 w-screens md:w-1/2">
-        <a href="/cart" class="absolute top-4 right-4 md:top-8 md:right-7">{`Cart (${$cartQuantity})`}</a>
-        <div class="flex flex-col w-full md:w-4/5">
-            <!-- Go back -->
+    <div class="top-0 flex flex-col max-h-screen gap-4 p-6 unset md:sticky md:p-12 md:w-3/5">
+        <div class="flex flex-col w-full gap-4 mt-4 md:gap-7 md:mt-32">
             {#if hasAtLeastOneVariantOnSale || isPartOfCollection || hasOtherLabelsInMetaData}
                 <Labels {labels} />
             {/if}
-            <h1 class="mb-4 text-2xl font-bold">{data.title}</h1>
-            <h2 class="mb-4 text-xl font-medium">${price}</h2>
+            <h1 class="text-3xl antialiased font-bold sm:text-4xl md:text-5xl lg:text-6xl font-libre">{data.title?.toLowerCase() || 'untitled'}</h1>
+            <h2 class="text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl">${price}</h2>
             {#if data.options && data.options.length > 0}
                 {#each data.options as option, i (i)}
                     <div class="flex flex-col gap-2 py-8">
@@ -84,7 +81,7 @@
             <!-- Add to cart button -->
         </div>
         
-    </div>
+    </div> 
 </div>
 
 <style>

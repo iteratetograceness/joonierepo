@@ -5,27 +5,19 @@
 	import ProductGrid from "$components/ProductGrid/ProductGrid.svelte";
 	import type { Product } from '$utils/medusa/types';
 	import ProductGridSkeleton from '$components/ProductGrid/ProductGridSkeleton.svelte';
-	import FeaturedProducts from '$components/ProductGrid/FeaturedProducts.svelte';
   
   export const prerender = true;
   export let data: PageData;
-  let filter = 'All';
 
+  let filter = 'All';
   $: filters = Array.isArray(data.filters) ? [{ value: 'all', metadata: {} }, ...data.filters] : [{ value: 'all', metadata: {} }];
 
-  $: featured = Array.isArray(data.featured) ? data.featured.map((p) => {
-    p.metadata = { show: true };
-    return p;
-  }) : [];
+  const filterProductsByCategory = (unfilteredProducts: Product[], category = 'all') => {
+    const caseInsensitiveCategory = category.toLowerCase();
 
-  const filterProductsByCategory = (unfilteredProducts: Product[], category = 'All') => {
-    featured = Array.isArray(data.featured) ? data.featured.map(p => {
-      p.metadata = { show: category === 'All' ? true : false };
-      return p;
-    }) : [];
-    
     return unfilteredProducts.map((p) => {
-      const show = category === 'All' ? true : p.type?.value === category;
+      const caseInsensitiveProductType = p.type?.value.toLowerCase();
+      const show = caseInsensitiveCategory === 'all' ? true : caseInsensitiveProductType === caseInsensitiveCategory;
       p.metadata = { show };
       return p;
     });
@@ -43,9 +35,6 @@
 <main>
   <section class="flex flex-col min-h-screen">
     <Filters bind:filter={filter} {filters} />
-    <!-- {#if featured.length > 0}
-      <FeaturedProducts {featured} />
-    {/if}
     {#await data.streamed.allProducts}
       <ProductGridSkeleton />
     {:then products}
@@ -59,6 +48,6 @@
         <p class="text-lg text-3xl font-bold">Oops!</p>
         <span class="w-[20ch] text-md sm:text-lg text-center">We ran into an issue. <button class="inline font-bold hover:text-yellow transition-[color] duration-200" on:click={reload}>Click here</button> to try again.</span>
       </div>
-    {/await} -->
+    {/await}
   </section>
 </main>

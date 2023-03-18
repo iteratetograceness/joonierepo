@@ -1,15 +1,14 @@
 <script>
   import '../app.postcss';
   import "@fontsource/libre-caslon-text";
-  import "@fontsource/inter";
+  import "@fontsource/inter/variable.css";
 
+  import { handleStoreCart } from '$stores/cart';
   import { page } from '$app/stores';
   import Footer from '$components/Footer.svelte';
-  import { handleStoreCart } from '$stores/cart';
   import { onMount } from 'svelte';
 	import Header from '$components/Header.svelte';
 
-  $: isCart = $page.url.pathname === '/cart';
   $: hideHeaderAndFooter = $page.url.pathname.includes('product');
 
   onMount(async () => {
@@ -17,21 +16,17 @@
       await handleStoreCart();
     }
   });
-
-  const openCart = async () => {
-    await handleStoreCart();
-  }
 </script>
 
 
-<main class='min-h-screen p-6 min-w-mobile md:p-12'>
+<main class='box-border p-6 min-h-sansPadding min-w-mobile md:p-12'>
   {#if !hideHeaderAndFooter}
-    <Header on:openCart={openCart} />
+    <Header />
   {/if}
-  <div class="relative flex flex-col min-h-screen">
+  <div class="relative flex flex-col min-h-content">
     <slot />
-    {#if !hideHeaderAndFooter}
-      <Footer />
-    {/if}
   </div>
+  {#if !hideHeaderAndFooter}
+    <Footer />
+  {/if}
 </main>

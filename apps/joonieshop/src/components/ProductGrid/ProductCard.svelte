@@ -5,7 +5,6 @@
 	import { currency } from "$stores/shop";
     
     export let product: Product;
-    export let featured = false;
 
     $: price_or_range = (variants: ProductVariant[]) => {
         if (variants.length === 1) {
@@ -19,7 +18,7 @@
             if (min === max) {
                 return `$${parsePrice(min)}`;
             }
-            return `$${parsePrice(min)} - $${parsePrice(max)}`;
+            return `$${parsePrice(min)}–${parsePrice(max)}`;
         }
     }
 </script>
@@ -29,16 +28,13 @@
     data-sveltekit-preload-data="hover"
     href={`/product/${product.handle}`}
 >
-    {#if featured}
-        <div class="absolute top-0 left-0 z-50 flex items-center justify-center h-10 px-5 text-sm font-bold w-max bg-yellow text-brown">FEATURED</div>
-    {/if}
-    <div class={`w-screen md:w-full h-auto -mx-4 md:mx-0 aspect-image ${getRandomColor(['bg-dark', 'bg-light', 'bg-light-blue'])} ${!product.thumbnail ? 'hover:opacity-80 transition-opacity duration-500' : ''}`}>
+    <div class={`-mx-6 md:mx-0 aspect-square md:rounded-3xl overflow-hidden ${getRandomColor(['bg-dark', 'bg-light', 'bg-light-blue'])} hover:opacity-80 transition-opacity duration-500`}>
         {#if product.thumbnail}
-            <img class="object-cover w-full h-full transition-transform duration-500 ease-in-out hover:scale-95" src={product.thumbnail} alt={`Thumbnail for ${product.title}`} />
+            <img class="object-cover w-full h-full" src={product.thumbnail} alt={`Thumbnail for ${product.title}`} />
         {/if}
     </div>
-    <div class="flex justify-between w-full pt-3">
-        <b>{product.title}</b>
+    <div class="flex justify-between w-full pt-3 -mx-2 md:mx-0 md:px-5">
+        <b class="font-bold">{product.title.toLowerCase()}</b>
         <p>{price_or_range(product.variants)}</p>
     </div> 
 </a>
