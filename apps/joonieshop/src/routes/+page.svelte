@@ -5,6 +5,7 @@
 	import ProductGrid from "$components/ProductGrid/ProductGrid.svelte";
 	import type { Product } from '$utils/medusa/types';
 	import ProductGridSkeleton from '$components/ProductGrid/ProductGridSkeleton.svelte';
+	import Line from '$components/Line.svelte';
   
   export const prerender = true;
   export let data: PageData;
@@ -34,7 +35,11 @@
 
 <main>
   <section class="flex flex-col min-h-screen">
-    <Filters bind:filter={filter} {filters} />
+    <div class="py-6">
+      <Line />
+        <Filters bind:filter={filter} {filters} />
+      <Line />
+    </div>
     {#await data.streamed.allProducts}
       <ProductGridSkeleton />
     {:then products}

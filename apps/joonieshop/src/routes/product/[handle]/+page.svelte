@@ -5,22 +5,66 @@
 	import { parsePrice } from '$utils/common/parsePrice';
 	import { currency } from '$stores/shop';
 	import Labels from '$components/Labels.svelte';
+	import Filters from '$components/Filters.svelte';
+	import type { ProductOptionValue, ProductVariant } from '$utils/medusa/types';
+	import Line from '$components/Line.svelte';
 
     // TODO: what to do if there are no images?
-    // TODO: 
+
     export let data: PageData;
-    console.log(data);
+
     $: images = data.images || [];
     let currentImage = 0;
 
-    // Currently only supports having ONE type of product option:
     let selectedVariant = 0;
-    $: selectedVariantId = data.variants?.[selectedVariant]?.id;
+    $: optionsMap = generateOptionsMap({}, data.variants);
+    $: selectedOptions = data.options?.map(option => option.values[0].value) || [];
+    const variantKeyCache = {};
+
+    const optionTypes = { size: ['xs', 's', 'm', 'l', 'xl'], color: [], finish: ['glossy', 'matte'] };
+    
+    const generateFilters = (values: ProductOptionValue[], type: string) => {
+        switch (type) {
+            case 'size':
+                const sizes: { value: string }[] = [];
+                for (const size of optionTypes.size) {
+                    const isIncludedSize = values.find(value => value.value.toLowerCase() === size);
+                    if (isIncludedSize) {
+                        sizes.push({ value: size });
+                    }
+                }
+                return sizes;
+            default:
+                const mapOfValues = values.reduce((a: Record<string, { value: string }>, c) => {
+                    const value = c.value.toLowerCase();
+                    if (!a[value]) {
+                        a[value] = { value };
+                    }
+                    return a;
+                }, {});
+                return Object.values(mapOfValues);
+        }
+    }
+    
+    const generateOptionsMap = (map: Record<string, unknown>, variants?: ProductVariant[], i = 0) => {
+        if (!variants || variants.length <= 1) return;
+
+        variants.forEach(variant => {
+            const alphabeticallySortedOptions = variant.options?.sort((a, b) => a.value.localeCompare(b.value));
+            const varianttKey = alphabeticallySortedOptions.map(option => option.value.toLowerCase()).join('-');
+            map[varianttKey] = variant.id;
+        });
+       
+       return map; 
+    };
+
+    console.log(optionsMap, selectedOptions);
+
     $: price = parsePrice(data.variants?.[selectedVariant]?.prices.find(price => price.currency_code === $currency)?.amount);
 
     let labels: string[] = []
     $: hasOtherLabelsInMetaData = (data.metadata?.labels as string[])?.length > 0;
-    $: isPartOfCollection = data.collection !== undefined;
+    $: isPartOfCollection = data.collection !== undefined && data.collection !== null;
     $: hasAtLeastOneVariantOnSale = data.variants?.some(variant => variant.prices.some(price => price.price_list?.type === 'sale' && price.price_list?.status === 'active'));
     $: {
         if (isPartOfCollection) {
@@ -59,24 +103,26 @@
             {/if}
             <h1 class="text-3xl antialiased font-bold sm:text-4xl md:text-5xl lg:text-6xl font-libre">{data.title?.toLowerCase() || 'untitled'}</h1>
             <h2 class="text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl">${price}</h2>
-            {#if data.options && data.options.length > 0}
-                {#each data.options as option, i (i)}
-                    <div class="flex flex-col gap-2 py-8">
-                        <h3 class="text-lg font-medium">{option.title}</h3>
-                        <div class="flex flex-row gap-2">
-                            {#each option.values as value, j}
-                                <button 
-                                    class={`px-4 py-2 text-base font-medium ${selectedVariant === j ? 'bg-light-blue text-white' : 'bg-dark-blue text-white'}`} 
-                                    on:click={() => selectedVariant = j}
-                                >
-                                    {value.value}
-                                </button>
-                            {/each}
+            <div>
+                {#if data.options && data.options.length > 0}
+                    {#each data.options as option, i (i)}
+                    <div>
+                        <Line />
+                        <div class="flex flex-col gap-2 md:items-center md:justify-between md:flex-row">
+                            <h3 class="text-lg font-light">{option.title.toLowerCase()}</h3>
+                            <Filters filter={selectedOptions[i]} filters={generateFilters(option.values, option.title.toLowerCase())} />
                         </div>
                     </div>
-                {/each}
-            {/if}
-            <!-- Quantity Selector -->
+                    {/each}
+                {/if}
+                <Line />
+                <div class="flex flex-col gap-2 md:items-center md:justify-between md:flex-row">
+                    <h3 class="text-lg font-light">quantity</h3>
+                    <div class="py-4">quantity selector</div>
+                </div>
+            <Line />
+            </div>
+            
             <p class="text-lg">{data.description}</p>
             <!-- Add to cart button -->
         </div>

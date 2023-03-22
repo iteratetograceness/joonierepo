@@ -1,11 +1,14 @@
 <script lang="ts">
-	import type { ProductType } from "$utils/medusa/types";
 	import { onMount } from "svelte";
-	import Line from "./Line.svelte";
 
-    export let filters: ProductType[] = [];
-    export let filter = 'all';
+    interface Option {
+        value: string;
+    }
 
+    export let filters: Option[] = [];
+    export let filter: string;
+
+    let mounted = false;
     let activeElement: HTMLDivElement | undefined;
     let index = 0;
     const buttonElements = filters.map(filter => {
@@ -23,6 +26,7 @@
 
     onMount(() => {
         reposition(buttonElements[index], activeElement);
+        mounted = true;
     });
 
     const setType = (type: string, i: number) => {
@@ -33,10 +37,9 @@
 
 </script>
 
-<section class="py-10 -mx-6 md:mx-0">
-    <Line />
+<section class="-mx-6 md:mx-0">
     <div class="relative flex w-full gap-4 py-4 overflow-x-auto will-change-scroll min-h-max px-7 snap-x md:px-0 no-scrollbar">
-        <div bind:this={activeElement} class="absolute border-[1px] border-brown rounded-3xl will-change-filters transition-filters duration-300" />
+        <div bind:this={activeElement} class={`absolute border-[1px] border-brown rounded-3xl will-change-filters transition-filters duration-300 ${!mounted ? 'opacity-0' : ''}`} />
         {#each filters as { value }, i (i)}
             <button 
                 bind:this={buttonElements[i]}
@@ -48,7 +51,6 @@
             </button>
         {/each}
     </div>
-    <Line />
 </section>
 
 <svelte:window on:resize={() => reposition(buttonElements[index], activeElement)} />
