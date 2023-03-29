@@ -8,10 +8,13 @@
 	import Filters from '$components/Filters.svelte';
 	import type { ProductOptionValue, ProductVariant } from '$utils/medusa/types';
 	import Line from '$components/Line.svelte';
+	import QuantitySelector from '$components/QuantitySelector.svelte';
 
     // TODO: what to do if there are no images?
 
     export let data: PageData;
+
+    let count = 1;
 
     $: images = data.images || [];
     let currentImage = 0;
@@ -82,7 +85,7 @@
     };
 </script>
 
-<div class="relative flex flex-col w-screen min-h-screen overflow-y-scroll md:flex-row scrollbar-hide overscroll-contain">
+<div class="relative flex flex-col w-screen min-h-screen overflow-y-scroll md:flex-row scrollbar-hide md:overscroll-contain">
     <div class="md:h-screen md:w-2/5">
         {#each images as image, i}
             <img transition:fade="{{ delay: 250, duration: 300 }}" class={`${currentImage === i ? '' : 'hidden'} md:block ${getRandomColor()}`} src={image.url} alt={`${i+1} of ${images.length}`} />
@@ -96,8 +99,8 @@
         </div>
     </div>
 
-    <div class="top-0 flex flex-col max-h-screen gap-4 p-6 unset md:sticky md:p-12 md:w-3/5">
-        <div class="flex flex-col w-full gap-4 mt-4 md:gap-7 md:mt-32">
+    <div class="top-0 flex flex-col p-6 md:max-h-screen max-h-min unset md:sticky md:p-10 md:w-3/5">
+        <div class="flex flex-col w-full gap-6 mt-4 md:gap-6 md:mt-24">
             {#if hasAtLeastOneVariantOnSale || isPartOfCollection || hasOtherLabelsInMetaData}
                 <Labels {labels} />
             {/if}
@@ -108,22 +111,25 @@
                     {#each data.options as option, i (i)}
                     <div>
                         <Line />
-                        <div class="flex flex-col gap-2 md:items-center md:justify-between md:flex-row">
+                        <div class="flex items-center justify-between gap-2">
                             <h3 class="text-lg font-light">{option.title.toLowerCase()}</h3>
-                            <Filters filter={selectedOptions[i]} filters={generateFilters(option.values, option.title.toLowerCase())} />
+                            <Filters mobileVersion type={option.title.toLowerCase()} filter={selectedOptions[i]} filters={generateFilters(option.values, option.title.toLowerCase())} />
                         </div>
                     </div>
                     {/each}
                 {/if}
                 <Line />
-                <div class="flex flex-col gap-2 md:items-center md:justify-between md:flex-row">
+                <div class="flex items-center justify-between gap-2">
                     <h3 class="text-lg font-light">quantity</h3>
-                    <div class="py-4">quantity selector</div>
+                    <div class="py-4"><QuantitySelector bind:count /></div>
                 </div>
             <Line />
             </div>
-            
-            <p class="text-lg">{data.description}</p>
+            <div class="flex">
+                <button>go back</button>
+                <button>add to cart</button>
+            </div>
+            <p>{data.description}</p>
             <!-- Add to cart button -->
         </div>
         

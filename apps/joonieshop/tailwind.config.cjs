@@ -39,10 +39,11 @@ module.exports = {
 				content: 'calc(100vh - 16rem)'
 			},
 			willChange: {
-				filters: 'left, height, width, opacity'
+				filters: 'left, height, width, opacity, scroll-position'
 			},
 			transitionProperty: {
-				filters: 'left, height, width, opacity'
+				filters: 'left, height, width, opacity',
+				height: 'height'
 			}
 		}
 	},
