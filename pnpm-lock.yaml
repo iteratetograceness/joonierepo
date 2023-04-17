@@ -257,10 +257,10 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       react-markdown: ^8.0.5
+      rotating-text: ^1.0.4
       swr: ^2.0.3
       tsconfig: workspace:*
       typescript: 4.9.3
-      ui: workspace:*
     dependencies:
       '@contentful/rich-text-react-renderer': 15.16.2_biqbaboplfbrettd7655fr4n2y
       '@contentful/rich-text-types': 16.0.2
@@ -275,9 +275,9 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-markdown: 8.0.5_fan5qbzahqtxlm5dzefqlqx5ia
+      rotating-text: 1.0.4_react@18.2.0
       swr: 2.0.3_react@18.2.0
       typescript: 4.9.3
-      ui: link:../../packages/ui
     devDependencies:
       encoding: 0.1.13
       eslint: 8.28.0
@@ -17442,6 +17442,15 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /rotating-text/1.0.4_react@18.2.0:
+    resolution: {integrity: sha512-SYTwBAgJvxBQrs2kuyZ6EsZGODvmZ4x9tchH+KEXliqINGau9ehK8eOZPX40bJJ7AcncDLMbi+CR/nwaGULQug==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /rsvp/4.8.5:
     resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}

@@ -1,8 +1,9 @@
 'use client';
 
-import { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { Button } from '../button';
-import { RotatingText } from 'ui';
+import { RotatingText } from 'rotating-text'
+import 'rotating-text/dist/index.css'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
