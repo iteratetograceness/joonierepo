@@ -1,5 +1,5 @@
 export const Config = {
-  pagination: {
-    pageSize: 10,
-  },
+	pagination: {
+		pageSize: 10
+	}
 };

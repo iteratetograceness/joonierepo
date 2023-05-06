@@ -5,32 +5,32 @@
 import { useEffect, useState } from 'react';
 
 function useMediaQuery(query: string): boolean {
-  const getMatches = (query: string): boolean => {
-    // Prevents SSR issues
-    if (typeof window !== 'undefined') {
-      return window.matchMedia(query).matches;
-    }
-    return false;
-  };
+	const getMatches = (query: string): boolean => {
+		// Prevents SSR issues
+		if (typeof window !== 'undefined') {
+			return window.matchMedia(query).matches;
+		}
+		return false;
+	};
 
-  const [matches, setMatches] = useState<boolean>(getMatches(query));
+	const [matches, setMatches] = useState<boolean>(getMatches(query));
 
-  function handleChange() {
-    setMatches(getMatches(query));
-  }
+	function handleChange() {
+		setMatches(getMatches(query));
+	}
 
-  useEffect(() => {
-    const matchMedia = window.matchMedia(query);
+	useEffect(() => {
+		const matchMedia = window.matchMedia(query);
 
-    handleChange();
+		handleChange();
 
-    matchMedia.addEventListener('change', handleChange);
+		matchMedia.addEventListener('change', handleChange);
 
-    return () => matchMedia.removeEventListener('change', handleChange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+		return () => matchMedia.removeEventListener('change', handleChange);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [query]);
 
-  return matches;
+	return matches;
 }
 
 export default useMediaQuery;

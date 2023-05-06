@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let text: string = '';
+	export let text: string = '';
 </script>
 
-<span class="px-3 py-1 font-light tracking-wide rounded-full bg-brown text-light">{text}</span>
+<span class="rounded-full bg-brown px-3 py-1 font-light tracking-wide text-light">{text}</span>

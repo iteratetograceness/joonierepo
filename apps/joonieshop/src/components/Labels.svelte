@@ -1,17 +1,17 @@
 <script lang="ts">
-	import Pill from "./Pill.svelte";
+	import Pill from './Pill.svelte';
 
-    export let labels: string[] = [];
+	export let labels: string[] = [];
 </script>
 
 <div class="flex gap-1">
-{#if labels.includes('featured')}<Pill text="featured" />{/if}
-{#if labels.includes('sale')}<Pill text="sale" />{/if}
-{#if labels.filter((label) => label !== 'featured' && label !== 'sale').length > 0}
-    {#each labels.filter((label) => label !== 'featured' && label !== 'sale') as label}
-    <Pill text={label} />
-    {/each}
-{:else}
-    <span class="px-3 py-1 font-light tracking-wide rounded-full bg-transparent text-light">*</span>
-{/if}
+	{#if labels.includes('featured')}<Pill text="featured" />{/if}
+	{#if labels.includes('sale')}<Pill text="sale" />{/if}
+	{#if labels.filter((label) => label !== 'featured' && label !== 'sale').length > 0}
+		{#each labels.filter((label) => label !== 'featured' && label !== 'sale') as label}
+			<Pill text={label} />
+		{/each}
+	{:else}
+		<span class="rounded-full bg-transparent px-3 py-1 font-light tracking-wide text-light">*</span>
+	{/if}
 </div>

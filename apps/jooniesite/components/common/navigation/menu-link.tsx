@@ -9,46 +9,41 @@ import { libreCaslonText } from '~/utils/fonts';
 import styles from './index.module.css';
 
 interface Props {
-  label: string;
-  href: string;
-  italics?: number[];
-  onClick?: MouseEventHandler;
+	label: string;
+	href: string;
+	italics?: number[];
+	onClick?: MouseEventHandler;
 }
 
 export const MenuLink = forwardRef(function MenuLink(
-  { label, href, italics, onClick }: Props,
-  ref: ForwardedRef<HTMLAnchorElement>,
+	{ label, href, italics, onClick }: Props,
+	ref: ForwardedRef<HTMLAnchorElement>
 ) {
-  const pathname = usePathname();
-  const italicIndexes = new Set(italics);
+	const pathname = usePathname();
+	const italicIndexes = new Set(italics);
 
-  return (
-    <Link
-      onClick={onClick}
-      className={libreCaslonText.className}
-      href={href}
-      ref={ref}
-    >
-      {Array.from(label.toUpperCase()).map((char, index) => {
-        if (italicIndexes.has(index)) {
-          return (
-            <em key={`${char}${index}`} className={styles.char}>
-              {char}
-            </em>
-          );
-        } else {
-          return (
-            <span key={`${char}${index}`} className={styles.char}>
-              {char}
-            </span>
-          );
-        }
-      })}
-      {pathname === href ? (
-        <motion.span variants={OPACITY_VARIANTS} className={styles.char}>
-          *
-        </motion.span>
-      ) : null}
-    </Link>
-  );
+	return (
+		<Link onClick={onClick} className={libreCaslonText.className} href={href} ref={ref}>
+			{Array.from(label.toUpperCase()).map((char, index) => {
+				if (italicIndexes.has(index)) {
+					return (
+						<em key={`${char}${index}`} className={styles.char}>
+							{char}
+						</em>
+					);
+				} else {
+					return (
+						<span key={`${char}${index}`} className={styles.char}>
+							{char}
+						</span>
+					);
+				}
+			})}
+			{pathname === href ? (
+				<motion.span variants={OPACITY_VARIANTS} className={styles.char}>
+					*
+				</motion.span>
+			) : null}
+		</Link>
+	);
 });

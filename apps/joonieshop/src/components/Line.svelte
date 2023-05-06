@@ -1,1 +1,1 @@
-<hr class="h-[2px] bg-current"/>
+<hr class="h-[2px] bg-current" />
