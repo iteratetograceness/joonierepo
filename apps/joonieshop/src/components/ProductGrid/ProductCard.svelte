@@ -24,8 +24,7 @@
 </script>
 
 <a 
-    class="relative w-full" 
-    data-sveltekit-preload-data="hover"
+    class="relative w-full"
     href={`/product/${product.handle}`}
 >
     <div class={`-mx-6 md:mx-0 aspect-square md:rounded-3xl overflow-hidden ${getRandomColor(['bg-dark', 'bg-light', 'bg-light-blue'])} hover:opacity-80 transition-opacity duration-500`}>

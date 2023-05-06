@@ -22,9 +22,11 @@ importers:
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/adapter-vercel': ^2.1.1
       '@sveltejs/kit': 1.8.0
+      '@types/lodash.isequal': ^4.5.6
       autoprefixer: 10.4.13
       eslint: 8.33.0
       eslint-config-custom: workspace:*
+      lodash.isequal: ^4.5.0
       node-sass: 8.0.0
       postcss: 8.4.21
       postcss-load-config: 4.0.1
@@ -33,6 +35,7 @@ importers:
       svelte: 3.55.1
       svelte-check: ^3.0.4
       svelte-preprocess: 5.0.1
+      sveltekit-medusa-client: ^0.0.1
       tailwindcss: 3.2.4
       tslib: ^2.5.0
       typescript: ^4.9.5
@@ -42,12 +45,14 @@ importers:
       '@fontsource/libre-caslon-text': 4.5.8
       '@medusajs/medusa-js': 1.3.10_@medusajs+medusa@1.7.8
       eslint-config-custom: link:../../packages/eslint-config-custom
+      lodash.isequal: 4.5.0
     devDependencies:
       '@medusajs/medusa': 1.7.8
       '@stripe/stripe-js': 1.47.0
       '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.8.0
       '@sveltejs/adapter-vercel': 2.1.1_@sveltejs+kit@1.8.0
       '@sveltejs/kit': 1.8.0_svelte@3.55.1+vite@4.1.1
+      '@types/lodash.isequal': 4.5.6
       autoprefixer: 10.4.13_postcss@8.4.21
       eslint: 8.33.0
       node-sass: 8.0.0
@@ -58,6 +63,7 @@ importers:
       svelte: 3.55.1
       svelte-check: 3.0.4_gqx7lw3sljhsd4bstor5m2aa2u
       svelte-preprocess: 5.0.1_b25a55hc532q56kmuqlrolam2i
+      sveltekit-medusa-client: 0.0.1_svelte@3.55.1
       tailwindcss: 3.2.4_postcss@8.4.21
       tslib: 2.5.0
       typescript: 4.9.5
@@ -1385,6 +1391,12 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
+
+  /@types/lodash.isequal/4.5.6:
+    resolution: {integrity: sha512-Ww4UGSe3DmtvLLJm2F16hDwEQSv7U0Rr8SujLUA2wHI2D2dm8kPu6Et+/y303LfjTIwSBKXB/YTUcAKpem/XEg==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
 
   /@types/lodash/4.14.191:
     resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
@@ -4751,6 +4763,10 @@ packages:
   /lodash.isboolean/3.0.3:
     resolution: {integrity: sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg==}
 
+  /lodash.isequal/4.5.0:
+    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    dev: false
+
   /lodash.isinteger/4.0.4:
     resolution: {integrity: sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==}
 
@@ -7208,6 +7224,23 @@ packages:
   /svelte/3.55.1:
     resolution: {integrity: sha512-S+87/P0Ve67HxKkEV23iCdAh/SX1xiSfjF1HOglno/YTbSTW7RniICMCofWGdJJbdjw3S+0PfFb1JtGfTXE0oQ==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /sveltekit-medusa-client/0.0.1_svelte@3.55.1:
+    resolution: {integrity: sha512-LmUonc7hmBZARy6rKZzUe4k4GHdAdBVFDRIyWFOVoYv1qhiGsH5D7Jr94KXK4N+xyy/pNozlvgMROeoD+Z/wUg==}
+    peerDependencies:
+      svelte: ^3.54.0
+    dependencies:
+      svelte: 3.55.1
+      sveltekit-superfetch: 1.0.5_svelte@3.55.1
+    dev: true
+
+  /sveltekit-superfetch/1.0.5_svelte@3.55.1:
+    resolution: {integrity: sha512-QSUqNvaV01P8cjYlle99AzMopsVkCgxhjZV7nUUMGO7b/1AsEN4G4RiF8voaPEq6wAFVYI4p80JANzu0pF6URg==}
+    peerDependencies:
+      svelte: ^3.54.0
+    dependencies:
+      svelte: 3.55.1
     dev: true
 
   /swr/2.0.3_react@18.2.0:

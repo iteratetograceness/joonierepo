@@ -1,153 +1,28 @@
-import { goto } from '$app/navigation';
+import type { Cart } from '$utils/medusa/types';
 import { derived, writable } from 'svelte/store';
-import { medusaClient } from '$utils/medusa/client';
-import { updateCheckout } from './checkout';
 
-const CART_KEY = 'joonie_cart';
+export const cart = writable<Cart | null>();
+export const isCartLoading = writable(false);
 
-export const myCart = writable({}); // TODO: cart type.
-export const cartConfirmation = writable({});
-// @ts-expect-error -- TODO: fixed by adding cart type.
-export const cartQuantity = derived(myCart, (c) => c.cart?.items.length || 0);
+export const cartQuantity = derived(cart, (c) => {
+	if (!c) return 0;
+	return c.items.reduce((acc, item) => acc + item.quantity, 0);
+});
 
-const createCart = async () => {
-    try {
-        const { cart } = await medusaClient.carts.create();
-        return cart;
-    } catch (e) {
-        console.log(`Error creating cart: ${e}`)
-    }
-}
+export const addToCart = async (variantId: string, quantity: number) => {
+	const c = await fetch('/api/cart', {
+		method: 'POST',
+		body: JSON.stringify({ variantId, quantity })
+	});
+	const ct = (await c.json()) as Cart;
+	cart.update(() => ct);
+};
 
-const saveCartId = async () => {
-    try {
-        const newCart = await createCart();
-        if (!newCart) throw new Error('Error creating cart.');
-        const cartId = newCart.id;
-        localStorage.setItem(CART_KEY, cartId);
-        myCart.update(c => {
-            // @ts-expect-error -- TODO: typing.
-            c.cart.id = newCart.id;
-            return c;
-        })
-    } catch (e) {
-        console.log(`Error saving cart ID: ${e}`)
-    }
-}
-
-export const getCartId = () => {
-    let cartId;
-    myCart.subscribe(c => {
-        // @ts-expect-error -- TODO: typing.
-        cartId = c.cart.id;
-    });
-    return cartId;
-}
-
-export const handleStoreCart = async () => {
-    const savedCartId = localStorage.getItem(CART_KEY);
-
-    if (!savedCartId) {
-		await saveCartId();
-    } else {
-        const { cart } = await medusaClient.carts.retrieve(savedCartId);
-        myCart.update(c => {
-            // @ts-expect-error -- TODO: typing.
-            c.cart = cart;
-            return c;
-        })
-    }
-
-    return myCart;
-}
-
-// TODO: investigate parameters.
-export const addCartDetails = async (user: string, email: string) => {
-    try {
-        const cartId = getCartId();
-        if (!cartId) throw new Error('Error retreiving Cart ID.');
-        const { cart } = await medusaClient.carts.update(cartId, {
-            shipping_address: user,
-            billing_address: user,
-            email: email
-        });
-
-        myCart.update(c => {
-            // @ts-expect-error -- TODO: typing.
-            c.cart = cart;
-            return c;
-        });
-
-        updateCheckout({
-            currentStep: "Delivery"
-        });
-    } catch (e) {
-        console.log(`Error adding cart info: ${e}`)
-    }
-}
-
-export const addToCart = async (id: string, quantity: number) => {
-    try {
-        const cartId = getCartId();
-        if (!cartId) throw new Error('Error retreiving Cart ID.');
-        await medusaClient.carts.lineItems.create(cartId, {
-            variant_id: id,
-            quantity: quantity
-        });
-
-        await handleStoreCart();
-    } catch (e) {
-        console.log(`Error adding cart variant: ${e}`)
-    }
-}
-
-export const removeFromCart = async (id: string) => {
-    try {
-        const cartId = getCartId();
-        if (!cartId) throw new Error('Error retreiving Cart ID.');
-        const { cart } = await medusaClient.carts.lineItems.delete(cartId, id);
-
-        myCart.update(c => {
-            // @ts-expect-error -- TODO: typing.
-            c.cart = cart;
-            return c;
-        })
-    } catch (e) {
-        console.log(`Error deleting cart variant: ${e}`)
-    }
-}
-
-export const completeCartCheckout = async () => {
-    try {
-        const cartId = getCartId();
-        if (!cartId) throw new Error('Error retreiving Cart ID.');
-        const { data } = await medusaClient.carts.complete(cartId);
-
-        cartConfirmation.update((confirmation) => {
-            confirmation = data;
-            return confirmation;
-        })
-
-        localStorage.clear();
-        myCart.update((c) =>  {
-            // @ts-expect-error -- TODO: typing.
-            c.cart =  { cart: {} };
-            return c;
-        })
-
-        await handleStoreCart();
-    } catch (e) {
-        console.log(`Error starting payment session: ${e}`)
-    }
-}
-
-export const resetCart = async () => {
-    localStorage.clear();
-    myCart.update((c) =>  {
-        // @ts-expect-error -- TODO: typing.
-        c.cart =  { cart : {} };
-        return c;
-    });
-    await handleStoreCart();
-    goto("/", { state: true });
-}
+export const removeFromCart = async (itemId: string) => {
+	const c = await fetch('/api/cart', {
+		method: 'DELETE',
+		body: JSON.stringify({ itemId })
+	});
+	const ct = (await c.json()) as Cart;
+	cart.update(() => ct);
+};

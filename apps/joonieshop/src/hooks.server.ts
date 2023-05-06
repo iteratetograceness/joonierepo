@@ -1,3 +1,4 @@
+import medusa from '$lib/server/medusa';
 import type { HandleServerError } from '@sveltejs/kit';
 
 // TODO: INTEGRATE ERROR LOGGER
@@ -12,3 +13,9 @@ export const handleError = (({ error }) => {
 		status: error?.status ?? 500
 	};
 }) satisfies HandleServerError;
+
+/** @type {import('@sveltejs/kit').Handle} */
+export async function handle({ event, resolve }) {
+	event = await medusa.handleRequest(event);
+	return await resolve(event);
+}

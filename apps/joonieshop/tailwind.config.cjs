@@ -13,6 +13,7 @@ module.exports = {
 				yellow: 'hsl(41, 68%, 54%)',
 				brown: 'hsl(18, 71%, 33%)',
 				'light-brown': 'hsl(21, 38%, 55%)',
+				'dark-brown': 'hsl(18, 97%, 17%)',
 				red: 'hsl(12, 61%, 47%)'
 			},
 			aspectRatio: {

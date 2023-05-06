@@ -11,5 +11,7 @@
     {#each labels.filter((label) => label !== 'featured' && label !== 'sale') as label}
     <Pill text={label} />
     {/each}
+{:else}
+    <span class="px-3 py-1 font-light tracking-wide rounded-full bg-transparent text-light">*</span>
 {/if}
 </div>
