@@ -1,7 +1,6 @@
 {
 	"root": true,
-	"plugins": ["react"],
-	"extends": ["custom", "next", "next/babel", "next/core-web-vitals", "plugin:react/recommended"],
+	"extends": ["custom", "next/core-web-vitals"],
 	"rules": {
 		"react/react-in-jsx-scope": "off"
 	},
