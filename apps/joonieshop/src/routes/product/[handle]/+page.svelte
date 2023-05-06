@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { Splide, SplideSlide } from '@splidejs/svelte-splide';
     import '@splidejs/svelte-splide/css';
     import type { PageData } from './$types';
     import { getRandomColor } from '$utils/common/getRandomColor';
