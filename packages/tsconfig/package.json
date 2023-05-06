@@ -1,10 +1,14 @@
 {
   "name": "tsconfig",
   "version": "0.0.0",
-  "private": true,
   "files": [
     "base.json",
     "nextjs.json",
     "ui.json"
-  ]
+  ],
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
