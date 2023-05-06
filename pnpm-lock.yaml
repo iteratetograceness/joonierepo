@@ -44,7 +44,6 @@ importers:
       '@fontsource/inter': 4.5.15
       '@fontsource/libre-caslon-text': 4.5.8
       '@medusajs/medusa-js': 1.3.10_@medusajs+medusa@1.7.8
-      eslint-config-custom: link:../../packages/eslint-config-custom
       lodash.isequal: 4.5.0
     devDependencies:
       '@medusajs/medusa': 1.7.8
@@ -55,6 +54,7 @@ importers:
       '@types/lodash.isequal': 4.5.6
       autoprefixer: 10.4.13_postcss@8.4.21
       eslint: 8.33.0
+      eslint-config-custom: link:../../packages/eslint-config-custom
       node-sass: 8.0.0
       postcss: 8.4.21
       postcss-load-config: 4.0.1_postcss@8.4.21
