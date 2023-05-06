@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '@splidejs/svelte-splide/css';
 	import type { PageData } from './$types';
 	import { getRandomColor } from '$utils/common/getRandomColor';
 	import { parsePrice } from '$utils/common/parsePrice';
