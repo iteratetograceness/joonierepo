@@ -1,20 +1,38 @@
 {
-	"extends": "tsconfig/nextjs.json",
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-	"exclude": ["node_modules"],
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"~/*": ["./*"],
-			"~/contentful/*": ["./contentful/*"],
-			"~/components/*": ["./components/*"],
-			"~/notion/*": ["./notion/*"],
-			"~/utils/*": ["./utils/*"]
-		},
-		"plugins": [
-			{
-				"name": "next"
-			}
-		]
-	}
+  "extends": "tsconfig/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "~/contentful/*": [
+        "./contentful/*"
+      ],
+      "~/components/*": [
+        "./components/*"
+      ],
+      "~/notion/*": [
+        "./notion/*"
+      ],
+      "~/utils/*": [
+        "./utils/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
+  }
 }

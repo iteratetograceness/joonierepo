@@ -1,11 +1,21 @@
 import medusa from '$lib/server/medusa';
-import { getAllProductTypes } from '$lib/server/utils';
-import type { Product, ProductType } from '$utils/medusa/types';
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
+
 export const load = (async () => {
+	const products = await medusa
+		.getAllProducts()
+		.then((response) => response.json())
+		.then((data) => data.products);
+
+	const filters = await medusa
+		.getAllProductTypes()
+		.then((response) => response.json())
+		.then((data) => data.product_types);
+
 	return {
-		filters: (await getAllProductTypes()) as ProductType[],
-		products: (await medusa.getAllProducts()) as Product[]
+		filters,
+		products
 	};
 }) satisfies PageServerLoad;

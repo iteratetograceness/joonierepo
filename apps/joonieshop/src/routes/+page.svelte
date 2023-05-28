@@ -32,19 +32,17 @@
 	<title>joonieshop</title>
 </svelte:head>
 
-<main>
-	<section class="flex min-h-screen flex-col">
-		<div class="py-6">
-			<Line />
-			<Filters bind:filter {filters} />
-			<Line />
-		</div>
-		{#if !data}
-			<ProductGridSkeleton />
-		{:else if data.products.length === 0}
-			<p>No products available.</p>
-		{:else}
-			<ProductGrid products={filterProductsByCategory(data.products, filter)} />
-		{/if}
-	</section>
-</main>
+<section class="flex min-h-screen flex-col">
+	<div class="py-6 min-h-4">
+		<Line />
+		<Filters bind:filter {filters} />
+		<Line />
+	</div>
+	{#if !data}
+		<ProductGridSkeleton />
+	{:else if data.products.length === 0}
+		<p>No products available.</p>
+	{:else}
+		<ProductGrid products={filterProductsByCategory(data.products, filter)} />
+	{/if}
+</section>

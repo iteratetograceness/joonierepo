@@ -38,7 +38,6 @@ export function CollectionList({ collection, type }: Props) {
 	const hasReachedEnd = allItems.length === collection.total;
 
 	const prefetchNextPage = async () => {
-		console.log('viewport enter');
 		const key = getKey(size, undefined);
 		if (key) {
 			await fetcher(key);

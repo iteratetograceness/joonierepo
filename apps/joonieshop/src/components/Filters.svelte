@@ -36,7 +36,7 @@
 </script>
 
 <section class="relative flex py-4">
-	<div class="no-scrollbar relative inset-auto flex w-screen snap-x overflow-x-auto md:w-auto">
+	<div class="no-scrollbar relative inset-auto flex w-screen snap-x overflow-x-auto md:w-full md:px-1">
 		<div
 			bind:this={activeElement}
 			class={`

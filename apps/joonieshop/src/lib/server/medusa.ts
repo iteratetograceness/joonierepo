@@ -5,5 +5,4 @@ const BACKEND_URL = dev
 	? import.meta.env.VITE_DEV_MEDUSA_BACKEND_URL
 	: import.meta.env.VITE_MEDUSA_BACKEND_URL;
 
-console.log('BACKEND_URL', BACKEND_URL);
 export default new MedusaClient(BACKEND_URL);

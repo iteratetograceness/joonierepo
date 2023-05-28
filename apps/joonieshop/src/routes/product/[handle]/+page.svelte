@@ -9,59 +9,57 @@
 	import { useProduct } from '$stores/product';
 	import ProductOptions from '$components/ProductOptions.svelte';
 	import { fade } from 'svelte/transition';
-	import { addToCart } from '$stores/cart';
+	import { addToCart, cartError } from '$stores/cart';
+	import toast from 'svelte-french-toast';
+
+	/**
+	 * TODO:
+	 * - Fix layout shift due to photo loading on mobile viewport
+	 * - Fix layout shift due to options loading in on desktop viewport
+	 */
 
 	export let data: PageData;
 
+	let loading = false;
 	$: images = data.images || [];
 	let currentImage = 0;
+
+	cartError.subscribe((msg) => {
+		if (msg) {
+			toast.error(msg);
+			cartError.set(null);
+		}
+	});
 
 	const {
 		variant,
 		options,
 		quantity,
-		actions: { updateOptions, increaseQuantity, decreaseQuantity, resetOptions }
+		price,
+		salePrice,
+		labels,
+		actions: { updateOptions, updateQuantity, increaseQuantity, decreaseQuantity, reset }
 	} = useProduct(data);
 
 	async function handleAddToCart() {
 		if ($variant) {
+			loading = true;
+			toast.remove();
 			await addToCart($variant.id, $quantity);
-			resetOptions();
+			reset();
+			loading = false;
 		}
 	}
 
-	$: price = parsePrice(
-		$variant?.prices.find((price) => price.currency_code === $currency)?.amount
-	);
-
-	let labels: string[] = [];
-	$: hasOtherLabelsInMetaData = (data.metadata?.labels as string[])?.length > 0;
-	$: isPartOfCollection = data.collection !== undefined && data.collection !== null;
-	$: hasAtLeastOneVariantOnSale = data.variants?.some((variant) =>
-		variant.prices.some(
-			(price) => price.price_list?.type === 'sale' && price.price_list?.status === 'active'
-		)
-	);
-	$: {
-		if (isPartOfCollection) {
-			labels.push(data.collection.handle);
-		}
-
-		if (hasAtLeastOneVariantOnSale) {
-			labels.push('sale');
-		}
-
-		if (hasOtherLabelsInMetaData) {
-			(data.metadata?.labels as string[])?.forEach((label: string) => labels.push(label));
-		}
-	}
+	$: stock = $variant?.inventory_quantity || 0;
+	$: invalidOption = (!$variant && $price === 0) || stock === 0;
 </script>
 
 <div class="relative flex min-h-fit w-screen flex-col md:flex-row">
 	<div class="overflow-y-scroll md:w-2/5">
 		{#each images as image, i}
 			<img
-				transition:fade={{ duration: 300 }}
+				in:fade={{ duration: 300 }}
 				class={`${currentImage === i ? '' : 'hidden'} md:block ${getRandomColor()}`}
 				src={image.url}
 				alt={`${i + 1} of ${images.length}`}
@@ -82,11 +80,20 @@
 
 	<div class="unset top-0 flex flex-col p-6 md:sticky md:left-[40%] md:h-max md:w-3/5 md:p-10">
 		<div class="mt-4 flex w-full flex-col gap-6 md:mt-24 md:gap-6">
-			<Labels {labels} />
+			<Labels labels={$labels} />
 			<h1 class="font-libre text-3xl font-bold antialiased sm:text-4xl md:text-5xl lg:text-6xl">
 				{data.title?.toLowerCase() || 'untitled'}
 			</h1>
-			<h2 class="text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl">${price}</h2>
+			<h2 class="text-xl font-light sm:text-2xl md:text-3xl lg:text-4xl">
+				{#if $salePrice}
+					$<span class="line-through">{$price}</span>
+					<span class="ml-2">{$salePrice}</span>
+				{:else if invalidOption}
+					<span class="text-red-500">unavailable</span>
+				{:else}
+					${$price}
+				{/if}
+			</h2>
 			<div>
 				{#each data.options as option, i (i)}
 					<div>
@@ -102,17 +109,33 @@
 							count={$quantity}
 							increment={increaseQuantity}
 							decrement={decreaseQuantity}
+							update={updateQuantity}
+							max={stock}
 						/>
 					</div>
 				</div>
 				<Line />
 			</div>
 			<div class="flex">
-				<button>go back</button>
-				<button on:click={handleAddToCart}>add to cart</button>
+				<button 
+					disabled={invalidOption || stock === 0 || loading}
+					class={`
+						w-full bg-brown text-light py-4 rounded-full mt-4 
+						transition-colors duration-300 hover:bg-light-brown
+						${invalidOption ? 'bg-light-brown cursor-not-allowed ho' : ''}
+					`} 
+					on:click={handleAddToCart}
+				>
+					{#if stock === 0}
+						out of stock
+					{:else if loading}
+						loading...
+					{:else}
+						add to cart
+					{/if}
+				</button>
 			</div>
-			<p>{data.description}</p>
-			<!-- Add to cart button -->
+			<p class="pb-12">{data.description?.toLowerCase()}</p>
 		</div>
 	</div>
 </div>

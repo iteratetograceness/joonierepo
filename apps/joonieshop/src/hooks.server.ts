@@ -1,8 +1,6 @@
 import medusa from '$lib/server/medusa';
 import type { HandleServerError } from '@sveltejs/kit';
 
-// TODO: INTEGRATE ERROR LOGGER
-
 export const handleError = (({ error }) => {
 	return {
 		//@ts-expect-error -- checks if message exists on error
@@ -14,7 +12,6 @@ export const handleError = (({ error }) => {
 	};
 }) satisfies HandleServerError;
 
-/** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
 	event = await medusa.handleRequest(event);
 	return await resolve(event);

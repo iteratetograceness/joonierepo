@@ -217,7 +217,7 @@ type ShippingOptionRequirement = {
 	deleted_at: Date;
 };
 
-type ShippingOption = {
+export type ShippingOption = {
 	name: string;
 	region_id: string;
 	region: Region;
@@ -885,7 +885,7 @@ export type Customer = SoftDeletableEntity & {
 	billing_address_id: string | null;
 	billing_address: Address;
 	shipping_addresses: Address[];
-	password_hash: string;
+	password: string;
 	phone: string;
 	has_account: boolean;
 	orders: Order[];

@@ -7,6 +7,8 @@
 	import Header from '$components/Header.svelte';
 	import { onMount } from 'svelte';
 	import { cart } from '$stores/cart';
+	import { fade } from 'svelte/transition';
+	import { Toaster } from 'svelte-french-toast';
 
 	/** @type {import('./$types').LayoutData} */
 	export let data;
@@ -20,7 +22,14 @@
 	$: hideHeaderAndFooter = $page.url.pathname.includes('product');
 </script>
 
-<main class="box-border min-h-sansPadding min-w-mobile p-6 md:p-12">
+<main class="box-border min-h-sansPadding min-w-mobile p-6 md:p-12" transition:fade={{ duration: 100 }}>
+	<Toaster 
+		position="bottom-right" 
+		toastOptions={{ 
+			iconTheme: { primary: 'hsl(18, 71%, 33%)', secondary: 'hsl(12, 6%, 97%)' },
+			style: 'color: hsl(18, 71%, 33%)'
+		}}
+	/>
 	{#if !hideHeaderAndFooter}
 		<Header />
 	{/if}

@@ -39,13 +39,13 @@
 					delay: 100
 				}}
 			>
-				<button class="mb-9 self-end" on:click={closeDialog}>
+				<button class="mb-9 self-end rounded-full p-2 hover:bg-dark-brown transition-colors duration-300" on:click={closeDialog}>
 					<Icons type="close" />
 				</button>
 				{#each filters as value, i (i)}
 					<button
 						class:active={filter === value}
-						class="mb-4 rounded-3xl px-4 py-2 hover:bg-dark-brown"
+						class="mb-4 rounded-3xl px-4 py-2 hover:bg-dark-brown transition-colors duration-300"
 						on:click={() => updateFilter(value, i)}
 					>
 						{value.toLowerCase()}
