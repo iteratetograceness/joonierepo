@@ -5,12 +5,25 @@
     $: itemsInCart = $cart?.items || [];
 </script>
 
-<section class="py-10 max-w-96">
+<section class="my-10 py-5 max-w-96 border-t-2 w-full md:w-1/2">
     {#if $cartQuantity === 0}
         <p>your cart is empty!</p>
     {:else}
+        <div class="flex justify-between w-full mb-5">
+            <p class="font-bold">item (quantity)</p>
+            <p class="font-bold">price</p>
+        </div>
         {#each itemsInCart as item}
-            <p>{item.title.toLowerCase()} / {item.description?.toLowerCase()} ({item.quantity}) — ${parsePrice(item.unit_price)}</p>
+        <span class="flex gap-2 mb-4">
+            <!-- remove btn -->
+            <button class="border border-brown rounded-full px-1 text-center text-xs">X</button>
+            <div class="flex w-full gap-1">
+                <p>{item.title.toLowerCase()} ({item.quantity})</p>
+                <button class="border border-brown rounded-full px-2 text-sm">edit</button>
+                <hr class="h-px bg-brown self-end inherit border-0 flex-1 mb-1">
+                <p>${parsePrice(item.unit_price)}</p>
+            </div>
+        </span>
             <!-- TODO: remove, update line item -->
         {/each}
         <p>subtotal: ${parsePrice($cartTotal.subtotal)}</p>

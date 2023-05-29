@@ -126,7 +126,9 @@
 					`} 
 					on:click={handleAddToCart}
 				>
-					{#if stock === 0}
+					{#if invalidOption}
+						unavailable
+					{:else if stock === 0}
 						out of stock
 					{:else if loading}
 						loading...

@@ -10,6 +10,10 @@
 	const handleInput = (event: Event) => {
 		const target = event.target as HTMLInputElement;
 		const value = parseInt(target.value);
+		if (value > max) {
+			update(max);
+			return;
+		}
 		update(value);
 	}
 
@@ -39,7 +43,7 @@
 		max={max}
 	/>
 	<button
-		class="flex h-8 w-8 items-center justify-center rounded-full border-[1px] border-brown"
+		class="flex h-8 w-8 items-center justify-center rounded-full border-[1px] border-brown disabled:opacity-25 disabled:hover:cursor-not-allowed"
 		on:click={increment}
 		disabled={count === max}
 	>
