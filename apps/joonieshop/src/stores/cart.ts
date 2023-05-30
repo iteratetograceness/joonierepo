@@ -54,8 +54,16 @@ export const updateCart = async (itemId: string, quantity: number) => {
 		method: 'PUT',
 		body: JSON.stringify({ itemId, quantity })
 	});
-	const ct = (await c.json()) as Cart;
-	cart.update(() => ct);
+
+	const ct = (await c.json()) as Cart | Error;
+
+	console.log({ ct });
+
+	if ('message' in ct) {
+		cartError.set(ct.message.toLowerCase());
+	} else {
+		cart.update(() => ct);
+	}
 };
 
 export const getShippingOptions = async () => {

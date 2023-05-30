@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { getRandomColor } from '$utils/common/getRandomColor';
-	import { parsePrice } from '$utils/common/parsePrice';
-	import { currency } from '$stores/shop';
 	import Labels from '$components/Labels.svelte';
 	import Line from '$components/Line.svelte';
 	import QuantitySelector from '$components/QuantitySelector.svelte';

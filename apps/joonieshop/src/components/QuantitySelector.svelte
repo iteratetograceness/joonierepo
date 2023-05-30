@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Icons from './Icons.svelte';
 
 	export let count = 1;
@@ -6,14 +7,30 @@
 	export let decrement: () => void;
 	export let update: (quantity: number) => void;
 	export let max = 100;
+	export let focusInputOnMount = false;
+
+	let input: HTMLInputElement;
+
+	if (focusInputOnMount) {
+		onMount(() => {
+			input.focus();
+		})
+	}
 
 	const handleInput = (event: Event) => {
 		const target = event.target as HTMLInputElement;
 		const value = parseInt(target.value);
+
 		if (value > max) {
 			update(max);
 			return;
 		}
+
+		if (value <= 0) {
+			update(1);
+			return;
+		}
+
 		update(value);
 	}
 
@@ -34,6 +51,7 @@
 		<Icons type="minus" />
 	</button>
 	<input 
+		bind:this={input}
 		class="w-12 text-center py-2" 
 		on:input={handleInput}
 		on:keypress={isNumberKey}

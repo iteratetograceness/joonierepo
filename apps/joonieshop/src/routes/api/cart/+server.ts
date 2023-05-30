@@ -4,7 +4,6 @@ import { error, json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ locals, cookies, request }) => {
 	const body = await request.json();
-
 	const response = await medusa.addToCart({
 		locals,
 		cookies,
@@ -31,7 +30,6 @@ export const POST: RequestHandler = async ({ locals, cookies, request }) => {
 
 export const DELETE: RequestHandler = async ({ locals, request }) => {
 	const body = await request.json();
-
 	const response = await medusa.removeFromCart(locals, body.itemId);
 
 	if (response instanceof Response) {
@@ -49,6 +47,17 @@ export const DELETE: RequestHandler = async ({ locals, request }) => {
 
 export const PUT: RequestHandler = async ({ locals, request }) => {
 	const body = await request.json();
-	const cart = await medusa.updateCart(locals, body.itemId, body.quantity);
-	return json(cart);
+	const response = await medusa.updateCart(locals, body.itemId, body.quantity);
+
+	if (response instanceof Response) {
+		if (!response.ok) {
+			const { status, message } = await handleMedusaErrors(response);
+			throw error(status, message);
+		}
+
+		const data = await response.json();
+		return json(data.cart);
+	}
+
+	throw error(500, 'Unexpected error');
 };
