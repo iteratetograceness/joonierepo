@@ -12,23 +12,39 @@ export const POST: RequestHandler = async ({ locals, cookies, request }) => {
 		quantity: body.quantity
 	});
 
-	if (response instanceof Response && !response.ok) {
-		const { status, message } = await handleMedusaErrors(response);
-		throw error(status, message);
+	if (response instanceof Response) {
+		if (!response.ok) {
+			const { status, message } = await handleMedusaErrors(response);
+			throw error(status, message);
+		}
+
+		const data = await response.json();
+		return json(data.cart);
 	}
 
 	if ('cart' in response) {
 		return json(response.cart);
 	}
 
-	const data = await response.json();
-	return json(data.cart);
+	throw error(500, 'Unexpected error');
 };
 
 export const DELETE: RequestHandler = async ({ locals, request }) => {
 	const body = await request.json();
-	const cart = await medusa.removeFromCart(locals, body.itemId);
-	return json(cart);
+
+	const response = await medusa.removeFromCart(locals, body.itemId);
+
+	if (response instanceof Response) {
+		if (!response.ok) {
+			const { status, message } = await handleMedusaErrors(response);
+			throw error(status, message);
+		}
+
+		const data = await response.json();
+		return json(data.cart);
+	}
+
+	throw error(500, 'Unexpected error');
 };
 
 export const PUT: RequestHandler = async ({ locals, request }) => {
