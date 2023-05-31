@@ -1,5 +1,8 @@
 <script>
+	import { user } from '$stores/user';
 	import Cart from './Cart.svelte';
+
+	const isLoggedIn = $user !== null;
 </script>
 
 <nav
@@ -11,5 +14,14 @@
 			a collection of (purchasable) creations by jueun grace yun
 		</p>
 	</div>
-	<Cart />
+	<div class="flex justify-between gap-0 sm:gap-4 h-min items-center text-base sm:text-lg font-libre">
+		{#if isLoggedIn}
+			<a class="" href="/account">account</a>
+		{:else}
+			<a class="" href="/login">login</a>
+		{/if}
+		<span class="hidden md:block">/</span>
+		<Cart />
+	</div>
+	
 </nav>

@@ -26,8 +26,8 @@
 			return;
 		}
 
-		if (value <= 0) {
-			update(1);
+		if (value < 0) {
+			update(0);
 			return;
 		}
 
@@ -46,7 +46,7 @@
 	<button
 		class="flex h-8 w-8 items-center justify-center rounded-full border-[1px] border-brown disabled:opacity-25 disabled:hover:cursor-not-allowed"
 		on:click={decrement}
-		disabled={count === 1}
+		disabled={count === 0}
 	>
 		<Icons type="minus" />
 	</button>

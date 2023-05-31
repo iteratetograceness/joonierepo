@@ -12,7 +12,8 @@
     };
 
     const updateItem = (/** @type {string} */ itemId, /** @type {number} */ quantity) => {
-        updateCart(itemId, quantity);
+        if (quantity === 0) removeItem(itemId);
+        else updateCart(itemId, quantity);
         closeEditModal();
     }
 
@@ -69,37 +70,37 @@
     })
 </script>
 
-<section class="flex gap-4 my-10 py-5 max-w-96 border-t-[1px] border-brown w-full">
+<section class="flex gap-4 my-10 py-12 max-w-96 border-t-[1px] border-brown w-full">
     {#if $cartQuantity === 0}
         <p>your cart is empty!</p>
     {:else}
         <div class="w-full md:w-1/2">
-            <div class="flex justify-between  mb-5">
+            <div class="flex justify-between mb-5">
                 <p class="font-bold">item (quantity)</p>
                 <p class="font-bold">price</p>
             </div>
             {#each itemsInCart as item}
-            <span class="flex gap-2 mb-4">
-                <button 
-                    class="border border-brown rounded-full px-1 text-center text-xs"
+            <span class="flex items-center gap-2 mb-4">
+                <button
+                    class="hidden sm:block border border-brown rounded-full h-max py-2 px-2 text-center text-xs"
                     on:click={() => removeItem(item.id)}
                 >
                     X
                 </button>
                 <div class="flex w-full gap-1">
-                    <p>{item.title.toLowerCase()} ({item.quantity})</p>
+                    <p class="text-sm sm:text-base">{item.title.toLowerCase()} ({item.quantity})</p>
                     <button 
-                        class="border border-brown rounded-full px-2 text-sm"
+                        class="border border-brown rounded-full h-max px-2 text-sm"
                         on:click={() => openEditModal(item.id, item.title, item.quantity)}
                     >
                         edit
                     </button>
-                    <hr class="h-px bg-brown self-end inherit border-0 flex-1 mb-1">
-                    <p>${parsePrice(item.unit_price)}</p>
+                    <hr class="invisible sm:visible h-px bg-brown self-end border-0 flex-1 mb-1">
+                    <p class="text-sm sm:text-base">${parsePrice(item.unit_price)}</p>
                 </div>
             </span>
             {/each}
-            <div class="mt-6 flex flex-col">
+            <div class="mt-10 flex flex-col">
                 <div class="flex justify-between w-full mb-2 gap-1">
                     <p class="font-bold">subtotal</p>
                     <hr class="h-px bg-brown self-end inherit border-0 flex-1 mb-1">
@@ -132,14 +133,14 @@
                     <p class="font-bold">${parsePrice($cartTotal.total + estimatedShippingCost)}</p>
                 </div>
 
-                <div class="flex gap-6 mt-6 text-center">
-                    <a class="w-full rounded-xl bg-brown text-light py-2 px-6 flex-1" href="/checkout">checkout</a>
-                    <a class="rounded-xl border-brown border-[1px] py-2 px-6 flex-1" href="/">continue shopping</a>
+                <div class="flex gap-6 mt-12 text-center">
+                    <a class="flex items-center justify-center w-full rounded-xl bg-brown text-light py-2 px-6 flex-1" href="/checkout">checkout</a>
+                    <a class="flex items-center justify-center leading-snug rounded-xl border-brown border-[1px] py-2 px-6 flex-1" href="/">continue shopping</a>
                 </div>
             </div>
         </div>
         {#if showEditModal}
-        <div in:fade={{ duration: 250 }} out:fade={{ duration: 100 }} class="flex flex-col gap-6 items-center justify-center flex-1 absolute left-0 right-0 mx-auto bg-light md:relative p-6 w-4/5 h-3/5 md:w-full border-[1px] rounded-xl border-brown">
+        <div in:fade={{ duration: 250 }} out:fade={{ duration: 100 }} class="flex flex-col gap-6 items-center justify-center flex-1 absolute left-0 right-0 mx-auto bg-light md:relative p-6 w-11/12 sm:w-3/5 h-3/5 md:w-full border-[1px] rounded-xl border-brown">
                 <p class="font-bold">{editModalData.productName.toLowerCase()}</p>
                 <QuantitySelector
                     focusInputOnMount
@@ -149,9 +150,9 @@
                     update={(quantity) => updateTempQuantity(quantity)}
                     max={10}
                 />
-                <div class="flex gap-3">
-                    <button class="rounded-xl bg-brown text-light py-2 px-6" on:click={() => updateItem(editModalData.productId, editModalData.productQuantity)}>update</button>    
-                    <button class="rounded-xl border-brown border-[1px] py-2 px-6" on:click={closeEditModal}>cancel</button>
+                <div class="flex flex-col justify-center w-full sm:flex-row gap-3">
+                    <button class="w-full sm:w-max rounded-xl bg-brown text-light py-2 px-6" on:click={() => updateItem(editModalData.productId, editModalData.productQuantity)}>update</button>    
+                    <button class="w-full sm:w-max rounded-xl border-brown border-[1px] py-2 px-6" on:click={closeEditModal}>cancel</button>
                 </div>
         </div>
     {/if}
