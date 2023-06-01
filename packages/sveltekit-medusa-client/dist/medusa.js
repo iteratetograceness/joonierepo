@@ -175,7 +175,7 @@ export class MedusaClient {
         const response = await this.query({ locals, path, method: 'DELETE' });
         const data = await response.json();
         if (!response.ok) {
-            throw new Error(data.type);
+            throw new Error(`${data.type}: ${data.message}`);
         }
         locals.sid = '';
         locals.user = {};

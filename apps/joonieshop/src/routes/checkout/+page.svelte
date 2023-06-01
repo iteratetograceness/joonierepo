@@ -5,7 +5,7 @@
 	import { onMount } from "svelte";
 	import { is_empty } from "svelte/internal";
 
-    export let data;
+    // export const data;
 
     const steps = [
         {
