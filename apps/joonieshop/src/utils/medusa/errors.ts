@@ -3,7 +3,9 @@ export enum ErrorCode {
 }
 
 export enum ErrorType {
-	NOT_ALLOWED = 'not_allowed'
+	NOT_ALLOWED = 'not_allowed',
+	INVALID_DATA = 'invalid_data',
+	UNAUTHORIZED = 'unauthorized'
 }
 
 export enum ClientError {

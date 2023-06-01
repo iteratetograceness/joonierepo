@@ -1,0 +1,1 @@
+<p>authenticated route</p>

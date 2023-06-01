@@ -1,4 +1,5 @@
 import medusa from '$lib/server/medusa';
+import type { HTTPResponse } from 'sveltekit-medusa-client/dist/types';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;

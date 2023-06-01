@@ -1,7 +1,8 @@
 import medusa from '$lib/server/medusa';
 import { fail } from '@sveltejs/kit';
+import type { PageServerLoad } from '../$types';
 
-export const load = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals }) => {
 	const customer = await medusa.getCustomer(locals);
 	return { customer };
 };
