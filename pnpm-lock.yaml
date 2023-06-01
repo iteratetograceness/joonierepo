@@ -26,7 +26,7 @@ importers:
       '@types/lodash.isequal': ^4.5.6
       autoprefixer: 10.4.13
       eslint: 8.33.0
-      eslint-config-custom: '*'
+      eslint-config-custom: workspace:*
       lodash.debounce: ^4.0.8
       lodash.isequal: ^4.5.0
       node-sass: 8.0.0
@@ -38,7 +38,7 @@ importers:
       svelte-check: ^3.0.4
       svelte-french-toast: 1.0.4-beta.0
       svelte-preprocess: 5.0.1
-      sveltekit-medusa-client: '*'
+      sveltekit-medusa-client: workspace:*
       tailwindcss: 3.2.4
       tslib: ^2.5.0
       typescript: ^4.9.5
@@ -69,7 +69,7 @@ importers:
       svelte: 3.55.1
       svelte-check: 3.0.4_gqx7lw3sljhsd4bstor5m2aa2u
       svelte-preprocess: 5.0.1_b25a55hc532q56kmuqlrolam2i
-      sveltekit-medusa-client: 1.11.0-b_svelte@3.55.1
+      sveltekit-medusa-client: link:../../packages/sveltekit-medusa-client
       tailwindcss: 3.2.4_postcss@8.4.21
       tslib: 2.5.0
       typescript: 4.9.5
@@ -7722,23 +7722,6 @@ packages:
       pascal-case: 3.1.2
       svelte: 3.55.1
       typescript: 5.0.4
-    dev: true
-
-  /sveltekit-medusa-client/1.11.0-b_svelte@3.55.1:
-    resolution: {integrity: sha512-4frm0XqufplPUFtvrO06BPvHhaUoz9RJQIhrGhqv2K0SzOEQ+eYKPxkqWyOowYAscklBY9m00B9Ev4lyIGK3qg==}
-    peerDependencies:
-      svelte: ^3.54.0
-    dependencies:
-      svelte: 3.55.1
-      sveltekit-superfetch: 1.0.5_svelte@3.55.1
-    dev: true
-
-  /sveltekit-superfetch/1.0.5_svelte@3.55.1:
-    resolution: {integrity: sha512-QSUqNvaV01P8cjYlle99AzMopsVkCgxhjZV7nUUMGO7b/1AsEN4G4RiF8voaPEq6wAFVYI4p80JANzu0pF6URg==}
-    peerDependencies:
-      svelte: ^3.54.0
-    dependencies:
-      svelte: 3.55.1
     dev: true
 
   /swr/2.0.3_react@18.2.0:
