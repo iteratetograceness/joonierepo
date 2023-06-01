@@ -50,6 +50,7 @@ importers:
       lodash.debounce: 4.0.8
       lodash.isequal: 4.5.0
       svelte-french-toast: 1.0.4-beta.0_svelte@3.55.1
+      sveltekit-medusa-client: link:../../packages/sveltekit-medusa-client
     devDependencies:
       '@medusajs/medusa': 1.12.0
       '@stripe/stripe-js': 1.54.0
@@ -69,7 +70,6 @@ importers:
       svelte: 3.55.1
       svelte-check: 3.4.3_gqx7lw3sljhsd4bstor5m2aa2u
       svelte-preprocess: 5.0.1_b25a55hc532q56kmuqlrolam2i
-      sveltekit-medusa-client: link:../../packages/sveltekit-medusa-client
       tailwindcss: 3.2.4_postcss@8.4.21
       tslib: 2.5.2
       typescript: 4.9.5
