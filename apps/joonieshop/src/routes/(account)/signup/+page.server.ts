@@ -1,8 +1,6 @@
 import { redirect, fail } from '@sveltejs/kit';
-import type { PageServerLoad } from '../../$types';
+import type { PageServerLoad } from './$types';
 import medusa from '$lib/server/medusa';
-import { ErrorType } from '$utils/medusa/errors';
-import { invalidateAll } from '$app/navigation';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) {
@@ -13,33 +11,32 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: import('./$types').Actions = {
 	default: async ({ request, cookies, locals }) => {
 		const data = await request.formData();
+		const first_name = data.get('first name');
+		const last_name = data.get('last name');
 		const email = data.get('email');
 		const password = data.get('password');
+		const phone = (data.get('phone') ?? undefined) as string | undefined;
 
-		if (typeof email !== 'string' || !email) {
-			return fail(400, { email, invalid: true });
-		}
-
-		if (typeof email !== 'string' || typeof password !== 'string' || !email || !password) {
+		if (
+			typeof email !== 'string' ||
+			typeof password !== 'string' ||
+			typeof first_name !== 'string' ||
+			typeof last_name !== 'string' ||
+			!email ||
+			!password ||
+			!first_name ||
+			!last_name
+		) {
 			return fail(400, { invalid: true });
 		}
 
 		try {
-			await medusa.login(locals, cookies, email, password);
-			throw redirect(302, '/account');
+			await medusa.register(locals, cookies, { email, password, first_name, last_name, phone });
+			throw redirect(302, '/');
 		} catch (error) {
 			if (error instanceof Error) {
 				const message = error.message;
 				const [type, msg] = message.split(':');
-
-				if (type === ErrorType.UNAUTHORIZED) {
-					return fail(401, { invalid: true, message: msg });
-				}
-
-				if (type === ErrorType.INVALID_DATA) {
-					return fail(400, { invalid: true, message: msg });
-				}
-
 				return fail(500, { invalid: true, message: msg });
 			}
 		}

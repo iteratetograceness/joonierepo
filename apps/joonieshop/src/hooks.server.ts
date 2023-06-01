@@ -12,6 +12,7 @@ export const handleError = (({ error }) => {
 	};
 }) satisfies HandleServerError;
 
+/** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
 	event = await medusa.handleRequest(event);
 	return await resolve(event);

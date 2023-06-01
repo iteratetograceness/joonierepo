@@ -40,7 +40,6 @@ export const removeFromCart = async (itemId: string) => {
 		body: JSON.stringify({ itemId })
 	});
 	const ct = (await c.json()) as Cart | Error;
-	console.log({ ct });
 
 	if ('message' in ct) {
 		cartError.set(ct.message.toLowerCase());
@@ -56,8 +55,6 @@ export const updateCart = async (itemId: string, quantity: number) => {
 	});
 
 	const ct = (await c.json()) as Cart | Error;
-
-	console.log({ ct });
 
 	if ('message' in ct) {
 		cartError.set(ct.message.toLowerCase());

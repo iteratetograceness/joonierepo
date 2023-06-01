@@ -1,8 +1,14 @@
 <script>
-	import { user } from '$stores/user';
+	import { invalidateAll } from '$app/navigation';
+	import { page } from '$app/stores'
+	import { onMount } from 'svelte';
 	import Cart from './Cart.svelte';
+	
+	onMount(() => {
+		invalidateAll();
+	})
 
-	const isLoggedIn = $user !== null;
+	$: isLoggedIn = $page.data.user !== null;
 </script>
 
 <nav

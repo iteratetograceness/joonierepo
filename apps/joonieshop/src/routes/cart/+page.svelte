@@ -88,7 +88,7 @@
                     X
                 </button>
                 <div class="flex w-full gap-1">
-                    <p class="text-sm sm:text-base">{item.title.toLowerCase()} ({item.quantity})</p>
+                    <a href={`/product/${item.variant.product.handle}`} class="text-sm sm:text-base">{item.title.toLowerCase()} ({item.quantity})</a>
                     <button 
                         class="border border-brown rounded-full h-max px-2 text-sm"
                         on:click={() => openEditModal(item.id, item.title, item.quantity)}
@@ -96,7 +96,7 @@
                         edit
                     </button>
                     <hr class="invisible sm:visible h-px bg-brown self-end border-0 flex-1 mb-1">
-                    <p class="text-sm sm:text-base">${parsePrice(item.unit_price)}</p>
+                    <p class="text-sm sm:text-base">${parsePrice(item.unit_price * item.quantity)}</p>
                 </div>
             </span>
             {/each}
