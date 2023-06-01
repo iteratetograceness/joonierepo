@@ -122,7 +122,7 @@ export class MedusaClient {
     event.locals.sid = event.cookies.get('sid')
 
     if (event.locals.sid) {
-      event.locals.user = await this.getCustomer(event.locals)
+      event.locals.user = await this.getCustomer(event.locals, event.cookies)
     } else {
       event.locals.sid = ''
     }
@@ -191,7 +191,6 @@ export class MedusaClient {
     return await this.query({ path })
   }
 
-  // Returns an empty array if no collection is found
   async getProduct(handle: string): Promise<Product> {
     const path = `/store/products?handle=${handle}`
     return await this.query({ path })
@@ -237,21 +236,27 @@ export class MedusaClient {
   //     .catch(() => false)
   // }
 
-  async getCustomer(locals: App.Locals): Promise<{ customer: Customer }> {
+  async getCustomer(
+    locals: App.Locals,
+    cookies: Cookies
+  ): Promise<{ customer: Customer }> {
     const path = '/store/auth'
     return await this.query({ locals, path })
       .then((response) => {
         if (response.ok) {
           return response.json()
         } else {
+          locals.sid = ''
+          locals.user = {}
+          cookies.delete('sid')
           throw response
         }
       })
       .then((data) => {
         return data.customer
       })
-      .catch((error) => {
-        throw error
+      .catch(() => {
+        return null
       })
   }
 
@@ -630,7 +635,7 @@ export class MedusaClient {
       throw new Error('no_user_found')
     }
 
-    await this.getCustomer(locals)
+    await this.getCustomer(locals, {})
 
     return []
   }

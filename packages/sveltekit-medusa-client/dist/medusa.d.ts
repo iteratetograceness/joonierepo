@@ -69,7 +69,7 @@ export declare class MedusaClient {
         collection: ProductCollection;
     }>;
     getProduct(handle: string): Promise<Product>;
-    getCustomer(locals: App.Locals): Promise<{
+    getCustomer(locals: App.Locals, cookies: Cookies): Promise<{
         customer: Customer;
     }>;
     login(locals: App.Locals, cookies: Cookies, email: string, password: string): Promise<boolean>;

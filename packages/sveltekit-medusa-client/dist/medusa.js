@@ -78,7 +78,6 @@ export class MedusaClient {
         const path = `/store/collections/${id}`;
         return await this.query({ path });
     }
-    // Returns an empty array if no collection is found
     async getProduct(handle) {
         const path = `/store/products?handle=${handle}`;
         return await this.query({ path })
@@ -122,7 +121,7 @@ export class MedusaClient {
     //     .then((res: any) => res.ok)
     //     .catch(() => false)
     // }
-    async getCustomer(locals) {
+    async getCustomer(locals, cookies) {
         const path = '/store/auth';
         return await this.query({ locals, path })
             .then((response) => {
@@ -130,14 +129,17 @@ export class MedusaClient {
                 return response.json();
             }
             else {
+                locals.sid = '';
+                locals.user = {};
+                cookies.delete('sid');
                 throw response;
             }
         })
             .then((data) => {
             return data.customer;
         })
-            .catch((error) => {
-            throw error;
+            .catch(() => {
+            return null;
         });
     }
     async login(locals, cookies, email, password) {
