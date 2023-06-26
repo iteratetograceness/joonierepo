@@ -132,7 +132,6 @@ export declare class MedusaClient {
     deleteAddress(locals: App.Locals, addressId: string): ResponsePromise<{
         customer: Customer;
     }>;
-    getShippingAddresses(locals: App.Locals): Promise<Address[]>;
     getOrder(locals: App.Locals, id: string): ResponsePromise<{
         order: Order;
     }>;

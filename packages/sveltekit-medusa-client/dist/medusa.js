@@ -391,13 +391,13 @@ export class MedusaClient {
         return await this.query({ path, method: 'DELETE', locals });
     }
     // TODO FIX
-    async getShippingAddresses(locals) {
-        if (!locals.user) {
-            throw new Error('no_user_found');
-        }
-        await this.getCustomer(locals, {});
-        return [];
-    }
+    // async getShippingAddresses(locals: App.Locals): Promise<Address[]> {
+    //   if (!locals.user) {
+    //     throw new Error('no_user_found')
+    //   }
+    //   await this.getCustomer(locals, {})
+    //   return []
+    // }
     async getOrder(locals, id) {
         if (!id) {
             throw new Error('missing_order_id');
