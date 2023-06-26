@@ -6,30 +6,30 @@
 
 	export let product: Product;
 
-	$: price_or_range = (variants: ProductVariant[]) => {
-		if (variants.length === 1) {
-			return `$${parsePrice(
-				variants[0].prices.find((price) => price.currency_code === $currency)?.amount
-			)}`;
-		} else {
-			let min = Infinity,
-				max = -Infinity;
-			variants.forEach((variant) => {
-				min = Math.min(
-					variant.prices.find((price) => price.currency_code === $currency)?.amount || 0,
-					min
-				);
-				max = Math.max(
-					variant.prices.find((price) => price.currency_code === $currency)?.amount || 0,
-					max
-				);
-			});
-			if (min === max) {
-				return `$${parsePrice(min)}`;
-			}
-			return `$${parsePrice(min)}–${parsePrice(max)}`;
-		}
-	};
+	// $: price_or_range = (variants: ProductVariant[]) => {
+	// 	if (variants.length === 1) {
+	// 		return `$${parsePrice(
+	// 			variants[0].prices.find((price) => price.currency_code === $currency)?.amount
+	// 		)}`;
+	// 	} else {
+	// 		let min = Infinity,
+	// 			max = -Infinity;
+	// 		variants.forEach((variant) => {
+	// 			min = Math.min(
+	// 				variant.prices.find((price) => price.currency_code === $currency)?.amount || 0,
+	// 				min
+	// 			);
+	// 			max = Math.max(
+	// 				variant.prices.find((price) => price.currency_code === $currency)?.amount || 0,
+	// 				max
+	// 			);
+	// 		});
+	// 		if (min === max) {
+	// 			return `$${parsePrice(min)}`;
+	// 		}
+	// 		return `$${parsePrice(min)}–${parsePrice(max)}`;
+	// 	}
+	// };
 </script>
 
 <a class="relative w-full" href={`/product/${product.handle}`}>
@@ -50,6 +50,6 @@
 	</div>
 	<div class="-mx-2 flex w-full justify-between pt-3 md:mx-0 md:px-5">
 		<b class="font-bold">{product.title.toLowerCase()}</b>
-		<p>{price_or_range(product.variants)}</p>
+		<!-- <p>{price_or_range(product.variants)}</p> -->
 	</div>
 </a>

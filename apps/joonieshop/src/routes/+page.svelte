@@ -5,6 +5,7 @@
 	import type { Product } from '$utils/medusa/types';
 	import ProductGridSkeleton from '$components/ProductGrid/ProductGridSkeleton.svelte';
 	import Line from '$components/Line.svelte';
+	import { json } from '@sveltejs/kit';
 
 	export let data: PageData;
 
@@ -38,11 +39,13 @@
 		<Filters bind:filter {filters} />
 		<Line />
 	</div>
-	{#if !data}
+	{#await data.streamed.products}
 		<ProductGridSkeleton />
-	{:else if data.products.length === 0}
-		<p>No products available.</p>
-	{:else}
-		<ProductGrid products={filterProductsByCategory(data.products, filter)} />
-	{/if}
+	{:then products}
+		{#if products.length === 0}
+			<p>No products available.</p>
+		{:else}
+			<ProductGrid products={filterProductsByCategory(products, filter)} />
+		{/if}
+	{/await}
 </section>

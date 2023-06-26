@@ -1,12 +1,11 @@
 import medusa from '$lib/server/medusa';
-import type { HTTPResponse } from 'sveltekit-medusa-client/dist/types';
 import type { PageServerLoad } from './$types';
 
-export const load = (async () => {
-	const products = await medusa
-		.getAllProducts()
-		.then((response) => response.json())
-		.then((data) => data.products);
+export const load = (async ({ fetch }) => {
+	// const products = await medusa
+	// 	.getAllProducts()
+	// 	.then((response) => response.json())
+	// 	.then((data) => data.products);
 
 	const filters = await medusa
 		.getAllProductTypes()
@@ -15,6 +14,12 @@ export const load = (async () => {
 
 	return {
 		filters,
-		products
+		streamed: {
+			products: fetch('/api/products')
+				.then((response) => {
+					return response.json();
+				})
+				.catch(() => console.error('Unable to fetch products.'))
+		}
 	};
 }) satisfies PageServerLoad;
