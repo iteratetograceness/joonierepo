@@ -1,7 +1,7 @@
 lockfileVersion: '6.0'
 
 settings:
-  autoInstallPeers: false
+  autoInstallPeers: true
   excludeLinksFromLockfile: false
 
 importers:
@@ -184,39 +184,6 @@ importers:
       tsconfig:
         specifier: workspace:*
         version: link:../../packages/tsconfig
-
-  apps/shop-server:
-    dependencies:
-      '@medusajs/product':
-        specifier: 0.0.2-snapshot-20230529090126
-        version: 0.0.2-snapshot-20230529090126
-      '@types/node':
-        specifier: 18.11.9
-        version: 18.11.9
-      '@types/react':
-        specifier: 18.0.25
-        version: 18.0.25
-      '@types/react-dom':
-        specifier: 18.0.9
-        version: 18.0.9
-      eslint:
-        specifier: ^8.41.0
-        version: 8.41.0
-      eslint-config-next:
-        specifier: ^13.4.4
-        version: 13.4.4_7ploys55nlrvgzaet23aqtwjea
-      next:
-        specifier: 13.4.1
-        version: 13.4.1_biqbaboplfbrettd7655fr4n2y
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0_react/18.2.0
-      typescript:
-        specifier: ^5.1.3
-        version: 5.1.3
 
   packages/eslint-config-custom:
     dependencies:
@@ -1364,15 +1331,6 @@ packages:
     transitivePeerDependencies:
       - debug
 
-  /@medusajs/modules-sdk@1.8.7-snapshot-20230529090126:
-    resolution: {integrity: sha512-qGsD/CF+Vh4k2t77BR+KQExPrzv90PTJbhxBdXSxLLnFSIvG0nmHqyk5bFEwj6qHYX+JRJjj5S7zP//aNu1Dig==}
-    dependencies:
-      '@medusajs/types': 1.8.7-snapshot-20230529090126
-      '@medusajs/utils': 1.9.0-snapshot-20230529090126
-      awilix: 8.0.1
-      resolve-cwd: 3.0.0
-    dev: false
-
   /@medusajs/modules-sdk@1.8.8:
     resolution: {integrity: sha512-84OOumJKDWHc984PFF8OnEUUuFOR8nDPPfW+bT5EWIvN4VHywV6bti6K6hw53uOWYfb47CQoEqrfLUybm85piA==}
     dependencies:
@@ -1380,34 +1338,6 @@ packages:
       '@medusajs/utils': 1.9.1
       awilix: 8.0.1
       resolve-cwd: 3.0.0
-    dev: false
-
-  /@medusajs/product@0.0.2-snapshot-20230529090126:
-    resolution: {integrity: sha512-d4mClKQyzzcaiEOEoJxLilUSS6S8wzRG1jGNaYkIBqYCRUvszbJa5c6n9/RyR9LxDuD7IF9VJyf/4Rjpv3vuCQ==}
-    dependencies:
-      '@medusajs/modules-sdk': 1.8.7-snapshot-20230529090126
-      '@medusajs/utils': 1.9.0-snapshot-20230529090126
-      '@mikro-orm/core': 5.7.11_zmp53sb22yqva5imfl74cthtbm
-      '@mikro-orm/postgresql': 5.7.11_/mikro-orm+core@5.7.11
-      awilix: 8.0.1
-    transitivePeerDependencies:
-      - '@mikro-orm/better-sqlite'
-      - '@mikro-orm/entity-generator'
-      - '@mikro-orm/mariadb'
-      - '@mikro-orm/migrations'
-      - '@mikro-orm/migrations-mongodb'
-      - '@mikro-orm/mongodb'
-      - '@mikro-orm/mysql'
-      - '@mikro-orm/seeder'
-      - '@mikro-orm/sqlite'
-      - better-sqlite3
-      - mssql
-      - mysql
-      - mysql2
-      - pg-native
-      - sqlite3
-      - supports-color
-      - tedious
     dev: false
 
   /@medusajs/product@0.1.1(pg@8.11.0):
@@ -1446,10 +1376,6 @@ packages:
   /@medusajs/types@1.8.7:
     resolution: {integrity: sha512-4JsiEJH87slp2iAL8Xk1pPVZDXyBsWyN4NZqtQl0MPOZcmM07AvY5whuBNsC2AHRG689gztH7PTFq5zXngMC0Q==}
 
-  /@medusajs/types@1.8.7-snapshot-20230529090126:
-    resolution: {integrity: sha512-FFAvbOF2YlafHPXs7W07xiJWaLQbEsY/LrawAqM5fGOWJLXMAM4sURkAAGvJmucGRZAMjRud6kGZoreSC4HRAg==}
-    dev: false
-
   /@medusajs/types@1.8.9:
     resolution: {integrity: sha512-QlLzNNEh6l5I3cIPP94KPvMTHZOkU4Z9gLHWGTEsiiosZGa+jENpZlbYnw1bd9yTPFvpcqTzyQOYGLL8eTQ7cw==}
     dev: false
@@ -1460,65 +1386,12 @@ packages:
       awilix: 8.0.1
       ulid: 2.3.0
 
-  /@medusajs/utils@1.9.0-snapshot-20230529090126:
-    resolution: {integrity: sha512-iELpNqXyQf4rWRpeoMWYp5Dd7vdf9tHM0CWuXiUxXkxy1oGBbP208ity5D7DDrXIs/b3ttU9CfaIF3mkjlaLbA==}
-    dependencies:
-      awilix: 8.0.1
-      ulid: 2.3.0
-    dev: false
-
   /@medusajs/utils@1.9.1:
     resolution: {integrity: sha512-fpUxHtvnMjS/j6waMJx5SGIMb3q4m0kIxRxWyLoWEUtlrvJaIxNIwyShW7LyxyGTvSuHo0IUN8TSJb/rVQayiQ==}
     dependencies:
       awilix: 8.0.1
       glob: 7.2.3
       ulid: 2.3.0
-    dev: false
-
-  /@mikro-orm/core@5.7.11_zmp53sb22yqva5imfl74cthtbm:
-    resolution: {integrity: sha512-4ZpqR+jEKFCOC5tX2zIYNvdQfhtdINzl3p3o2AJFeY1IcG/8PGw/6yFLg1hkGwgW7LPSa6djqBGEdm0GnmSsHw==}
-    engines: {node: '>= 14.0.0'}
-    peerDependencies:
-      '@mikro-orm/better-sqlite': ^5.0.0
-      '@mikro-orm/entity-generator': ^5.0.0
-      '@mikro-orm/mariadb': ^5.0.0
-      '@mikro-orm/migrations': ^5.0.0
-      '@mikro-orm/migrations-mongodb': ^5.0.0
-      '@mikro-orm/mongodb': ^5.0.0
-      '@mikro-orm/mysql': ^5.0.0
-      '@mikro-orm/postgresql': ^5.0.0
-      '@mikro-orm/seeder': ^5.0.0
-      '@mikro-orm/sqlite': ^5.0.0
-    peerDependenciesMeta:
-      '@mikro-orm/better-sqlite':
-        optional: true
-      '@mikro-orm/entity-generator':
-        optional: true
-      '@mikro-orm/mariadb':
-        optional: true
-      '@mikro-orm/migrations':
-        optional: true
-      '@mikro-orm/migrations-mongodb':
-        optional: true
-      '@mikro-orm/mongodb':
-        optional: true
-      '@mikro-orm/mysql':
-        optional: true
-      '@mikro-orm/postgresql':
-        optional: true
-      '@mikro-orm/seeder':
-        optional: true
-      '@mikro-orm/sqlite':
-        optional: true
-    dependencies:
-      '@mikro-orm/postgresql': 5.7.11_/mikro-orm+core@5.7.11
-      acorn-loose: 8.3.0
-      acorn-walk: 8.2.0
-      dotenv: 16.1.3
-      fs-extra: 11.1.1
-      globby: 11.1.0
-      mikro-orm: 5.7.11
-      reflect-metadata: 0.1.13
     dev: false
 
   /@mikro-orm/core@5.7.12(@mikro-orm/migrations@5.7.12)(@mikro-orm/postgresql@5.7.12):
@@ -2466,26 +2339,6 @@ packages:
       debug: 4.3.4(supports-color@8.1.1)
       eslint: 8.41.0
       typescript: 5.0.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@typescript-eslint/parser@5.59.8_7ploys55nlrvgzaet23aqtwjea:
-    resolution: {integrity: sha512-AnR19RjJcpjoeGojmwZtCwBX/RidqDZtzcbG3xHrmz0aHHoOcbWnpDllenRDmDvsV0RQ6+tbb09/kyc+UT9Orw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@typescript-eslint/scope-manager': 5.59.8
-      '@typescript-eslint/types': 5.59.8
-      '@typescript-eslint/typescript-estree': 5.59.8_typescript/5.1.3
-      debug: 4.3.4
-      eslint: 8.41.0
-      typescript: 5.1.3
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3665,18 +3518,6 @@ packages:
       ms: 2.1.3
     dev: false
 
-  /debug@4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
-    dev: false
-
   /debug@4.3.4(supports-color@8.1.1):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -4139,31 +3980,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-config-next@13.4.4_7ploys55nlrvgzaet23aqtwjea:
-    resolution: {integrity: sha512-z/PMbm6L0iC/fwISULxe8IVy4DtNqZk2wQY711o35klenq70O6ns82A8yuMVCFjHC0DIyB2lyugesRtuk9u8dQ==}
-    peerDependencies:
-      eslint: ^7.23.0 || ^8.0.0
-      typescript: '>=3.3.1'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@next/eslint-plugin-next': 13.4.4
-      '@rushstack/eslint-patch': 1.3.0
-      '@typescript-eslint/parser': 5.59.8_7ploys55nlrvgzaet23aqtwjea
-      eslint: 8.41.0
-      eslint-import-resolver-node: 0.3.7
-      eslint-import-resolver-typescript: 3.5.5_p67nye3mql7sza4vwjmjhs24zy
-      eslint-plugin-import: 2.27.5_xvqkax6sulwadhjpdfhhrnhide
-      eslint-plugin-jsx-a11y: 6.7.1_eslint/8.41.0
-      eslint-plugin-react: 7.32.2_eslint/8.41.0
-      eslint-plugin-react-hooks: 4.6.0_eslint/8.41.0
-      typescript: 5.1.3
-    transitivePeerDependencies:
-      - eslint-import-resolver-webpack
-      - supports-color
-    dev: false
-
   /eslint-config-prettier@8.8.0(eslint@8.41.0):
     resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
@@ -4216,30 +4032,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-import-resolver-typescript@3.5.5_p67nye3mql7sza4vwjmjhs24zy:
-    resolution: {integrity: sha512-TdJqPHs2lW5J9Zpe17DZNQuDnox4xo2o+0tE7Pggain9Rbc19ik8kFtXdxZ250FVx2kF4vlt2RSf4qlUpG7bhw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      eslint: '*'
-      eslint-plugin-import: '*'
-    dependencies:
-      debug: 4.3.4
-      enhanced-resolve: 5.14.1
-      eslint: 8.41.0
-      eslint-module-utils: 2.8.0_rctwyahefelev3vvseaaeezibu
-      eslint-plugin-import: 2.27.5_xvqkax6sulwadhjpdfhhrnhide
-      get-tsconfig: 4.6.0
-      globby: 13.1.4
-      is-core-module: 2.12.1
-      is-glob: 4.0.3
-      synckit: 0.8.5
-    transitivePeerDependencies:
-      - '@typescript-eslint/parser'
-      - eslint-import-resolver-node
-      - eslint-import-resolver-webpack
-      - supports-color
-    dev: false
-
   /eslint-module-utils@2.8.0(@typescript-eslint/parser@5.59.8)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0):
     resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
     engines: {node: '>=4'}
@@ -4270,36 +4062,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-module-utils@2.8.0_rctwyahefelev3vvseaaeezibu:
-    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: '*'
-      eslint-import-resolver-node: '*'
-      eslint-import-resolver-typescript: '*'
-      eslint-import-resolver-webpack: '*'
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-      eslint:
-        optional: true
-      eslint-import-resolver-node:
-        optional: true
-      eslint-import-resolver-typescript:
-        optional: true
-      eslint-import-resolver-webpack:
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 5.59.8_7ploys55nlrvgzaet23aqtwjea
-      debug: 3.2.7
-      eslint: 8.41.0
-      eslint-import-resolver-node: 0.3.7
-      eslint-import-resolver-typescript: 3.5.5_p67nye3mql7sza4vwjmjhs24zy
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /eslint-plugin-import@2.27.5(@typescript-eslint/parser@5.59.8)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0):
     resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
     engines: {node: '>=4'}
@@ -4319,39 +4081,6 @@ packages:
       eslint: 8.41.0
       eslint-import-resolver-node: 0.3.7
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.59.8)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0)
-      has: 1.0.3
-      is-core-module: 2.12.1
-      is-glob: 4.0.3
-      minimatch: 3.1.2
-      object.values: 1.1.6
-      resolve: 1.22.2
-      semver: 6.3.0
-      tsconfig-paths: 3.14.2
-    transitivePeerDependencies:
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - supports-color
-    dev: false
-
-  /eslint-plugin-import@2.27.5_xvqkax6sulwadhjpdfhhrnhide:
-    resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 5.59.8_7ploys55nlrvgzaet23aqtwjea
-      array-includes: 3.1.6
-      array.prototype.flat: 1.3.1
-      array.prototype.flatmap: 1.3.1
-      debug: 3.2.7
-      doctrine: 2.1.0
-      eslint: 8.41.0
-      eslint-import-resolver-node: 0.3.7
-      eslint-module-utils: 2.8.0_rctwyahefelev3vvseaaeezibu
       has: 1.0.3
       is-core-module: 2.12.1
       is-glob: 4.0.3
@@ -6493,11 +6222,6 @@ packages:
       braces: 3.0.2
       picomatch: 2.3.1
 
-  /mikro-orm@5.7.11:
-    resolution: {integrity: sha512-Cbg8cBqTgr+qPzeENPVHQ2L/SfDrkXjNa10ghQYp1W7Bt6jWYF4oukLAuo6GnPx/utPCbKRwTTB+cxHPppXh6Q==}
-    engines: {node: '>= 14.0.0'}
-    dev: false
-
   /mikro-orm@5.7.12:
     resolution: {integrity: sha512-PDKlhkHUX1+2L8mufztlNODfPqC3VBQV5jQo/lSz67Msu0e1qR6qfzPD0UgfbVm+5Bd5R30KDtX/gqHBIM+cmg==}
     engines: {node: '>= 14.0.0'}
@@ -6782,51 +6506,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-jsx: 5.1.1(react@18.2.0)
-      zod: 3.21.4
-    optionalDependencies:
-      '@next/swc-darwin-arm64': 13.4.1
-      '@next/swc-darwin-x64': 13.4.1
-      '@next/swc-linux-arm64-gnu': 13.4.1
-      '@next/swc-linux-arm64-musl': 13.4.1
-      '@next/swc-linux-x64-gnu': 13.4.1
-      '@next/swc-linux-x64-musl': 13.4.1
-      '@next/swc-win32-arm64-msvc': 13.4.1
-      '@next/swc-win32-ia32-msvc': 13.4.1
-      '@next/swc-win32-x64-msvc': 13.4.1
-    transitivePeerDependencies:
-      - '@babel/core'
-      - babel-plugin-macros
-    dev: false
-
-  /next@13.4.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-JBw2kAIyhKDpjhEWvNVoFeIzNp9xNxg8wrthDOtMctfn3EpqGCmW0FSviNyGgOSOSn6zDaX48pmvbdf6X2W9xA==}
-    engines: {node: '>=16.8.0'}
-    hasBin: true
-    peerDependencies:
-      '@opentelemetry/api': ^1.1.0
-      fibers: '>= 3.1.0'
-      node-sass: ^6.0.0 || ^7.0.0
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      sass: ^1.3.0
-    peerDependenciesMeta:
-      '@opentelemetry/api':
-        optional: true
-      fibers:
-        optional: true
-      node-sass:
-        optional: true
-      sass:
-        optional: true
-    dependencies:
-      '@next/env': 13.4.1
-      '@swc/helpers': 0.5.1
-      busboy: 1.6.0
-      caniuse-lite: 1.0.30001492
-      postcss: 8.4.14
-      react: 18.2.0
-      react-dom: 18.2.0_react/18.2.0
-      styled-jsx: 5.1.1_react/18.2.0
       zod: 3.21.4
     optionalDependencies:
       '@next/swc-darwin-arm64': 13.4.1
@@ -9166,7 +8845,7 @@ packages:
       pg: 8.11.0
       reflect-metadata: 0.1.13
       sha.js: 2.4.11
-      tslib: 2.5.2
+      tslib: 2.5.3
       uuid: 9.0.0
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -9188,12 +8867,6 @@ packages:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
     engines: {node: '>=12.20'}
     hasBin: true
-
-  /typescript@5.1.3:
-    resolution: {integrity: sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-    dev: false
 
   /uid-safe@2.1.5:
     resolution: {integrity: sha512-KPHm4VL5dDXKz01UuEd88Df+KzynaohSL9fBh096KWAxSKZQDI2uBrVqtvRM4rwrIrRRKsdLNML/lnaaVSRioA==}
