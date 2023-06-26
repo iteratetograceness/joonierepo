@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 const MARKDOWN = [
 	'**Full stack** engineer. **NYU** Gallatin Graduate. Building a more **accessible** web. Currently on the Growth team at **Vercel**. Crafting data-based experiments & features to drive revenue and retention. Previously on the desktop and web app teams at **NZXT**.',
-	'Portrait **photography** hobbyist. Sporadic **doodler**. Cozy Switch game enthusiast. Currently waiting patiently for the release of Octopath Traveler 2.',
+	'Portrait **photography** hobbyist. Sporadic **doodler**. Dog mom to Cooper the Cockapoo. Former North Carolinian living in New Jersey.',
 	`**${new Date().getFullYear()}**`
 ];
 
