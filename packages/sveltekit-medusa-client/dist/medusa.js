@@ -30,7 +30,7 @@ export class MedusaClient {
     async handleRequest(event) {
         event.locals.sid = event.cookies.get('sid');
         if (event.locals.sid) {
-            event.locals.user = await this.getCustomer(event.locals);
+            event.locals.user = await this.getCustomer(event.locals, event.cookies);
         }
         else {
             event.locals.sid = '';
@@ -50,11 +50,6 @@ export class MedusaClient {
         }
         const path = `/store/products/search?${encodeQueryParams({ q })}`;
         return await this.query({ path, method: 'POST' });
-    }
-    async getAllProducts(options = {}) {
-        const query = encodeQueryParams(options);
-        const path = `/store/products?${query}`;
-        return await this.query({ path });
     }
     async getAllProductTypes(options = {}) {
         const query = encodeQueryParams(options);
@@ -400,7 +395,7 @@ export class MedusaClient {
         if (!locals.user) {
             throw new Error('no_user_found');
         }
-        await this.getCustomer(locals);
+        await this.getCustomer(locals, {});
         return [];
     }
     async getOrder(locals, id) {

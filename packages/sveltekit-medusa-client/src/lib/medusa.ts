@@ -148,15 +148,6 @@ export class MedusaClient {
     return await this.query({ path, method: 'POST' })
   }
 
-  async getAllProducts(
-    options: ProductRetrievalOptions = {}
-  ): ResponsePromise<Products> {
-    const query = encodeQueryParams(options as QueryParams)
-    const path = `/store/products?${query}`
-
-    return await this.query({ path })
-  }
-
   async getAllProductTypes(
     options: ProductTypeRetrievalOptions = {}
   ): ResponsePromise<ProductTypes> {

@@ -1,5 +1,5 @@
 import type { Cookies, RequestEvent } from '@sveltejs/kit';
-import type { Address, Cart, Customer, Order, Product, ProductCollection, ProductCollections, ProductTypes, Products, ResponsePromise, ShippingOptions, Swap } from './types';
+import type { Address, Cart, Customer, Order, Product, ProductCollection, ProductCollections, ProductTypes, ResponsePromise, ShippingOptions, Swap } from './types';
 export interface RetrievalOptions {
     q?: string;
     id?: string[];
@@ -61,7 +61,6 @@ export declare class MedusaClient {
     getSearchResults(q: string): ResponsePromise<{
         hits: any[];
     }>;
-    getAllProducts(options?: ProductRetrievalOptions): ResponsePromise<Products>;
     getAllProductTypes(options?: ProductTypeRetrievalOptions): ResponsePromise<ProductTypes>;
     getCollections(options?: CollectionRetrievalOptions): ResponsePromise<ProductCollections>;
     getCollectionByHandle(handle: string): Promise<ProductCollection>;
