@@ -621,15 +621,15 @@ export class MedusaClient {
   }
 
   // TODO FIX
-  async getShippingAddresses(locals: App.Locals): Promise<Address[]> {
-    if (!locals.user) {
-      throw new Error('no_user_found')
-    }
+  // async getShippingAddresses(locals: App.Locals): Promise<Address[]> {
+  //   if (!locals.user) {
+  //     throw new Error('no_user_found')
+  //   }
 
-    await this.getCustomer(locals, {})
+  //   await this.getCustomer(locals, {})
 
-    return []
-  }
+  //   return []
+  // }
 
   async getOrder(
     locals: App.Locals,
