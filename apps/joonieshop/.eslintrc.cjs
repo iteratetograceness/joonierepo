@@ -1,8 +1,8 @@
 module.exports = {
 	root: true,
 	extends: ['custom'],
-	plugins: ['@typescript-eslint'],
-	ignorePatterns: ['node_modules'],
+	plugins: ['@typescript-eslint', 'svelte3'],
+	ignorePatterns: ['node_modules', '*.cjs'],
 	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
 	settings: {
 		'svelte3/typescript': require('typescript'),
