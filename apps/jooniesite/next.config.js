@@ -3,12 +3,11 @@ const nextConfig = {
 		appDir: true
 	},
 	images: {
+		domains: ['images.ctfassets.net'],
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'images.ctfassets.net',
-				port: '3331',
-				pathname: `/${process.env.CONTENTFUL_SPACE_ID}/**`
+				hostname: 'images.ctfassets.net'
 			}
 		]
 	}
