@@ -14,11 +14,10 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter({ runtime: 'edge' }),
+		adapter: adapter(),
 		alias: {
 			$components: 'src/components',
 			$utils: 'src/utils',
-			$swell: 'src/utils/swell',
 			$stores: 'src/stores'
 		}
 	}
