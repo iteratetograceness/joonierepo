@@ -20,6 +20,7 @@
 		"@medusajs/product": "^0.1.1",
 		"lodash.debounce": "^4.0.8",
 		"lodash.isequal": "^4.5.0",
+		"rollup-plugin-node-polyfills": "^0.2.1",
 		"svelte-french-toast": "1.0.4-beta.0",
 		"sveltekit-medusa-client": "workspace:*"
 	},
