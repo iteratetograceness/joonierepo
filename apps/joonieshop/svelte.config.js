@@ -14,7 +14,9 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			runtime: 'nodejs16.x'
+		}),
 		alias: {
 			$components: 'src/components',
 			$utils: 'src/utils',
