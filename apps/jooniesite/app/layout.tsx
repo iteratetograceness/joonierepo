@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navigation } from '~/components/common/navigation';
 import { libreFranklin } from '~/utils/fonts';
 import { MotionConfig } from 'framer-motion';
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Footer />
 				</MotionConfig>
 				<AnalyticsWrapper />
+				<SpeedInsights />
 			</body>
 		</html>
 	);

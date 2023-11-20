@@ -17,6 +17,7 @@
 		"@types/react": "18.0.25",
 		"@types/react-dom": "18.0.9",
 		"@vercel/analytics": "^0.1.11",
+		"@vercel/speed-insights": "^0.0.5",
 		"framer-motion": "^7.10.3",
 		"next": "13.4.1",
 		"react": "18.2.0",

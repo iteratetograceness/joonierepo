@@ -129,6 +129,9 @@ importers:
       '@vercel/analytics':
         specifier: ^0.1.11
         version: 0.1.11(react@18.2.0)
+      '@vercel/speed-insights':
+        specifier: ^0.0.5
+        version: 0.0.5
       framer-motion:
         specifier: ^7.10.3
         version: 7.10.3(react-dom@18.2.0)(react@18.2.0)
@@ -309,6 +312,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1728,6 +1732,11 @@ packages:
       - encoding
       - supports-color
     dev: true
+
+  /@vercel/speed-insights@0.0.5:
+    resolution: {integrity: sha512-qbXOEzS3NnBX4eEdk8/K6rjmb7Uwv6CHaGxEX7zDB87gouo+4YDH3kWx0fTS5MJCIUvihB2wED18ZOv/kUS+RQ==}
+    requiresBuild: true
+    dev: false
 
   /abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
