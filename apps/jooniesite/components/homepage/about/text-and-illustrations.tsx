@@ -7,8 +7,8 @@ import useMediaQuery from '~/utils/use-media-query';
 import styles from './index.module.css';
 
 const MARKDOWN = [
-	'**Product** engineer. **NYU** Gallatin Graduate. Building a more **accessible** web. Currently on the Growth team at **Vercel**. Crafting data-based experiments & features to drive revenue and retention. Previously on the desktop and web app teams at **NZXT**.',
-	'Portrait **photography** hobbyist. Sporadic **doodler**. Dog mom to Cooper the Cockapoo. Former North Carolinian living in New Jersey.',
+	'**Product** engineer. **NYU** Gallatin Graduate. Building a more **accessible** web. Currently on the AI team at **Vercel**. Previously Growth at Vercel, and on the desktop and web app teams at **NZXT**.',
+	'Portrait **photography** hobbyist. Sporadic **doodler**. Dog mom to Cooper and Louie. Former North Carolinian living in Brooklyn.',
 	`**${new Date().getFullYear()}**`
 ];
 
