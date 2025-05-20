@@ -1,24 +1,42 @@
 {
-  "name": "joonierepo",
-  "version": "0.0.0",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,svelte}\""
-  },
-  "devDependencies": {
-    "eslint-config-custom": "workspace:*",
-    "prettier": "^2.8.8",
-    "turbo": "^1.10.1"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "packageManager": "pnpm@7.26.0"
+	"name": "jooniesite",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint ."
+	},
+	"dependencies": {
+		"@contentful/rich-text-react-renderer": "^16.0.1",
+		"@contentful/rich-text-types": "^17.0.0",
+		"@next/font": "^14.2.15",
+		"@notionhq/client": "^3.0.1",
+		"@types/node": "22.15.19",
+		"@types/react": "19.1.4",
+		"@types/react-dom": "19.1.5",
+		"@vercel/analytics": "^1.5.0",
+		"@vercel/speed-insights": "^1.2.0",
+		"framer-motion": "^12.12.1",
+		"next": "15.3.2",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"react-markdown": "^10.1.0",
+		"rotating-text": "^1.0.4",
+		"swr": "^2.3.3",
+		"typescript": "5.8.3"
+	},
+	"devDependencies": {
+		"eslint": "9.27.0",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"lint-staged": "^16.0.0"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"npx prettier --write",
+			"npx eslint --fix"
+		]
+	}
 }
