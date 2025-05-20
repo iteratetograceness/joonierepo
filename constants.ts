@@ -1,6 +1,6 @@
 export const SOCIALS = [
-	{ name: 'Email', href: 'mailto:hello@joonie.dev' },
-	{ name: 'GitHub', href: 'https://github.com/iteratetograceness' },
-	{ name: 'Twitter', href: 'https://twitter.com/jueungraceyun' },
-	{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/gracejueunyun/' }
-];
+	{ name: 'email', href: 'mailto:hello@joonie.dev' },
+	{ name: 'github', href: 'https://github.com/iteratetograceness' },
+	{ name: 'twitter', href: 'https://twitter.com/jueungraceyun' },
+	{ name: 'linkedin', href: 'https://www.linkedin.com/in/gracejueunyun/' }
+] as const;

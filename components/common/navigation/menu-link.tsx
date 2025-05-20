@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ForwardedRef, forwardRef, MouseEventHandler } from 'react';
 import { OPACITY_VARIANTS } from '~/utils/animations';
-import { libreCaslonText } from '~/utils/fonts';
 import styles from './index.module.css';
 
 interface Props {
@@ -23,7 +22,7 @@ export const MenuLink = forwardRef(function MenuLink(
 	const italicIndexes = new Set(italics);
 
 	return (
-		<Link onClick={onClick} className={libreCaslonText.className} href={href} ref={ref}>
+		<Link onClick={onClick} href={href} ref={ref}>
 			{Array.from(label.toUpperCase()).map((char, index) => {
 				if (italicIndexes.has(index)) {
 					return (

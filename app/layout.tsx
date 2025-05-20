@@ -1,26 +1,26 @@
 'use client';
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Navigation } from '~/components/common/navigation';
-import { libreFranklin } from '~/utils/fonts';
-import { MotionConfig } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
+import { Figtree } from 'next/font/google';
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import { Footer } from '~/components/common/footer';
-import { AnalyticsWrapper } from '~/components/common/analytics';
-
+import { Navigation } from '~/components/common/navigation';
 import './globals.css';
+
+const figtree = Figtree({
+	subsets: ['latin'],
+	display: 'swap',
+	preload: true
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang='en'>
-			<head />
-			<body className={libreFranklin.className}>
-				<MotionConfig reducedMotion='user'>
-					<Navigation />
-					{children}
-					<Footer />
-				</MotionConfig>
-				<AnalyticsWrapper />
-				<SpeedInsights />
+		<html lang='en' className={figtree.className}>
+			<body className='p-7 min-h-screen flex flex-col'>
+				<Navigation />
+				<ViewTransition>{children}</ViewTransition>
+				<Footer />
+				<Analytics />
 			</body>
 		</html>
 	);

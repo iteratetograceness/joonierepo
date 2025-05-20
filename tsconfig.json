@@ -1,58 +1,29 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "~/contentful/*": [
-        "./contentful/*"
-      ],
-      "~/components/*": [
-        "./components/*"
-      ],
-      "~/notion/*": [
-        "./notion/*"
-      ],
-      "~/utils/*": [
-        "./utils/*"
-      ]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "allowJs": true,
-    "esModuleInterop": true,
-    "composite": false,
-    "declaration": true,
-    "declarationMap": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "noEmit": true,
-    "module": "esnext",
-    "jsx": "preserve",
-    "incremental": true,
-  }
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/notes/page.mdx"],
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"paths": {
+			"~/*": ["./*"]
+		},
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"allowJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "esnext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"noEmit": true,
+		"module": "esnext",
+		"jsx": "preserve",
+		"incremental": true
+	}
 }
 
