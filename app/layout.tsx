@@ -3,8 +3,8 @@
 import { Analytics } from '@vercel/analytics/react';
 import { Figtree } from 'next/font/google';
 import { unstable_ViewTransition as ViewTransition } from 'react';
-import { Footer } from '~/components/common/footer';
-import { Navigation } from '~/components/common/navigation';
+import { Footer } from '~/components/footer';
+import { Navigation } from '~/components/navigation';
 import './globals.css';
 
 const figtree = Figtree({
@@ -16,9 +16,9 @@ const figtree = Figtree({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en' className={figtree.className}>
-			<body className='p-7 min-h-screen flex flex-col'>
+			<body className='p-7 min-h-screen flex flex-col antialiased'>
 				<Navigation />
-				<ViewTransition>{children}</ViewTransition>
+				<ViewTransition name='crossfade'>{children}</ViewTransition>
 				<Footer />
 				<Analytics />
 			</body>

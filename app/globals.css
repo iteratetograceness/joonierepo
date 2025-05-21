@@ -137,3 +137,42 @@ a {
     @apply bg-background text-foreground;
 	}
 }
+
+.content-fade-out {
+	background: linear-gradient(to bottom, #fcfcfc, #fcfcfc00);
+  }
+
+@supports (view-transition-name: none) {
+	@media not (prefers-reduced-motion: reduce) {
+		::view-transition-old(crossfade) {
+			animation: fade-out 0.2s cubic-bezier(0.6, 0, 0.8, 1) forwards;
+		}
+  
+		::view-transition-new(crossfade) {
+			opacity: 0;
+			animation: fade-in .5s ease 0.2s forwards;
+		}
+	}
+}
+
+@keyframes fade-out {
+	0% {
+	  opacity: 1;
+	  filter: blur(0);
+	}
+	100% {
+	  opacity: 0;
+	  filter: blur(2.5px);
+	}
+  }
+  
+  @keyframes fade-in {
+	0% {
+	  opacity: 0;
+	  filter: blur(2.5px);
+	}
+	100% {
+	  opacity: 1;
+	  filter: blur(0);
+	}
+  }
