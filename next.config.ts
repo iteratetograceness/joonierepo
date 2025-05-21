@@ -5,7 +5,6 @@ import remarkGfm from 'remark-gfm';
 const nextConfig: NextConfig = {
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 	experimental: {
-		mdxRs: true,
 		viewTransition: true,
 		reactCompiler: true,
 		typedRoutes: true
@@ -15,7 +14,8 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
 	extension: /\.(md|mdx)$/,
 	options: {
-		remarkPlugins: [remarkGfm]
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: []
 	}
 });
 

@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-	title: 'jueun grace yun'
+	title: 'Jueun Grace Yun'
 };
 
 export default function Home() {
 	return (
 		<div className='w-full flex flex-col items-center'>
-			<div>
-				<Image src='/doodling_with_cooper.svg' alt='me' width={500} height={500} />
+			<div className='size-[500px] flex items-center justify-center text-center opacity-75'>
+				[Doodle Work In Progress]
 			</div>
 
 			<div className='max-w-[500px]'>
