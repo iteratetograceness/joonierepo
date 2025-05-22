@@ -3,19 +3,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-	title: 'jueun grace yun'
+	title: 'Jueun Grace Yun'
 };
 
 export default function Home() {
 	return (
-		<div className='w-full flex flex-col items-center'>
-			<div>
-				<Image src='/doodling_with_cooper.svg' alt='me' width={500} height={500} />
+		<div className='flex flex-col items-center justify-center gap-8 flex-1'>
+			<div className='w-full sm:w-[500px] flex items-center justify-center text-center opacity'>
+				<Image
+					src='/cooper-louie.svg'
+					alt='A doodle of me and my two puppies, Cooper and Louie'
+					width={500}
+					height={500}
+					priority
+				/>
 			</div>
 
-			<div className='max-w-[500px]'>
+			<div className='max-w-[500px] opacity-75'>
 				<p>
-					I'm a product-minded software engineer based in Brooklyn, NY. I've been working on{' '}
+					I'm a product-minded software engineer based in Brooklyn, NY.
+					<br />
+					I've been working on{' '}
 					<Link href='/projects#dotelier'>8-bit style pixel icon generation</Link> powered by my
 					fine-tuned flux.1 model, and am a core contributor to Vercel's{' '}
 					<Link href='/projects#ai-sdk'>AI SDK</Link>.

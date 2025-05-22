@@ -44,6 +44,3 @@ vite.config.ts.timestamp-*
 
 # env
 .env
-
-# vite
-public

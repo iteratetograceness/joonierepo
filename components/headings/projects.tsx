@@ -4,7 +4,7 @@ export function ProjectsHeading() {
 			xmlns='http://www.w3.org/2000/svg'
 			xmlSpace='preserve'
 			viewBox='0 0 1186.3859 220.97252'
-			className='w-[170px] my-8'
+			className='w-[100px] mt-8 mb-7'
 		>
 			<path
 				fill='var(--accent)'

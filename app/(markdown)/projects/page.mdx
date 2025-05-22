@@ -1,35 +1,40 @@
+import { AiSdkLogo, TextOnlyLogo, V0Logo, VercelLogo } from '~/components/logos';
 import { ProjectsHeading } from '~/components/headings/projects';
+
+export const metadata = {
+	title: 'Projects'
+};
 
 <ProjectsHeading />
 
 Here are some of my contributions to the open-source and developer tooling community, as well as some of my recent personal projects.
 
-## AI SDK
+<AiSdkLogo />
 
-As a core maintainer of Vercel's [AI SDK](https://ai-sdk.dev), I work on crafting the building blocks for AI-powered applications. I shipped a lightweight Model Context Protocol (MCP) client to enable native support for MCP tool invocation, and fixed critical bugs across streaming, abort signal propagation, tool invocation, and structured outputs. Most recently, I led the exploration and supported the refactor of the SDK's client-side stream state management and synchronization.
+As a core maintainer of Vercel's [AI SDK](https://ai-sdk.dev), I work on crafting the building blocks for AI-powered applications. I shipped a lightweight Model Context Protocol (MCP) client to enable native support for MCP tool invocation, and fixed critical bugs across streaming, abort signal propagation, tool invocation, and structured outputs. Most recently, I led the exploration and supported the refactor of the client-side stream state management and synchronization.
 
-## v0
+<V0Logo />
 
 I was an engineer on the [v0](https://v0.dev) team at Vercel, where I led the launch of Teams and Enterprise. I built core features of the pre- and post-inference pipelines (e.g. context window management, summarization,
 and multimodal attachment validation), and engineered a modular block rendering system, enabling support for markdown, mermaid diagrams, and
 executable Node.js code blocks to enhance output expressiveness.
 
-## Growth
+<VercelLogo text='Growth' />
 
 I initially joined Vercel as a member of the Growth team, where I partnered with marketing to ship personalization and A/B testing across Vercel.com's marketing and dashboard pages.
 
-## Dotelier
+<TextOnlyLogo text='Dotelier' />
 
 I'm building [an app](https://github.com/iteratetograceness/dotelier) for crafting 8-bit style pixel icons. For icon generation, I finetuned [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev), a 12B parameter model by [Black Forest Labs](https://bfl.ai/), using the Dreambooth with LoRA technique, and run my custom model on [Modal](https://modal.com/), [optimizing inference by over 50% through quantization](https://github.com/iteratetograceness/dreambooth-flux-pixel-icon).
 
-## AI Marketplace
+<VercelLogo text='AI Marketplace' />
 
 I launched the initial version of AI Integrations on [Vercel's Marketplace](https://vercel.com/marketplace), implementing an end-to-end pipeline for model management across providers and models, a staging environment for testing changes, and automated testing for LLM playgrounds.
 
-## Rotating Text
+<TextOnlyLogo text='Rotating Text' />
 
 I published a [rotating text component](https://rotating-text.vercel.app/) that animates on hover, respecting users' reduced motion preferences and disables animation on touch devices.
 
-## Product Tour
+<VercelLogo text='Product Tour' />
 
 My first project at Vercel was [the interactive Vercel product tour](https://vercel.com/product-tour), which generated over $25MM in Enterprise pipeline through increased Contact Sales conversions. Beyond the frontend complexities around shipping the product tour, like instrumenting the moving trigger, my favorite contribution was crafting an accessible experience for users navigating with a keyboard or screen reader.

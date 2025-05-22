@@ -4,7 +4,7 @@ export function NotesHeading() {
 			xmlns='http://www.w3.org/2000/svg'
 			xmlSpace='preserve'
 			viewBox='0 0 723.88849 187.09602'
-			className='w-[100px] my-8'
+			className='w-[60px] mt-8 mb-7'
 		>
 			<path
 				fill='var(--accent)'
