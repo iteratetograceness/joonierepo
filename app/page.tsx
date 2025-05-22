@@ -15,6 +15,7 @@ export default function Home() {
 					alt='A doodle of me and my two puppies, Cooper and Louie'
 					width={500}
 					height={500}
+					priority
 				/>
 			</div>
 
