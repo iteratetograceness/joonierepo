@@ -11,7 +11,7 @@ export default function Home() {
 		<div className='flex flex-col items-center justify-center gap-8 flex-1'>
 			<div className='w-full sm:w-[500px] flex items-center justify-center text-center opacity'>
 				<Image
-					src='cooper-louie.svg'
+					src='/cooper-louie.svg'
 					alt='A doodle of me and my two puppies, Cooper and Louie'
 					width={500}
 					height={500}
