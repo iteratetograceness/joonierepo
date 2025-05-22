@@ -12,7 +12,7 @@ export default function Home() {
 				[Doodle Work In Progress]
 			</div>
 
-			<div className='max-w-[500px]'>
+			<div className='max-w-[500px] opacity-75'>
 				<p>
 					I'm a product-minded software engineer based in Brooklyn, NY. I've been working on{' '}
 					<Link href='/projects#dotelier'>8-bit style pixel icon generation</Link> powered by my

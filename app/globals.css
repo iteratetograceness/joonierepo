@@ -57,6 +57,16 @@ a {
 	text-decoration: underline;
 }
 
+::-moz-selection {
+	color: white;
+	background: oklch(0.4554 0.0061 34.3);
+}
+  
+::selection {
+	color: white;
+	background: oklch(0.4554 0.0061 34.3);
+}
+
 @theme inline {
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
