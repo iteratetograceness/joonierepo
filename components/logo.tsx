@@ -47,6 +47,7 @@ export function Logo() {
 				initial='initial'
 				animate='animate'
 				whileHover='hover'
+				className='min-w-[132px]'
 			>
 				<motion.path
 					key='jueun-j'
