@@ -25,7 +25,7 @@ export default function Home() {
 					<br />
 					I've been working on{' '}
 					<Link href='/projects#dotelier'>8-bit style pixel icon generation</Link> powered by my
-					fine-tuned flux.1 model, and am a core contributor to Vercel's{' '}
+					fine-tuned flux.1 model, and am a contributor to Vercel's{' '}
 					<Link href='/projects#ai-sdk'>AI SDK</Link>.
 				</p>
 
