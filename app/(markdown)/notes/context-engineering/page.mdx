@@ -1,0 +1,38 @@
+export const metadata = {
+	title: 'Context Engineering'
+};
+
+# Context Engineering
+
+A list of my notes from [Context Engineering for AI Agents: Lessons from Building Manus](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus):
+
+## Cache prompt prefixes
+
+- Keep prefixes stable (e.g. avoid dynamic prefixes like `{timestamp}`)
+- Append-only (validate stable key ordering when serializing JSON)
+
+## Dynamic tool loading
+
+- Note: at time of writing, giving the agent more tools or loading tools on-demand worsens agent performance
+- It's hard to manage tool hallucinations and schema violations as tool definitions bypass context window
+- Manus uses "masking" instead (avoid changing/removing tool definitions, just specify constraints on subset of tools)
+
+## Context compression
+
+- Inevitable information loss
+- Mitigate by using File System as context/memory
+- "Restorable compression strategy"
+
+## Recitation
+
+- Manipulate attention by rewriting (having the LLM recite) objectives at the end of the context
+
+## Error recovery
+
+- Avoid omitting failed responses/actions
+- Use failure-as-feedback to improve future responses
+
+## Few-shotting
+
+- Brittle formatting for few-shot examples can lead to pattern imitation that causes "drift, over-generalization, and hallucination"
+- Address through controlled randomness (small amounts of structured variation/minor noise)

@@ -21,19 +21,10 @@ export default function Home() {
 
 			<div className='max-w-[500px] opacity-75'>
 				<p>
-					I'm a product-minded software engineer based in Brooklyn, NY.
-					<br />
-					I've been working on{' '}
+					I'm a product-minded software engineer based in Brooklyn, NY. I've been working on{' '}
 					<Link href='/projects#dotelier'>8-bit style pixel icon generation</Link> powered by my
 					fine-tuned flux.1 model, and am a contributor to Vercel's{' '}
 					<Link href='/projects#ai-sdk'>AI SDK</Link>.
-				</p>
-
-				<br />
-
-				<p>
-					I'm currently open to exploring new opportunities in the AI/startup/developer tooling
-					space.
 				</p>
 			</div>
 		</div>
