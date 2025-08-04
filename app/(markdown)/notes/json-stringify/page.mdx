@@ -1,0 +1,68 @@
+export const metadata = {
+	title: 'Performance Boost: JSON.stringify'
+};
+
+# V8 JSON.stringify 2x Performance Boost
+
+[Original post](https://v8.dev/blog/json-stringify)
+
+`JSON.stringify` was recently made 2x faster in V8 engine, achieved by:
+
+## Side-effect free fast path
+
+A new _iterative_ serializer skips expensive checks when no side effects ("anything that breaks the simple, streamlined traversal of an object") are detected. It's allows serialization of significantly deeper nested objects than before. The general purpose serializer is recursive, requiring stack overflow checks and making it difficult to resume efficiently after encoding changes.
+
+## Specialized stringifiers
+
+For context, strings in V8 are either 1-byte or 2-byte characters.
+
+V8 introduced specialized stringifiers to eliminate constant branching by targeting different character encodings ("1-byte for pure ASCII vs 2-byte for any non-ASCII characters"). Each version runs optimized code paths without type checking overhead. The old unified approach required constant "which encoding?" checks that slowed down the common ASCII case, adding branching complexity.
+
+## SIMD + SWAR
+
+"Any string in JavaScript can contain characters that require escaping when serializing to JSON (e.g. " or \). A traditional character-by-character loop to find them is slow."
+
+This was sped by using a 2-level strategy based on the string's length:
+
+Hardware SIMD (Single Instruction, Multiple Data) instructions for longer strings: load much larger chunk of the string into a wide SIMD register and check multiple bytes at once.
+
+SWAR (SIMD Within A Register) for shorter strings: to avoid the setup cost of hardware instructions, they use SWAR (SIMD Within A Register) which uses bitwise logic on standard general-purpose registers to process multiple characters at once with very low overhead.
+
+### What is [SIMD](https://github.com/simdjson/simdjson)?
+
+A way for the CPU to process multiple pieces of data with a single instruction instead of one at a time. SIMD instructions have setup overhead: load data into special wide registers, configure the operation, etc.
+
+### What is SWAR?
+
+A way to get SIMD-like benefits by packing multiple smaller values into regular CPU registers and using bitwise operations (faster CPU instructions) to process them all at once.
+
+## Fast path for simple objects using hidden classes
+
+The fast path still involves iterating over the object's properties and performing checks for each key. This was eliminated by introducing a new flag on the hidden class.
+
+After serializing all properties of an object, the hidden class is marked as `fast-json-iterable` if no property key is a `Symbol`, all properties are enumerable, and no key contains characters that require escaping.
+
+Any future objects with the same hidden class marked as `fast-json-iterable` can be directly copied to the string buffer without any checks.
+
+This same optimization was added to `JSON.parse`!
+
+### What is a hidden class?
+
+Another internal optimization in JavaScript engines for tracking the properties and layouts of objects with the same "shape" (same properties, same order). Objects that share the same hidden class are optimized for faster property lookup by knowing exactly where each property is located in memory.
+
+## Improved `DoubleToString` algorithm
+
+Replaced `Grisu3` with `Dragonbox` for string conversions (e.g. numbers to strings).
+
+## Improved memory management
+
+Previously, the stringifier would allocate a single, contiguous buffer, meaning if the buffer ran out of space, a larger one would need to be allocated and the old one would need to be copied over adding performance overhead for larger objects.
+
+They now use a segmented buffer, a list of smaller buffers ("segments") in V8's Zone memory and avoid expensive copy operations.
+
+## Limitations
+
+- Fast path is not available when using `replacer` function or `space` (used for pretty printing) arguments
+- Must be simple, plain data objects and arrays (no custom `.toJson()` methods)
+- No indexed properties (e.g. `{ "0": "first", "1": "second" }`)
+- Simple string types only (e.g. no `ConsString` which requires memory allocation to be flattened before they can be serialized and can trigger garbage collection)
