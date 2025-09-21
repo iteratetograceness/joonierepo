@@ -21,10 +21,9 @@ export default function Home() {
 
 			<div className='max-w-[500px] opacity-75'>
 				<p>
-					I'm a product-minded software engineer based in Brooklyn, NY. I've been working on{' '}
-					<Link href='/projects#dotelier'>8-bit style pixel icon generation</Link> powered by my
-					fine-tuned flux.1 model, and am a contributor to Vercel's{' '}
-					<Link href='/projects#ai-sdk'>AI SDK</Link>.
+					I am currently an engineer at Anthropic. In my free time, I'm working on shipping{' '}
+					<Link href='/projects#dotelier'>a pixel icon studio</Link> powered by my fine-tuned flux.1
+					model and a Ricoh film simulation recipe generator.
 				</p>
 			</div>
 		</div>
