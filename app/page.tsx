@@ -3,7 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-	title: 'Jueun Grace Yun'
+	title: {
+		absolute: 'Jueun Grace Yun'
+	}
 };
 
 export default function Home() {
