@@ -23,7 +23,7 @@ export default function Home() {
 
 			<div className='max-w-[500px] opacity-75'>
 				<p>
-					I am currently an engineer at Anthropic. In my free time, I'm working on shipping{' '}
+					I am currently an engineer at Anthropic. In my free time, I&apos;m working on shipping{' '}
 					<Link href='/projects#dotelier'>a pixel icon studio</Link> powered by my fine-tuned flux.1
 					model and a Ricoh film simulation recipe generator.
 				</p>

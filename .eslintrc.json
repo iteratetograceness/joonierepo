@@ -1,7 +1,0 @@
-{
-	"root": true,
-	"extends": ["prettier", "next/core-web-vitals"],
-	"ignorePatterns": [".next", "node_modules"],
-	"parser": "@typescript-eslint/parser",
-	"plugins": ["@typescript-eslint"]
-}

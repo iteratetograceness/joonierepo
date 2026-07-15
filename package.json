@@ -31,12 +31,14 @@
 		"typescript": "5.8.3"
 	},
 	"devDependencies": {
+		"@next/eslint-plugin-next": "16.2.10",
 		"eslint": "9.27.0",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"lint-staged": "^16.0.0",
-		"tw-animate-css": "^1.3.0"
+		"tw-animate-css": "^1.3.0",
+		"typescript-eslint": "^8.64.0"
 	},
 	"pnpm": {
 		"comment": "Overrides pin vulnerable transitive (mostly build-time) deps to patched versions. Scoped per major so a fix never forces a cross-major jump that would break a consumer's module shape (e.g. eslintrc's default-import of minimatch@3).",
