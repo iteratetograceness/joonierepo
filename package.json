@@ -11,7 +11,7 @@
 	"dependencies": {
 		"@mdx-js/loader": "^3.1.0",
 		"@mdx-js/react": "^3.1.0",
-		"@next/mdx": "^16.0.7",
+		"@next/mdx": "^16.3.6",
 		"@tailwindcss/postcss": "^4.1.7",
 		"@types/mdx": "^2.0.13",
 		"@types/node": "22.15.19",
@@ -21,8 +21,8 @@
 		"babel-plugin-react-compiler": "19.1.0-rc.3",
 		"clsx": "^2.1.1",
 		"motion": "^12.12.1",
-		"next": "16.2.10",
-		"postcss": "^8.5.10",
+		"next": "16.3.6",
+		"postcss": "^8.5.28",
 		"react": "19.2.1",
 		"react-dom": "19.2.1",
 		"remark-gfm": "^4.0.1",
@@ -31,7 +31,7 @@
 		"typescript": "5.8.3"
 	},
 	"devDependencies": {
-		"@next/eslint-plugin-next": "16.2.10",
+		"@next/eslint-plugin-next": "16.3.6",
 		"eslint": "9.27.0",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-react": "^7.37.5",
@@ -43,16 +43,20 @@
 	"pnpm": {
 		"comment": "Overrides pin vulnerable transitive (mostly build-time) deps to patched versions. Scoped per major so a fix never forces a cross-major jump that would break a consumer's module shape (e.g. eslintrc's default-import of minimatch@3).",
 		"overrides": {
-			"tar@>=7 <7.5.16": "7.5.16",
+			"tar@>=7 <7.5.21": "^7.5.21",
 			"minimatch@<3.1.4": "^3.1.4",
 			"picomatch@<2.3.2": "^2.3.2",
-			"js-yaml@>=4 <4.2.0": "^4.2.0",
+			"js-yaml@>=4 <4.3.2": "^4.3.2",
 			"yaml@<2.8.3": "^2.8.3",
 			"flatted@<3.4.2": "^3.4.2",
-			"brace-expansion@<1.1.12": "^1.1.12",
+			"brace-expansion@<1.1.18": "^1.1.18",
 			"brace-expansion@>=2 <2.0.2": "^2.0.2",
+			"brace-expansion@>=4 <5.0.9": "^5.0.9",
 			"ajv@<6.14.0": "^6.14.0",
-			"postcss@<8.5.10": "^8.5.10",
+			"postcss@<8.5.23": "^8.5.23",
+			"nanoid@>=3 <3.3.18": "^3.3.18",
+			"@humanfs/node@<0.16.8": "^0.16.8",
+			"baseline-browser-mapping@>=2 <2.11.0": "^2.11.0",
 			"mdast-util-to-hast@<13.2.1": "^13.2.1",
 			"@eslint/plugin-kit@<0.3.4": "^0.3.4"
 		}
