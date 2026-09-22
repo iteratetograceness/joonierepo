@@ -39,9 +39,6 @@ const nextConfig: NextConfig = {
 	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 	reactCompiler: true,
 	typedRoutes: true,
-	experimental: {
-		viewTransition: true
-	},
 	async headers() {
 		return [
 			{
