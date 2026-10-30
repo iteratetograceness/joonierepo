@@ -48,3 +48,4 @@ vite.config.ts.timestamp-*
 
 # font subsetting venv (scripts/fonts)
 .venv-fonts
+__pycache__
