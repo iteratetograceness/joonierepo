@@ -17,7 +17,7 @@
 		"@types/node": "22.15.19",
 		"@types/react": "^19.2.0",
 		"@types/react-dom": "^19.2.0",
-		"@vercel/analytics": "^1.5.0",
+		"@vercel/analytics": "^2.0.1",
 		"babel-plugin-react-compiler": "19.1.0-rc.3",
 		"clsx": "^2.1.1",
 		"motion": "^12.12.1",
