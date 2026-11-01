@@ -41,10 +41,10 @@
 		"typescript-eslint": "^8.64.0"
 	},
 	"pnpm": {
-		"comment": "Overrides pin vulnerable transitive (mostly build-time) deps to patched versions. Scoped per major so a fix never forces a cross-major jump that would break a consumer's module shape (e.g. eslintrc's default-import of minimatch@3).",
+		"comment": "Overrides pin vulnerable transitive (mostly build-time) deps to patched versions, scoped per major where a cross-major jump would break a consumer. Exception: minimatch is forced to 11 everywhere (GHSA-g3hv-75wg-m249 has no 3.x/10.x fix). eslint core, eslintrc and config-array only use the Minimatch class, which v11 keeps; eslint-plugin-react calls the module as a function in no-danger, no-unstable-nested-components, jsx-pascal-case, forbid-component-props and jsx-handler-names, so those rules would throw if enabled (none are in the recommended config used here).",
 		"overrides": {
 			"tar@>=7 <7.5.21": "^7.5.21",
-			"minimatch@<3.1.4": "^3.1.4",
+			"minimatch@<11.0.1": "^11.0.1",
 			"picomatch@<2.3.2": "^2.3.2",
 			"js-yaml@>=4 <4.3.2": "^4.3.2",
 			"yaml@<2.8.3": "^2.8.3",
@@ -60,8 +60,7 @@
 			"mdast-util-to-hast@<13.2.1": "^13.2.1",
 			"@eslint/plugin-kit@<0.3.4": "^0.3.4",
 			"source-map-js@>=1 <1.2.2": "^1.2.2",
-			"sharp@<0.35.5": "^0.35.5",
-			"minimatch@>=10 <11.0.1": "^11.0.1"
+			"sharp@<0.35.5": "^0.35.5"
 		}
 	},
 	"lint-staged": {
